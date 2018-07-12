@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './resource/css/colors/blue.css';
+import './resource/css/sj-style.css';
+import './resource/css/style.css';
+import TopNav from './TopNav';
+import Footer from './Footer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div>
+        <header className="topbar">
+            <TopNav />
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <Footer />
       </div>
     );
   }
