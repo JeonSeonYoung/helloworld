@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import './resource/css/colors/blue.css';
 import './resource/css/sj-style.css';
 import './resource/css/style.css';
-import TopNav from './TopNav';
-import Footer from './Footer';
+import Common from './Common';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <header className="topbar">
-            <TopNav />
-        </header>
-          <Footer />
+          <Common />
+        {/*<Route exact path ="/" component={<Common />} />*/}
       </div>
     );
   }
