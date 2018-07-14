@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-// import '../App.css';
 import '../resources/css/colors/blue.css';
 import '../resources/css/sj-style.css';
 import '../resources/css/style.css';
-import Header from '../layouts/Header';
-import Footer from '../layouts/Footer';
+import { BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Header from "../layouts/Header";
+import Footer from "../layouts/Footer";
 
 class Common extends Component {
     render() {
         return (
-            <div>
-               <Header />
-                <Footer />
-            </div>
+            <BrowserRouter>
+                <div>
+                    <Route exact path="/" component={Header}/>
+                    <Route path="/about" component={Footer}/>
+                </div>
+            </BrowserRouter>
         );
     }
 }

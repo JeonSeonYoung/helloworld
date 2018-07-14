@@ -2,618 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="390cea86-f65c-49e2-8e13-80a950632ad7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/UI/src/layouts/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-night.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-time.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-wind-names.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI/src/components/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/Common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/layouts/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/TopNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/layouts/SideNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/Magnific-Popup-master/libs/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/Magnific-Popup-master/libs/jquery/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/Magnific-Popup-master/website/third-party-libs/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/Magnific-Popup-master/website/third-party-libs/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-daterangepicker/daterangepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-daterangepicker/daterangepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-treeview-master/tests/lib/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/bootstrap-treeview-master/tests/lib/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/c3-master/c3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/c3-master/c3.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/calendar/dist/fullcalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/calendar/dist/fullcalendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/d3/d3.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/d3/d3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/datatables-plugins/pagination/extjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/datatables-plugins/pagination/extjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/dropzone-master/dist/dropzone-amd-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/dropzone-master/dist/dropzone-amd-module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/echarts-all-old.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/echarts-all-old.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/echarts-all.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/echarts-all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/echarts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/util/smartLogSteps.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/echarts/util/smartLogSteps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/flot/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/flot/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Column.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Column.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Component.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Row.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Row.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/classes/FooTable.Table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/breakpoints/FooTable.Breakpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/breakpoints/FooTable.Breakpoints.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/columns/FooTable.Columns.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/columns/FooTable.Columns.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/FooTable.Editing.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/FooTable.Editing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/FooTable.EditingColumn.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/FooTable.EditingColumn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/extends/FooTable.Defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/extends/FooTable.Defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/extends/FooTable.Paging.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/editing/extends/FooTable.Paging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/FooTable.Filtering.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/FooTable.Filtering.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/FooTable.Query.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/FooTable.Query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/extends/FooTable.Cell.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/extends/FooTable.Cell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/extends/FooTable.Column.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/extends/FooTable.Column.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/extends/FooTable.Defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/filtering/extends/FooTable.Defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/paging/FooTable.Paging.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/paging/FooTable.Paging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/paging/extends/FooTable.Defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/paging/extends/FooTable.Defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/paging/extends/FooTable.Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/paging/extends/FooTable.Table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/rows/FooTable.Rows.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/rows/FooTable.Rows.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/FooTable.Sorting.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/FooTable.Sorting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Cell.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Cell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Column.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Column.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/sorting/extends/FooTable.Table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/FooTable.State.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/FooTable.State.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Component.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Filtering.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Filtering.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Paging.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Paging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Sorting.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/footable/src/js/components/state/extends/FooTable.Sorting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-asColorPicker-master/libs/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-asColorPicker-master/libs/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-asColorPicker-master/src/saturation.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-asColorPicker-master/src/saturation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-steps-master/build/jquery.steps.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-steps-master/build/jquery.steps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-steps-master/src/defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-steps-master/src/defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-steps-master/src/privates.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-steps-master/src/privates.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-wizard-master/examples/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jquery-wizard-master/examples/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jqueryui/external/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jqueryui/external/jquery/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/jsgrid/external/jquery/jquery-1.8.3.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/jsgrid/external/jquery/jquery-1.8.3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/knob/jquery.knob.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/knob/jquery.knob.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/mocha/mocha.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/mocha/mocha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/moment/min/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/moment/min/tests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/raphael/dev/require.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/raphael/dev/require.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/select2/dist/js/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/select2/dist/js/select2.full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/select2/dist/js/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/select2/dist/js/select2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/select2/docs/_sass/vendor/bootstrap/_dropdowns.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/select2/docs/_sass/vendor/bootstrap/_dropdowns.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/select2/docs/_sass/vendor/bootstrap/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/select2/docs/_sass/vendor/bootstrap/_navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/select2/docs/_sass/vendor/bootstrap/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/select2/docs/_sass/vendor/bootstrap/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/select2/vendor/jquery-2.1.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/select2/vendor/jquery-2.1.0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/switchery/dist/switchery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/switchery/dist/switchery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/switchery/dist/switchery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/switchery/dist/switchery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/dist/dependencies/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/dist/dependencies/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/dist/stackonly/tablesaw.stackonly.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/dist/stackonly/tablesaw.stackonly.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/dist/tablesaw.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/dist/tablesaw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/src/tables.btnmarkup.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/src/tables.btnmarkup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/src/tables.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/tablesaw-master/src/tables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/x-editable/dist/bootstrap-editable/js/bootstrap-editable.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/x-editable/dist/bootstrap-editable/js/bootstrap-editable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/assets/plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/assets/plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/soo/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/soo/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/components/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/components/chatCommon/empty.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/ChatCommon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/animate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/blue-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/blue-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/blue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/default-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/default-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/green-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/green-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/green.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/green.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/megna-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/megna-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/megna.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/megna.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/purple-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/purple-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/purple.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/red-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/red-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/colors/red.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/colors/red.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/icons/font-awesome/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/icons/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/icons/font-awesome/old/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/icons/font-awesome/old/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/icons/simple-line-icons/css/simple-line-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/icons/simple-line-icons/css/simple-line-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/icons/themify-icons/themify-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/icons/themify-icons/themify-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/sj-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/sj-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/spinners.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/spinners.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/css/test.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/css/test.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/js/Withme.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/js/HelloWorld.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/blue-dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/blue-dark.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/blue.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/blue.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/default-dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/default-dark.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/default.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/green-dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/green-dark.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/green.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/green.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/megna-dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/megna-dark.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/megna.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/megna.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/purple-dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/purple-dark.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/purple.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/purple.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/red-dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/red-dark.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/colors/red.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/colors/red.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/grid.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flag-icon.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flag-icon.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ad.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ad.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ae.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ae.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/af.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/af.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ag.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ag.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ai.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ai.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/al.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/al.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/am.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/am.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ao.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ao.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/aq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/aq.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ar.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/as.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/as.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/at.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/at.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/au.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/au.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/aw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/aw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ax.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ax.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/az.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/az.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ba.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ba.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bb.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bd.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/be.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/be.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bh.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bi.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bj.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bq.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/br.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/br.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bs.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bt.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bv.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/by.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/by.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/bz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/bz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ca.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ca.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cd.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ch.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ch.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ci.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ci.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ck.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ck.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/co.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/co.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cu.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cv.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cx.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cx.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/cz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/cz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/de.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/de.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/dj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/dj.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/dk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/dk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/dm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/dm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/do.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/do.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/dz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/dz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ec.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ec.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ee.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ee.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/eg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/eg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/eh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/eh.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/er.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/er.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/es.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/es.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/et.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/et.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/fi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/fi.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/fj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/fj.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/fk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/fk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/fm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/fm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/fo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/fo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/fr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/fr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ga.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ga.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gb.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gd.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ge.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ge.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gh.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gi.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gp.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gq.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gs.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gt.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gu.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/gy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/gy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/hk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/hk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/hm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/hm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/hn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/hn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/hr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/hr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ht.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ht.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/hu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/hu.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/id.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/id.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ie.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ie.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/il.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/il.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/im.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/im.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/in.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/in.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/io.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/io.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/iq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/iq.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ir.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ir.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/is.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/is.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/it.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/it.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/je.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/je.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/jm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/jm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/jo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/jo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/jp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/jp.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ke.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ke.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/kg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/kg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/kh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/kh.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ki.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ki.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/km.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/km.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/kn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/kn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/kp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/kp.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/kr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/kr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/kw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/kw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ky.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ky.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/kz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/kz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/la.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/la.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/lb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/lb.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/lc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/lc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/li.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/li.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/lk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/lk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/lr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/lr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ls.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ls.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/lt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/lt.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/lu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/lu.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/lv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/lv.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ly.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ly.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ma.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ma.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/md.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/md.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/me.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/me.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mh.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ml.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ml.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mp.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mq.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ms.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ms.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mt.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mu.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mv.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mx.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mx.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/my.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/my.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/mz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/mz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/na.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/na.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/nc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/nc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ne.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ne.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/nf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/nf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ng.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ng.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ni.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ni.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/nl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/nl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/no.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/no.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/np.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/np.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/nr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/nr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/nu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/nu.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/nz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/nz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/om.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/om.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pa.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pe.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pe.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ph.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ph.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ps.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ps.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pt.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/pw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/pw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/py.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/py.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/qa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/qa.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/re.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/re.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ro.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ro.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/rs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/rs.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ru.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ru.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/rw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/rw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sa.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sb.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sd.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/se.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/se.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sh.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/si.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/si.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sj.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/so.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/so.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ss.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ss.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/st.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/st.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sv.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sx.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sx.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/sz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/sz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/td.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/td.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/th.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/th.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tj.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tk.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/to.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/to.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tr.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tt.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tv.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/tz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/tz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ua.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ua.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ug.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ug.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/um.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/um.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/us.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/us.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/uy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/uy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/uz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/uz.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/va.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/va.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/vc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/vc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ve.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ve.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/vg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/vg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/vi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/vi.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/vn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/vn.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/vu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/vu.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/wf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/wf.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ws.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ws.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/ye.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/ye.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/yt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/yt.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/za.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/za.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/zm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/zm.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/flag-icon-css/flags/zw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/flag-icon-css/flags/zw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/animated.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/bordered-pulled.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/core.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/fixed-width.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/font-awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/font-awesome.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/icons.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/larger.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/list.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/mixins.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/path.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/path.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/rotated-flipped.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/screen-reader.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/stacked.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/less/variables.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/.bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/.bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/.npmignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/HELP-US-OUT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/HELP-US-OUT.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/fonts/fontawesome-webfont-old.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/fonts/fontawesome-webfont-old.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/animated.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/bordered-pulled.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/core.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/extras.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/extras.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/fixed-width.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/font-awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/font-awesome.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/icons.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/larger.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/list.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/mixins.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/path.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/path.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/rotated-flipped.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/spinning.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/spinning.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/stacked.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/less/variables.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_animated.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_bordered-pulled.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_core.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_extras.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_extras.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_fixed-width.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_icons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_larger.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_larger.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_list.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_path.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_path.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_rotated-flipped.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_spinning.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_spinning.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_stacked.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/old/scss/font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/old/scss/font-awesome.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_animated.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_core.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_fixed-width.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_icons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_larger.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_larger.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_list.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_path.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_path.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_screen-reader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_stacked.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/font-awesome/scss/font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/font-awesome/scss/font-awesome.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-arrows-10.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-arrows-10.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-arrows-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-arrows-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-arrows-10.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-arrows-10.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-arrows-10.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-arrows-10.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-10.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-10.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-10.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-10.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-10.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-10.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-basic-elaboration-10.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-ecommerce-10.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-ecommerce-10.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-ecommerce-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-ecommerce-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-ecommerce-10.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-ecommerce-10.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-ecommerce-10.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-ecommerce-10.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-music-10.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-music-10.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-music-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-music-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-music-10.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-music-10.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-music-10.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-music-10.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-software-10.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-software-10.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-software-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-software-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-software-10.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-software-10.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-software-10.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-software-10.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-weather-10.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-weather-10.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-weather-10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-weather-10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-weather-10.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-weather-10.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/fonts/linea-weather-10.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/fonts/linea-weather-10.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/linea.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/linea.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/linea.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/linea.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/linea-icons/linea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/linea-icons/linea.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/css/material-design-iconic-font.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/css/material-design-iconic-font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/css/material-design-iconic-font.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/css/material-design-iconic-font.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/css/simple-line-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/css/simple-line-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/less/simple-line-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/less/simple-line-icons.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/simple-line-icons/scss/simple-line-icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/simple-line-icons/scss/simple-line-icons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/fonts/themify.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/fonts/themify.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/fonts/themify.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/fonts/themify.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/fonts/themify.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/fonts/themify.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/fonts/themify.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/fonts/themify.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/ie7/ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/ie7/ie7.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/ie7/ie7.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/ie7/ie7.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/themify-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/themify-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/themify-icons/themify-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/themify-icons/themify-icons.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/css/weather-icons-core.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/css/weather-icons-core.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/css/weather-icons-variables.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/chatCommon/empty.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/css/weather-icons-wind.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/css/weather-icons-wind.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/css/weather-icons-wind.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/css/weather-icons-wind.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/css/weather-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/css/weather-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/css/weather-icons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/css/weather-icons.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/fonts/weathericons-regular-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/fonts/weathericons-regular-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/fonts/weathericons-regular-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/fonts/weathericons-regular-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/fonts/weathericons-regular-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/fonts/weathericons-regular-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/fonts/weathericons-regular-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/fonts/weathericons-regular-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/fonts/weathericons-regular-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/fonts/weathericons-regular-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-beaufort.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/pages/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-day.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/images/addImg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-direction.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/css/weather-icons-variables.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-misc.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-beaufort.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-moon.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-day.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-neutral.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-direction.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-night.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-misc.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-time.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-moon.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/css/variables-wind-names.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/css/variables-neutral.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-beaufort.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-beaufort.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-day.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-day.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-direction.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-direction.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-misc.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-misc.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-moon-aliases.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-moon-aliases.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-moon.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-moon.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-neutral.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-neutral.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-night.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-night.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-time.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-time.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-wind-aliases.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-wind-aliases.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-wind-degrees.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-wind-degrees.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-classes/classes-wind.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-classes/classes-wind.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-beaufort.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-beaufort.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-day.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-day.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-direction.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-direction.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-misc.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-misc.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-moon.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-moon.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-neutral.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-neutral.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-night.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-night.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-time.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-time.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/icon-variables/variables-wind-names.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/icon-variables/variables-wind-names.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/mappings/wi-forecast-io.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/mappings/wi-forecast-io.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/mappings/wi-owm.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/mappings/wi-owm.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/mappings/wi-wmo4680.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/mappings/wi-wmo4680.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/mappings/wi-yahoo.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/mappings/wi-yahoo.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/weather-icons-classes.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/weather-icons-classes.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/weather-icons-core.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/weather-icons-core.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/weather-icons-variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/weather-icons-variables.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/weather-icons-wind.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/weather-icons-wind.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/weather-icons-wind.min.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/weather-icons-wind.min.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/weather-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/weather-icons.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/less/weather-icons.min.less" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/less/weather-icons.min.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-beaufort.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-beaufort.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-day.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-day.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-direction.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-direction.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-misc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-misc.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-moon-aliases.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-moon-aliases.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-moon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-moon.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-neutral.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-neutral.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-night.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-night.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-time.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-time.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-wind-aliases.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-wind-aliases.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-wind-degrees.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-wind-degrees.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-classes/classes-wind.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-classes/classes-wind.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-beaufort.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-beaufort.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-day.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-day.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-direction.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-direction.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-misc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-misc.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-moon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-moon.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-neutral.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-neutral.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-night.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-night.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-time.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-time.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/icon-variables/variables-wind-names.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/icon-variables/variables-wind-names.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/mappings/wi-forecast-io.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/mappings/wi-forecast-io.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/mappings/wi-owm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/mappings/wi-owm.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/mappings/wi-wmo4680.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/mappings/wi-wmo4680.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/mappings/wi-yahoo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/mappings/wi-yahoo.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/weather-icons-classes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/weather-icons-classes.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/weather-icons-core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/weather-icons-core.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/weather-icons-variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/weather-icons-variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/weather-icons-wind.min.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/weather-icons-wind.min.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/weather-icons-wind.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/weather-icons-wind.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/weather-icons.min.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/weather-icons.min.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/icons/weather-icons/sass/weather-icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/icons/weather-icons/sass/weather-icons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/material.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/pages.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/pages.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/prepros-6.config" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/prepros-6.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/responsive.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/variable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/variable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/resource/scss/widgets.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/resources/scss/widgets.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/layouts/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/layouts/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/layouts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/layouts/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/pages/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/registerServiceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/registerServiceWorker.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -627,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UI/src/components/soo/Login.js">
+      <file leaf-file-name="Common.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UI/src/components/Common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="240">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -639,14 +37,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UI/src/components/Common.js">
+      <file leaf-file-name="Routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/src/components/Routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="e#66#108#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -654,8 +58,8 @@
       <file leaf-file-name="SideNav.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/src/layouts/SideNav.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="180">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -663,17 +67,23 @@
       <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/src/layouts/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" selection-start-column="41" selection-end-column="41" />
+            <state relative-caret-position="210">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -681,8 +91,20 @@
       <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/src/pages/Login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="210">
+              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatCommon.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/src/components/ChatCommon.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -690,8 +112,8 @@
       <file leaf-file-name="Footer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/src/layouts/Footer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" selection-start-column="41" selection-end-column="41" />
+            <state relative-caret-position="150">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -701,6 +123,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -725,11 +148,17 @@
         <option value="$PROJECT_DIR$/UI/src/components/Header.js" />
         <option value="$PROJECT_DIR$/UI/src/components/SideNav.js" />
         <option value="$PROJECT_DIR$/UI/src/components/Footer.js" />
-        <option value="$PROJECT_DIR$/UI/src/pages/Login.js" />
-        <option value="$PROJECT_DIR$/UI/src/components/Common.js" />
         <option value="$PROJECT_DIR$/UI/src/layouts/SideNav.js" />
         <option value="$PROJECT_DIR$/UI/src/components/soo/Login.js" />
+        <option value="$PROJECT_DIR$/UI/src/components/ChatCommon.ts" />
+        <option value="$PROJECT_DIR$/UI/src/components/ChatCommon.js" />
+        <option value="$PROJECT_DIR$/UI/src/layouts/Footer.js" />
+        <option value="$PROJECT_DIR$/UI/src/layouts/Header.js" />
+        <option value="$PROJECT_DIR$/UI/src/components/App.js" />
         <option value="$PROJECT_DIR$/UI/src/index.js" />
+        <option value="$PROJECT_DIR$/UI/src/components/Routes.js" />
+        <option value="$PROJECT_DIR$/UI/src/pages/Login.js" />
+        <option value="$PROJECT_DIR$/UI/src/components/Common.js" />
       </list>
     </option>
   </component>
@@ -766,9 +195,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="471" />
-    <option name="y" value="24" />
-    <option name="width" value="964" />
+    <option name="x" value="596" />
+    <option name="y" value="23" />
+    <option name="width" value="844" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -810,14 +239,6 @@
               <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="helloworld" type="b2602c69:ProjectViewProjectNode" />
-              <item name="helloworld" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="soo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="helloworld" type="b2602c69:ProjectViewProjectNode" />
@@ -882,18 +303,19 @@
       <workItem from="1531485188628" duration="593000" />
       <workItem from="1531540953574" duration="168000" />
       <workItem from="1531546911512" duration="3867000" />
-      <workItem from="1531568274935" duration="1494000" />
+      <workItem from="1531568274935" duration="7732000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9426000" />
+    <option name="totallyTimeSpent" value="15664000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="471" y="24" width="964" height="877" extended-state="0" />
+    <frame x="596" y="23" width="844" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3202545" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25151885" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
@@ -919,20 +341,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/UI/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UI/src/components/soo/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -955,7 +363,7 @@
         <state relative-caret-position="225">
           <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
-            <element signature="e#66#108#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1006,7 +414,7 @@
         <state relative-caret-position="135">
           <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
-            <element signature="e#66#108#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1172,16 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/components/chatCommon/empty.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/UI/src/resources/images/addImg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1210,6 +608,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="41" selection-start-column="41" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1235,58 +636,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/components/Common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#66#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UI/src/components/soo/Login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="255">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/pages/Login.js">
+    <entry file="file://$PROJECT_DIR$/UI/src/components/chatCommon/empty.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/components/ChatCommon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/layouts/SideNav.js">
+    <entry file="file://$PROJECT_DIR$/UI/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/layouts/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UI/src/layouts/Footer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        <state relative-caret-position="150">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/layouts/SideNav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/layouts/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/components/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/pages/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UI/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/components/Common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TopNav extends Component {
+class Footer extends Component {
     render() {
         return (
             <footer className="footer"> © 2018 HelloWorld by 365 dieters </footer>
@@ -8,6 +8,6 @@ class TopNav extends Component {
     }
 }
 
-export default TopNav;
+export default Footer;
 
 

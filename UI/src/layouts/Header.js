@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SideNav from './SideNav';
 
-class Common extends Component {
+class Header extends Component {
     render() {
         return (
             <header className="topbar">
@@ -11,4 +11,4 @@ class Common extends Component {
     }
 }
 
-export default Common;
+export default Header;
