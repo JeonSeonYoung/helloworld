@@ -2,10 +2,10 @@
 
 	F.Editing = F.Component.extend(/** @lends FooTable.Editing */{
 		/**
-		 * The editing component adds a column with edit and delete buttons to each row as well as a single add row button in the footer.
+		 * The editing components adds a column with edit and delete buttons to each row as well as a single add row button in the footer.
 		 * @constructs
 		 * @extends FooTable.Component
-		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the component.
+		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the components.
 		 * @returns {FooTable.Editing}
 		 */
 		construct: function(table){
@@ -30,8 +30,8 @@
 			 * @prop {string} classes="footable-editing" - A space separated string of class names to apply to all cells in the column.
 			 * @prop {string} name="editing" - The name of the column.
 			 * @prop {string} title="" - The title displayed in the header row of the table for the column.
-			 * @prop {boolean} filterable=false - Whether or not the column should be filterable when using the filtering component.
-			 * @prop {boolean} sortable=false - Whether or not the column should be sortable when using the sorting component.
+			 * @prop {boolean} filterable=false - Whether or not the column should be filterable when using the filtering components.
+			 * @prop {boolean} sortable=false - Whether or not the column should be sortable when using the sorting components.
 			 */
 			this.column = $.extend(true, {}, table.o.editing.column, {visible: this.alwaysShow});
 
@@ -126,7 +126,7 @@
 		},
 		/* PROTECTED */
 		/**
-		 * Checks the supplied data and options for the editing component.
+		 * Checks the supplied data and options for the editing components.
 		 * @instance
 		 * @protected
 		 * @param {object} data - The jQuery data object from the parent table.
@@ -136,7 +136,7 @@
 			var self = this;
 			/**
 			 * The preinit.ft.editing event is raised before the UI is created and provides the tables jQuery data object for additional options parsing.
-			 * Calling preventDefault on this event will disable the component.
+			 * Calling preventDefault on this event will disable the components.
 			 * @event FooTable.Editing#"preinit.ft.editing"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -206,7 +206,7 @@
 			});
 		},
 		/**
-		 * Initializes the editing component for the plugin using the supplied table and options.
+		 * Initializes the editing components for the plugin using the supplied table and options.
 		 * @instance
 		 * @protected
 		 * @fires FooTable.Editing#"init.ft.editing"
@@ -214,7 +214,7 @@
 		init: function(){
 			/**
 			 * The init.ft.editing event is raised before its UI is generated.
-			 * Calling preventDefault on this event will disable the component.
+			 * Calling preventDefault on this event will disable the components.
 			 * @event FooTable.Editing#"init.ft.editing"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -227,7 +227,7 @@
 			});
 		},
 		/**
-		 * Destroys the editing component removing any UI generated from the table.
+		 * Destroys the editing components removing any UI generated from the table.
 		 * @instance
 		 * @protected
 		 * @fires FooTable.Editing#"destroy.ft.editing"
@@ -235,7 +235,7 @@
 		destroy: function () {
 			/**
 			 * The destroy.ft.editing event is raised before its UI is removed.
-			 * Calling preventDefault on this event will prevent the component from being destroyed.
+			 * Calling preventDefault on this event will prevent the components from being destroyed.
 			 * @event FooTable.Editing#"destroy.ft.editing"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -247,7 +247,7 @@
 			});
 		},
 		/**
-		 * Creates the editing UI from the current options setting the various jQuery properties of this component.
+		 * Creates the editing UI from the current options setting the various jQuery properties of this components.
 		 * @instance
 		 * @protected
 		 */
@@ -284,7 +284,7 @@
 			self.$row = $('<tr/>', { 'class': 'footable-editing' }).append(self.$cell).appendTo($tfoot);
 		},
 		/**
-		 * Creates the show button for the editing component.
+		 * Creates the show button for the editing components.
 		 * @instance
 		 * @protected
 		 * @returns {(string|HTMLElement|jQuery)}
@@ -293,7 +293,7 @@
 			return '<button type="button" class="btn btn-primary footable-show">' + this.showText + '</button>';
 		},
 		/**
-		 * Creates the hide button for the editing component.
+		 * Creates the hide button for the editing components.
 		 * @instance
 		 * @protected
 		 * @returns {(string|HTMLElement|jQuery)}
@@ -302,7 +302,7 @@
 			return '<button type="button" class="btn btn-default footable-hide">' + this.hideText + '</button>';
 		},
 		/**
-		 * Creates the add button for the editing component.
+		 * Creates the add button for the editing components.
 		 * @instance
 		 * @protected
 		 * @returns {(string|HTMLElement|jQuery)}
@@ -311,7 +311,7 @@
 			return '<button type="button" class="btn btn-primary footable-add">' + this.addText + '</button> ';
 		},
 		/**
-		 * Creates the edit button for the editing component.
+		 * Creates the edit button for the editing components.
 		 * @instance
 		 * @protected
 		 * @returns {(string|HTMLElement|jQuery)}
@@ -320,7 +320,7 @@
 			return '<button type="button" class="btn btn-default footable-edit">' + this.editText + '</button> ';
 		},
 		/**
-		 * Creates the delete button for the editing component.
+		 * Creates the delete button for the editing components.
 		 * @instance
 		 * @protected
 		 * @returns {(string|HTMLElement|jQuery)}
@@ -329,7 +329,7 @@
 			return '<button type="button" class="btn btn-default footable-delete">' + this.deleteText + '</button>';
 		},
 		/**
-		 * Creates the view button for the editing component.
+		 * Creates the view button for the editing components.
 		 * @instance
 		 * @protected
 		 * @returns {(string|HTMLElement|jQuery)}
@@ -352,7 +352,7 @@
 			return this._$buttons;
 		},
 		/**
-		 * Performs the drawing of the component.
+		 * Performs the drawing of the components.
 		 */
 		draw: function(){
 			this.$cell.attr('colspan', this.ft.columns.visibleColspan);

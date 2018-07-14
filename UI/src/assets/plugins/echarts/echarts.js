@@ -39,7 +39,7 @@ var esl;
      *
      * 模块define factory是用到时才执行，但是以下几种情况需要自动马上执行：
      * 1. require([moduleId], callback)
-     * 2. plugin module and plugin resource: require('plugin!resource')
+     * 2. plugin module and plugin resources: require('plugin!resources')
      * 3. shim module
      *
      * @inner
@@ -1628,15 +1628,15 @@ define('echarts/echarts', [
     'zrender',
     'zrender/config',
     './chart/island',
-    './component/toolbox',
-    './component',
-    './component/title',
-    './component/tooltip',
-    './component/legend',
+    './components/toolbox',
+    './components',
+    './components/title',
+    './components/tooltip',
+    './components/legend',
     './util/ecData',
     './chart',
     'zrender/tool/color',
-    './component/timeline',
+    './components/timeline',
     'zrender/shape/Image',
     'zrender/loadingEffect/Bar',
     'zrender/loadingEffect/Bubble',
@@ -1759,13 +1759,13 @@ define('echarts/echarts', [
             var Island = require('./chart/island');
             this._island = new Island(this._themeConfig, this._messageCenter, _zr, {}, this);
             this.chart.island = this._island;
-            var Toolbox = require('./component/toolbox');
+            var Toolbox = require('./components/toolbox');
             this._toolbox = new Toolbox(this._themeConfig, this._messageCenter, _zr, {}, this);
             this.component.toolbox = this._toolbox;
-            var componentLibrary = require('./component');
-            componentLibrary.define('title', require('./component/title'));
-            componentLibrary.define('tooltip', require('./component/tooltip'));
-            componentLibrary.define('legend', require('./component/legend'));
+            var componentLibrary = require('./components');
+            componentLibrary.define('title', require('./components/title'));
+            componentLibrary.define('tooltip', require('./components/tooltip'));
+            componentLibrary.define('legend', require('./components/legend'));
             if (_zr.getWidth() === 0 || _zr.getHeight() === 0) {
                 console.error('Dom’s width & height should be ready before init.');
             }
@@ -2012,7 +2012,7 @@ define('echarts/echarts', [
             this._zr.clearAnimation();
             this._chartList = [];
             var chartLibrary = require('./chart');
-            var componentLibrary = require('./component');
+            var componentLibrary = require('./components');
             if (magicOption.xAxis || magicOption.yAxis) {
                 magicOption.grid = magicOption.grid || {};
                 magicOption.dataZoom = magicOption.dataZoom || {};
@@ -2251,7 +2251,7 @@ define('echarts/echarts', [
         },
         _setTimelineOption: function (option) {
             this._timeline && this._timeline.dispose();
-            var Timeline = require('./component/timeline');
+            var Timeline = require('./components/timeline');
             var timeline = new Timeline(this._themeConfig, this._messageCenter, this._zr, option, this);
             this._timeline = timeline;
             this.component.timeline = this._timeline;
@@ -3606,7 +3606,7 @@ define('zrender/zrender', [
     'zrender/config',
     'zrender/tool/event',
     './dataView',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var LineShape = require('zrender/shape/Line');
@@ -4534,7 +4534,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(Toolbox, Base);
-    require('../component').define('toolbox', Toolbox);
+    require('../components').define('toolbox', Toolbox);
     return Toolbox;
 });define('echarts/component', [], function () {
     var self = {};
@@ -4556,7 +4556,7 @@ define('zrender/zrender', [
     'zrender/tool/util',
     'zrender/tool/area',
     'zrender/tool/color',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var TextShape = require('zrender/shape/Text');
@@ -4774,7 +4774,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(Title, Base);
-    require('../component').define('title', Title);
+    require('../components').define('title', Title);
     return Title;
 });define('echarts/component/tooltip', [
     'require',
@@ -4790,7 +4790,7 @@ define('zrender/zrender', [
     'zrender/tool/color',
     'zrender/tool/util',
     'zrender/shape/Base',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var CrossShape = require('../util/shape/Cross');
@@ -6002,7 +6002,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(Tooltip, Base);
-    require('../component').define('tooltip', Tooltip);
+    require('../components').define('tooltip', Tooltip);
     return Tooltip;
 });define('echarts/component/legend', [
     'require',
@@ -6015,7 +6015,7 @@ define('zrender/zrender', [
     '../config',
     'zrender/tool/util',
     'zrender/tool/area',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var TextShape = require('zrender/shape/Text');
@@ -6688,7 +6688,7 @@ define('zrender/zrender', [
         IconShape.prototype.iconLibrary['legendicon' + k] = legendIcon[k];
     }
     zrUtil.inherits(Legend, Base);
-    require('../component').define('legend', Legend);
+    require('../components').define('legend', Legend);
     return Legend;
 });define('echarts/util/ecData', [], function () {
     function pack(shape, series, seriesIndex, data, dataIndex, name, special, special2) {
@@ -7579,7 +7579,7 @@ define('zrender/zrender', [
     'zrender/tool/util',
     'zrender/tool/area',
     'zrender/tool/event',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var RectangleShape = require('zrender/shape/Rectangle');
@@ -8272,7 +8272,7 @@ define('zrender/zrender', [
     }
     IconShape.prototype.iconLibrary['timelineControl'] = timelineControl;
     zrUtil.inherits(Timeline, Base);
-    require('../component').define('timeline', Timeline);
+    require('../components').define('timeline', Timeline);
     return Timeline;
 });define('zrender/shape/Image', [
     'require',
@@ -14743,7 +14743,7 @@ define('zrender/zrender', [
     '../util/ecAnimation',
     '../util/ecEffect',
     '../util/accMath',
-    '../component/base',
+    '../components/base',
     '../layout/EdgeBundling',
     'zrender/tool/util',
     'zrender/tool/area'
@@ -14759,7 +14759,7 @@ define('zrender/zrender', [
     var ecAnimation = require('../util/ecAnimation');
     var ecEffect = require('../util/ecEffect');
     var accMath = require('../util/accMath');
-    var ComponentBase = require('../component/base');
+    var ComponentBase = require('../components/base');
     var EdgeBundling = require('../layout/EdgeBundling');
     var zrUtil = require('zrender/tool/util');
     var zrArea = require('zrender/tool/area');
@@ -19112,7 +19112,7 @@ define('zrender/zrender', [
     './base',
     '../config',
     'zrender/tool/util',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var ecConfig = require('../config');
@@ -19420,7 +19420,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(DataView, Base);
-    require('../component').define('dataView', DataView);
+    require('../components').define('dataView', DataView);
     return DataView;
 });define('echarts/util/shape/Cross', [
     'require',
@@ -19876,7 +19876,7 @@ define('zrender/zrender', [
     'zrender/tool/color',
     './categoryAxis',
     './valueAxis',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var LineShape = require('zrender/shape/Line');
@@ -20101,7 +20101,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(Axis, Base);
-    require('../component').define('axis', Axis);
+    require('../components').define('axis', Axis);
     return Axis;
 });define('echarts/component/grid', [
     'require',
@@ -20109,7 +20109,7 @@ define('zrender/zrender', [
     'zrender/shape/Rectangle',
     '../config',
     'zrender/tool/util',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var RectangleShape = require('zrender/shape/Rectangle');
@@ -20235,7 +20235,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(Grid, Base);
-    require('../component').define('grid', Grid);
+    require('../components').define('grid', Grid);
     return Grid;
 });define('echarts/component/dataZoom', [
     'require',
@@ -20246,7 +20246,7 @@ define('zrender/zrender', [
     '../config',
     '../util/date',
     'zrender/tool/util',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var RectangleShape = require('zrender/shape/Rectangle');
@@ -20452,7 +20452,7 @@ define('zrender/zrender', [
         _calculScatterMap: function (seriesIndex) {
             this._zoom.scatterMap = this._zoom.scatterMap || {};
             this._zoom.scatterMap[seriesIndex] = this._zoom.scatterMap[seriesIndex] || {};
-            var componentLibrary = require('../component');
+            var componentLibrary = require('../components');
             var Axis = componentLibrary.get('axis');
             var axisOption = zrUtil.clone(this.option.xAxis);
             if (axisOption[0].type == 'category') {
@@ -21103,7 +21103,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(DataZoom, Base);
-    require('../component').define('dataZoom', DataZoom);
+    require('../components').define('dataZoom', DataZoom);
     return DataZoom;
 });define('echarts/component/categoryAxis', [
     'require',
@@ -21114,7 +21114,7 @@ define('zrender/zrender', [
     '../config',
     'zrender/tool/util',
     'zrender/tool/area',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var TextShape = require('zrender/shape/Text');
@@ -21648,7 +21648,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(CategoryAxis, Base);
-    require('../component').define('categoryAxis', CategoryAxis);
+    require('../components').define('categoryAxis', CategoryAxis);
     return CategoryAxis;
 });define('echarts/component/valueAxis', [
     'require',
@@ -21662,7 +21662,7 @@ define('zrender/zrender', [
     '../util/smartSteps',
     '../util/accMath',
     '../util/smartLogSteps',
-    '../component'
+    '../components'
 ], function (require) {
     var Base = require('./base');
     var TextShape = require('zrender/shape/Text');
@@ -22338,7 +22338,7 @@ define('zrender/zrender', [
         }
     };
     zrUtil.inherits(ValueAxis, Base);
-    require('../component').define('valueAxis', ValueAxis);
+    require('../components').define('valueAxis', ValueAxis);
     return ValueAxis;
 });define('echarts/util/date', [], function () {
     var _timeGap = [

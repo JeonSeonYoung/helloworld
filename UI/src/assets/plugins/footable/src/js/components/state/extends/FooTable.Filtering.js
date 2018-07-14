@@ -3,7 +3,7 @@
 	if (!F.Filtering) return;
 
 	/**
-	 * Allows the filtering component to retrieve its' stored state.
+	 * Allows the filtering components to retrieve its' stored state.
 	 */
 	F.Filtering.prototype.readState = function(){
 		if (this.ft.state.filtering){
@@ -15,7 +15,7 @@
 	};
 
 	/**
-	 * Allows the filtering component to write its' current state to the store.
+	 * Allows the filtering components to write its' current state to the store.
 	 */
 	F.Filtering.prototype.writeState = function(){
 		if (this.ft.state.filtering) {
@@ -37,7 +37,7 @@
 	};
 
 	/**
-	 * Allows the filtering component to clear any stored state.
+	 * Allows the filtering components to clear any stored state.
 	 */
 	F.Filtering.prototype.clearState = function(){
 		if (this.ft.state.filtering) {

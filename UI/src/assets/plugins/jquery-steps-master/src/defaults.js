@@ -65,7 +65,7 @@ var defaults = $.fn.steps.defaults = {
     stepsContainerTag: "div",
 
     /**
-     * The css class which will be added to the outer component wrapper.
+     * The css class which will be added to the outer components wrapper.
      *
      * @property cssClass
      * @type String

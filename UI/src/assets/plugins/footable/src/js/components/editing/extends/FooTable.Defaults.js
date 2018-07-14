@@ -1,7 +1,7 @@
 (function($, F) {
 
 	/**
-	 * An object containing the editing options for the plugin. Added by the {@link FooTable.Editing} component.
+	 * An object containing the editing options for the plugin. Added by the {@link FooTable.Editing} components.
 	 * @type {object}
 	 * @prop {boolean} enabled=false - Whether or not to allow editing on the table.
 	 * @prop {boolean} pageToNew=true - Whether or not to automatically page to a new row when it is added to the table.
@@ -25,8 +25,8 @@
 	 * @prop {string} column.classes="footable-editing" - A space separated string of class names to apply to all cells in the column.
 	 * @prop {string} column.name="editing" - The name of the column.
 	 * @prop {string} column.title="" - The title displayed in the header row of the table for the column.
-	 * @prop {boolean} column.filterable=false - Whether or not the column should be filterable when using the filtering component.
-	 * @prop {boolean} column.sortable=false - Whether or not the column should be sortable when using the sorting component.
+	 * @prop {boolean} column.filterable=false - Whether or not the column should be filterable when using the filtering components.
+	 * @prop {boolean} column.sortable=false - Whether or not the column should be sortable when using the sorting components.
 	 */
 	F.Defaults.prototype.editing = {
 		enabled: false,

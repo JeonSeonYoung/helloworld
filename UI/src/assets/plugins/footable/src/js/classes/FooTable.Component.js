@@ -5,8 +5,8 @@
 		 * The base class for all FooTable components.
 		 * @constructs
 		 * @extends FooTable.Class
-		 * @param {FooTable.Table} instance - The parent {@link FooTable.Table} object for the component.
-		 * @param {boolean} enabled - Whether or not the component is enabled.
+		 * @param {FooTable.Table} instance - The parent {@link FooTable.Table} object for the components.
+		 * @param {boolean} enabled - Whether or not the components is enabled.
 		 * @throws {TypeError} The instance parameter must be an instance of {@link FooTable.Table}.
 		 * @returns {FooTable.Component}
 		 */
@@ -15,12 +15,12 @@
 				throw new TypeError('The instance parameter must be an instance of FooTable.Table.');
 
 			/**
-			 * The parent {@link FooTable.Table} for the component.
+			 * The parent {@link FooTable.Table} for the components.
 			 * @type {FooTable.Table}
 			 */
 			this.ft = instance;
 			/**
-			 * Whether or not this component is enabled. Disabled components only have there preinit method called allowing for this value to be overridden.
+			 * Whether or not this components is enabled. Disabled components only have there preinit method called allowing for this value to be overridden.
 			 * @type {boolean}
 			 */
 			this.enabled = F.is.boolean(enabled) ? enabled : false;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-
-class TopNav extends Component {
+class SideNav extends Component {
     render() {
         return (
             <div className="App">
@@ -12,7 +11,7 @@ class TopNav extends Component {
                                 <i className="wi wi-sunset sj-white"></i>
                             </b>
                             <span className="sj-white">
-                            너와함께
+                            HelloWorld
                         </span>
                         </a>
                     </div>
@@ -22,4 +21,4 @@ class TopNav extends Component {
     }
 }
 
-export default TopNav;
+export default SideNav;

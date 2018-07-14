@@ -14,16 +14,16 @@
 
 	F.State = F.Component.extend(/** @lends FooTable.State */{
 		/**
-		 * The state component adds the ability for the table to remember its basic state for filtering, paging and sorting.
+		 * The state components adds the ability for the table to remember its basic state for filtering, paging and sorting.
 		 * @constructs
 		 * @extends FooTable.Component
-		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the component.
+		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the components.
 		 * @returns {FooTable.State}
 		 */
 		construct: function(table){
 			// call the constructor of the base class
 			this._super(table, table.o.state.enabled);
-			// Change this value if an update to this component requires any stored data to be reset
+			// Change this value if an update to this components requires any stored data to be reset
 			this._key = '1';
 			/**
 			 * The key to use to store the state for this table.
@@ -31,24 +31,24 @@
 			 */
 			this.key = this._key + (F.is.string(table.o.state.key) ? table.o.state.key : this._uid());
 			/**
-			 * Whether or not to allow the filtering component to store it's state.
+			 * Whether or not to allow the filtering components to store it's state.
 			 * @type {boolean}
 			 */
 			this.filtering = F.is.boolean(table.o.state.filtering) ? table.o.state.filtering : true;
 			/**
-			 * Whether or not to allow the paging component to store it's state.
+			 * Whether or not to allow the paging components to store it's state.
 			 * @type {boolean}
 			 */
 			this.paging = F.is.boolean(table.o.state.paging) ? table.o.state.paging : true;
 			/**
-			 * Whether or not to allow the sorting component to store it's state.
+			 * Whether or not to allow the sorting components to store it's state.
 			 * @type {boolean}
 			 */
 			this.sorting = F.is.boolean(table.o.state.sorting) ? table.o.state.sorting : true;
 		},
 		/* PROTECTED */
 		/**
-		 * Checks the supplied data and options for the state component.
+		 * Checks the supplied data and options for the state components.
 		 * @instance
 		 * @protected
 		 * @param {object} data - The jQuery data object from the parent table.
@@ -59,7 +59,7 @@
 			var self = this;
 			/**
 			 * The preinit.ft.state event is raised before the UI is created and provides the tables jQuery data object for additional options parsing.
-			 * Calling preventDefault on this event will disable the component.
+			 * Calling preventDefault on this event will disable the components.
 			 * @event FooTable.State#"preinit.ft.state"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.

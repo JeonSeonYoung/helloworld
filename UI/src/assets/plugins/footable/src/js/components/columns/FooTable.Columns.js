@@ -4,7 +4,7 @@
 		 * The columns class contains all the logic for handling columns.
 		 * @constructs
 		 * @extends FooTable.Component
-		 * @param {FooTable.Table} table -  The parent {@link FooTable.Table} this component belongs to.
+		 * @param {FooTable.Table} table -  The parent {@link FooTable.Table} this components belongs to.
 		 * @returns {FooTable.Columns}
 		 */
 		construct: function(table){
@@ -193,7 +193,7 @@
 			});
 		},
 		/**
-		 * Destroys the columns component removing any UI generated from the table.
+		 * Destroys the columns components removing any UI generated from the table.
 		 * @instance
 		 * @protected
 		 * @fires FooTable.Columns#"destroy.ft.columns"
@@ -201,7 +201,7 @@
 		destroy: function(){
 			/**
 			 * The destroy.ft.columns event is raised before its UI is removed.
-			 * Calling preventDefault on this event will prevent the component from being destroyed.
+			 * Calling preventDefault on this event will prevent the components from being destroyed.
 			 * @event FooTable.Columns#"destroy.ft.columns"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.

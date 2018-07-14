@@ -6536,7 +6536,7 @@ File: scss
  Phone and below ipad(767px) 
  ============================================================== */
 @media (max-width: 767px) {
-  /*TopNav*/
+  /*SideNav*/
   .topbar {
     position: fixed;
     width: 100%; }

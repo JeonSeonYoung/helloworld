@@ -5,7 +5,7 @@
 		 * The column class containing all the properties for columns. All members marked as "readonly" should not be used when defining {@link FooTable.Defaults#columns}.
 		 * @constructs
 		 * @extends FooTable.Class
-		 * @param {FooTable.Table} instance -  The parent {@link FooTable.Table} this component belongs to.
+		 * @param {FooTable.Table} instance -  The parent {@link FooTable.Table} this components belongs to.
 		 * @param {object} definition - An object containing all the properties to set for the column.
 		 * @param {string} [type] - The type of column, "text" by default.
 		 * @returns {FooTable.Column}

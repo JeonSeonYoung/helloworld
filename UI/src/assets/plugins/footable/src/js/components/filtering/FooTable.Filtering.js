@@ -1,10 +1,10 @@
 (function ($, F) {
 	F.Filtering = F.Component.extend(/** @lends FooTable.Filtering */{
 		/**
-		 * The filtering component adds a search input and column selector dropdown to the table allowing users to filter the using space delimited queries.
+		 * The filtering components adds a search input and column selector dropdown to the table allowing users to filter the using space delimited queries.
 		 * @constructs
 		 * @extends FooTable.Component
-		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the component.
+		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the components.
 		 * @returns {FooTable.Filtering}
 		 */
 		construct: function (table) {
@@ -120,7 +120,7 @@
 
 		/* PROTECTED */
 		/**
-		 * Checks the supplied data and options for the filtering component.
+		 * Checks the supplied data and options for the filtering components.
 		 * @instance
 		 * @protected
 		 * @param {object} data - The jQuery data object from the parent table.
@@ -130,7 +130,7 @@
 			var self = this;
 			/**
 			 * The preinit.ft.filtering event is raised before the UI is created and provides the tables jQuery data object for additional options parsing.
-			 * Calling preventDefault on this event will disable the component.
+			 * Calling preventDefault on this event will disable the components.
 			 * @event FooTable.Filtering#"preinit.ft.filtering"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -199,7 +199,7 @@
 			});
 		},
 		/**
-		 * Initializes the filtering component for the plugin.
+		 * Initializes the filtering components for the plugin.
 		 * @instance
 		 * @protected
 		 * @fires FooTable.Filtering#"init.ft.filtering"
@@ -208,7 +208,7 @@
 			var self = this;
 			/**
 			 * The init.ft.filtering event is raised before its UI is generated.
-			 * Calling preventDefault on this event will disable the component.
+			 * Calling preventDefault on this event will disable the components.
 			 * @event FooTable.Filtering#"init.ft.filtering"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -220,7 +220,7 @@
 			});
 		},
 		/**
-		 * Destroys the filtering component removing any UI from the table.
+		 * Destroys the filtering components removing any UI from the table.
 		 * @instance
 		 * @protected
 		 * @fires FooTable.Filtering#"destroy.ft.filtering"
@@ -228,7 +228,7 @@
 		destroy: function () {
 			/**
 			 * The destroy.ft.filtering event is raised before its UI is removed.
-			 * Calling preventDefault on this event will prevent the component from being destroyed.
+			 * Calling preventDefault on this event will prevent the components from being destroyed.
 			 * @event FooTable.Filtering#"destroy.ft.filtering"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -240,7 +240,7 @@
 			});
 		},
 		/**
-		 * Creates the filtering UI from the current options setting the various jQuery properties of this component.
+		 * Creates the filtering UI from the current options setting the various jQuery properties of this components.
 		 * @instance
 		 * @protected
 		 * @this FooTable.Filtering

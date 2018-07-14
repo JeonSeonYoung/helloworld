@@ -383,7 +383,7 @@ var requirejs, require, define;
             }
         }
 
-        //Turns a plugin!resource to [plugin, resource]
+        //Turns a plugin!resources to [plugin, resources]
         //with the plugin being undefined if the name
         //did not have a plugin prefix.
         function splitPrefix(name) {
@@ -675,8 +675,8 @@ var requirejs, require, define;
                         if (!map.prefix) {
                             //No reason to keep looking for unfinished
                             //loading. If the only stillLoading is a
-                            //plugin resource though, keep going,
-                            //because it may be that a plugin resource
+                            //plugin resources though, keep going,
+                            //because it may be that a plugin resources
                             //is waiting on a non-plugin cycle.
                             return (needCycleCheck = false);
                         }
@@ -699,7 +699,7 @@ var requirejs, require, define;
             }
 
             //If still waiting on loads, and the waiting load is something
-            //other than a plugin resource, or there are still outstanding
+            //other than a plugin resources, or there are still outstanding
             //scripts, then just try back later.
             if ((!expired || usingPathFallback) && stillLoading) {
                 //Something is still waiting to load. Wait for it, but only
@@ -802,7 +802,7 @@ var requirejs, require, define;
 
                 var map = this.map;
 
-                //If the manager is for a plugin managed resource,
+                //If the manager is for a plugin managed resources,
                 //ask the plugin to load it now.
                 if (this.shim) {
                     context.makeRequire(this.map, {
@@ -1017,7 +1017,7 @@ var requirejs, require, define;
                             hasInteractive = useInteractive;
 
                         //As of 2.1.0, support just passing the text, to reinforce
-                        //fromText only being called once per resource. Still
+                        //fromText only being called once per resources. Still
                         //support old style of passing moduleName but discard
                         //that moduleName in favor of the internal ref.
                         if (textAlt) {
@@ -1054,14 +1054,14 @@ var requirejs, require, define;
                         }
 
                         //Mark this as a dependency for the plugin
-                        //resource
+                        //resources
                         this.depMaps.push(moduleMap);
 
                         //Support anonymous modules.
                         context.completeLoad(moduleName);
 
                         //Bind the value of that module to the value for this
-                        //resource ID.
+                        //resources ID.
                         localRequire([moduleName], load);
                     });
 

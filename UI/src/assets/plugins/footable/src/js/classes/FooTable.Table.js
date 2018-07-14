@@ -82,19 +82,19 @@
 			 */
 			this.components = F.components.load((F.is.hash(this.data.components) ? this.data.components : this.o.components), this);
 			/**
-			 * The breakpoints component for this instance of the plugin.
+			 * The breakpoints components for this instance of the plugin.
 			 * @instance
 			 * @type {FooTable.Breakpoints}
 			 */
 			this.breakpoints = this.use(FooTable.Breakpoints);
 			/**
-			 * The columns component for this instance of the plugin.
+			 * The columns components for this instance of the plugin.
 			 * @instance
 			 * @type {FooTable.Columns}
 			 */
 			this.columns = this.use(FooTable.Columns);
 			/**
-			 * The rows component for this instance of the plugin.
+			 * The rows components for this instance of the plugin.
 			 * @instance
 			 * @type {FooTable.Rows}
 			 */
@@ -272,7 +272,7 @@
 			});
 		},
 		/**
-		 * Attempts to retrieve the instance of the supplied component type for this instance.
+		 * Attempts to retrieve the instance of the supplied components type for this instance.
 		 * @this FooTable.Table
 		 * @instance
 		 * @param {object} type - The content type to retrieve for this instance.
@@ -347,7 +347,7 @@
 		 * @this FooTable.Table
 		 * @instance
 		 * @protected
-		 * @param {boolean} reverse - Whether or not to execute the component methods in the reverse order to what they were registered in.
+		 * @param {boolean} reverse - Whether or not to execute the components methods in the reverse order to what they were registered in.
 		 * @param {boolean} enabled - Whether or not to execute the method on enabled components only.
 		 * @param {string} methodName - The name of the method to execute.
 		 * @param {*} [param1] - The first parameter for the method.

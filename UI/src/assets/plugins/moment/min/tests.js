@@ -33842,20 +33842,20 @@
         assert.equal(moment.duration(1, 'day').add(24, 'hours').days(), 2, 'Adding hours should bubble up to days');
 
         d = moment.duration(-1, 'day').add(1, 'hour');
-        assert.equal(d.hours(), -23, '-1 day + 1 hour == -23 hour (component)');
+        assert.equal(d.hours(), -23, '-1 day + 1 hour == -23 hour (components)');
         assert.equal(d.asHours(), -23, '-1 day + 1 hour == -23 hours');
 
         d = moment.duration(-1, 'year').add(1, 'day');
-        assert.equal(d.days(), -30, '- 1 year + 1 day == -30 days (component)');
-        assert.equal(d.months(), -11, '- 1 year + 1 day == -11 months (component)');
-        assert.equal(d.years(), 0, '- 1 year + 1 day == 0 years (component)');
+        assert.equal(d.days(), -30, '- 1 year + 1 day == -30 days (components)');
+        assert.equal(d.months(), -11, '- 1 year + 1 day == -11 months (components)');
+        assert.equal(d.years(), 0, '- 1 year + 1 day == 0 years (components)');
         assert.equal(d.asDays(), -364, '- 1 year + 1 day == -364 days');
 
         d = moment.duration(-1, 'year').add(1, 'hour');
-        assert.equal(d.hours(), -23, '- 1 year + 1 hour == -23 hours (component)');
-        assert.equal(d.days(), -30, '- 1 year + 1 hour == -30 days (component)');
-        assert.equal(d.months(), -11, '- 1 year + 1 hour == -11 months (component)');
-        assert.equal(d.years(), 0, '- 1 year + 1 hour == 0 years (component)');
+        assert.equal(d.hours(), -23, '- 1 year + 1 hour == -23 hours (components)');
+        assert.equal(d.days(), -30, '- 1 year + 1 hour == -30 days (components)');
+        assert.equal(d.months(), -11, '- 1 year + 1 hour == -11 months (components)');
+        assert.equal(d.years(), 0, '- 1 year + 1 hour == 0 years (components)');
     });
 
     test('subtract and bubble', function (assert) {
@@ -33867,20 +33867,20 @@
         assert.equal(moment.duration(2, 'day').subtract(24, 'hours').days(), 1, 'Subtracting hours should bubble up to days');
 
         d = moment.duration(1, 'day').subtract(1, 'hour');
-        assert.equal(d.hours(), 23, '1 day - 1 hour == 23 hour (component)');
+        assert.equal(d.hours(), 23, '1 day - 1 hour == 23 hour (components)');
         assert.equal(d.asHours(), 23, '1 day - 1 hour == 23 hours');
 
         d = moment.duration(1, 'year').subtract(1, 'day');
-        assert.equal(d.days(), 30, '1 year - 1 day == 30 days (component)');
-        assert.equal(d.months(), 11, '1 year - 1 day == 11 months (component)');
-        assert.equal(d.years(), 0, '1 year - 1 day == 0 years (component)');
+        assert.equal(d.days(), 30, '1 year - 1 day == 30 days (components)');
+        assert.equal(d.months(), 11, '1 year - 1 day == 11 months (components)');
+        assert.equal(d.years(), 0, '1 year - 1 day == 0 years (components)');
         assert.equal(d.asDays(), 364, '1 year - 1 day == 364 days');
 
         d = moment.duration(1, 'year').subtract(1, 'hour');
-        assert.equal(d.hours(), 23, '1 year - 1 hour == 23 hours (component)');
-        assert.equal(d.days(), 30, '1 year - 1 hour == 30 days (component)');
-        assert.equal(d.months(), 11, '1 year - 1 hour == 11 months (component)');
-        assert.equal(d.years(), 0, '1 year - 1 hour == 0 years (component)');
+        assert.equal(d.hours(), 23, '1 year - 1 hour == 23 hours (components)');
+        assert.equal(d.days(), 30, '1 year - 1 hour == 30 days (components)');
+        assert.equal(d.months(), 11, '1 year - 1 hour == 11 months (components)');
+        assert.equal(d.years(), 0, '1 year - 1 hour == 0 years (components)');
     });
 
     test('subtract', function (assert) {

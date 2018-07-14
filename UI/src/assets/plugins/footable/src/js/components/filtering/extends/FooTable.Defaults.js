@@ -1,6 +1,6 @@
 (function(F){
 	/**
-	 * An object containing the filtering options for the plugin. Added by the {@link FooTable.Filtering} component.
+	 * An object containing the filtering options for the plugin. Added by the {@link FooTable.Filtering} components.
 	 * @type {object}
 	 * @prop {boolean} enabled=false - Whether or not to allow filtering on the table.
 	 * @prop {({name: string, query: (string|FooTable.Query), columns: (Array.<string>|Array.<number>|Array.<FooTable.Column>)}|Array.<FooTable.Filter>)} filters - The filters to apply to the current {@link FooTable.Rows#array}.

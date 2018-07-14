@@ -4,7 +4,7 @@
 		 * Contains the logic to calculate and apply breakpoints for the plugin.
 		 * @constructs
 		 * @extends FooTable.Component
-		 * @param {FooTable.Table} table -  The parent {@link FooTable.Table} this component belongs to.
+		 * @param {FooTable.Table} table -  The parent {@link FooTable.Table} this components belongs to.
 		 * @returns {FooTable.Breakpoints}
 		 */
 		construct: function(table){
@@ -60,7 +60,7 @@
 
 		/* PROTECTED */
 		/**
-		 * Checks the supplied data and options for the breakpoints component.
+		 * Checks the supplied data and options for the breakpoints components.
 		 * @instance
 		 * @protected
 		 * @param {object} data - The jQuery data object from the parent table.

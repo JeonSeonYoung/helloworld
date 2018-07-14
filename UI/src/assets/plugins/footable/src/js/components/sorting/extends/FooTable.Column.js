@@ -1,25 +1,25 @@
 (function($, F){
 	/**
-	 * The direction to sort if the {@link FooTable.Column#sorted} property is set to true. Can be "ASC", "DESC" or NULL. Added by the {@link FooTable.Sorting} component.
+	 * The direction to sort if the {@link FooTable.Column#sorted} property is set to true. Can be "ASC", "DESC" or NULL. Added by the {@link FooTable.Sorting} components.
 	 * @type {string}
 	 * @default null
 	 */
 	F.Column.prototype.direction = null;
 	/**
-	 * Whether or not the column can be sorted. Added by the {@link FooTable.Sorting} component.
+	 * Whether or not the column can be sorted. Added by the {@link FooTable.Sorting} components.
 	 * @type {boolean}
 	 * @default true
 	 */
 	F.Column.prototype.sortable = true;
 	/**
-	 * Whether or not the column is sorted. Added by the {@link FooTable.Sorting} component.
+	 * Whether or not the column is sorted. Added by the {@link FooTable.Sorting} components.
 	 * @type {boolean}
 	 * @default false
 	 */
 	F.Column.prototype.sorted = false;
 
 	/**
-	 * This is supplied two values from the column for a comparison to be made and the result returned. Added by the {@link FooTable.Sorting} component.
+	 * This is supplied two values from the column for a comparison to be made and the result returned. Added by the {@link FooTable.Sorting} components.
 	 * @param {*} a - The first value to be compared.
 	 * @param {*} b - The second value to compare to the first.
 	 * @returns {number}

@@ -1,6 +1,6 @@
 (function(F){
 	/**
-	 * An object containing the sorting options for the plugin. Added by the {@link FooTable.Sorting} component.
+	 * An object containing the sorting options for the plugin. Added by the {@link FooTable.Sorting} components.
 	 * @type {object}
 	 * @prop {boolean} enabled=false - Whether or not to allow sorting on the table.
 	 */

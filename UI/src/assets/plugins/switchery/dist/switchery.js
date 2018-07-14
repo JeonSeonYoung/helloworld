@@ -997,7 +997,7 @@ if (typeof define !== 'undefined' && define.amd) {
 
 });
 
-require.register("component~indexof@0.0.3", function (exports, module) {
+require.register("components~indexof@0.0.3", function (exports, module) {
 module.exports = function(arr, obj){
   if (arr.indexOf) return arr.indexOf(obj);
   for (var i = 0; i < arr.length; ++i) {
@@ -1007,12 +1007,12 @@ module.exports = function(arr, obj){
 };
 });
 
-require.register("component~classes@1.2.1", function (exports, module) {
+require.register("components~classes@1.2.1", function (exports, module) {
 /**
  * Module dependencies.
  */
 
-var index = require('component~indexof@0.0.3');
+var index = require('components~indexof@0.0.3');
 
 /**
  * Whitespace regexp.
@@ -1195,7 +1195,7 @@ ClassList.prototype.contains = function(name){
 
 });
 
-require.register("component~event@0.1.4", function (exports, module) {
+require.register("components~event@0.1.4", function (exports, module) {
 var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
     unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent',
     prefix = bind !== 'addEventListener' ? 'on' : '';
@@ -1233,7 +1233,7 @@ exports.unbind = function(el, type, fn, capture){
 };
 });
 
-require.register("component~query@0.0.3", function (exports, module) {
+require.register("components~query@0.0.3", function (exports, module) {
 function one(selector, el) {
   return el.querySelector(selector);
 }
@@ -1258,12 +1258,12 @@ exports.engine = function(obj){
 
 });
 
-require.register("component~matches-selector@0.1.5", function (exports, module) {
+require.register("components~matches-selector@0.1.5", function (exports, module) {
 /**
  * Module dependencies.
  */
 
-var query = require('component~query@0.0.3');
+var query = require('components~query@0.0.3');
 
 /**
  * Element prototype.
@@ -1308,8 +1308,8 @@ function match(el, selector) {
 
 });
 
-require.register("component~closest@0.1.4", function (exports, module) {
-var matches = require('component~matches-selector@0.1.5')
+require.register("components~closest@0.1.4", function (exports, module) {
+var matches = require('components~matches-selector@0.1.5')
 
 module.exports = function (element, selector, checkYoSelf, root) {
   element = checkYoSelf ? {parentNode: element} : element
@@ -1331,13 +1331,13 @@ module.exports = function (element, selector, checkYoSelf, root) {
 
 });
 
-require.register("component~delegate@0.2.3", function (exports, module) {
+require.register("components~delegate@0.2.3", function (exports, module) {
 /**
  * Module dependencies.
  */
 
-var closest = require('component~closest@0.1.4')
-  , event = require('component~event@0.1.4');
+var closest = require('components~closest@0.1.4')
+  , event = require('components~event@0.1.4');
 
 /**
  * Delegate event `type` to `selector`
@@ -1377,14 +1377,14 @@ exports.unbind = function(el, type, fn, capture){
 
 });
 
-require.register("component~events@1.0.9", function (exports, module) {
+require.register("components~events@1.0.9", function (exports, module) {
 
 /**
  * Module dependencies.
  */
 
-var events = require('component~event@0.1.4');
-var delegate = require('component~delegate@0.2.3');
+var events = require('components~event@0.1.4');
+var delegate = require('components~delegate@0.2.3');
 
 /**
  * Expose `Events`.
@@ -1577,8 +1577,8 @@ require.register("switchery", function (exports, module) {
 
 var transitionize = require('abpetkov~transitionize@0.0.3')
   , fastclick = require('ftlabs~fastclick@v0.6.11')
-  , classes = require('component~classes@1.2.1')
-  , events = require('component~events@1.0.9');
+  , classes = require('components~classes@1.2.1')
+  , events = require('components~events@1.0.9');
 
 /**
  * Expose `Switchery`.

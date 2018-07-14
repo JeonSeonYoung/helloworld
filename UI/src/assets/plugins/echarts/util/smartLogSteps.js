@@ -88,7 +88,7 @@ define(function(require) {
      * ['-', '-']
      * ['-', 10]
      * logarithmic axis in scatter (try dataZoom)
-     * logarithmic axis width dataZoom component (try xAxis and yAxis)
+     * logarithmic axis width dataZoom components (try xAxis and yAxis)
      */
 
     /**

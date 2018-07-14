@@ -1,8 +1,8 @@
 (function(F){
 
 	/**
-	 * The value used by the sorting component during sort operations. Can be set using the data-sort-value attribute on the cell itself.
-	 * If this is not supplied it is set to the result of the toString method called on the value for the cell. Added by the {@link FooTable.Sorting} component.
+	 * The value used by the sorting components during sort operations. Can be set using the data-sort-value attribute on the cell itself.
+	 * If this is not supplied it is set to the result of the toString method called on the value for the cell. Added by the {@link FooTable.Sorting} components.
 	 * @type {string}
 	 * @default null
 	 */

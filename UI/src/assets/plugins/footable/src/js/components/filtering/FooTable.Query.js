@@ -1,7 +1,7 @@
 (function(F){
 	F.Query = F.Class.extend(/** @lends FooTable.Query */{
 		/**
-		 * The query object is used to parse and test the filtering component's queries
+		 * The query object is used to parse and test the filtering components's queries
 		 * @constructs
 		 * @extends FooTable.Class
 		 * @param {string} query - The string value of the query.

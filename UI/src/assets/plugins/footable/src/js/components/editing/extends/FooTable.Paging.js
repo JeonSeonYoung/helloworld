@@ -2,7 +2,7 @@
 
 	if (F.is.defined(F.Paging)){
 		/**
-		 * Holds a shallow clone of the un-paged {@link FooTable.Rows#array} value before paging occurs and superfluous rows are removed. Added by the {@link FooTable.Editing} component.
+		 * Holds a shallow clone of the un-paged {@link FooTable.Rows#array} value before paging occurs and superfluous rows are removed. Added by the {@link FooTable.Editing} components.
 		 * @instance
 		 * @public
 		 * @type {Array<FooTable.Row>}

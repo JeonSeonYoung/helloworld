@@ -469,12 +469,12 @@ function increaseCurrentIndexBy(state, increaseBy)
 }
 
 /**
- * Initializes the component.
+ * Initializes the components.
  *
  * @static
  * @private
  * @method initialize
- * @param options {Object} The component settings
+ * @param options {Object} The components settings
  **/
 function initialize(options)
 {

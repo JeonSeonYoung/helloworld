@@ -1486,7 +1486,7 @@
                 this.setEndDate(end);
             }
 
-            //update the calendars so all clickable dates reflect the new time component
+            //update the calendars so all clickable dates reflect the new time components
             this.updateCalendars();
 
             //update the form inputs above the calendars with the new time
