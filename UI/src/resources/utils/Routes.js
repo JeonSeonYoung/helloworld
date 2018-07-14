@@ -3,9 +3,10 @@ import { Route } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import Main from '../../pages/Main';
-import SearchFilter from "../../layouts/SearchFilter";
 import Mapp from '../../pages/Mapp';
 import ShowMapp from '../../pages/ShowMapp';
+import SearchFilter from "../../pages/SearchFilter";
+import Chat from "../../pages/Chat";
 
 class RouteGroup extends Component {
     render() {
@@ -17,6 +18,7 @@ class RouteGroup extends Component {
                 <Route path="/searchFilter" component={SearchFilter}/>
                 <Route path="/Map" component={Mapp}/>
                 <Route path="/ShowMap" component={ShowMapp}/>
+                <Route path="/chat" component={Chat}/>
             </div>
         );
     }

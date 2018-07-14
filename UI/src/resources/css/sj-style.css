@@ -19,3 +19,27 @@
     /*left: 0;*/
     /*right: 0;*/
     /*margin: 0 auto; }*/
+
+/** chat **/
+.chat-list{
+    overflow: hidden; width: auto; height: 97px;
+}
+.chat-rbox {
+    overflow: visible;
+}
+.slimScrollDiv {
+    position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;
+}
+.slimScrollBar {
+    background-color: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 405.4821428571429px; background-position: initial initial; background-repeat: initial initial;
+}
+.slimScrollRail {
+    width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;
+}
+.chat-main-box .chat-right-aside {
+    width: 100% !important;
+}
+.sj-chat-time {
+    color:#99abb4;
+    font-size:13px;
+}
