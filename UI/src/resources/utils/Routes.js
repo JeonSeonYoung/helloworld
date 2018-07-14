@@ -4,6 +4,8 @@ import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import Main from '../../pages/Main';
 import SearchFilter from "../../layouts/SearchFilter";
+import Mapp from '../../pages/Mapp';
+import ShowMapp from '../../pages/ShowMapp';
 
 class RouteGroup extends Component {
     render() {
@@ -13,6 +15,8 @@ class RouteGroup extends Component {
                 <Route path="/main" component={Main}/>
                 <Route path="/about" component={Footer}/>
                 <Route path="/searchFilter" component={SearchFilter}/>
+                <Route path="/Map" component={Mapp}/>
+                <Route path="/ShowMap" component={ShowMapp}/>
             </div>
         );
     }
