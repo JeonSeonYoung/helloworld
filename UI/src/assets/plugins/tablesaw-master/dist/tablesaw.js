@@ -107,7 +107,7 @@ if( Tablesaw.mustard ) {
 
 	Table.prototype.createToolbar = function() {
 		// Insert the toolbar
-		// TODO move this into a separate component
+		// TODO move this into a separate components
 		var $toolbar = this.$table.prev().filter( '.' + classes.toolbar );
 		if( !$toolbar.length ) {
 			$toolbar = $( '<div>' )

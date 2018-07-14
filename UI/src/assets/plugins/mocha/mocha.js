@@ -170,7 +170,7 @@ var JsDiff = (function() {
       pushComponent: function(components, value, added, removed) {
         var last = components[components.length-1];
         if (last && last.added === added && last.removed === removed) {
-          // We need to clone here as the component clone operation is just
+          // We need to clone here as the components clone operation is just
           // as shallow array clone
           components[components.length-1] =
             {value: this.join(last.value, value), added: added, removed: removed };

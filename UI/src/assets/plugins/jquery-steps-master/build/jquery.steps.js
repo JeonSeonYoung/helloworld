@@ -529,12 +529,12 @@ function increaseCurrentIndexBy(state, increaseBy)
 }
 
 /**
- * Initializes the component.
+ * Initializes the components.
  *
  * @static
  * @private
  * @method initialize
- * @param options {Object} The component settings
+ * @param options {Object} The components settings
  **/
 function initialize(options)
 {
@@ -1663,7 +1663,7 @@ var defaults = $.fn.steps.defaults = {
     stepsContainerTag: "div",
 
     /**
-     * The css class which will be added to the outer component wrapper.
+     * The css class which will be added to the outer components wrapper.
      *
      * @property cssClass
      * @type String

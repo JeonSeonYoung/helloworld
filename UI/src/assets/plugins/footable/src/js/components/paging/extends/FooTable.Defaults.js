@@ -1,6 +1,6 @@
 (function(F){
 	/**
-	 * An object containing the paging options for the plugin. Added by the {@link FooTable.Paging} component.
+	 * An object containing the paging options for the plugin. Added by the {@link FooTable.Paging} components.
 	 * @type {object}
 	 * @prop {boolean} enabled=false - Whether or not to allow paging on the table.
 	 * @prop {string} countFormat="{CP} of {TP}" - A string format used to generate the page count text.

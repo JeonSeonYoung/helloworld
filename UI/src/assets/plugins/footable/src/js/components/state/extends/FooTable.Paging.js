@@ -3,7 +3,7 @@
 	if (!F.Paging) return;
 
 	/**
-	 * Allows the paging component to retrieve its' stored state.
+	 * Allows the paging components to retrieve its' stored state.
 	 */
 	F.Paging.prototype.readState = function(){
 		if (this.ft.state.paging) {
@@ -16,7 +16,7 @@
 	};
 
 	/**
-	 * Allows the paging component to write its' current state to the store.
+	 * Allows the paging components to write its' current state to the store.
 	 */
 	F.Paging.prototype.writeState = function(){
 		if (this.ft.state.paging) {
@@ -28,7 +28,7 @@
 	};
 
 	/**
-	 * Allows the paging component to clear any stored state.
+	 * Allows the paging components to clear any stored state.
 	 */
 	F.Paging.prototype.clearState = function(){
 		if (this.ft.state.paging) {

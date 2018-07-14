@@ -550,7 +550,7 @@
       format: false, //forces a format
       input: 'input', // children input selector
       container: false, // container selector
-      component: '.add-on, .input-group-addon', // children component selector
+      component: '.add-on, .input-group-addon', // children components selector
       sliders: {
         saturation: {
           maxLeft: 100,

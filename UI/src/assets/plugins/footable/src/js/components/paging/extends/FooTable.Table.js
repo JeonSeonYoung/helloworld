@@ -1,6 +1,6 @@
 (function(F){
 	/**
-	 * Navigates to the specified page number. Added by the {@link FooTable.Paging} component.
+	 * Navigates to the specified page number. Added by the {@link FooTable.Paging} components.
 	 * @instance
 	 * @param {number} num - The page number to go to.
 	 * @returns {jQuery.Promise}
@@ -13,7 +13,7 @@
 	};
 
 	/**
-	 * Navigates to the next page. Added by the {@link FooTable.Paging} component.
+	 * Navigates to the next page. Added by the {@link FooTable.Paging} components.
 	 * @instance
 	 * @returns {jQuery.Promise}
 	 * @fires FooTable.Paging#paging_changing
@@ -25,7 +25,7 @@
 	};
 
 	/**
-	 * Navigates to the previous page. Added by the {@link FooTable.Paging} component.
+	 * Navigates to the previous page. Added by the {@link FooTable.Paging} components.
 	 * @instance
 	 * @returns {jQuery.Promise}
 	 * @fires FooTable.Paging#paging_changing
@@ -37,7 +37,7 @@
 	};
 
 	/**
-	 * Navigates to the first page. Added by the {@link FooTable.Paging} component.
+	 * Navigates to the first page. Added by the {@link FooTable.Paging} components.
 	 * @instance
 	 * @returns {jQuery.Promise}
 	 * @fires FooTable.Paging#paging_changing
@@ -49,7 +49,7 @@
 	};
 
 	/**
-	 * Navigates to the last page. Added by the {@link FooTable.Paging} component.
+	 * Navigates to the last page. Added by the {@link FooTable.Paging} components.
 	 * @instance
 	 * @returns {jQuery.Promise}
 	 * @fires FooTable.Paging#paging_changing
@@ -61,7 +61,7 @@
 	};
 
 	/**
-	 * Shows the next X number of pages in the pagination control where X is the value set by the {@link FooTable.Defaults#paging} - limit.size option value. Added by the {@link FooTable.Paging} component.
+	 * Shows the next X number of pages in the pagination control where X is the value set by the {@link FooTable.Defaults#paging} - limit.size option value. Added by the {@link FooTable.Paging} components.
 	 * @instance
 	 * @see FooTable.Paging#nextPages
 	 */
@@ -70,7 +70,7 @@
 	};
 
 	/**
-	 * Shows the previous X number of pages in the pagination control where X is the value set by the {@link FooTable.Defaults#paging} - limit.size option value. Added by the {@link FooTable.Paging} component.
+	 * Shows the previous X number of pages in the pagination control where X is the value set by the {@link FooTable.Defaults#paging} - limit.size option value. Added by the {@link FooTable.Paging} components.
 	 * @instance
 	 * @see FooTable.Paging#prevPages
 	 */

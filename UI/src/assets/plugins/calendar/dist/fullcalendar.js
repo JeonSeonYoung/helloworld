@@ -3054,7 +3054,7 @@ DragListener.mixin({
 });
 ;;
 
-/* Tracks mouse movements over a component and raises events about which hit the mouse is over.
+/* Tracks mouse movements over a components and raises events about which hit the mouse is over.
 ------------------------------------------------------------------------------------------------------------------------
 options:
 - subjectEl
@@ -3235,8 +3235,8 @@ var HitDragListener = DragListener.extend({
 });
 
 
-// Returns `true` if the hits are identically equal. `false` otherwise. Must be from the same component.
-// Two null values will be considered equal, as two "out of the component" states are the same.
+// Returns `true` if the hits are identically equal. `false` otherwise. Must be from the same components.
+// Two null values will be considered equal, as two "out of the components" states are the same.
 function isHitsEqual(hit0, hit1) {
 
 	if (!hit0 && !hit1) {
@@ -5671,7 +5671,7 @@ function getDraggedElMeta(el) {
 ;;
 
 /*
-A set of rendering and date-related methods for a visual component comprised of one or more rows of day columns.
+A set of rendering and date-related methods for a visual components comprised of one or more rows of day columns.
 Prerequisite: the object being mixed into needs to be a *Grid*
 */
 var DayTableMixin = FC.DayTableMixin = {
@@ -6087,7 +6087,7 @@ var DayTableMixin = FC.DayTableMixin = {
 
 ;;
 
-/* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
+/* A components that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
 ----------------------------------------------------------------------------------------------------------------------*/
 
 var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
@@ -6103,9 +6103,9 @@ var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 	colCoordCache: null,
 
 
-	// Renders the rows and columns into the component's `this.el`, which should already be assigned.
+	// Renders the rows and columns into the components's `this.el`, which should already be assigned.
 	// isRigid determins whether the individual rows should ignore the contents and be a constant height.
-	// Relies on the view's colCnt and rowCnt. In the future, this component should probably be self-sufficient.
+	// Relies on the view's colCnt and rowCnt. In the future, this components should probably be self-sufficient.
 	renderDates: function(isRigid) {
 		var view = this.view;
 		var rowCnt = this.rowCnt;
@@ -6397,7 +6397,7 @@ var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 		// always render a highlight underneath
 		this.renderHighlight(this.eventToSpan(eventLocation));
 
-		// if a segment from the same calendar but another component is being dragged, render a helper event
+		// if a segment from the same calendar but another components is being dragged, render a helper event
 		if (seg && seg.component !== this) {
 			return this.renderEventLocationHelper(eventLocation, seg); // returns mock event elements
 		}
@@ -7249,7 +7249,7 @@ DayGrid.mixin({
 
 ;;
 
-/* A component that renders one or more columns of vertical time slots
+/* A components that renders one or more columns of vertical time slots
 ----------------------------------------------------------------------------------------------------------------------*/
 // We mixin DayTable, even though there is only a single row of days
 
@@ -7280,7 +7280,7 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 
 
 	// Renders the time grid into `this.el`, which should already be assigned.
-	// Relies on the view's colCnt. In the future, this component should probably be self-sufficient.
+	// Relies on the view's colCnt. In the future, this components should probably be self-sufficient.
 	renderDates: function() {
 		this.el.html(this.renderHtml());
 		this.colEls = this.el.find('.fc-day');
@@ -13324,7 +13324,7 @@ var BasicView = FC.BasicView = View.extend({
 
 
 	// Builds the HTML skeleton for the view.
-	// The day-grid component will render inside of a container defined by this HTML.
+	// The day-grid components will render inside of a container defined by this HTML.
 	renderSkeletonHtml: function() {
 		return '' +
 			'<table>' +
@@ -13428,7 +13428,7 @@ var BasicView = FC.BasicView = View.extend({
 	},
 
 
-	// Sets the height of just the DayGrid component in this view
+	// Sets the height of just the DayGrid components in this view
 	setGridHeight: function(height, isAuto) {
 		if (isAuto) {
 			undistributeHeight(this.dayGrid.rowEls); // let the rows be their natural height with no expanding
@@ -14044,13 +14044,13 @@ var AgendaView = FC.AgendaView = View.extend({
 
 
 	getHitSpan: function(hit) {
-		// TODO: hit.component is set as a hack to identify where the hit came from
+		// TODO: hit.components is set as a hack to identify where the hit came from
 		return hit.component.getHitSpan(hit);
 	},
 
 
 	getHitEl: function(hit) {
-		// TODO: hit.component is set as a hack to identify where the hit came from
+		// TODO: hit.components is set as a hack to identify where the hit came from
 		return hit.component.getHitEl(hit);
 	},
 

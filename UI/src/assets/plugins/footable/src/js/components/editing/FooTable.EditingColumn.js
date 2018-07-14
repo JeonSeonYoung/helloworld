@@ -6,7 +6,7 @@
 		 * @constructs
 		 * @extends FooTable.Column
 		 * @param {FooTable.Table} instance -  The parent {@link FooTable.Table} this column belongs to.
-		 * @param {FooTable.Editing} editing - The parent {@link FooTable.Editing} component this column is used with.
+		 * @param {FooTable.Editing} editing - The parent {@link FooTable.Editing} components this column is used with.
 		 * @param {object} definition - An object containing all the properties to set for the column.
 		 * @returns {FooTable.EditingColumn}
 		 */

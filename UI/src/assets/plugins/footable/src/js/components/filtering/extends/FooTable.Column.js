@@ -1,6 +1,6 @@
 (function($, F){
 	/**
-	 * Whether or not the column can be used during filtering. Added by the {@link FooTable.Filtering} component.
+	 * Whether or not the column can be used during filtering. Added by the {@link FooTable.Filtering} components.
 	 * @type {boolean}
 	 * @default true
 	 */

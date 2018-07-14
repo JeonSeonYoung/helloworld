@@ -10878,7 +10878,7 @@ var centroid$1 = function(polygon) {
   return k *= 3, [x / k, y / k];
 };
 
-// Returns the 2D cross product of AB and AC vectors, i.e., the z-component of
+// Returns the 2D cross product of AB and AC vectors, i.e., the z-components of
 // the 3D cross product in a quadrant I Cartesian coordinate system (+x is
 // right, +y is up). Returns a positive value if ABC is counter-clockwise,
 // negative if clockwise, and zero if the points are collinear.

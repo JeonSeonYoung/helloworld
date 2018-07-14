@@ -19,7 +19,7 @@
                 this.options = $.extend(this.defaults, options),
                     this.api = api;
 
-                //build element and add component to picker
+                //build element and add components to picker
                 this.$saturation = $(this.options.template.call(self, api.namespace)).appendTo(api.$dropdown);
                 this.$handle = this.$saturation.find('i');
 

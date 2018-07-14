@@ -1,10 +1,10 @@
 (function($, F){
 	F.Paging = F.Component.extend(/** @lends FooTable.Paging */{
 		/**
-		 * The paging component adds a pagination control to the table allowing users to navigate table rows via pages.
+		 * The paging components adds a pagination control to the table allowing users to navigate table rows via pages.
 		 * @constructs
 		 * @extends FooTable.Component
-		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the component.
+		 * @param {FooTable.Table} table - The parent {@link FooTable.Table} object for the components.
 		 * @returns {FooTable.Filtering}
 		 */
 		construct: function(table){
@@ -116,7 +116,7 @@
 
 		/* PROTECTED */
 		/**
-		 * Checks the supplied data and options for the paging component.
+		 * Checks the supplied data and options for the paging components.
 		 * @instance
 		 * @protected
 		 * @param {object} data - The jQuery data object from the parent table.
@@ -126,7 +126,7 @@
 			var self = this;
 			/**
 			 * The preinit.ft.paging event is raised before the UI is created and provides the tables jQuery data object for additional options parsing.
-			 * Calling preventDefault on this event will disable the component.
+			 * Calling preventDefault on this event will disable the components.
 			 * @event FooTable.Paging#"preinit.ft.paging"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -174,7 +174,7 @@
 			});
 		},
 		/**
-		 * Initializes the paging component for the plugin using the supplied table and options.
+		 * Initializes the paging components for the plugin using the supplied table and options.
 		 * @instance
 		 * @protected
 		 * @fires FooTable.Paging#"init.ft.paging"
@@ -182,7 +182,7 @@
 		init: function(){
 			/**
 			 * The init.ft.paging event is raised before its UI is generated.
-			 * Calling preventDefault on this event will disable the component.
+			 * Calling preventDefault on this event will disable the components.
 			 * @event FooTable.Paging#"init.ft.paging"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -195,7 +195,7 @@
 			});
 		},
 		/**
-		 * Destroys the paging component removing any UI generated from the table.
+		 * Destroys the paging components removing any UI generated from the table.
 		 * @instance
 		 * @protected
 		 * @fires FooTable.Paging#"destroy.ft.paging"
@@ -203,7 +203,7 @@
 		destroy: function () {
 			/**
 			 * The destroy.ft.paging event is raised before its UI is removed.
-			 * Calling preventDefault on this event will prevent the component from being destroyed.
+			 * Calling preventDefault on this event will prevent the components from being destroyed.
 			 * @event FooTable.Paging#"destroy.ft.paging"
 			 * @param {jQuery.Event} e - The jQuery.Event object for the event.
 			 * @param {FooTable.Table} ft - The instance of the plugin raising the event.
@@ -259,7 +259,7 @@
 			}
 		},
 		/**
-		 * Creates the paging UI from the current options setting the various jQuery properties of this component.
+		 * Creates the paging UI from the current options setting the various jQuery properties of this components.
 		 * @instance
 		 * @protected
 		 */

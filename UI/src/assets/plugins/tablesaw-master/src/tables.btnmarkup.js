@@ -1,6 +1,6 @@
 /*
 * tablesaw: A set of plugins for responsive tables
-* Button component
+* Button components
 * Copyright (c) 2013 Filament Group, Inc.
 * MIT License
 */

@@ -5030,7 +5030,7 @@ Editableform based on Twitter Bootstrap 2
 					}]
 				];
 			}
-			else if (this.component && this.hasInput){ // component: input + button
+			else if (this.component && this.hasInput){ // components: input + button
 				this._events = [
 					// For components that are not readonly, allow keyboard nav
 					[this.element.find('input'), {
@@ -6093,7 +6093,7 @@ Editableform based on Twitter Bootstrap 2
 			var $this = $(this);
 			if ($this.data('datepicker')) return;
 			e.preventDefault();
-			// component click requires us to explicitly show it
+			// components click requires us to explicitly show it
 			datepicker.call($this, 'show');
 		}
 	);

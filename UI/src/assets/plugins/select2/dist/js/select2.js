@@ -217,7 +217,7 @@ var requirejs, require, define;
         return defined[name];
     }
 
-    //Turns a plugin!resource to [plugin, resource]
+    //Turns a plugin!resources to [plugin, resources]
     //with the plugin being undefined if the name
     //did not have a plugin prefix.
     function splitPrefix(name) {

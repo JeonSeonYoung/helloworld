@@ -1,8 +1,8 @@
 (function(F){
 
 	/**
-	 * The value used by the filtering component during filter operations. Must be a string and can be set using the data-filter-value attribute on the cell itself.
-	 * If this is not supplied it is set to the result of the toString method called on the value for the cell. Added by the {@link FooTable.Filtering} component.
+	 * The value used by the filtering components during filter operations. Must be a string and can be set using the data-filter-value attribute on the cell itself.
+	 * If this is not supplied it is set to the result of the toString method called on the value for the cell. Added by the {@link FooTable.Filtering} components.
 	 * @type {string}
 	 * @default null
 	 */

@@ -8,7 +8,7 @@
       factory(jQuery);
   }
 } (function (jQuery) {
-    var module = { exports: { } }; // Fake component
+    var module = { exports: { } }; // Fake components
 
 
 /*

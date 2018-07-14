@@ -5,7 +5,7 @@
 		 * The row class containing all the properties for a row and its' cells.
 		 * @constructs
 		 * @extends FooTable.Class
-		 * @param {FooTable.Table} table -  The parent {@link FooTable.Table} this component belongs to.
+		 * @param {FooTable.Table} table -  The parent {@link FooTable.Table} this components belongs to.
 		 * @param {Array.<FooTable.Column>} columns - The array of {@link FooTable.Column} for this row.
 		 * @param {(*|HTMLElement|jQuery)} dataOrElement - Either the data for the row (create) or the element (parse) for the row.
 		 * @returns {FooTable.Row}

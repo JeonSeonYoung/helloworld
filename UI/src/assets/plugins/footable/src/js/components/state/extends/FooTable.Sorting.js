@@ -3,7 +3,7 @@
 	if (!F.Sorting) return;
 
 	/**
-	 * Allows the sorting component to retrieve its' stored state.
+	 * Allows the sorting components to retrieve its' stored state.
 	 */
 	F.Sorting.prototype.readState = function(){
 		if (this.ft.state.sorting) {
@@ -19,7 +19,7 @@
 	};
 
 	/**
-	 * Allows the sorting component to write its' current state to the store.
+	 * Allows the sorting components to write its' current state to the store.
 	 */
 	F.Sorting.prototype.writeState = function(){
 		if (this.ft.state.sorting && this.column instanceof F.Column){
@@ -31,7 +31,7 @@
 	};
 
 	/**
-	 * Allows the sorting component to clear any stored state.
+	 * Allows the sorting components to clear any stored state.
 	 */
 	F.Sorting.prototype.clearState = function(){
 		if (this.ft.state.sorting) {
