@@ -3,10 +3,10 @@ import './App.css';
 import './resource/css/colors/blue.css';
 import './resource/css/sj-style.css';
 import './resource/css/style.css';
-import TopNav from '../../resource/TopNav';
-import Footer from '../../resource/Footer';
+import TopNav from './TopNav';
+import Footer from './Footer';
 
-class Login extends Component {
+class Common extends Component {
     render() {
         return (
             <div>
@@ -19,4 +19,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Common;
