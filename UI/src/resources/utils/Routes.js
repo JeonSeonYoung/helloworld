@@ -3,7 +3,8 @@ import { Route } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import Main from '../../pages/Main';
-import SearchFilter from "../../layouts/SearchFilter";
+import SearchFilter from "../../pages/SearchFilter";
+import Chat from "../../pages/Chat";
 
 class RouteGroup extends Component {
     render() {
@@ -13,6 +14,7 @@ class RouteGroup extends Component {
                 <Route path="/main" component={Main}/>
                 <Route path="/about" component={Footer}/>
                 <Route path="/searchFilter" component={SearchFilter}/>
+                <Route path="/chat" component={Chat}/>
             </div>
         );
     }

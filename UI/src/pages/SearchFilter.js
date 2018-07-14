@@ -3,8 +3,8 @@ import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import DropDownToggle from "../layouts/DropDownToggle";
 import ModalButton from "../layouts/ModalButton";
-import CirlcleIcon from "./CircleIcon";
-import Map from "./Map";
+import CirlcleIcon from "../layouts/CircleIcon";
+import Map from "../layouts/Map";
 
 class SearchFilter extends Component {
     render() {
