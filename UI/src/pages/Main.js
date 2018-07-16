@@ -10,8 +10,7 @@ import Search from "../layouts/Search";
 class Main extends Component {
     render() {
         return (
-            <div>
-                <Header/>
+            <div className="m-t-30">
                 <Search/>
                 <Button />
                 <DropDownToggle/>
@@ -25,7 +24,6 @@ class Main extends Component {
                     </div>
                 </div>
                 <RightFloatButton/>
-                <Footer/>
             </div>
         );
     }

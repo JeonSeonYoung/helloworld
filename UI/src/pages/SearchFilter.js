@@ -9,8 +9,7 @@ import Map from "../layouts/Map";
 class SearchFilter extends Component {
     render() {
         return (
-            <div>
-                <Header/>
+            <div className="m-t-30">
                 <h5>위치설정</h5>
                 <br/>
                 {/*1km, 5km, 10km, 50km,*/}
@@ -27,7 +26,6 @@ class SearchFilter extends Component {
                 <h5>추천 관심분야</h5>
                 <CirlcleIcon/>
                 <Map/>
-                <Footer/>
             </div>
         );
     }

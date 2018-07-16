@@ -12,12 +12,18 @@ class RouteGroup extends Component {
     render() {
         return (
             <div>
-                <Route exact path="/" component={Header}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/main" component={Main}/>
-                <Route path="/about" component={Footer}/>
-                <Route path="/searchFilter" component={SearchFilter}/>
-                <Route path="/Map" component={Mapp}/>
+                <div id="main-wrapper">
+                    <Header/>
+                    <div className="page-wrapper">
+                        <div className="container-fluid">
+                            <Route exact path="/" component={Main}/>
+                            <Route path="/login" component={Login}/>
+                            <Route path="/searchFilter" component={SearchFilter}/>
+                            <Route path="/Map" component={Mapp}/>
+                            <Footer/>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
