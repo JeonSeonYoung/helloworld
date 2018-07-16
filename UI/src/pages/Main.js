@@ -8,16 +8,17 @@ import RightFloatButton from "../layouts/RightFloatButton";
 import Search from "../layouts/Search";
 
 class Main extends Component {
+
     render() {
         return (
             <div className="m-t-30">
                 <Search/>
                 <Button />
                 <DropDownToggle/>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="message-box contact-box">
-                            <div class="message-widget contact-widget">
+                <div className="card">
+                    <div className="card-body">
+                        <div className="message-box contact-box">
+                            <div className="message-widget contact-widget">
                                 <Message/>
                             </div>
                         </div>
