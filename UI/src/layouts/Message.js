@@ -17,9 +17,9 @@ class Message extends Component {
                             <span className="profile-status offline pull-right"></span>
                         </div>
                         <div className="mail-contnet">
-                            <h5>강아지 데리고 같이 놀아요!</h5> <span className="mail-desc">David chicken</span>
-                            <span className="badge badge-info">반려동물</span>
-                            <span className="badge badge-warning">제한없음</span>
+                            <h5>{this.props.chatName}</h5> <span className="mail-desc">{this.props.nickName}</span>
+                            <span className="badge badge-info">{this.props.interest}</span>
+                            <span className="badge badge-warning">{this.props.cost}</span>
                         </div>
                     </div>
                     <div className="col-md-7 col-4 align-self-center d-flex m-t-10 justify-content-end">
