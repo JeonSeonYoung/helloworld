@@ -43,3 +43,6 @@
     color:#99abb4;
     font-size:13px;
 }
+.nodisplay {
+    display: none;
+}

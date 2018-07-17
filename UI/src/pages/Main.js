@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from "../layouts/Button";
+import LinkButton from "../layouts/LinkButton";
 import TagButton from "../layouts/TagButton";
 import DropDownToggle from "../layouts/DropDownToggle";
 import Message from "../layouts/Message";
@@ -16,14 +16,14 @@ class Main extends Component {
 
     render() {
         return (
-            <div className="m-t-30">
+            <div className="p-t-30">
                 <Search/>
                 <div className="m-t-10">
                     <DropDownToggle dropdownData={"최신순, 인기순"} selectedIndex={0}/>
                     <TagButton value={"동물"} />
                     <TagButton value={"IT"} />
                     <div className="float-right">
-                        <Button value={"설정"} onClick={() => this.handleClick} />
+                        <LinkButton value={"설정"} dataTarget={"myModal"} />
                     </div>
                 </div>
 

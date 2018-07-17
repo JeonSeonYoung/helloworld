@@ -5,9 +5,9 @@ class Search extends Component {
         return (
             <div className="input-group">
                 <input type="text" className="form-control" placeholder="Search for..." />
-                    <span className="input-group-btn">
-                          <button className="btn btn-info" type="button">검색</button>
-                        </span>
+                <div className="input-group-append">
+                    <button className="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                </div>
             </div>
         );
     }
