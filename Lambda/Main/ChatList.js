@@ -100,7 +100,7 @@ exports.handler = (event, context, callback) => {
 				if(inData.Items[0].interestID.S === lData.Items[0].interestID.S){
 					lResultList.push({
 						"chatName":lData.Items[0].chatName.S,
-						"masterNickName":lData.Items[0].masterUserID.S,
+						"masterNickName":lData.Items[0].masterNickName.S,
 						"maxCost":lData.Items[0].maxCost.S,
 						"interestID":lData.Items[0].interestID.S,
 						"interestName":inData.Items[0].name.S
