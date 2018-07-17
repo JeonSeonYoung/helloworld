@@ -32,7 +32,7 @@ class Main extends Component {
                         <Message/>
                     </div>
                 </div>
-                <RightFloatButton/>
+                <RightFloatButton iconType={"newChat"}/>
             </div>
         );
     }
