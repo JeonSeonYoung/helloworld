@@ -7,6 +7,7 @@ import RightFloatButton from "../layouts/RightFloatButton";
 import Search from "../layouts/Search";
 import { Redirect } from 'react-router-dom';
 import {BrowserHistory} from 'react-router';
+import SideNav from '../layouts/SideNav';
 
 class Main extends Component {
 
@@ -33,6 +34,7 @@ class Main extends Component {
                     </div>
                 </div>
                 <RightFloatButton iconType={"newChat"}/>
+
             </div>
         );
     }
