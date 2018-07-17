@@ -1,23 +1,23 @@
 {
-  "name": "chat",
+  "name": "chatroom",
   "version": "1.0.0",
-  "description": "채팅 서버 ",
-  "main": "chat_main.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node server.js"
   },
-  "author": "10박정웅",
+  "author": "PYJ",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.4.7",
-    "body-parser": "^1.15.2",
-    "cors": "^2.8.1",
-    "express": "^4.14.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "express-logger": "0.0.3",
-    "moment-timezone": "^0.5.11",
-    "mysql": "^2.12.0",
-    "request": "^2.79.0",
-    "socket.io": "^1.7.2"
+    "moment-timezone": "^0.5.21",
+    "mysql": "^2.15.0",
+    "request": "^2.87.0",
+    "socket.io": "^2.1.1"
   }
 }

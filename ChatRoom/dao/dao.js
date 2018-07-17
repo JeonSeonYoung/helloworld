@@ -1,7 +1,7 @@
 var Promise = require("bluebird");
 var mysql = require('mysql');
 var credential = require('../private/credentials').mysql.production;
- 
+
 var db = mysql.createPool({
     host                : credential.host,
     port                : credential.port,
