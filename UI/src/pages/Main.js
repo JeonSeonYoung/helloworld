@@ -17,13 +17,13 @@ class Main extends Component {
     render() {
         return (
             <div className="p-t-30">
-                <Search/>
+                <Search />
                 <div className="m-t-10">
                     <DropDownToggle dropdownData={"최신순, 인기순"} selectedIndex={0}/>
                     <TagButton value={"동물"} />
                     <TagButton value={"IT"} />
                     <div className="float-right">
-                        <LinkButton value={"설정"} dataTarget={"myModal"} />
+                        <LinkButton value={"설정"} dataTarget={"setting"} designType={"button"} />
                     </div>
                 </div>
 

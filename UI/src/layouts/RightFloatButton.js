@@ -7,7 +7,6 @@ class RightFloatButton extends Component {
     }
 
     getIconType() {
-        console.log(this.props.iconType);
        switch(this.props.iconType) {
            case "search":
                 return "fa fa-search"

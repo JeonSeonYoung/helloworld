@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 class SideNav extends Component {
+
     render() {
         return (
             <header className="topbar">
@@ -24,17 +24,14 @@ class SideNav extends Component {
                                 </a>
                                 <div className="dropdown-menu scale-up-left">
                                     <ul>
-                                        <li><a href="#"><h4>채팅방 찾기</h4></a></li>
+                                        <li><a href="/searchChat"><h4>채팅방 찾기</h4></a></li>
                                         <li><a href="#"><h4>내 채팅방 리스트(3)</h4></a></li>
                                         <li><a href="#"><h4>설정</h4></a></li>
                                     </ul>
                                 </div>
+
                             </li>
                         </ul>
-                        {/*<ul className="navbar-nav my-lg-0">
-                            새메세지
-                        </ul>*/}
-
                     </div>
                 </nav>
             </header>
@@ -43,18 +40,3 @@ class SideNav extends Component {
 }
 
 export default SideNav;
-
-// {/*<div className="App">*/}
-// {/*<nav className="navbar top-navbar navbar-expand-md navbar-light">*/}
-// {/*<div className="navbar-header">*/}
-// {/*<a className="navbar-brand" href="index.html">*/}
-// {/*<b>*/}
-// {/*<i className="wi wi-sunset sj-white"></i>*/}
-// {/*</b>*/}
-// {/*<span className="sj-white">*/}
-// {/*HelloWorld*/}
-// {/*</span>*/}
-// {/*</a>*/}
-// {/*</div>*/}
-// {/*</nav>*/}
-// {/*</div>*/}
