@@ -70,7 +70,7 @@ class Main extends Component {
                         }
                     </div>
                 </div>
-                <RightFloatButton/>
+                <RightFloatButton iconType={"newChat"}/>
             </div>
         );
     }
