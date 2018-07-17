@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
-import Button from "../layouts/Button";
+import TagButton from "../layouts/TagButton";
 import DropDownToggle from "../layouts/DropDownToggle";
 import Message from "../layouts/Message";
 import RightFloatButton from "../layouts/RightFloatButton";
@@ -13,8 +13,8 @@ class Main extends Component {
         return (
             <div className="m-t-30">
                 <Search/>
-                <Button />
-                <DropDownToggle/>
+                <DropDownToggle dropdownData={"최신순, 인기순"} selectedIndex={0}/>
+                <TagButton />
                 <div className="card">
                     <div className="card-body">
                         <div className="message-box contact-box">
