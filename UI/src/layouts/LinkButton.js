@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import Setting from './Setting';
+import Modal from '../pages/Modal';
 
 class LinkButton extends Component {
+    getClass() {
+        switch(this.props.designType){
+            case "button":
+                return "waves-effect waves-light btn-info ml-1"
+            default:
+                return ""
+        }
+    }
+
     render() {
         return (
             <div>
-                <button className="btn waves-effect waves-light btn-info ml-1" data-toggle="modal"
+                <button className={this.getClass() + " btn"} data-toggle="modal"
                         data-target={"#" + this.props.dataTarget}>{this.props.value}</button>
-
-                <div className="modal fade nodisplay" id="myModal" tabIndex="-1" role="dialog"
-                     aria-hidden="true">
-                    <Setting />
-                </div>
+                <Modal id={this.props.dataTarget}/>
             </div>
         );
     }
 }
 
 export default LinkButton;
-
-

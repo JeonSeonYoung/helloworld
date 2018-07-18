@@ -3,10 +3,6 @@
     color: #fff;
 }
 
-.page-wrapper {
-    margin: 0 !important;
-}
-
 .topbar .navbar-header {
     background: none;
 }
@@ -45,4 +41,7 @@
 }
 .nodisplay {
     display: none;
+}
+.user-profile {
+    background: url(../../assets/images/background/user-info.jpg) no-repeat;
 }

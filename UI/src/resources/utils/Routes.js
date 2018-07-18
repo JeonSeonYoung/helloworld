@@ -6,6 +6,9 @@ import Main from '../../pages/Main';
 import SearchFilter from "../../pages/SearchFilter";
 import Login from "../../pages/Login";
 import Mapp from '../../pages/Mapp';
+import SideNav from "../../layouts/SideNav";
+import Modal from "../../pages/Modal";
+
 //import ShowMapp from '../../pages/ShowMapp';
 
 class RouteGroup extends Component {
@@ -14,6 +17,8 @@ class RouteGroup extends Component {
             <div>
                 <div id="main-wrapper">
                     <Header/>
+                    <SideNav/>
+                    <Modal id="searchChat" />
                     <div className="page-wrapper">
                         <div className="container-fluid">
                             <Route exact path="/" component={Main}/>

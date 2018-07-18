@@ -1,60 +1,54 @@
 import React, { Component } from 'react';
+import Modal from '../pages/Modal';
+import SearchChat from "./SearchChat";
 
 class SideNav extends Component {
+    state = {
+        id: this.props.id
+    }
+
+    openModal(text){
+
+        // this.setState({
+        //     id: text
+        // })
+    }
+
     render() {
         return (
-            <header className="topbar">
-                <nav className="navbar top-navbar navbar-expand-md navbar-light">
-                    <div className="navbar-header">
-                        <a className="navbar-brand" href="index.html">
-                            <b>
-                                <i className="wi wi-sunset sj-white"></i>
-                            </b>
-                            <span className="sj-white">
-                            HelloWorld
-                        </span>
-                        </a>
+            <aside className="left-sidebar">
+                <div className="scroll-sidebar">
+                    <div className="user-profile">
+                        <div className="profile-img"><img src="../assets/images/users/profile.png" alt="user"/></div>
+                        <div className="profile-text">
+                            <a href="#" role="button">Markarn Doe</a>
+                        </div>
                     </div>
-                    <div className="navbar-collapse">
-                        <ul className="navbar-nav mr-auto mt-md-0">
-                            <li className="nav-item dropdown mega-dropdown">
-                                <a className="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i className="ti-menu"></i>
-                                </a>
-                                <div className="dropdown-menu scale-up-left">
-                                    <ul>
-                                        <li><a href="#"><h4>채팅방 찾기</h4></a></li>
-                                        <li><a href="#"><h4>내 채팅방 리스트(3)</h4></a></li>
-                                        <li><a href="#"><h4>설정</h4></a></li>
-                                    </ul>
-                                </div>
+                    <nav className="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <li className="nav-small-cap">PERSONAL</li>
+                            <li><a className="waves-effect waves-dark" href="#"
+                                   data-toggle="modal" data-target="#searchChat" aria-expanded="false"><i
+                                className="ti-search"></i><span className="hide-menu">채팅방 찾기</span></a>
+                            </li>
+                            <li className="nav-devider"></li>
+                            <li><a className="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                className="mdi mdi-book-multiple"></i><span className="hide-menu">채팅방 리스트</span></a>
+                            </li>
+                            <li className="nav-devider"></li>
+                            <li><a className="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                className="ti-settings"></i><span className="hide-menu">설정</span></a>
                             </li>
                         </ul>
-                        {/*<ul className="navbar-nav my-lg-0">
-                            새메세지
-                        </ul>*/}
 
-                    </div>
-                </nav>
-            </header>
+                    </nav>
+                </div>
+            </aside>
+
         );
     }
 }
 
 export default SideNav;
-
-// {/*<div className="App">*/}
-// {/*<nav className="navbar top-navbar navbar-expand-md navbar-light">*/}
-// {/*<div className="navbar-header">*/}
-// {/*<a className="navbar-brand" href="index.html">*/}
-// {/*<b>*/}
-// {/*<i className="wi wi-sunset sj-white"></i>*/}
-// {/*</b>*/}
-// {/*<span className="sj-white">*/}
-// {/*HelloWorld*/}
-// {/*</span>*/}
-// {/*</a>*/}
-// {/*</div>*/}
-// {/*</nav>*/}
-// {/*</div>*/}
+// onClick={() => { this.openModal("searchChat") }}
+// <Modal id={this.state.id} />
