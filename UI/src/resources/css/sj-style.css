@@ -45,3 +45,8 @@
 .user-profile {
     background: url(../../assets/images/background/user-info.jpg) no-repeat;
 }
+.sj-icon{
+    width: 70px;
+    height: 70px;
+    padding: 0 !important;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Modal from '../pages/Modal';
-import SearchChat from "./SearchChat";
+import SearchChat from "../pages/SearchChat";
 
 class SideNav extends Component {
     state = {

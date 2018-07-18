@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Setting from '../layouts/Setting';
-import SearchChat from '../layouts/SearchChat';
+import SearchChat from './SearchChat';
 
 class Modal extends Component {
     getModal() {
