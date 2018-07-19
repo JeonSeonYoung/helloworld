@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SideNav extends Component {
     state = {
@@ -30,16 +31,23 @@ class SideNav extends Component {
                                 className="ti-search"></i><span className="hide-menu">채팅방 찾기</span></a>
                             </li>
                             <li className="nav-devider"></li>
-                            <li><a className="waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                className="mdi mdi-book-multiple"></i><span className="hide-menu">채팅방 리스트</span></a>
+                            <li>
+                                <Link to="/chatlist" className="waves-effect waves-dark"  aria-expanded="false">
+                                    <i className="mdi mdi-book-multiple"></i>
+                                    <span className="hide-menu">채팅방 리스트</span>
+                                </Link>
                             </li>
                             <li className="nav-devider"></li>
-                            <li><a className="waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                className="ti-settings"></i><span className="hide-menu">설정</span></a>
+                            <li>
+                                <Link to="/setting" className="waves-effect waves-dark"  aria-expanded="false">
+                                    <i className="ti-settings"></i>
+                                    <span className="hide-menu">설정</span>
+                                </Link>
                             </li>
                         </ul>
 
                     </nav>
+                    {this.props.children}
                 </div>
             </aside>
 

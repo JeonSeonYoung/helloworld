@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import ChatLeft from "../layouts/ChatLeft";
 import TypeIcon from '../layouts/TypeIcon';
+import { withRouter } from 'react-router-dom'
 
 class Chat extends Component {
+
+    setRedirect() {
+        // this.props.history.push('/main');
+    }
+
     render() {
         return (
             <div className="row">
@@ -66,7 +72,8 @@ class Chat extends Component {
                                             <div>
                                                 <input type="text" className="form-control" />
                                             </div>
-                                            <button type="button" className="btn btn-success btn-block">저장</button>
+                                            <button type="button" className="btn btn-success btn-block"
+                                                    onClick={this.setRedirect} >저장</button>
                                         </ul>
                                         <div className="slimScrollBar"></div>
                                         <div className="slimScrollRail"></div>

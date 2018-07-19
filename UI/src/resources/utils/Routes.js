@@ -7,6 +7,7 @@ import SearchFilter from "../../pages/SearchFilter";
 import Login from "../../pages/Login";
 import Mapp from '../../pages/Mapp';
 import SideNav from "../../layouts/SideNav";
+import Setting from "../../layouts/Setting";
 import Modal from "../../pages/Modal";
 import Chat from "../../pages/Chat";
 import ChatList from "../../pages/ChatList";
@@ -33,6 +34,7 @@ class RouteGroup extends Component {
                             <Route path="/Map" component={Mapp}/>
                             <Route path="/chat" component={Chat}/>
                             <Route path="/chatlist" component={ChatList}/>
+                            <Route path="/setting" component={Setting}/>
                             <Footer/>
                         </div>
                     </div>
