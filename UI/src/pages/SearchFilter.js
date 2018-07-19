@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Header from "../layouts/Header";
-import Footer from "../layouts/Footer";
 import DropDownToggle from "../layouts/DropDownToggle";
 import ModalButton from "../layouts/ModalButton";
 import CirlcleIcon from "../layouts/CircleIcon";

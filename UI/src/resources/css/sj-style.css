@@ -6,15 +6,11 @@
 .topbar .navbar-header {
     background: none;
 }
-.footer {
-    left: 0 !important;
+
+/*margin-left 가 갑자기 안먹음*/
+.mini-sidebar .page-wrapper {
+    padding-left: 60px;
 }
-/*로고 가운데 정렬*/
-/*.logo-center .top-navbar .navbar-header {*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*margin: 0 auto; }*/
 
 /** chat **/
 .chat-list{

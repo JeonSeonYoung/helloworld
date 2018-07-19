@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Setting from './Setting';
 import Modal from '../pages/Modal';
 
 class LinkButton extends Component {
