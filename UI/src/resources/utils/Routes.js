@@ -10,6 +10,8 @@ import SideNav from "../../layouts/SideNav";
 import Modal from "../../pages/Modal";
 import Chat from "../../pages/Chat";
 import ChatList from "../../pages/ChatList";
+import Agree from "../../pages/Agree";
+import Register from "../../pages/Register";
 
 //import ShowMapp from '../../pages/ShowMapp';
 
@@ -25,6 +27,8 @@ class RouteGroup extends Component {
                         <div className="container-fluid">
                             <Route exact path="/" component={Main}/>
                             <Route path="/login" component={Login}/>
+                            <Route path="/agree" component={Agree}/>
+                            <Route path="/register" component={Register}/>
                             <Route path="/searchFilter" component={SearchFilter}/>
                             <Route path="/Map" component={Mapp}/>
                             <Route path="/chat" component={Chat}/>

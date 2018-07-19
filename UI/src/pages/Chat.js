@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 // import Message from "../layouts/Message";
 // import RightFloatButton from "../layouts/RightFloatButton";
 // import Search from "../layouts/Search";
-import ChatRow from "../layouts/ChatRow";
+import ChatLeft from "../layouts/ChatLeft";
+import ChatRight from "../layouts/ChatRight";
 
 class Chat extends Component {
     render() {
@@ -22,8 +23,18 @@ class Chat extends Component {
                                 <div className="chat-rbox">
                                     <div className="slimScrollDiv">
                                         <ul className="chat-list p-20">
-
-                                            <ChatRow/>
+                                            <ChatLeft name="Bianca Doe"
+                                                       message="Chat messages~"
+                                                       time="10:55 am" />
+                                            <ChatRight name="Bianca Doe"
+                                                       message="Chat messages~"
+                                                       time="10:55 am" />
+                                            <ChatLeft name="Bianca Doe"
+                                                      message="Chat messages~"
+                                                      time="10:55 am" />
+                                            <ChatRight name="Bianca Doe"
+                                                       message="It’s Great opportunity to work."
+                                                       time="10:55 am" />
                                         </ul>
                                         <div className="slimScrollBar"></div>
                                         <div className="slimScrollRail"></div>
