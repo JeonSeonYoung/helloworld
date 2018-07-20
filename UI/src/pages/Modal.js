@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Setting from '../layouts/Setting';
-import SearchChat from './SearchChat';
+import SearchFilter from '../layouts/SearchFilter';
 
 class Modal extends Component {
     getModal() {
-        console.log(this.props);
         switch(this.props.id) {
             case "setting":
                 return <Setting />
-            case "searchChat":
-                return <SearchChat />
+            case "searchFilter":
+                return <SearchFilter />
             default:
                 return
         }

@@ -28,7 +28,7 @@ class SideNav extends Component {
                             <li className="nav-small-cap">PERSONAL</li>
                             <li><a className="waves-effect waves-dark" href="#"
                                    data-toggle="modal" data-target="#searchChat" aria-expanded="false"><i
-                                className="ti-search"></i><span className="hide-menu">채팅방 찾기</span></a>
+                                className="ti-search"></i><span className="hide-menu">채팅방 검색</span></a>
                             </li>
                             <li className="nav-devider"></li>
                             <li>

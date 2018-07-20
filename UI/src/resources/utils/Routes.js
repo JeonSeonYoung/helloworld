@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import Main from '../../pages/Main';
-import SearchFilter from "../../pages/SearchFilter";
+import SearchChat from "../../layouts/SearchFilter";
 import Login from "../../pages/Login";
 import Mapp from '../../pages/Mapp';
 import SideNav from "../../layouts/SideNav";
@@ -30,7 +30,7 @@ class RouteGroup extends Component {
                             <Route path="/login" component={Login}/>
                             <Route path="/agree" component={Agree}/>
                             <Route path="/register" component={Register}/>
-                            <Route path="/searchFilter" component={SearchFilter}/>
+                            <Route path="/searchFilter" component={SearchChat}/>
                             <Route path="/Map" component={Mapp}/>
                             <Route path="/chat" component={Chat}/>
                             <Route path="/chatlist" component={ChatList}/>

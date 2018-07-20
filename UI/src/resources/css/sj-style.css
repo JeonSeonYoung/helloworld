@@ -1,15 +1,23 @@
 /*공통 스타일*/
+
+/*로고 가운데 정렬*/
+/*.logo-center .top-navbar .navbar-header {*/
+/*position: absolute;*/
+/*left: 0;*/
+/*right: 0;*/
+/*margin: 0 auto; }*/
+
+.soo-card {
+    background: #fff;
+    border: 1px solid #dedede;
+}
+
 .sj-white {
     color: #fff;
 }
 
 .topbar .navbar-header {
     background: none;
-}
-
-/*margin-left 가 갑자기 안먹음*/
-.mini-sidebar .page-wrapper {
-    padding-left: 60px;
 }
 
 /** chat **/
