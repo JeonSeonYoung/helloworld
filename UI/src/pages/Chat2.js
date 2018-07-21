@@ -7,60 +7,50 @@ class Chat2 extends Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row pt-4">
                 <div className="col-12">
+                    <div className="card m-b-0">
                     <div className="chat-main-box">
+                        {/*사용자 목록*/}
 
-                        <div className="chat-left-aside">
-                            <div className="open-panel"><i className="ti-angle-right"></i></div>
-                            <div className="chat-left-inner" style="overflow: visible; height: 193px;">
-                                <div className="form-material">
-                                    <input className="form-control p-20" type="text" placeholder="Search Contact">
-                                </div>
-                                <div className="slimScrollDiv"
-                                     style="position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;">
-                                    <ul className="chatonline style-none "
-                                        style="overflow: hidden; width: auto; height: 100%;">
-                                        <ChatUser name="Arijit Sinh" />
-                                        <ChatUser name="Arijit Sinh" />
-                                        <ChatUser name="Arijit Sinh" />
-                                        <ChatUser name="Arijit Sinh" />
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span> <small
-                                                    className="text-muted">Offline</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>Govinda Star <small className="text-success">online</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>John Abraham<small className="text-success">online</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>Hritik Roshan<small className="text-success">online</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>Pwandeep rajan <small
-                                                    className="text-success">online</small></span></a>
-                                        </li>
-                                        <li className="p-20"></li>
-                                    </ul>
-                                    <div className="slimScrollBar"
-                                         style="background-color: rgb(220, 220, 220); width: 5px; position: absolute; top: 133px; opacity: 0.4; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 358.7514880952381px; background-position: initial initial; background-repeat: initial initial;"></div>
-                                    <div className="slimScrollRail"
-                                         style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div>
-                                </div>
-                            </div>
-                        </div>
+                        {/*<div className="chat-left-aside">*/}
+                            {/*<div className="open-panel"><i className="ti-angle-right"></i></div>*/}
+                            {/*<div className="chat-left-inner">*/}
+                                {/*<div className="form-material">*/}
+                                    {/*<input className="form-control p-20" type="text" placeholder="Search Contact" />*/}
+                                {/*</div>*/}
+                                {/*<div className="slimScrollDiv">*/}
+                                    {/*<div className="well well-sm pre-scrollable">*/}
+                                        {/*<samp id="containerLog" className="">*/}
+                                            {/*<ul className="chatonline style-none">*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                                {/*<ChatUser name="Arijit Sinh" />*/}
+                                            {/*</ul>*/}
+                                            {/*<div className="slimScrollBar"></div>*/}
+                                            {/*<div className="slimScrollRail"></div>*/}
+                                        {/*</samp>*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
 
                         <div className="chat-right-aside">
                             <div className="chat-main-header">
@@ -102,6 +92,7 @@ class Chat2 extends Component {
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
 
