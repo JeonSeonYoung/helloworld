@@ -7,6 +7,8 @@ import React, { Component } from 'react';
 import ChatLeft from "../layouts/ChatLeft";
 import ChatRight from "../layouts/ChatRight";
 
+
+
 class Chat extends Component {
     render() {
         return (
