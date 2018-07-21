@@ -9,8 +9,6 @@ class ChatRight extends Component {
                     <div className="box bg-light-success">{this.props.message}</div>
                     <div className="sj-chat-time">{this.props.time}</div>
                 </div>
-                <div className="chat-img"><img src="../assets/images/users/2.jpg" alt="user" />
-                </div>
             </li>
         );
     }
