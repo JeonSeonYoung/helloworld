@@ -4,6 +4,7 @@ import ModalButton from "./ModalButton";
 import comm from '../resources/utils/CommonVariables';
 
 class Setting extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -39,10 +40,7 @@ class Setting extends Component {
         var interests = this.state.preference.map( (interest) => {
             return comm.getInterestId(interest);
         })
-
-
         // interestID 관심분야 id
-
     }
 
     render() {
@@ -50,11 +48,11 @@ class Setting extends Component {
             <div className="p-t-30">
                 <h4 className="modal-title">설정</h4>
                 <div className="form-group">
-                    <label>닉네임</label>
+                    <label>NickName</label>
                     <input type="text" className="form-control" placeholder="Enter Nick Name" />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="example-location">위치설정</label>
+                    <label htmlFor="example-location">Location Setting</label>
                     <div className="" >
                         <div className="dropdown btn-group" role="group">
                             <button className="btn btn-secondary dropdown-toggle" type="button"
@@ -68,12 +66,14 @@ class Setting extends Component {
                                 <a className="dropdown-item" onClick={() => {this.changeDropdownText(10)}} href="#">10km</a>
                                 <a className="dropdown-item" onClick={() => {this.changeDropdownText(-1)}} href="#">제한없음</a>
                             </div>
+                            {/*<input type="text" id="example-location" name="example-location"*/}
+                                   {/*className="form-control" placeholder="10km"/>*/}
                         </div>
                         <ModalButton value="내 위치 다시설정" />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label>관심분야</label>
+                    <label>Interests</label>
                     <div className="message-box contact-box soo-card m-t-10">
                         <div className="message-widget contact-widget">
                             <div id="example-like">

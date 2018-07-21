@@ -52,6 +52,17 @@ class SideNav extends Component {
                                     <span className="hide-menu">설정</span>
                                 </Link>
                             </li>
+
+                            <li className="nav-devider"></li>
+                            <li>
+                                <Link to="/login" className="waves-effect waves-dark"  aria-expanded="false">
+                                    <i className="ti-settings"></i>
+                                    <span className="hide-menu">
+                                        로그인
+                                    </span>
+                                </Link>
+                            </li>
+
                         </ul>
                     </nav>
                     {this.props.children}

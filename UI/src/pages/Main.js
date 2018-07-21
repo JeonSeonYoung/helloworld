@@ -10,7 +10,7 @@ import Modal from '../pages/Modal';
 class Main extends Component {
 
     state = {
-  
+        "distance" : "-1"
     }
 
     // render 다음에 작동
@@ -20,28 +20,50 @@ class Main extends Component {
 
     _getChatLists = async () =>{
     const chatList = await this._callChatListApi();
-    this.setState({
-        chatList
-    })
+    const interestList = await this._callInterestApi();
+        this.setState({
+            chatList,
+            "interestData": interestList.interestData,
+            "distance" : interestList.distance
+        })
     }
 
 
+    //채팅방 리스트
     _callChatListApi = () => {
     return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getchatlist', {
         method: 'post',
         headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/x-www-form-urlencoded"
         },
-    body: JSON.stringify({userID : '1'})
+        body: JSON.stringify({userID : '1'})
     }).then(lData => lData.json())
     .catch(error => console.log(error))
     }
 
-    _roadingFun = (() =>{
+    //관심분야
+    _callInterestApi = () => {
+    return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getinterest', {
+        method: 'post',
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: JSON.stringify({userID : '1'})
+    }).then(lData => lData.json())
+    .catch(error => console.log(error))
+    }
+
+    _loadingFun = (() =>{
         var lData = this.state.chatList.map((pData, index) =>{
-            return <Message chatName={pData.chatName} nickName={pData.masterNickName}
-                            interest={pData.interestName} cost = {pData.maxCost}
-                            key={index} chatKey={index}/>
+            return <Message chatName={pData.chatName} nickName={pData.masterNickName} interest={pData.interestName} cost = {pData.maxCost} key={index}/>
+        })
+        return lData
+    })
+
+
+    _loadingInterestFun = (() =>{
+        var lData = this.state.interestData.map((pData) =>{
+            return <TagButton name={pData.name} distance={pData.distance} key={pData.interestID}/>
         })
         return lData
     })
@@ -51,14 +73,23 @@ class Main extends Component {
         console.log('show popup');
     }
 
+    handleCreate = (lData) => {
+        console.log(lData);
+    }
+
     render() {
         return (
             <div className="p-t-30">
-                <Search />
+                <Search onCreate = {this.handleCreate}/>
                 <div className="m-t-10">
                     <DropDownToggle dropdownData={"최신순, 인기순"} selectedIndex={0}/>
-                    <TagButton value={"동물"} />
-                    <TagButton value={"IT"} />
+                    {
+                        this.state.interestData ? this._loadingInterestFun() : ""
+                    }
+                    <button type="button" className="btn waves-effect waves-light btn-info ml-1">
+                        {this.state.distance !== "-1" ? this.state.distance +"km" : "제한없음"}
+                        <i className="mdi mdi-close"></i>
+                    </button>
                     {/*상세검색*/}
                     <div className="float-right">
                         <button className="waves-effect waves-light btn-info ml-1 btn" data-toggle="modal"
@@ -71,7 +102,7 @@ class Main extends Component {
                 <div className="message-box contact-box soo-card m-t-10">
                     <div className="message-widget contact-widget">
                         {
-                            this.state.chatList ? this._roadingFun() : "Roading...."
+                            this.state.chatList ? this._loadingFun() : "Loading...."
                         }
                     </div>
                 </div>
