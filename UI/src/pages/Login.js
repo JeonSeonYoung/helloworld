@@ -121,6 +121,14 @@ class Login extends Component {
             </div>
         );
 
+        // undefined error
+        if( cookie.load('name') == 'undefined' ) {
+            cookie.remove('name', { path: '/' });
+            cookie.remove('email', { path: '/' });
+            cookie.remove('picture', { path: '/' });
+        }
+
+        // check cookies
         if( !cookie.load('name') ) {
             return (
                 <div>
