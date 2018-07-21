@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class TagButton extends Component {
     render() {
         return (
-            <button type="button" className="btn waves-effect waves-light btn-info ml-1">
-                {this.props.value}
-            </button>
+            <a className="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="">
+                <i className="mdi mdi-arrow-left"></i>
+            </a>
         );
     }
 }
