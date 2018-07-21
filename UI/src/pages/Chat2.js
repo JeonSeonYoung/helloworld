@@ -15,7 +15,7 @@ class Chat2 extends Component {
                             <div className="open-panel"><i className="ti-angle-right"></i></div>
                             <div className="chat-left-inner" style="overflow: visible; height: 193px;">
                                 <div className="form-material">
-                                    <input className="form-control p-20" type="text" placeholder="Search Contact">
+                                    <input className="form-control p-20" type="text" placeholder="Search Contact" />
                                 </div>
                                 <div className="slimScrollDiv"
                                      style="position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;">
@@ -25,34 +25,6 @@ class Chat2 extends Component {
                                         <ChatUser name="Arijit Sinh" />
                                         <ChatUser name="Arijit Sinh" />
                                         <ChatUser name="Arijit Sinh" />
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span> <small
-                                                    className="text-muted">Offline</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>Govinda Star <small className="text-success">online</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>John Abraham<small className="text-success">online</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>Hritik Roshan<small className="text-success">online</small></span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg"
-                                                                              alt="user-img" className="img-circle">
-                                                <span>Pwandeep rajan <small
-                                                    className="text-success">online</small></span></a>
-                                        </li>
-                                        <li className="p-20"></li>
                                     </ul>
                                     <div className="slimScrollBar"
                                          style="background-color: rgb(220, 220, 220); width: 5px; position: absolute; top: 133px; opacity: 0.4; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 358.7514880952381px; background-position: initial initial; background-repeat: initial initial;"></div>

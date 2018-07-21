@@ -2,50 +2,58 @@ var React = require('react');
 
 var socket = io.connect();
 
-    class Main extends Component {
+class Main extends Component {
 
-        state = {
-            "distance": "-1"
-        }
-
-        // render 다음에 작동
-        componentDidMount() {
-            this._getChatLists()
-        }
-
-        _getChatLists = async () => {
-            const chatList = await this._callChatListApi();
-          
-        }
-
-
-        //채팅방 리스트
-        _callChatListApi = () => {
-            return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getchatlist', {
-                method: 'post',
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: JSON.stringify({ userID: '1' })
-            }).then(lData => lData.json())
-                .catch(error => console.log(error))
-        }
-        
-        _loadingFun = (() => {
-            var lData = this.state.chatList.map((pData, index) => {
-                return <Message chatName={pData.chatName} nickName={pData.masterNickName} cost={pData.maxCost} key={index} />
-            })
-            return lData
-        })
-
-        handleClick = () => {
-            console.log('show popup');
-        }
-
-        handleCreate = (lData) => {
-            console.log(lData);
-        }
+    state = {
+        "distance": "-1"
     }
+
+    // render 다음에 작동
+    componentDidMount() {
+        this._getChatLists()
+    }
+
+    _getChatLists = async () => {
+        const chatList = await this._callChatListApi();
+
+    }
+
+
+    //채팅방 리스트
+    _callChatListApi = () => {
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getchatlist', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({ userID: '1' })
+        }).then(lData => lData.json())
+            .catch(error => console.log(error))
+    }
+
+    _loadingFun = (() => {
+        var lData = this.state.chatList.map((pData, index) => {
+            return <Message chatName={pData.chatName} nickName={pData.masterNickName} cost={pData.maxCost} key={index} />
+        })
+        return lData
+    })
+
+    handleClick = () => {
+        console.log('show popup');
+    }
+
+    handleCreate = (lData) => {
+        console.log(lData);
+    }
+
+    render() {
+        return (
+          <div>
+              test
+          </div>
+        );
+    }
+}
 
 
 //var UsersList = React.com({
