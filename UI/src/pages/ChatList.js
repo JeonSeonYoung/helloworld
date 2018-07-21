@@ -4,7 +4,7 @@ import Message from "../layouts/Message";
 class ChatList extends Component {
 
     state = {
-  
+        
     }
 
     // render 다음에 작동
@@ -13,27 +13,28 @@ class ChatList extends Component {
     }
 
     _getChatLists = async () =>{
-    const chatList = await this._callChatListApi();
-    this.setState({
-        chatList
-    })
+        const chatList = await this._callChatListApi();
+        this.setState({
+            chatList
+        })
     }
 
     _callChatListApi = () => {
-    return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getchatlist', {
-        method: 'post',
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: JSON.stringify({userID : '1'})
-    }).then(lData => lData.json())
-        .catch(error => console.log(error))
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getchatlist', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({ userID: '1' })
+        }).then(lData => lData.json())
+            .catch(error => console.log(error))
     }
 
-    _roadingFun = (() =>{
+    _loadingFun = (() =>{
         var lData = this.state.chatList.map((pData, index) =>{
             console.log(pData, index);
-            return <Message chatName={pData.chatName} nickName={pData.masterNickName}
+            return <Message userID={this.props.userID} masterUserID={pData.masterUserID} 
+                            chatName={pData.chatName} nickName={pData.masterNickName}
                             interest={pData.interestName} cost = {pData.maxCost}
                             key={index} chatKey={index}/>
         })
@@ -51,7 +52,7 @@ class ChatList extends Component {
                 <div className="message-box contact-box soo-card m-t-10">
                     <div className="message-widget contact-widget">
                         {
-                            this.state.chatList ? this._roadingFun() : "Roading...."
+                            this.state.chatList ? this._loadingFun() : "Loading...."
                         }
                     </div>
                 </div>

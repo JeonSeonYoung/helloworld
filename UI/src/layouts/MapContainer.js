@@ -2,29 +2,48 @@ import React from 'react';
 import { compose, withStateHandlers } from "recompose";
 import { InfoWindow, withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
 
+const updateLocation = () => {
+    
+}
+
+const cancelLocation = () => {
+    window.location.href = "./";
+}
+
 const Map = compose(
     withStateHandlers(() => ({
         isMarkerShown: false,
         markerPosition: null
-      }), {
-        onMapClick: ({ isMarkerShown }) => (e) => ({
-            markerPosition: e.latLng,
-            isMarkerShown:true
-        })
-      }),
+    }), {
+            onMapClick: ({ isMarkerShown }) => (e) => ({
+                markerPosition: e.latLng,
+                isMarkerShown: true
+            })
+        }),
     withScriptjs,
     withGoogleMap
 )
     (props =>
         <GoogleMap
             defaultZoom={8}
-            defaultCenter={{ lat: -34.397, lng: 150.644 }}
+            defaultCenter={{ lat: 37.532600 , lng: 127.024612 }}
             onClick={props.onMapClick}
         >
             {props.isMarkerShown && <Marker position={props.markerPosition} />}
-
+            {props.isMarkerShown &&
+                <div style={{ background: `white`, border: `1px solid #ccc`, padding: 15 }}>
+                    <h1>Are you sure with this location ?</h1>
+                    <button onClick={updateLocation} style={{ height: 60 }}>
+                        OK
+                    </button>
+                    <button onClick={cancelLocation} style={{ height: 60 }}>
+                        Cancel
+                    </button>
+                </div>
+            }
         </GoogleMap>
     )
+
 
 export default class MapContainer extends React.Component {
     constructor(props) {

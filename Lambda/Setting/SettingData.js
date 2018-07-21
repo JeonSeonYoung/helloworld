@@ -40,7 +40,9 @@ exports.handler = (event, context, callback) => {
 
 		lResultList.push({
 			"nickName": userInfoList.Items[0].nickName.S,
-			"location": userInfoList.Items[0].location.S,
+			"distance": userInfoList.Items[0].distance.S,
+			"lat": JSON.parse(userInfoList.Items[0].location.S).lat,
+			"lng": JSON.parse(userInfoList.Items[0].location.S).lng,
             "interest": JSON.parse(userInfoList.Items[0].interest.S).id
 		});
         callback(null, lResultList);
