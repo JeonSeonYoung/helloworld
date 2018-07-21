@@ -17,11 +17,6 @@ class RightFloatButton extends Component {
        }
     }
 
-
-    goPage() {
-        console.log('click go');
-    }
-
     render() {
         return (
             <div>

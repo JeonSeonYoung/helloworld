@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Setting from '../layouts/Setting';
 import SearchFilter from '../layouts/SearchFilter';
+import CreateChat from "./CreateChat";
 
 class Modal extends Component {
     getModal() {
@@ -9,6 +10,8 @@ class Modal extends Component {
                 return <Setting />
             case "searchFilter":
                 return <SearchFilter />
+            case "createChat":
+                return <CreateChat />
             default:
                 return
         }

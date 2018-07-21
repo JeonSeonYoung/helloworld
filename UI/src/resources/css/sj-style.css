@@ -69,3 +69,28 @@
     height: 70px;
     padding: 0 !important;
 }
+
+/*채팅방 개설할 때 지도 폼*/
+.sj-map {
+    border:1px solid #000;
+    height: 400px;
+}
+
+/*텍스트박스+버튼 그룹에서 버튼 스타일 임의 적용*/
+.input-group-append {
+    margin-left: -1px;
+}
+
+.input-group-append btn {
+    height:100% !important;
+}
+
+.input-group>.input-group-append>.btn, .input-group>.input-group-append>.input-group-text, .input-group>.input-group-prepend:first-child>.btn:not(:first-child), .input-group>.input-group-prepend:first-child>.input-group-text:not(:first-child), .input-group>.input-group-prepend:not(:first-child)>.btn, .input-group>.input-group-prepend:not(:first-child)>.input-group-text {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*설정창에서 체크박스 폼에 패딩 적용*/
+.sj-check-padding {
+    padding:20px;
+}

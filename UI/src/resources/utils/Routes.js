@@ -12,7 +12,6 @@ import Setting from "../../layouts/Setting";
 import Modal from "../../pages/Modal";
 import Chat from "../../pages/Chat";
 import ChatList from "../../pages/ChatList";
-import Agree from "../../pages/Agree";
 import Register from "../../pages/Register";
 
 //import ShowMapp from '../../pages/ShowMapp';

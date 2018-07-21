@@ -48,8 +48,6 @@ class SearchFilter extends Component {
         // $("button:contains(" + id + ")").removeClass("disabled");
     }
 
-
-
     addSelectedIcon = (id, doAdd) => {
         console.log(id, doAdd);
         this.setState(prevState => ({
@@ -67,9 +65,6 @@ class SearchFilter extends Component {
     };
 
     render() {
-
-
-
         return (
             <div className="modal-dialog" role="document">
                 <div className="modal-content">

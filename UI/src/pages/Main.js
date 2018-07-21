@@ -75,8 +75,13 @@ class Main extends Component {
                         }
                     </div>
                 </div>
-                <RightFloatButton iconType={"newChat"}/>
-
+                <button type="button"
+                        className="waves-effect waves-light btn-success btn btn-circle btn-xl pull-right m-l-10"
+                        data-toggle="modal"
+                        data-target="#createChat"
+                        ><i className="mdi mdi-note-outline text-white"></i></button>
+                {/*<RightFloatButton iconType={"newChat"}/>*/}
+                <Modal id="createChat"/>
             </div>
         );
     }
