@@ -4,8 +4,8 @@ class NickName extends Component {
     render() {
         return (
             <div className="form-group">
-                <label>NickName</label>
-                <input type="text" className="form-control" placeholder="Enter Task Name" />
+                <label>{this.props.name}</label>
+                <input type="text" className="form-control" placeholder="Enter Nick Name" />
             </div>
         );
     }

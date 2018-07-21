@@ -65,9 +65,13 @@
     background: url(../../assets/images/background/user-info.jpg) no-repeat;
 }
 .sj-icon{
-    width: 70px;
-    height: 70px;
-    padding: 0 !important;
+    /*width: 70px;*/
+    width: 100%;
+    height: 40px;
+    /*padding: 0 !important;*/
+}
+.sj-overflow {
+    overflow:hidden;
 }
 
 /*채팅방 개설할 때 지도 폼*/

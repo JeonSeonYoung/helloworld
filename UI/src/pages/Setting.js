@@ -3,8 +3,17 @@ import NickName from '../layouts/Setting/NickName';
 import Save from '../layouts/Setting/Save';
 import Location from '../layouts/Setting/Location';
 import InterestCombo from '../layouts/Setting/InterestCombo';
+import comm from "../resources/utils/CommonVariables";
 
 class Setting extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            distance: "1km",
+            selectedInterest: []
+        };
+    }
 
     state = {
   
@@ -38,25 +47,32 @@ class Setting extends Component {
                                 <InterestCombo settingData={this.props.SettingData} />
     */
 
+    // 설정 데이터 저장
+    saveSetting() {
+        // 설정데이터 가져오기
+        // var datas = this.state;
+
+        // 관심분야
+        var interests = this.state.preference.map( (interest) => {
+            return comm.getInterestId(interest);
+        })
+    }
+
     render() {
         return (
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h4 className="modal-title">Setting</h4>
-                    </div>
-                    <div className="modal-body">
-                        <form>
-                            <NickName />
-                            <Location />
-                            <div className="form-group">
-                                <label>Interests</label>
-                                <InterestCombo />
-                            </div>
-                        </form>
-                    </div>
-                    <Save />
+            <div className="p-t-30">
+                <h4 className="modal-title">설정</h4>
+                <NickName name="NickName" />
+                <Location />
+                <div className="form-group">
+                    <label>Selected Interests</label>
+                    {this.state.selectedInterest}
                 </div>
+                <div className="form-group">
+                    <label>Interests</label>
+                    <InterestCombo />
+                </div>
+                <Save saveSetting={this.saveSetting} />
             </div>
         );
     }
