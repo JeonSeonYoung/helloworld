@@ -1,13 +1,245 @@
 import React, { Component } from 'react';
+import { Route, Router, Redirect } from 'react-router-dom';
+
+import ReactDOM from 'react-dom';
+import FacebookLogin from 'react-facebook-login';
+
+import cookie from 'react-cookies';
+
+// 쿠키 설정
+let expires = new Date();
+let tmp = expires.getDate();
+expires.setDate(tmp + 1); // One Day
+
+const cookieOptions = {
+    path: '/',
+    expires
+}
+
+const responseFacebook = (response) => {
+
+    // 쿠키 저장
+    cookie.save('name', response.name, cookieOptions);
+    cookie.save('email', response.email, cookieOptions);
+    cookie.save('picture', response.picture.data.url, cookieOptions);
+
+    // 로그인 출력
+    ReactDOM.render(
+        <Login
+            name = {response.name}
+            email = {response.email}
+            picture = {response.picture.data.url}
+        />,
+        document.getElementById('login')
+    );
+}
 
 class Login extends Component {
-    render() {
-        return (
+
+    _render() {
+        // Query
+        const _query = () => {
+            var AWS = require('aws-sdk');
+
+            AWS.config = new AWS.Config();
+            AWS.config.accessKeyId = "AKIAISQISLMBI2KHP6LA";
+            AWS.config.secretAccessKey = "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";
+            AWS.config.region = "ap-northeast-2";
+
+            var dynamoDB = new AWS.DynamoDB();
+
+            var params = {
+                ExpressionAttributeValues: {
+                    ":value": { S: '1' }
+                },
+                KeyConditionExpression: "userID = :value",
+                TableName: "UserInfo",
+                IndexName : "userID-createAt-index"
+            }
+
+            dynamoDB.query(params, function(err, data) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
+
+        // Put
+        const _putItem = () => {
+            var AWS = require('aws-sdk');
+
+            AWS.config = new AWS.Config();
+            AWS.config.accessKeyId = "AKIAISQISLMBI2KHP6LA";
+            AWS.config.secretAccessKey = "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";
+            AWS.config.region = "ap-northeast-2";
+
+            var dynamoDB = new AWS.DynamoDB();
+
+            var params = {
+                Item: {
+                    interestID: {
+                        S: '20'
+                    },
+                    name: {
+                        S: 'Test'
+                    }
+                },
+                TableName: 'InterestInfo'
+            }
+
+            dynamoDB.putItem(params, function(err, data) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
+
+        // Delete
+        const _deleteItem = () => {
+            var AWS = require('aws-sdk');
+
+            AWS.config = new AWS.Config();
+            AWS.config.accessKeyId = "AKIAISQISLMBI2KHP6LA";
+            AWS.config.secretAccessKey = "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";
+            AWS.config.region = "ap-northeast-2";
+
+            var dynamoDB = new AWS.DynamoDB();
+
+            var params = {
+                Key: {
+                    interestID: {
+                        S: '20'
+                    }
+                },
+                TableName: 'InterestInfo'
+            }
+
+            dynamoDB.deleteItem(params, function(err, data) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
+
+        _query();
+
+        return(
             <div>
-                로그인
+
             </div>
         );
     }
+
+    render() {
+
+        // 로그인 뷰
+        const loginView = (
+            <div id='login' className="modal-dialog" role="document">
+
+                <div className="modal-content">
+
+                    {/* Header */}
+                    <div className="modal-header">
+                        <h4 className="modal-title">FACEBOOK LOGIN</h4>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+
+                    {/* Body */}
+                    <div className="modal-body">
+                        <form>
+                            <div>
+                                <FacebookLogin
+                                    appId="474958262956536"
+                                    autoLoad
+                                    fields="name,email,picture"
+                                    callback={responseFacebook}
+                                />
+                            </div>
+                        </form>
+                    </div>
+
+                    {/* Bottom */}
+                    <div className="modal-footer">
+                        {/*
+                            <button type="button" className="btn btn-success" data-dismiss="modal">저장</button>
+                        */}
+                    </div>
+                </div>
+            </div>
+        );
+
+        // 로그인 메시지
+        const loginMessage = (
+            <div id='login' className="modal-dialog" role="document">
+
+                <div className="modal-content">
+
+                    {/* Header */}
+                    <div className="modal-header">
+                        <h4 className="modal-title">FACEBOOK LOGIN TEST PAGE</h4>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+
+                    {/* Body */}
+                    <div className="modal-body">
+                        <form>
+                            <div>
+                                <img src= {cookie.load('picture')} />
+                            </div>
+
+                            <div>
+                                {cookie.load('name')}
+                            </div>
+
+                            <div>
+                                {cookie.load('email')}
+                            </div>
+                        </form>
+                    </div>
+
+                    {/* Bottom */}
+                    <div className="modal-footer">
+                        {/*
+                            <button type="button" className="btn btn-success" data-dismiss="modal">저장</button>
+                        */}
+                    </div>
+                </div>
+            </div>
+        );
+
+        // undefined error
+        if( cookie.load('name') == 'undefined' ) {
+            cookie.remove('name', { path: '/' });
+            cookie.remove('email', { path: '/' });
+            cookie.remove('picture', { path: '/' });
+        }
+
+        // check cookies
+        if( !cookie.load('name') ) {
+            return (
+                <div>
+                    {loginView}
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    {loginMessage}
+                </div>
+            );
+        }
+    }
+    
 }
 
 export default Login;

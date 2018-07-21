@@ -28,7 +28,7 @@ class RouteGroup extends Component {
                     <div className="page-wrapper">
                         <div className="container-fluid">
                             <Route exact path="/" component={Main}/>
-                            {/*<Route path="/login" component={Login}/>*/}
+                            <Route path="/login" component={Login}/>
                             {/*<Route path="/agree" component={Agree}/>*/}
                             <Route path="/register" component={Register}/>
                             <Route path="/searchFilter" component={SearchFilter}/>
