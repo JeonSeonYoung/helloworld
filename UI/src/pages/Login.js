@@ -6,7 +6,7 @@ import FacebookLogin from 'react-facebook-login';
 
 import cookie from 'react-cookies';
 
-// 쿠기 설정
+// 쿠키 설정
 let expires = new Date();
 let tmp = expires.getDate();
 expires.setDate(tmp + 1); // One Day
@@ -35,6 +35,106 @@ const responseFacebook = (response) => {
 }
 
 class Login extends Component {
+
+    _render() {
+        // Query
+        const _query = () => {
+            var AWS = require('aws-sdk');
+
+            AWS.config = new AWS.Config();
+            AWS.config.accessKeyId = "AKIAISQISLMBI2KHP6LA";
+            AWS.config.secretAccessKey = "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";
+            AWS.config.region = "ap-northeast-2";
+
+            var dynamoDB = new AWS.DynamoDB();
+
+            var params = {
+                ExpressionAttributeValues: {
+                    ":value": { S: '1' }
+                },
+                KeyConditionExpression: "userID = :value",
+                TableName: "UserInfo",
+                IndexName : "userID-createAt-index"
+            }
+
+            dynamoDB.query(params, function(err, data) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
+
+        // Put
+        const _putItem = () => {
+            var AWS = require('aws-sdk');
+
+            AWS.config = new AWS.Config();
+            AWS.config.accessKeyId = "AKIAISQISLMBI2KHP6LA";
+            AWS.config.secretAccessKey = "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";
+            AWS.config.region = "ap-northeast-2";
+
+            var dynamoDB = new AWS.DynamoDB();
+
+            var params = {
+                Item: {
+                    interestID: {
+                        S: '20'
+                    },
+                    name: {
+                        S: 'Test'
+                    }
+                },
+                TableName: 'InterestInfo'
+            }
+
+            dynamoDB.putItem(params, function(err, data) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
+
+        // Delete
+        const _deleteItem = () => {
+            var AWS = require('aws-sdk');
+
+            AWS.config = new AWS.Config();
+            AWS.config.accessKeyId = "AKIAISQISLMBI2KHP6LA";
+            AWS.config.secretAccessKey = "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";
+            AWS.config.region = "ap-northeast-2";
+
+            var dynamoDB = new AWS.DynamoDB();
+
+            var params = {
+                Key: {
+                    interestID: {
+                        S: '20'
+                    }
+                },
+                TableName: 'InterestInfo'
+            }
+
+            dynamoDB.deleteItem(params, function(err, data) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
+
+        _query();
+
+        return(
+            <div>
+
+            </div>
+        );
+    }
 
     render() {
 
@@ -72,9 +172,7 @@ class Login extends Component {
                             <button type="button" className="btn btn-success" data-dismiss="modal">저장</button>
                         */}
                     </div>
-
                 </div>
-
             </div>
         );
 
@@ -115,9 +213,7 @@ class Login extends Component {
                             <button type="button" className="btn btn-success" data-dismiss="modal">저장</button>
                         */}
                     </div>
-
                 </div>
-
             </div>
         );
 
@@ -143,6 +239,7 @@ class Login extends Component {
             );
         }
     }
+    
 }
 
 export default Login;
