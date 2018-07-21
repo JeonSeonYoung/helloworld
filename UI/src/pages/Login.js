@@ -18,7 +18,7 @@ const cookieOptions = {
 
 const responseFacebook = (response) => {
 
-    // 쿠기 저장
+    // 쿠키 저장
     cookie.save('name', response.name, cookieOptions);
     cookie.save('email', response.email, cookieOptions);
     cookie.save('picture', response.picture.data.url, cookieOptions);
@@ -32,16 +32,13 @@ const responseFacebook = (response) => {
         />,
         document.getElementById('login')
     );
-
 }
 
 class Login extends Component {
 
-    // 참고 : Redirect
-    // this.props.history.push('/setting');
-
-    // 렌더링
     render() {
+
+        // 로그인 뷰
         const loginView = (
             <div id='login' className="modal-dialog" role="document">
 
@@ -81,6 +78,7 @@ class Login extends Component {
             </div>
         );
 
+        // 로그인 메시지
         const loginMessage = (
             <div id='login' className="modal-dialog" role="document">
 
@@ -129,17 +127,13 @@ class Login extends Component {
                     {loginView}
                 </div>
             );
-
-        }
-        else {
+        } else {
             return (
                 <div>
                     {loginMessage}
                 </div>
             );
         }
-
-
     }
 }
 
