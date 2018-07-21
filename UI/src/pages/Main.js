@@ -31,7 +31,7 @@ class Main extends Component {
 
     //채팅방 리스트
     _callChatListApi = () => {
-    return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getchatlist', {
+    return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
         method: 'post',
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"

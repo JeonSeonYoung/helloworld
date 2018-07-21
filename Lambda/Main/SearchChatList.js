@@ -13,107 +13,125 @@ exports.handler = (event, context, callback) => {
 		params = event.bodyJson;
 	}
 
-	const lChatName = params.chatName;
-
-	//const lUserID = params.userID;
+	const lUserID = params.userID;
 
 	// 유저 정보
-	// var promisUserInfo = () =>{
-	// 	return new Promise((resolve, reject) =>{
-	// 		queryDynamoDB({
-	// 			ExpressionAttributeValues: {
-	// 				":v1": { S: lUserID }
-	// 			}, 
-	// 			KeyConditionExpression: "userID = :v1", 
-	// 			TableName: "UserInfo",
-	// 			IndexName : "userID-createAt-index"
-	// 		}).then(lResult => {
-	// 			resolve(lResult);
-	// 		}, userInfoQueryError => {
-	// 			HelloWorld.Objects.DynamoDB.Error.sys(userInfoQueryError, callback);
-	// 		}); 
-	// 	});
-	// } 
-
-	// 채팅방 정보
-	var promisChatInfo =(lChatID) =>{
-			return new Promise((resolve, reject)=>{
+	var promisUserInfo = new Promise((resolve, reject) =>{
 			queryDynamoDB({
 				ExpressionAttributeValues: {
-					":v1": { S: lChatID }
+					":v1": { S: lUserID }
 				}, 
-				KeyConditionExpression: "chatID = :v1", 
-				TableName: "ChatInfo",
-				IndexName : "chatID-createAt-index"
+				KeyConditionExpression: "userID = :v1", 
+				TableName: "UserInfo",
+				IndexName : "userID-createAt-index"
 			}).then(lResult => {
-				resolve(lResult);
+				var userResult = lResult.Items[0];
+				var lUserInfo = {
+					"location" : userResult.vLocation.S,
+					"nickName" : userResult.nickName.S,
+					"distance" : userResult.distance.S,
+					"blockTf" : userResult.blockTf.S,
+					"interest" : JSON.parse(userResult.interest.S).id
+				}
+				resolve(lUserInfo);
+			}, userInfoQueryError => {
+				HelloWorld.Objects.DynamoDB.Error.sys(userInfoQueryError, callback);
+			}); 
+		});
+	 
+
+	// 채팅방 정보
+	var promisChatInfo = new Promise((resolve, reject)=>{
+			let lRet = {
+				ExpressionAttributeValues: {
+					":v1": { S: "T"}
+				}, 
+				KeyConditionExpression: "vStatus = :v1", 
+				TableName: "ChatInfo",
+				IndexName : "vStatus-createAt-index"
+			};
+			if(params.chatName){
+				lRet.ExpressionAttributeValues[":v2"] = { S: params.chatName };
+				lRet.FilterExpression = "contains(chatName, :v2)";
+			}
+			queryDynamoDB(lRet).then(lResult => {
+				var lChatInfo = [];
+				for(var i=0; i<lResult.Count; ++i){
+					lChatInfo.push({
+						"chatID" : lResult.Items[i].chatID.S,
+						"interestID" : lResult.Items[i].interestID.S,
+						"masterUserID" : lResult.Items[i].masterUserID.S,
+						"masterNickName" : lResult.Items[i].masterNickName.S,
+						"location" : lResult.Items[i].vLocation.S,
+						"maxCost" : lResult.Items[i].maxCost.S,
+						"chatName" : lResult.Items[i].chatName.S
+					})
+				}
+				 resolve(lChatInfo);
 			}, chatQueryError => {
 				HelloWorld.Objects.DynamoDB.Error.sys(chatQueryError, callback);
 			}); 
 		});
-	} 
+	
 
 	// 관심분야 정보
-	var promisInterestInfo =(lInterestID) =>{
-			return new Promise((resolve, reject)=>{
+	var promisInterestInfo =new Promise((resolve, reject)=>{
 			queryDynamoDB({
 				ExpressionAttributeValues: {
-					":v1": { S: lInterestID }
+					":v1": { S: "T" }
 				}, 
-				KeyConditionExpression: "interestID = :v1", 
+				KeyConditionExpression: "vStatus = :v1", 
 				TableName: "InterestInfo",
-				IndexName : "interestID-index"
+				IndexName : "vStatus-index"
 			}).then(lResult => {
-				resolve(lResult);
+				var lInterestList = [];
+				for(var i=0; i<lResult.Count; ++i){
+					lInterestList.push({
+						"interestID":lResult.Items[i].interestID.S,
+						"name":lResult.Items[i].name.S
+					})
+				}
+				resolve(lInterestList);
 			}, interestQueryError => {
 				HelloWorld.Objects.DynamoDB.Error.sys(interestQueryError, callback);
 			}); 
 		});
-	}
+	
 
-	function *genChatRoomArr(chatArr){
-		const chatList = [];
-		for(var id of chatArr){
-			var chatInfoData = yield promisChatInfo(String(id));
-			chatList.push(chatInfoData);
-		};
-		return chatList;
-	}
+	Promise.all([promisUserInfo, promisChatInfo, promisInterestInfo]).then((values) =>{
+		var lUserList = values[0];
+		var lChatList = values[1];
+		var lInterestList = values[2];
+		
+		var inRet = [];
 
-	function *genInterestArr(chatRoomInfo){
-		const interestList = [];
-		for(var i = 0; i<chatRoomInfo.length; ++i){
-			var id = chatRoomInfo[i].Items[0].interestID.S;
-			var interestInfoData = yield promisInterestInfo(String(id));
-			interestList.push(interestInfoData);
-		};
-		return interestList;
-	}
-
-	function *gen(){
-		const userInfoList = yield promisUserInfo();
-		const chatArr = JSON.parse(userInfoList.Items[0].chatList.S).id;
-		const chatRoomInfo = yield *genChatRoomArr(chatArr);
-		const interestInfo = yield *genInterestArr(chatRoomInfo);
-
-		var lResultList = [];
-		for(var lData of chatRoomInfo){
-			for(var inData of interestInfo){
-				if(inData.Items[0].interestID.S === lData.Items[0].interestID.S){
-					lResultList.push({
-						"chatName":lData.Items[0].chatName.S,
-						"masterNickName":lData.Items[0].masterNickName.S,
-						"maxCost":lData.Items[0].maxCost.S,
-						"interestID":lData.Items[0].interestID.S,
-						"interestName":inData.Items[0].name.S
-					})
+		for(var i = 0; i<lChatList.length; ++i){
+			for(var j = 0; j<lUserList.interest.length; ++j){
+				if(lChatList[i].interestID == lUserList.interest[j]){
+					for(var k = 0; k<lInterestList.length; ++k){
+						if(lChatList[i].interestID == lInterestList[k].interestID){
+							
+							inRet.push({
+								"nickName" : lUserList.nickName,
+								"distance" : lUserList.distance,
+								"interestID": lInterestList[k].interestID,
+								"interestName": lInterestList[k].name,
+								"masterUserID" : lChatList[i].masterUserID,
+								"masterNickName" : lChatList[i].masterNickName,
+								"location" : lChatList[i].vLocation,
+								"chatName" : lChatList[i].chatName,
+								"maxCost" : lChatList[i].maxCost
+							})		
+						}
+					}
+					
 				}
 			}
 		}
-		callback(null, lResultList);
-	}
-
-	HelloWorld.Generator.run(gen);
+		
+		callback(null, inRet);
+		
+	});
 
 	
 };
