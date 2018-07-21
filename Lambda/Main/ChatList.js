@@ -101,6 +101,7 @@ exports.handler = (event, context, callback) => {
 					lResultList.push({
 						"chatName":lData.Items[0].chatName.S,
 						"masterNickName":lData.Items[0].masterNickName.S,
+						"masterUserID":lData.Items[0].masterUserID.S,
 						"maxCost":lData.Items[0].maxCost.S,
 						"interestID":lData.Items[0].interestID.S,
 						"interestName":inData.Items[0].name.S

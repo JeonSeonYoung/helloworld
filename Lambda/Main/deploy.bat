@@ -6,4 +6,4 @@
  REM ChatList
  REM del ChatList.zip
  REM 7z a ChatList.zip ChatList.js ../HelloWorld.js
- REM  --function-name ChatList --zip-file fileb://ChatList.zip
+ REM aws lambda update-function-code --region ap-northeast-2 --function-name ChatList --zip-file fileb://ChatList.zip
