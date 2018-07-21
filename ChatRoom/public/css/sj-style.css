@@ -1,0 +1,25 @@
+/*공통 스타일*/
+.sj-white {
+    color: #fff;
+}
+
+/*.page-wrapper {*/
+    /*margin: 0 !important;*/
+/*}*/
+
+.topbar .navbar-header {
+    background: none;
+}
+.footer {
+    left: 0 !important;
+}
+/*로고 가운데 정렬*/
+/*.logo-center .top-navbar .navbar-header {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*margin: 0 auto; }*/
+.soo-card {
+    background: #fff;
+    border: 1px solid #dedede;
+}

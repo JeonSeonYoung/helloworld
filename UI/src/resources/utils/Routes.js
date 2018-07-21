@@ -10,7 +10,7 @@ import Mapp from '../../pages/Mapp';
 import SideNav from "../../layouts/SideNav";
 import Setting from "../../pages/Setting";
 import Modal from "../../pages/Modal";
-import Chat from "../../pages/Chat";
+import Chat from "../../pages/Chat2";
 import ChatList from "../../pages/ChatList";
 import Register from "../../pages/Register";
 
