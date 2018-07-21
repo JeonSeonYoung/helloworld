@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Setting from '../layouts/Setting';
+import Setting from '../pages/Setting';
 import SearchFilter from '../layouts/SearchFilter';
 
 class Modal extends Component {
