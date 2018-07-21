@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
@@ -24,19 +25,36 @@ class Header extends Component {
                                 </a>
                                 <div className="dropdown-menu scale-up-left col-sm-5 col-md-3 col-lg-3">
                                 <ul>
-                                <li><a href="#">
-                                <h4>채팅방 찾기</h4></a></li>
-                                <li><a href="#"><h4>내 채팅방 리스트(3)</h4></a></li>
-                                <li><a href="#"><h4>설정</h4></a></li>
-                                <li><button type="button" data-toggle="modal" className="noButton"
-                                data-target="#searchChat"><h4>채팅방 찾기</h4></button></li>
+                                    <li>
+                                        <Link to="/"
+                                              className="waves-effect waves-dark"
+                                              aria-expanded="false">
+                                            <h4>채팅방 검색</h4>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/chatlist"
+                                              className="waves-effect waves-dark"
+                                              aria-expanded="false">
+                                            <h4>채팅방 리스트</h4>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/setting"
+                                              className="waves-effect waves-dark"
+                                              aria-expanded="false">
+                                            <h4>설정</h4>
+                                        </Link>
+                                    </li>
                                 </ul>
                                 </div>
                             </li>
                         </ul>
+
+
+                        {this.props.children}
                     </div>
                 </nav>
-
             </header>
         );
     }

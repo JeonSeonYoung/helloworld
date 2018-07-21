@@ -26,26 +26,33 @@ class SideNav extends Component {
                     <nav className="sidebar-nav">
                         <ul id="sidebarnav">
                             <li className="nav-small-cap">PERSONAL</li>
-                            <li><a className="waves-effect waves-dark" href="#"
-                                   data-toggle="modal" data-target="#searchChat" aria-expanded="false"><i
-                                className="ti-search"></i><span className="hide-menu">채팅방 검색</span></a>
+                            <li>
+                                <Link to="/"
+                                      className="waves-effect waves-dark"
+                                      aria-expanded="false">
+                                    <i className="ti-search"></i>
+                                    <span className="hide-menu">채팅방 검색</span>
+                                </Link>
                             </li>
                             <li className="nav-devider"></li>
                             <li>
-                                <Link to="/chatlist" className="waves-effect waves-dark"  aria-expanded="false">
+                                <Link to="/chatlist"
+                                      className="waves-effect waves-dark"
+                                      aria-expanded="false">
                                     <i className="mdi mdi-book-multiple"></i>
                                     <span className="hide-menu">채팅방 리스트</span>
                                 </Link>
                             </li>
                             <li className="nav-devider"></li>
                             <li>
-                                <Link to="/setting" className="waves-effect waves-dark"  aria-expanded="false">
+                                <Link to="/setting"
+                                      className="waves-effect waves-dark"
+                                      aria-expanded="false">
                                     <i className="ti-settings"></i>
                                     <span className="hide-menu">설정</span>
                                 </Link>
                             </li>
                         </ul>
-
                     </nav>
                     {this.props.children}
                 </div>

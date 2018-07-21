@@ -1,39 +1,54 @@
 import React, { Component } from 'react';
 import ModalButton from "./ModalButton";
-import TypeIcon from './TypeIcon';
+import TypeIcon from './TypeIcon2';
 
 // SideNav 에 있는 채팅방 검색 화면
 class SearchFilter extends Component {
+
     state = {
+        active: false,
         selectedIcon: []
     };
 
-    // '관심분야' 선택하면 id(text) 에 해당하는 icon 을 '선택된 관심분야'에 추가한다.
-    // 반대일 경우, 제거해야 한다.
+    // '관심분야' 선택하면 id(text) 에 해당하는 icon 을 '선택된 관심분야'에 추가하고,
+    // 선택된 걸 다시 클릭했을 땐 '선택된 관심분야'에서 제거한다.
 
-    getSelectedIcon = (id, doAdd) => {
-        console.log(id, doAdd);
-        if (doAdd) {
+    getSelectedIcon = (disabled, id) => {
+        var active = !disabled;
+
+        // 위의 아이콘에 토글기능.
+        if (active) {
             this.setState(prevState => ({
-                selectedIcon: prevState.selectedIcon.push(id)
+                active: !prevState.active,
+                selectedIcon: prevState.selectedIcon
+                    .concat(<TypeIcon text={id} key={id} onClick={this.deleteIcon} />)
             }))
         }
-        // this.state.selectedIcon.filter(
-        //     item => item !== id
-        // )
-        //
-        // this.state.selectedIcon.map( (item) => {
-        //         //     if (item != id) {
-        //         return (<TypeIcon text={id} />);
-        //     }
-        // })
-
-        this.setState(prevState => ({
-             selectedIcon: prevState.selectedIcon.push(id)
-        }))
-
-        console.log(this.state.selectedIcon);
+        else {
+            // '선택된 관심분야' 에서 해당 아이콘 지워준다.
+            this.setState( prevState => ({
+                selectedIcon: prevState.selectedIcon.filter((item) => {
+                    return item.key !== id
+                })
+            }));
+        }
     }
+
+    deleteIcon = (disabled, id) => {
+
+        // console.log("toggle!" + id);
+        this.setState( prevState => ({
+            selectedIcon: prevState.selectedIcon.filter((item) => {
+                return item.key !== id
+            })
+        }));
+
+        // 관심분야도 toggle 줘야 한다.
+        // disabled 없애기
+        // $("button:contains(" + id + ")").removeClass("disabled");
+    }
+
+
 
     addSelectedIcon = (id, doAdd) => {
         console.log(id, doAdd);
@@ -47,7 +62,14 @@ class SearchFilter extends Component {
         }
     }
 
+    componentDidMount () {
+
+    };
+
     render() {
+
+
+
         return (
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
@@ -82,10 +104,8 @@ class SearchFilter extends Component {
                                 <label htmlFor="example-location">선택된 관심분야</label>
                                 <div className="container">
                                     <div className="row">
-                                        {console.log(this.state.selectedIcon)}
                                         {this.state.selectedIcon.map((icon)=> {
                                             return icon;
-                                            <TypeIcon text={icon} />
                                         })}
                                     </div>
                                 </div>
@@ -94,29 +114,35 @@ class SearchFilter extends Component {
                                 <label>관심분야</label>
                                 <div className="container">
                                     <div className="row mb-2">
-                                        <div className="col-sm"><TypeIcon text="반려동물" /></div>
-                                        <div className="col-sm"><TypeIcon text="문화/공연" onClick={this.addSelectedIcon} /></div>
-                                        <div className="col-sm"><TypeIcon text="봉사" getSelectedIcon={this.getSelectedIcon} /></div>
-                                        <div className="col-sm"><TypeIcon text="운동/스포츠" /></div>
+                                        <TypeIcon text="반려동물" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="문화/공연" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="봉사"  onClick={this.getSelectedIcon}/>
+                                        <TypeIcon text="운동/스포츠" onClick={this.getSelectedIcon} />
                                     </div>
                                     <div className="row mb-2">
-                                        <div className="col-sm"><TypeIcon text="책/글" /></div>
-                                        <div className="col-sm"><TypeIcon text="직무" /></div>
-                                        <div className="col-sm"><TypeIcon text="외국어" /></div>
-                                        <div className="col-sm"><TypeIcon text="음악/악기" /></div>
+                                        <TypeIcon text="책/글" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="직무" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="외국어"  onClick={this.getSelectedIcon}/>
+                                        <TypeIcon text="음악/악기" onClick={this.getSelectedIcon} />
                                     </div>
                                     <div className="row mb-2">
-                                        <div className="col-sm"><TypeIcon text="댄스/무용" /></div>
-                                        <div className="col-sm"><TypeIcon text="사교/인맥" /></div>
-                                        <div className="col-sm"><TypeIcon text="사진" /></div>
-                                        <div className="col-sm"><TypeIcon text="야구관람" /></div>
+                                        <TypeIcon text="댄스/무용" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="사교/인맥" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="사진" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="야구관람" onClick={this.getSelectedIcon} />
                                     </div>
                                     <div className="row mb-2">
-                                        <div className="col-sm"><TypeIcon text="게임/오락" /></div>
-                                        <div className="col-sm"><TypeIcon text="요리/제조" /></div>
-                                        <div className="col-sm"><TypeIcon text="가족/결혼" /></div>
-                                        <div className="col-sm"></div>
+                                        <TypeIcon text="게임/오락" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="요리/제조" onClick={this.getSelectedIcon} />
+                                        <TypeIcon text="가족/결혼" onClick={this.getSelectedIcon} />
                                     </div>
+                                    {/*<div className="row mb-2">*/}
+                                        {/*<div className="col-sm"><TypeIcon text="반려동물" /></div>*/}
+                                        {/*<div className="col-sm"><TypeIcon text="문화/공연" onClick={this.addSelectedIcon} /></div>*/}
+                                        {/*<div className="col-sm"><TypeIcon text="봉사" getSelectedIcon={this.getSelectedIcon} /></div>*/}
+                                        {/*<div className="col-sm"><TypeIcon text="운동/스포츠" /></div>*/}
+                                    {/*</div>*/}
+
                                 </div>
                             </div>
                         </form>

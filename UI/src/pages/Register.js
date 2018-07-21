@@ -1,12 +1,37 @@
 import React, { Component } from 'react';
 import ChatLeft from "../layouts/ChatLeft";
-import TypeIcon from '../layouts/TypeIcon';
-import { withRouter } from 'react-router-dom'
+import TypeIcon from '../layouts/TypeIcon2';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-class Chat extends Component {
+class Register extends Component {
 
-    setRedirect() {
-        // this.props.history.push('/main');
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedIcon : "",
+            chatList: []
+        };
+
+        this.getSelectedIcon = this.getSelectedIcon.bind(this);
+    }
+
+    // 선택한 아이콘 정보 가져오기
+    getSelectedIcon(disabled, id) {
+
+        var list = []
+            .concat(<ChatLeft name="Admin" key={id} message={"You choose " + id + ". If you want more, please you setting page."} />)
+            .concat(<ChatLeft name="Admin" key={id+1} message="Where is your location?" />)
+            //지도띄우기
+            .concat(<ChatLeft name="Admin" key={id+2} message="What is your nickname?" />)
+            .concat(<div><input type="text" key={id+3} className="form-control" /></div>)
+        ;
+
+        this.setState({
+            selectedIcon: id,
+            chatList: list
+        })
     }
 
     render() {
@@ -33,47 +58,39 @@ class Chat extends Component {
                                                         <label>관심분야</label>
                                                         <div className="container">
                                                             <div className="row mb-2">
-                                                                <div className="col-sm"><TypeIcon text="반려동물" /></div>
-                                                                <div className="col-sm"><TypeIcon text="문화/공연" onClick={this.addSelectedIcon} /></div>
-                                                                <div className="col-sm"><TypeIcon text="봉사" getSelectedIcon={this.getSelectedIcon} /></div>
-                                                                <div className="col-sm"><TypeIcon text="운동/스포츠" /></div>
+                                                                <TypeIcon text="반려동물" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="문화/공연" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="봉사"  onClick={this.getSelectedIcon}/>
+                                                                <TypeIcon text="운동/스포츠" onClick={this.getSelectedIcon} />
                                                             </div>
                                                             <div className="row mb-2">
-                                                                <div className="col-sm"><TypeIcon text="책/글" /></div>
-                                                                <div className="col-sm"><TypeIcon text="직무" /></div>
-                                                                <div className="col-sm"><TypeIcon text="외국어" /></div>
-                                                                <div className="col-sm"><TypeIcon text="음악/악기" /></div>
+                                                                <TypeIcon text="책/글" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="직무" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="외국어"  onClick={this.getSelectedIcon}/>
+                                                                <TypeIcon text="음악/악기" onClick={this.getSelectedIcon} />
                                                             </div>
                                                             <div className="row mb-2">
-                                                                <div className="col-sm"><TypeIcon text="댄스/무용" /></div>
-                                                                <div className="col-sm"><TypeIcon text="사교/인맥" /></div>
-                                                                <div className="col-sm"><TypeIcon text="사진" /></div>
-                                                                <div className="col-sm"><TypeIcon text="야구관람" /></div>
+                                                                <TypeIcon text="댄스/무용" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="사교/인맥" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="사진" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="야구관람" onClick={this.getSelectedIcon} />
                                                             </div>
                                                             <div className="row mb-2">
-                                                                <div className="col-sm"><TypeIcon text="게임/오락" /></div>
-                                                                <div className="col-sm"><TypeIcon text="요리/제조" /></div>
-                                                                <div className="col-sm"><TypeIcon text="가족/결혼" /></div>
-                                                                <div className="col-sm"></div>
+                                                                <TypeIcon text="게임/오락" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="요리/제조" onClick={this.getSelectedIcon} />
+                                                                <TypeIcon text="가족/결혼" onClick={this.getSelectedIcon} />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <ChatLeft name="Admin"
-                                                      message="You choose {preference}. If you want more, please you setting page."
-                                            />
-                                            <ChatLeft name="Admin"
-                                                      message="Where is your location?"
-                                            />
-                                            <ChatLeft name="Admin"
-                                                      message="What is your nickname?"
-                                            />
-                                            <div>
-                                                <input type="text" className="form-control" />
-                                            </div>
-                                            <button type="button" className="btn btn-success btn-block"
-                                                    onClick={this.setRedirect} >저장</button>
+                                            {this.state.chatList.map(item => {
+                                                return item;
+                                            })}
+                                            <Link to="/" className="btn btn-success btn-block">
+                                                <span className="hide-menu">저장</span>
+                                            </Link>
+                                            {this.props.children}
                                         </ul>
                                         <div className="slimScrollBar"></div>
                                         <div className="slimScrollRail"></div>
@@ -91,5 +108,5 @@ class Chat extends Component {
     }
 }
 
-export default Chat;
+export default Register;
 
