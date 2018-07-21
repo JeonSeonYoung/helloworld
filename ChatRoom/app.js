@@ -7,7 +7,7 @@
 var express = require('express');
 var http = require('http');
 
-var socket = require('./routes/socket.js');
+var socket = require('./router/socket.js');
 
 var app = express();
 var server = http.createServer(app);
