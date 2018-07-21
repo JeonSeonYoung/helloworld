@@ -5,6 +5,7 @@ import DropDownToggle from "../layouts/DropDownToggle";
 import Message from "../layouts/Message";
 import RightFloatButton from "../layouts/RightFloatButton";
 import Search from "../layouts/Search";
+import Modal from '../pages/Modal';
 
 class Main extends Component {
 
@@ -58,8 +59,12 @@ class Main extends Component {
                     <DropDownToggle dropdownData={"최신순, 인기순"} selectedIndex={0}/>
                     <TagButton value={"동물"} />
                     <TagButton value={"IT"} />
+                    {/*상세검색*/}
                     <div className="float-right">
-                        <LinkButton value={"설정"} dataTarget={"setting"} designType={"button"} />
+                        <button className="waves-effect waves-light btn-info ml-1 btn" data-toggle="modal"
+                                data-target="#searchFilter">검색설정</button>
+                        <Modal id="searchFilter"/>
+                        {/*<LinkButton value={"설정"} dataTarget={"setting"} designType={"button"} />*/}
                     </div>
                 </div>
 

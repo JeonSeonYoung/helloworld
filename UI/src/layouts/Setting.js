@@ -16,9 +16,9 @@ class Setting extends Component {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h4 className="modal-title">Add Task</h4>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">×</span></button>
+                        <h4 className="modal-title">설정</h4>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
                     </div>
                     <div className="modal-body">
                         <form>
