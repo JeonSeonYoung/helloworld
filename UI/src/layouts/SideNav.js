@@ -53,7 +53,6 @@ class SideNav extends Component {
                                 </Link>
                             </li>
 
-                            {/* Login 테스트 코드 */}
                             <li className="nav-devider"></li>
                             <li>
                                 <Link to="/login" className="waves-effect waves-dark"  aria-expanded="false">
