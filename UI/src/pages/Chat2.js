@@ -10,30 +10,26 @@ class Chat2 extends Component {
             <div className="row">
                 <div className="col-12">
                     <div className="chat-main-box">
-
+                        {/*사용자 리스트*/}
                         <div className="chat-left-aside">
                             <div className="open-panel"><i className="ti-angle-right"></i></div>
-                            <div className="chat-left-inner" style="overflow: visible; height: 193px;">
+                            <div className="chat-left-inner">
                                 <div className="form-material">
                                     <input className="form-control p-20" type="text" placeholder="Search Contact" />
                                 </div>
-                                <div className="slimScrollDiv"
-                                     style="position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;">
-                                    <ul className="chatonline style-none "
-                                        style="overflow: hidden; width: auto; height: 100%;">
+                                <div className="slimScrollDiv">
+                                    <ul className="chatonline style-none ">
                                         <ChatUser name="Arijit Sinh" />
                                         <ChatUser name="Arijit Sinh" />
                                         <ChatUser name="Arijit Sinh" />
                                         <ChatUser name="Arijit Sinh" />
                                     </ul>
-                                    <div className="slimScrollBar"
-                                         style="background-color: rgb(220, 220, 220); width: 5px; position: absolute; top: 133px; opacity: 0.4; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 358.7514880952381px; background-position: initial initial; background-repeat: initial initial;"></div>
-                                    <div className="slimScrollRail"
-                                         style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div>
+                                    <div className="slimScrollBar"></div>
+                                    <div className="slimScrollRail"></div>
                                 </div>
                             </div>
                         </div>
-
+                        {/*채팅 메세지*/}
                         <div className="chat-right-aside">
                             <div className="chat-main-header">
                                 <div className="p-20 b-b">
