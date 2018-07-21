@@ -6,7 +6,7 @@ import Main from '../../pages/Main';
 import SearchChat from "../../pages/SearchChat";
 import SearchFilter from "../../layouts/SearchFilter";
 import Login from "../../pages/Login";
-import Mapp from '../../pages/Mapp';
+import Map from '../../pages/Map';
 import SideNav from "../../layouts/SideNav";
 import Setting from "../../pages/Setting";
 import Modal from "../../pages/Modal";
@@ -32,7 +32,7 @@ class RouteGroup extends Component {
                             <Route path="/register" component={Register}/>
                             <Route path="/searchFilter" component={SearchFilter}/>
                             <Route path="/searchChat" component={SearchChat}/>
-                            <Route path="/map" component={Mapp}/>
+                            <Route path="/map" component={Map}/>
                             <Route path="/chat" component={Chat}/>
                             <Route path="/chatlist" component={ChatList}/>
                             <Route path="/setting" component={Setting}/>

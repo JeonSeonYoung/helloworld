@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DropDownToggle from "../layouts/DropDownToggle";
 import ModalButton from "../layouts/ModalButton";
 import CirlcleIcon from "../layouts/CircleIcon";
-import Map from "../layouts/Map";
+import Map from "../pages/Map";
 
 // 메인화면에서 상세검색 하면 뜨는 부분
 class SearchChat extends Component {
