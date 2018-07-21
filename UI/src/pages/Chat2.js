@@ -7,8 +7,9 @@ class Chat2 extends Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row pt-4">
                 <div className="col-12">
+                    <div className="card m-b-0">
                     <div className="chat-main-box">
                         {/*사용자 리스트*/}
                         <div className="chat-left-aside">
@@ -70,6 +71,7 @@ class Chat2 extends Component {
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
 
