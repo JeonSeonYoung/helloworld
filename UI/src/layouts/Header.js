@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import BackButton from '../layouts/BackButton';
+import MenuButton from '../layouts/MenuButton';
+
+const SomeComponent = withRouter(props => <Header {...props}/>);
+
+// function getLeftButton() {
+//     console.log(currentLocation);
+//
+//     // return (
+//     //     <BackButton />
+//     //     <MenuButton />
+//     // )
+// };
 
 class Header extends Component {
+
+    // const currentLocation = this.props.location.pathname;
+
     render() {
         return (
             <header className="topbar">
@@ -16,13 +32,14 @@ class Header extends Component {
                         </span>
                         </a>
                     </div>
+                    {/*왼쪽 메뉴*/}
                     <div className="navbar-collapse">
                         <ul className="navbar-nav mr-auto mt-md-0">
                             <li className="nav-item dropdown mega-dropdown">
-                                <a className="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i className="ti-menu"></i>
-                                </a>
+
+                                <BackButton />
+                                <MenuButton />
+
                                 <div className="dropdown-menu scale-up-left col-sm-5 col-md-3 col-lg-3">
                                 <ul>
                                     <li>
@@ -50,8 +67,6 @@ class Header extends Component {
                                 </div>
                             </li>
                         </ul>
-
-
                         {this.props.children}
                     </div>
                 </nav>
