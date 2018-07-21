@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
 class Setting extends Component {
+
+    state = {
+  
+    }
+
+    // render 다음에 작동
+    componentDidMount(){
+
+    }
+
     render() {
         return (
             <div className="modal-dialog" role="document">
@@ -13,22 +23,22 @@ class Setting extends Component {
                     <div className="modal-body">
                         <form>
                             <div className="form-group">
-                                <label>닉네임</label>
+                                <label>NickName</label>
                                 <input type="text" className="form-control" placeholder="Enter Task Name" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="example-location">위치설정</label>
+                                <label htmlFor="example-location">Location Setting</label>
                                 <input type="text" id="example-location" name="example-location"
                                        className="form-control" placeholder="10km"/>
                             </div>
                             <div className="form-group">
-                                <label>관심분야</label>
+                                <label>interests</label>
                                 <div id="example-like">
                                     <div className="form-check">
                                         <label className="custom-control custom-checkbox">
                                             <input type="checkbox" className="custom-control-input"/>
                                             <span className="custom-control-indicator"></span>
-                                            <span className="custom-control-description">반려동물</span>
+                                            <span className="custom-control-description">pet</span>
                                         </label>
                                     </div>
                                     <div className="form-check bd-example-indeterminate">
@@ -36,14 +46,14 @@ class Setting extends Component {
                                             <input type="checkbox" className="custom-control-input"/>
                                             <span className="custom-control-indicator"></span>
                                             <span
-                                                className="custom-control-description">문화/공연</span>
+                                                className="custom-control-description">culture/performance</span>
                                         </label>
                                     </div>
                                     <div className="form-check">
                                         <label className="custom-control custom-checkbox">
                                             <input type="checkbox" className="custom-control-input"/>
                                             <span className="custom-control-indicator"></span>
-                                            <span className="custom-control-description">전시</span>
+                                            <span className="custom-control-description">exhibition</span>
                                         </label>
                                     </div>
                                 </div>
