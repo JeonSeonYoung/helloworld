@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Router, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import ReactDOM from 'react-dom';
 import FacebookLogin from 'react-facebook-login';
@@ -17,6 +17,13 @@ const cookieOptions = {
 }
 
 class Login extends Component {
+
+    constructor(props) {
+        super(props);
+        
+        //console.log("Login");
+        //console.log(this.props.location.state.login);
+    }
 
     responseFacebook = (response) => {
         console.log("l responseFacebook");
@@ -128,7 +135,7 @@ class Login extends Component {
         } else {
             return (
                 <div>
-                    <Redirect to = "/" />
+                    <Redirect to = "/" />`
                 </div>
             );
         }
