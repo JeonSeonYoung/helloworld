@@ -7,12 +7,12 @@ class Chat2 extends Component {
 
     render() {
         return (
-            /*
+
             <div className="row pt-4">
                 <div className="col-12">
                     <div className="card m-b-0">
                     <div className="chat-main-box">
-                        //{사용자 리스트}
+                        {/*사용자 리스트*/}
                         <div className="chat-left-aside">
                             <div className="open-panel"><i className="ti-angle-right"></i></div>
                             <div className="chat-left-inner">
@@ -31,7 +31,7 @@ class Chat2 extends Component {
                                 </div>
                             </div>
                         </div>
-                        //{채팅 메세지}
+                        {/*채팅 메세지*/}
                         <div className="chat-right-aside">
                             <div className="chat-main-header">
                                 <div className="p-20 b-b">
@@ -76,9 +76,8 @@ class Chat2 extends Component {
                     </div>
                 </div>
             </div>
-            */
-           <div>
-            </div>
+
+
         );
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ModalButton from "./ModalButton";
 import TypeIcon from './TypeIcon2';
+import InterestCombo from './Setting/InterestCombo';
 
 // SideNav 에 있는 채팅방 검색 화면
 class SearchFilter extends Component {
@@ -109,35 +110,8 @@ class SearchFilter extends Component {
                                 <label>관심분야</label>
                                 <div className="container">
                                     <div className="row mb-2">
-                                        <TypeIcon text="반려동물" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="문화/공연" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="봉사"  onClick={this.getSelectedIcon}/>
-                                        <TypeIcon text="운동/스포츠" onClick={this.getSelectedIcon} />
+                                        <InterestCombo />
                                     </div>
-                                    <div className="row mb-2">
-                                        <TypeIcon text="책/글" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="직무" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="외국어"  onClick={this.getSelectedIcon}/>
-                                        <TypeIcon text="음악/악기" onClick={this.getSelectedIcon} />
-                                    </div>
-                                    <div className="row mb-2">
-                                        <TypeIcon text="댄스/무용" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="사교/인맥" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="사진" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="야구관람" onClick={this.getSelectedIcon} />
-                                    </div>
-                                    <div className="row mb-2">
-                                        <TypeIcon text="게임/오락" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="요리/제조" onClick={this.getSelectedIcon} />
-                                        <TypeIcon text="가족/결혼" onClick={this.getSelectedIcon} />
-                                    </div>
-                                    {/*<div className="row mb-2">*/}
-                                        {/*<div className="col-sm"><TypeIcon text="반려동물" /></div>*/}
-                                        {/*<div className="col-sm"><TypeIcon text="문화/공연" onClick={this.addSelectedIcon} /></div>*/}
-                                        {/*<div className="col-sm"><TypeIcon text="봉사" getSelectedIcon={this.getSelectedIcon} /></div>*/}
-                                        {/*<div className="col-sm"><TypeIcon text="운동/스포츠" /></div>*/}
-                                    {/*</div>*/}
-
                                 </div>
                             </div>
                         </form>
