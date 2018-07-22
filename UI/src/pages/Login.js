@@ -21,8 +21,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         
-        //console.log("Login");
-        //console.log(this.props.location.state.login);
+        console.log("Login");
+        console.log(this.props.location.state.login);
     }
 
     responseFacebook = (response) => {
@@ -135,7 +135,7 @@ class Login extends Component {
         } else {
             return (
                 <div>
-                    <Redirect to = "/" />`
+                    <Redirect to = "/" />
                 </div>
             );
         }
