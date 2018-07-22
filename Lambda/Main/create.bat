@@ -1,6 +1,11 @@
+REM InterestAllList
+7z a InterestAllList.zip InterestAllList.js 
+aws lambda create-function --region ap-northeast-2 --function-name InterestAllList --zip-file fileb://InterestAllList.zip --role arn:aws:iam::024747744712:role/lambdaRole --handler InterestAllList.handler --runtime nodejs6.10
+
+
 REM SearchChatList
-7z a SearchChatList.zip SearchChatList.js 
-aws lambda create-function --region ap-northeast-2 --function-name SearchChatList --zip-file fileb://SearchChatList.zip --role arn:aws:iam::024747744712:role/lambdaRole --handler SearchChatList.handler --runtime nodejs6.10
+REM 7z a SearchChatList.zip SearchChatList.js 
+REM aws lambda create-function --region ap-northeast-2 --function-name SearchChatList --zip-file fileb://SearchChatList.zip --role arn:aws:iam::024747744712:role/lambdaRole --handler SearchChatList.handler --runtime nodejs6.10
 
 
 REM InterestList
