@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { Route, Router, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import ReactDOM from 'react-dom';
 import FacebookLogin from 'react-facebook-login';
