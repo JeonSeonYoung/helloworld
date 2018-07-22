@@ -112,7 +112,7 @@ class Login extends Component {
         );
 
         // undefined error
-        if( cookie.load('name') == 'undefined' ) {
+        if( typeof cookie.load('name') === 'undefined' ) {
             cookie.remove('name', { path: '/' });
             cookie.remove('email', { path: '/' });
             cookie.remove('picture', { path: '/' });
