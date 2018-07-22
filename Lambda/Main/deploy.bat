@@ -1,7 +1,13 @@
+ REM InterestAllList
+ del InterestAllList.zip
+ 7z a InterestAllList.zip InterestAllList.js ../HelloWorld.js
+ aws lambda update-function-code --region ap-northeast-2 --function-name InterestAllList --zip-file fileb://InterestAllList.zip
+
+ 
  REM SearchChatList
- del SearchChatList.zip
- 7z a SearchChatList.zip SearchChatList.js ../HelloWorld.js
- aws lambda update-function-code --region ap-northeast-2 --function-name SearchChatList --zip-file fileb://SearchChatList.zip
+ REM del SearchChatList.zip
+ REM 7z a SearchChatList.zip SearchChatList.js ../HelloWorld.js
+ REM aws lambda update-function-code --region ap-northeast-2 --function-name SearchChatList --zip-file fileb://SearchChatList.zip
 
  
  REM InterestList
