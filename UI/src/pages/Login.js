@@ -16,25 +16,19 @@ const cookieOptions = {
     expires
 }
 
-const responseFacebook = (response) => {
-
-    // 쿠키 저장
-    cookie.save('name', response.name, cookieOptions);
-    cookie.save('email', response.email, cookieOptions);
-    cookie.save('picture', response.picture.data.url, cookieOptions);
-
-    // 로그인 출력
-    ReactDOM.render(
-        <Login
-            name = {response.name}
-            email = {response.email}
-            picture = {response.picture.data.url}
-        />,
-        document.getElementById('login')
-    );
-}
-
 class Login extends Component {
+
+    responseFacebook = (response) => {
+        console.log("l responseFacebook");
+
+        // 쿠키 저장
+        cookie.save('name', response.name, cookieOptions);
+        cookie.save('email', response.email, cookieOptions);
+        cookie.save('picture', response.picture.data.url, cookieOptions);        
+
+        // 로그인 후 갱신
+        this.forceUpdate();
+    }    
 
     render() {
 
@@ -60,7 +54,7 @@ class Login extends Component {
                                     appId="474958262956536"
                                     autoLoad
                                     fields="name,email,picture"
-                                    callback={responseFacebook}
+                                    callback={this.responseFacebook}
                                 />
                             </div>
                         </form>
@@ -134,7 +128,7 @@ class Login extends Component {
         } else {
             return (
                 <div>
-                    {loginMessage}
+                    <Redirect to = "/" />
                 </div>
             );
         }
