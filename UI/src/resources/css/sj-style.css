@@ -115,6 +115,21 @@
     z-index: 10;
 }
 
+button.sj-no-background {
+    background-color: #fff;
+}
+
 button.sj-no-focus:focus{
     outline: none;
+}
+
+.sj-fixed-bottom {
+    position: absolute;
+    bottom:0;
+}
+.sj-bottom-8 {
+    bottom: -8px;
+}
+.sj-pb-100 {
+    padding-bottom:100px !important;
 }

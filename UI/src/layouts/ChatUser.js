@@ -4,7 +4,9 @@ class ChatUser extends Component {
     render() {
         return (
             <li>
-                <a href="javascript:void(0)" data-toggle="modal" data-target="#chatUserInfo">
+                <a href={null}
+                   data-toggle="modal" data-target="#chatUserInfo"
+                   onClick={() => this.props.getUserInfo(this.props.name)}>
                     <span>{this.props.name}</span>
                 </a>
             </li>

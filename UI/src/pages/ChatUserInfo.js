@@ -7,28 +7,21 @@ import comm from "../resources/utils/CommonVariables";
 
 class ChatUserInfo extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        };
-    }
-
-    state = {
-  
-    }
-
-    _loadingInterestFun = (() =>{
-        var lData = this.state.interestdata.map((pData, index) => {
-            return <InterestCombo interest={pData.name} key={index} />
-        })
-        return lData
-    })
-
     render() {
         return (
-            <div className="p-t-30">
-                <h4 className="modal-title">Chat User</h4>
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h4 className="modal-title">Chat User Info</h4>
+                    </div>
+                    <div className="modal-body">
+                        <label htmlFor="example-location">{this.props.userInfo.userName}</label>
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-warning btn-block"
+                                data-dismiss="modal">강퇴하기</button>
+                    </div>
+                </div>
             </div>
         );
     }

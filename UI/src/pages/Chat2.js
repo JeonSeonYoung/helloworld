@@ -6,6 +6,26 @@ import Modal from '../pages/Modal';
 
 class Chat2 extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            userInfo: {
+                userName: ""
+            }
+        }
+
+        this.getUserInfo = this.getUserInfo.bind(this);
+    }
+
+    getUserInfo(name) {
+        this.setState({
+            userInfo: {
+                userName: name
+            }
+        })
+    }
+
     render() {
         return (
 
@@ -18,22 +38,28 @@ class Chat2 extends Component {
                             <div className="open-panel">
                                 <i className="ti-angle-right"></i>
                             </div>
-                            <div className="chat-left-inner">
+                            <div className="chat-left-inner mb-2">
                                 <div className="form-material">
                                     <input className="form-control p-20" type="text" placeholder="Search Contact" />
                                 </div>
-                                <ul className="chatonline style-none ">
-                                    <ChatUser name="Arijit Sinh" />
-                                    <ChatUser name="Arijit Sinh" />
-                                    <ChatUser name="Arijit Sinh" />
-                                    <ChatUser name="Arijit Sinh" />
-                                    <ChatUser name="Arijit Sinh" />
-                                    <ChatUser name="Arijit Sinh" />
-                                    <ChatUser name="Arijit Sinh" />
+                                <ul className="chatonline style-none sj-pb-100">
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                 </ul>
-                                {/*<Modal id="chatUserInfo"/>*/}
+                                <div className="sj-fixed-bottom container pt-2 pb-2
+                                                bg-white sj-bottom-8
+                                                border border-bottom-0 border-left-0 border-right-0 ">
+                                    <button type="button" className="btn btn-danger btn-block">Go Out</button>
+                                </div>
                             </div>
+
                         </div>
+                        <Modal id="chatUserInfo" userInfo={this.state.userInfo}/>
                         {/*채팅 메세지*/}
                         <div className="chat-right-aside">
                             <div className="chat-main-header">
@@ -42,31 +68,27 @@ class Chat2 extends Component {
                                 </div>
                             </div>
                             <div className="chat-rbox">
-                                <div className="slimScrollDiv">
-                                    <ul className="chat-list p-20">
-                                        <ChatLeft name="Bianca Doe"
-                                                  message="Chat messages~"
-                                                  time="10:55 am" />
-                                        <ChatRight name="Bianca Doe"
-                                                   message="Chat messages~"
-                                                   time="10:55 am" />
-                                        <ChatLeft name="Bianca Doe"
-                                                  message="Chat messages~"
-                                                  time="10:55 am" />
-                                        <ChatRight name="Bianca Doe"
-                                                   message="It’s Great opportunity to work."
-                                                   time="10:55 am" />
-                                    </ul>
-                                    <div className="slimScrollBar"></div>
-                                    <div className="slimScrollRail"></div>
-                                </div>
+                                <ul className="chat-list p-20">
+                                    <ChatLeft name="Bianca Doe"
+                                              message="Chat messages~"
+                                              time="10:55 am" />
+                                    <ChatRight name="Bianca Doe"
+                                               message="Chat messages~"
+                                               time="10:55 am" />
+                                    <ChatLeft name="Bianca Doe"
+                                              message="Chat messages~"
+                                              time="10:55 am" />
+                                    <ChatRight name="Bianca Doe"
+                                               message="It’s Great opportunity to work."
+                                               time="10:55 am" />
+                                </ul>
                             </div>
                             <div className="card-body b-t">
                                 <div className="row">
                                     <div className="">
                                         <button type="button"
-                                                className="btn btn-lg p-0 ml-3 sj-no-focus"><i
-                                            className="fa fa-file-photo-o"></i></button>
+                                                className="btn btn-lg p-0 ml-3 sj-no-focus sj-no-background">
+                                            <i className="fa fa-file-photo-o"></i></button>
                                     </div>
                                     <div className="col-8 p-0">
                                          <textarea placeholder="Type your message here"
@@ -74,8 +96,8 @@ class Chat2 extends Component {
                                     </div>
                                     <div className="col-2 p-0 text-right">
                                         <button type="button"
-                                                className="btn btn-info btn-circle btn-lg p-0"><i
-                                            className="fa fa-paper-plane-o"></i></button>
+                                                className="btn btn-info btn-circle btn-lg p-0">
+                                            <i className="fa fa-paper-plane-o"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -83,6 +105,7 @@ class Chat2 extends Component {
                     </div>
                     </div>
                 </div>
+
             </div>
 
 

@@ -18,7 +18,7 @@ class Modal extends Component {
 
             // 채팅창에서 사용자 클릭했을 때
             case "chatUserInfo":
-                return <ChatUserInfo />;
+                return <ChatUserInfo userInfo={this.props.userInfo} />;
 
             default:
                 return

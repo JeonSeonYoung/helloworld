@@ -49,7 +49,10 @@ class Main extends Component {
             "Content-Type": "application/x-www-form-urlencoded"
         },
         body: JSON.stringify({userID : '1'})
-    }).then(lData => lData.json())
+    }).then(lData => {
+        lData.json()
+
+    })
     .catch(error => console.log(error))
     }
 
