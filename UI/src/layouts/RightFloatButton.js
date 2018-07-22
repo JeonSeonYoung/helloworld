@@ -21,7 +21,7 @@ class RightFloatButton extends Component {
         return (
             <div>
                 <button type="button"
-                        className="waves-effect waves-light btn-success btn btn-circle btn-xl pull-right m-l-10"
+                        className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
                         onClick={this.goPage}><i className={this.getIconType() + " text-white"}></i></button>
             </div>
         );

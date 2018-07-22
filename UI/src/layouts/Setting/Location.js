@@ -11,7 +11,7 @@ class Location extends Component {
     changeDropdownText(newDistance) {
         newDistance += "km";
 
-        if (newDistance == "-1km")
+        if (newDistance === "-1km")
             newDistance = "unlimited";
 
         this.setState({
@@ -31,10 +31,10 @@ class Location extends Component {
                             {this.state.distance}
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(1)}} href="#">1km</a>
-                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(5)}} href="#">5km</a>
-                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(10)}} href="#">10km</a>
-                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(-1)}} href="#">제한없음</a>
+                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(1)}} href={null}>1km</a>
+                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(5)}} href={null}>5km</a>
+                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(10)}} href={null}>10km</a>
+                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(-1)}} href={null}>제한없음</a>
                         </div>
                     </div>
                     <ModalButton value="reset my location" />

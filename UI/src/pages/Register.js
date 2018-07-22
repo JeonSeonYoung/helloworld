@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ChatLeft from "../layouts/ChatLeft";
 import TypeIcon from '../layouts/TypeIcon2';
-import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 class Register extends Component {
 

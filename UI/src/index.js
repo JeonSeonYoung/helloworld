@@ -4,4 +4,4 @@ import Common from './components/Common';
 
 ReactDOM.render(
     <Common />,
-    document.getElementById('root'));
+    document.getElementById('main-wrapper'));

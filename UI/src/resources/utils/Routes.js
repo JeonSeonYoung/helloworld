@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import Main from '../../pages/Main';
-import SearchChat from "../../pages/SearchChat";
-import SearchFilter from "../../layouts/SearchFilter";
 import Login from "../../pages/Login";
+import Main from '../../pages/Main';
 import Map from '../../pages/Map';
-import SideNav from "../../layouts/SideNav";
-import Setting from "../../pages/Setting";
 import Modal from "../../pages/Modal";
 import Chat from "../../pages/Chat2";
 import ChatList from "../../pages/ChatList";
 import Register from "../../pages/Register";
-
+import SearchChat from "../../pages/SearchChat";
+import SearchFilter from "../../layouts/SearchFilter";
+import SideNav from "../../layouts/SideNav";
+import Setting from "../../pages/Setting";
+// import { Redirect } from 'react-router-dom';
 //import ShowMapp from '../../pages/ShowMapp';
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (

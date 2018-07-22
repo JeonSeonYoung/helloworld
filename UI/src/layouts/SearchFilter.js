@@ -8,7 +8,8 @@ class SearchFilter extends Component {
 
     state = {
         active: false,
-        selectedIcon: []
+        selectedIcon: [],
+        interestData: []
     };
 
     // '관심분야' 선택하면 id(text) 에 해당하는 icon 을 '선택된 관심분야'에 추가하고,
@@ -21,14 +22,14 @@ class SearchFilter extends Component {
         if (active) {
             this.setState(prevState => ({
                 active: !prevState.active,
-                selectedIcon: prevState.selectedIcon
+                interestData: prevState.interestdata
                     .concat(<TypeIcon text={id} key={id} onClick={this.deleteIcon} />)
             }))
         }
         else {
             // '선택된 관심분야' 에서 해당 아이콘 지워준다.
             this.setState( prevState => ({
-                selectedIcon: prevState.selectedIcon.filter((item) => {
+                interestData: prevState.interestdata.filter((item) => {
                     return item.key !== id
                 })
             }));
@@ -39,7 +40,7 @@ class SearchFilter extends Component {
 
         // console.log("toggle!" + id);
         this.setState( prevState => ({
-            selectedIcon: prevState.selectedIcon.filter((item) => {
+            interestData: prevState.interestdata.filter((item) => {
                 return item.key !== id
             })
         }));
@@ -52,7 +53,7 @@ class SearchFilter extends Component {
     addSelectedIcon = (id, doAdd) => {
         console.log(id, doAdd);
         this.setState(prevState => ({
-            selectedIcon: prevState.selectedIcon.push(id)
+            interestData: prevState.interestdata.push(id)
         }))
 
         if (doAdd) {
@@ -75,48 +76,45 @@ class SearchFilter extends Component {
                             <span aria-hidden="true">×</span></button>
                     </div>
                     <div className="modal-body">
-                        <form>
-                            <div className="form-group">
-                                <label htmlFor="example-location">위치설정</label>
-                                <div className="" >
-                                    <div className="dropdown btn-group" role="group">
-                                        <button className="btn btn-secondary dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                            1km
-                                        </button>
-                                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a className="dropdown-item" href="#">1km</a>
-                                            <a className="dropdown-item" href="#">5km</a>
-                                            <a className="dropdown-item" href="#">10km</a>
-                                            <a className="dropdown-item" href="#">제한 없음</a>
-                                        </div>
+                        <div className="form-group">
+                            <label htmlFor="example-location">위치설정</label>
+                            <div className="" >
+                                <div className="dropdown btn-group" role="group">
+                                    <button className="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                        1km
+                                    </button>
+                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a className="dropdown-item" href="#">1km</a>
+                                        <a className="dropdown-item" href="#">5km</a>
+                                        <a className="dropdown-item" href="#">10km</a>
+                                        <a className="dropdown-item" href="#">제한 없음</a>
                                     </div>
-                                    <ModalButton value="내 위치 다시설정" />
                                 </div>
+                                <ModalButton value="내 위치 다시설정" />
+                            </div>
 
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="example-location">선택된 관심분야</label>
-                                <div className="container">
-                                    <div className="row">
-                                        {this.state.selectedIcon.map((icon)=> {
-                                            return icon;
-                                        })}
-                                    </div>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="example-location">선택된 관심분야</label>
+                            <div className="container">
+                                <div className="row">
+                                    {this.state.interestData.map((icon)=> {
+                                        return icon;
+                                    })}
                                 </div>
                             </div>
-                            <div className="form-group">
-                                <label>관심분야</label>
-                                <div className="container">
-                                    <div className="row mb-2">
-                                        <InterestCombo />
-                                    </div>
+                        </div>
+                        <div className="form-group">
+                            <label>관심분야</label>
+                            <div className="container">
+                                <div className="row mb-2">
+                                    <InterestCombo />
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-
                     <div className="modal-footer">
                         <button type="button" className="btn btn-success btn-block" data-dismiss="modal">저장</button>
                     </div>
