@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import cookie from 'react-cookies';
 import { Link } from 'react-router-dom';
+
+import Login from '../pages/Login'
 
 class SideNav extends Component {
     state = {
@@ -14,6 +17,11 @@ class SideNav extends Component {
     }
 
     render() {
+
+        // check cookie
+        var name = cookie.load('name');
+        var login = (typeof name === "undefined" || name == "") ? false : true;        
+        
         return (
             <aside className="left-sidebar">
                 <div className="scroll-sidebar">
@@ -55,10 +63,14 @@ class SideNav extends Component {
 
                             <li className="nav-devider"></li>
                             <li>
-                                <Link to="/login" className="waves-effect waves-dark"  aria-expanded="false">
+                                <Link to={{
+                                    pathname: '/login',                                    
+                                    state: { login: login }
+                                }} className="waves-effect waves-dark"  aria-expanded="false">
+
                                     <i className="ti-settings"></i>
                                     <span className="hide-menu">
-                                        로그인
+                                        {login ? "로그아웃" : "로그인"}
                                     </span>
                                 </Link>
                             </li>
