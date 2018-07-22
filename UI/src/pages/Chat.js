@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 // import Message from "../layouts/Message";
 // import RightFloatButton from "../layouts/RightFloatButton";
 // import Search from "../layouts/Search";
+import ChatUser from "../layouts/ChatUser";
 import ChatLeft from "../layouts/ChatLeft";
 import ChatRight from "../layouts/ChatRight";
 
@@ -14,6 +15,18 @@ class Chat extends Component {
                 <div className="col-12">
                     <div className="card m-b-0">
                         <div className="chat-main-box">
+                            <div className="chat-left-aside">
+                                <div className="open-panel"><i className="ti-angle-right"></i></div>
+                                <div className="chat-left-inner">
+                                    <div className="form-material">
+                                        <input className="form-control p-20" type="text" placeholder="Search Contact" />
+                                    </div>
+                                    <ul className="chatonline style-none ">
+                                        <ChatUser name="Genelia Deshmukh" />
+                                        <ChatUser name="Genelia Deshmukh" />
+                                    </ul>
+                                </div>
+                            </div>
                             <div className="chat-right-aside">
                                 <div className="chat-main-header">
                                     <div className="p-20 b-b">

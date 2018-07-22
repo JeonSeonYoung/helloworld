@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import LinkButton from "../layouts/LinkButton";
 import TagButton from "../layouts/TagButton";
 import DropDownToggle from "../layouts/DropDownToggle";
 import Message from "../layouts/Message";
-import RightFloatButton from "../layouts/RightFloatButton";
 import Search from "../layouts/Search";
 import Modal from '../pages/Modal';
+// import LinkButton from "../layouts/LinkButton";
+// import RightFloatButton from "../layouts/RightFloatButton";
 
 class Main extends Component {
 

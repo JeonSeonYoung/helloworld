@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import BackButton from '../layouts/BackButton';
 import MenuButton from '../layouts/MenuButton';
 
-const SomeComponent = withRouter(props => <Header {...props}/>);
+// const SomeComponent = withRouter(props => <Header {...props}/>);
 
 // function getLeftButton() {
 //     console.log(currentLocation);

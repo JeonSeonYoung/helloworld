@@ -20,7 +20,7 @@ class SideNav extends Component {
                     <div className="user-profile">
                         <div className="profile-img"><img src="../assets/images/users/profile.png" alt="user"/></div>
                         <div className="profile-text">
-                            <a href="#" role="button">Markarn Doe</a>
+                            <a href={null} role="button">Markarn Doe</a>
                         </div>
                     </div>
                     <nav className="sidebar-nav">

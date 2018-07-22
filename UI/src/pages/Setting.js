@@ -55,14 +55,14 @@ class Setting extends Component {
 
     _loadingNickNameFun = (() =>{
         var lData = this.state.settingdata.map((pData, index) =>{
-            return <NickName name={pData.nickName}/>
+            return <NickName name={pData.nickName} key={index}/>
         })
         return lData
     })
 
     _loadingLocationFun = (() =>{
         var lData = this.state.settingdata.map((pData, index) =>{
-            return <Location distance={pData.distance}/>
+            return <Location distance={pData.distance} key={index}/>
         })
         return lData
     })
@@ -78,7 +78,7 @@ class Setting extends Component {
 
     _loadingInterestFun = (() =>{
         var lData = this.state.interestdata.map((pData, index) => {
-            return <InterestCombo interest={pData.name} />
+            return <InterestCombo interest={pData.name} key={index} />
         })
         return lData
     })
