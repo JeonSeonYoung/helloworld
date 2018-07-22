@@ -22,7 +22,7 @@ class Login extends Component {
         super(props);
         
         console.log("Login");
-        console.log(this.props.location.state.login);
+        // console.log(this.props.location.state.login);
     }
 
     responseFacebook = (response) => {
