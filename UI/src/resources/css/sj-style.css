@@ -103,18 +103,6 @@
 .chat-left-inner {
     overflow: visible; height: 193px;
 }
-.slimScrollDiv {
-    position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;
-}
-.chatonline {
-    overflow: hidden; width: auto; height: 100%;
-}
-.slimScrollBar {
-    background-color: rgb(220, 220, 220); width: 5px; position: absolute; top: 133px; opacity: 0.4; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 358.7514880952381px; background-position: initial initial; background-repeat: initial initial;
-}
-.slimScrollRail {
-    width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;
-}
 
 .input-group button{
     height: 100%;
@@ -125,4 +113,8 @@
     bottom: 20px;
     right: 20px;
     z-index: 10;
+}
+
+button.sj-no-focus:focus{
+    outline: none;
 }

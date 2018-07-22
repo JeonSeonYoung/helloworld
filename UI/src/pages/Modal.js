@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 import Setting from '../pages/Setting';
 import SearchFilter from '../layouts/SearchFilter';
 import CreateChat from "./CreateChat";
+import ChatUserInfo from "../pages/ChatUserInfo";
 
 class Modal extends Component {
     getModal() {
         switch(this.props.id) {
             case "setting":
                 return <Setting />
+
             case "searchFilter":
                 return <SearchFilter />
+
             case "createChat":
                 return <CreateChat />
+
+            // 채팅창에서 사용자 클릭했을 때
+            case "chatUserInfo":
+                return <ChatUserInfo />;
+
             default:
                 return
         }
