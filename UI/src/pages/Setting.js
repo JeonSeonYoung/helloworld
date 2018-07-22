@@ -66,7 +66,7 @@ class Setting extends Component {
         })
         return lData
     })
-
+    /*
     _loadingSelectedInterestFun = (() =>{
         var lData = this.state.settingdata.map((pData, index) => {
 
@@ -74,15 +74,14 @@ class Setting extends Component {
         })
         return lData
     })
+    */
 
-    /*
     _loadingInterestFun = (() =>{
         var lData = this.state.interestdata.map((pData, index) => {
             return <InterestCombo interest={pData.name} />
         })
         return lData
     })
-    */
 
     // 설정 데이터 저장
     saveSetting() {
