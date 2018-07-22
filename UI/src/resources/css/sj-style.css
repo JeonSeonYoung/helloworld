@@ -115,3 +115,14 @@
 .slimScrollRail {
     width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;
 }
+
+.input-group button{
+    height: 100%;
+}
+
+.sj-float-right {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}

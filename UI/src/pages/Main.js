@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import TagButton from "../layouts/TagButton";
-import DropDownToggle from "../layouts/DropDownToggle";
 import Message from "../layouts/Message";
 import Search from "../layouts/Search";
 import Modal from '../pages/Modal';
+// import DropDownToggle from "../layouts/DropDownToggle";
 // import LinkButton from "../layouts/LinkButton";
 // import RightFloatButton from "../layouts/RightFloatButton";
 
@@ -80,25 +80,17 @@ class Main extends Component {
     render() {
         return (
             <div className="p-t-30">
+                {/* 검색 + 상세검색 */}
                 <Search onCreate = {this.handleCreate}/>
                 <div className="m-t-10">
-                    <DropDownToggle dropdownData={"최신순, 인기순"} selectedIndex={0}/>
+                    {/* 태그 */}
                     {
                         this.state.interestData ? this._loadingInterestFun() : ""
                     }
-                    <button type="button" className="btn waves-effect waves-light btn-info ml-1">
-                        {this.state.distance !== "-1" ? this.state.distance +"km" : "제한없음"}
-                        <i className="mdi mdi-close"></i>
-                    </button>
-                    {/*상세검색*/}
-                    <div className="float-right">
-                        <button className="waves-effect waves-light btn-info ml-1 btn" data-toggle="modal"
-                                data-target="#searchFilter">검색설정</button>
-                        <Modal id="searchFilter"/>
-                        {/*<LinkButton value={"설정"} dataTarget={"setting"} designType={"button"} />*/}
-                    </div>
+                    <TagButton name={this.state.distance !== "-1" ? this.state.distance +"km" : "제한없음"}
+                               distance={this.state.distance} key={this.state.distance}/>
                 </div>
-
+                {/*채팅방 리스트*/}
                 <div className="message-box contact-box soo-card m-t-10">
                     <div className="message-widget contact-widget">
                         {
@@ -107,7 +99,7 @@ class Main extends Component {
                     </div>
                 </div>
                 <button type="button"
-                        className="waves-effect waves-light btn-success btn btn-circle btn-xl pull-right m-l-10"
+                        className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
                         data-toggle="modal"
                         data-target="#createChat"
                         ><i className="mdi mdi-note-outline text-white"></i></button>

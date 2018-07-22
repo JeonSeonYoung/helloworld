@@ -9,11 +9,7 @@ class InterestCombo extends Component {
     }
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <TypeIcon text={this.props.interest} Click={this.getSelectedIcon} />
-                </div>
-            </div>
+            <TypeIcon text={this.props.interest} Click={this.getSelectedIcon} />
         );
     }
 }

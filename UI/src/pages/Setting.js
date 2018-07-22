@@ -110,9 +110,13 @@ class Setting extends Component {
                 </div>
                 <div className="form-group">
                     <label>Interests</label>
+                    <div className="container">
+                        <div className="row">
                         {
                             this.state.interestdata ? this._loadingInterestFun() : "Loading...."
                         }
+                        </div>
+                    </div>
                 </div>
                 <Save saveSetting={this.saveSetting} />
             </div>
