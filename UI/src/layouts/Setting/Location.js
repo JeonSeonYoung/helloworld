@@ -5,14 +5,14 @@ import ModalButton from "../ModalButton";
 class Location extends Component {
 
     state = {
-        distance: '1km'
+        distance: this.props.distance + "km"
     }
 
     changeDropdownText(newDistance) {
         newDistance += "km";
 
-        if (newDistance == -1)
-            newDistance = "제한없음";
+        if (newDistance == "-1km")
+            newDistance = "unlimited";
 
         this.setState({
             distance: newDistance
@@ -37,7 +37,7 @@ class Location extends Component {
                             <a className="dropdown-item" onClick={() => {this.changeDropdownText(-1)}} href="#">제한없음</a>
                         </div>
                     </div>
-                    <ModalButton value="내 위치 다시설정" />
+                    <ModalButton value="reset my location" />
                 </div>
             </div>
         );
