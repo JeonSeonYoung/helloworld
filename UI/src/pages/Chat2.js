@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChatLeft from "../layouts/ChatLeft";
 import ChatRight from "../layouts/ChatRight";
 import ChatUser from "../layouts/ChatUser";
+import Modal from '../pages/Modal';
 
 class Chat2 extends Component {
 
@@ -14,21 +15,23 @@ class Chat2 extends Component {
                     <div className="chat-main-box">
                         {/*사용자 리스트*/}
                         <div className="chat-left-aside">
-                            <div className="open-panel"><i className="ti-angle-right"></i></div>
+                            <div className="open-panel">
+                                <i className="ti-angle-right"></i>
+                            </div>
                             <div className="chat-left-inner">
                                 <div className="form-material">
                                     <input className="form-control p-20" type="text" placeholder="Search Contact" />
                                 </div>
-                                <div className="slimScrollDiv">
-                                    <ul className="chatonline style-none ">
-                                        <ChatUser name="Arijit Sinh" />
-                                        <ChatUser name="Arijit Sinh" />
-                                        <ChatUser name="Arijit Sinh" />
-                                        <ChatUser name="Arijit Sinh" />
-                                    </ul>
-                                    <div className="slimScrollBar"></div>
-                                    <div className="slimScrollRail"></div>
-                                </div>
+                                <ul className="chatonline style-none ">
+                                    <ChatUser name="Arijit Sinh" />
+                                    <ChatUser name="Arijit Sinh" />
+                                    <ChatUser name="Arijit Sinh" />
+                                    <ChatUser name="Arijit Sinh" />
+                                    <ChatUser name="Arijit Sinh" />
+                                    <ChatUser name="Arijit Sinh" />
+                                    <ChatUser name="Arijit Sinh" />
+                                </ul>
+                                {/*<Modal id="chatUserInfo"/>*/}
                             </div>
                         </div>
                         {/*채팅 메세지*/}
@@ -60,13 +63,18 @@ class Chat2 extends Component {
                             </div>
                             <div className="card-body b-t">
                                 <div className="row">
-                                    <div className="col-8">
-                                             <textarea placeholder="Type your message here"
-                                                       className="form-control b-0"></textarea>
-                                    </div>
-                                    <div className="col-4 text-right">
+                                    <div className="">
                                         <button type="button"
-                                                className="btn btn-info btn-circle btn-lg"><i
+                                                className="btn btn-lg p-0 ml-3 sj-no-focus"><i
+                                            className="fa fa-file-photo-o"></i></button>
+                                    </div>
+                                    <div className="col-8 p-0">
+                                         <textarea placeholder="Type your message here"
+                                               className="form-control b-0"></textarea>
+                                    </div>
+                                    <div className="col-2 p-0 text-right">
+                                        <button type="button"
+                                                className="btn btn-info btn-circle btn-lg p-0"><i
                                             className="fa fa-paper-plane-o"></i></button>
                                     </div>
                                 </div>
