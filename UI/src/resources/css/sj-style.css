@@ -131,9 +131,18 @@ button.sj-no-focus:focus{
     position: absolute;
     bottom:0;
 }
-.sj-bottom-8 {
-    bottom: -8px;
+.sj-bottom-9 {
+    bottom: 9px;
 }
 .sj-pb-100 {
     padding-bottom:100px !important;
+}
+.sj-pb-50 {
+    padding-bottom:50px !important;
+}
+.sj-chat-out {
+    height:20px;
+}
+.sj-bg-danger {
+    background-color: #fc4b6c;
 }
