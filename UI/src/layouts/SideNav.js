@@ -23,8 +23,12 @@ class SideNav extends Component {
     render() {
 
         // check cookie
-        var name = cookie.load('name');
-        var login = (typeof name === "undefined" || name == "") ? false : true;        
+        var fbData = cookie.load('fbData');
+        var login = (typeof fbData === "undefined" || fbData == "") ? false : true; 
+        
+        console.log("SideNav");
+        console.log(login)
+        console.log(fbData);
         
         return (
             <aside className="left-sidebar">

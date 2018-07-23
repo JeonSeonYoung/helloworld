@@ -21,10 +21,10 @@ class Login extends Component {
     constructor(props) {
         super(props);
 
-        var name = cookie.load('name');
+        var fbData = cookie.load('fbData');
 
         // undefined error
-        if( typeof name === 'undefined' || name == '' ) {
+        if( typeof fbData === 'undefined' || fbData == '' ) {
             this.state = {
                 status : "login"
             }
@@ -57,11 +57,6 @@ class Login extends Component {
             userID : response.userID,
             createAt : ""
         }
-
-        // 쿠키 저장
-        cookie.save('name', response.name, cookieOptions);
-        cookie.save('email', response.email, cookieOptions);
-        cookie.save('picture', response.picture.data.url, cookieOptions);        
 
         // 로그인 후 갱신
         // this.forceUpdate();
@@ -100,6 +95,9 @@ class Login extends Component {
             if( data.result == 'success' && data.data.Count == 0 ) {
                 // set create date for update
                 fbData.createAt = this.getDate();
+
+                // save cookies for facebook data
+                cookie.save('fbData', fbData, cookieOptions);                
             
                 // set state
                 this.setState({
@@ -111,6 +109,9 @@ class Login extends Component {
                 // set create date for update
                 fbData.createAt = data.data.Items[0].createAt.S;
                 console.log(fbData);
+
+                // save cookies for facebook data
+                cookie.save('fbData', fbData, cookieOptions);
             
                 // set state                
                 this.setState({
@@ -118,6 +119,8 @@ class Login extends Component {
                     params : fbData
                 });
             }
+
+
         });
     }    
 
@@ -125,9 +128,7 @@ class Login extends Component {
 
         if( this.state.status == 'logout' ) {
             // remove cookies
-            cookie.remove('name', { path: '/' });
-            cookie.remove('email', { path: '/' });
-            cookie.remove('picture', { path: '/' });            
+            cookie.remove('fbData', { path: '/' });    
 
             // render
             return(
@@ -135,6 +136,8 @@ class Login extends Component {
                     <Redirect to='/' />
                 </div>
             );
+
+            
         }
 
         if( this.state.status == 'login' ) {
@@ -194,32 +197,7 @@ class Login extends Component {
                 </div>
             );
         }           
-
-        /*
-            // undefined error
-            if( typeof cookie.load('name') === 'undefined' ) {
-                cookie.remove('name', { path: '/' });
-                cookie.remove('email', { path: '/' });
-                cookie.remove('picture', { path: '/' });
-            }
-
-            // check cookies
-            if( !cookie.load('name') ) {
-                return (
-                    <div>
-                        {loginView}
-                    </div>
-                );
-            } else {
-                return (
-                    <div>
-                        <Redirect to = "/" />
-                    </div>
-                );
-            }
-        */
     }
-    
 }
 
 export default Login;
