@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import NickName from '../layouts/Setting/NickName';
-import Save from '../layouts/Setting/Save';
-import Location from '../layouts/Setting/Location';
-import InterestCombo from '../layouts/Setting/InterestCombo';
-import comm from "../resources/utils/CommonVariables";
 
 class ChatUserInfo extends Component {
 

@@ -37,7 +37,7 @@ exports.handler = (event, context, callback) => {
 	}
 	
 	console.log("params------", params);
-	// DOCUMENT 테이블 정보 수정
+
 	dynamodb.updateItem(params, function(err, data){
 
 		if (err) {
@@ -50,36 +50,8 @@ exports.handler = (event, context, callback) => {
 			callback(null,inRet);	
 		} else {
 			console.log('EndpointArn Saved successful');
-		
-			// DocumentHistory 시퀀스 받아오기
-			HelloWorld.Objects.DynamoDB.Sequence.generator('UserInfo').then((userID)=>{
-				// Doucment History 저장
-				dynamodb.putItem({
-					"TableName": "UserInfo",
-					"Item" : {
-                        "userID": {"S": userID},
-                        "createAt": {"S": createAt},
-                        "vLocation": {"S": vLocation }
-					}
-				}, function(err, data) {
-					if (err) {
-						console.log(' Doucment History 실패.: '+JSON.stringify(err, null, '  '));
-						result.headers.resultCode = "400";
-						result.headers.resultMessage = "Doucment History 등록에 실패하였습니다.";
-						result.data = "fail";
-
-						callback(null,result);		
-					}else{
-						result.data = vLocation;
-						callback(null,result);
-					}
-				});
-
-			}).catch((pError)=>{
-				console.log('HelloWorld.Objects.DynamoDB.Sequence.generator pError', pError);
-			})
-		
-		
+			result.data = vLocation;
+			callback(null,result);
 		}
 	})
 };

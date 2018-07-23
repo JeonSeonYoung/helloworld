@@ -36,13 +36,12 @@ exports.handler = (event, context, callback) => {
     function* gen() {
 		const userInfoList = yield promisUserInfo();
 		
-		var lResultList = [];
-
-		lResultList.push({
+		var lResultList = {
 			"nickName": userInfoList.Items[0].nickName.S,
 			"distance": userInfoList.Items[0].distance.S,
-            "interest": JSON.parse(userInfoList.Items[0].interest.S).id
-		});
+			"interest": JSON.parse(userInfoList.Items[0].interest.S).id
+		}
+
         callback(null, lResultList);
     }
     HelloWorld.Generator.run(gen);
