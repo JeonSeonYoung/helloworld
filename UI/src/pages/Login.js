@@ -37,6 +37,15 @@ class Login extends Component {
         // console.log(this.props.location.state.login);
     }
 
+    getDate = () => {
+        var date = new Date();
+        var dd = date.getDate();
+        var mm = date.getMonth()+1;
+        var yyyy = date.getFullYear();
+
+        return yyyy + "-" + mm + "-" + dd;
+    }    
+
     responseFacebook = (response) => {
 
         console.log(response);
@@ -45,7 +54,8 @@ class Login extends Component {
             name : response.name,
             email : response.email,
             accessToken : response.accessToken,
-            userID : response.userID
+            userID : response.userID,
+            createAt : ""
         }
 
         // 쿠키 저장
@@ -88,14 +98,24 @@ class Login extends Component {
             //console.log(data.data.Count);
 
             if( data.result == 'success' && data.data.Count == 0 ) {
+                // set create date for update
+                fbData.createAt = this.getDate();
+            
+                // set state
                 this.setState({
                     status : "register",
                     params : fbData
                 });
             }
             else {
+                // set create date for update
+                fbData.createAt = data.data.Items[0].createAt.S;
+                console.log(fbData);
+            
+                // set state                
                 this.setState({
-                    status : "main"
+                    status : "main",
+                    params : fbData
                 });
             }
         });
