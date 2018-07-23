@@ -38,11 +38,11 @@ class Chat2 extends Component {
                             <div className="open-panel">
                                 <i className="ti-angle-right"></i>
                             </div>
-                            <div className="chat-left-inner mb-2">
-                                <div className="form-material">
-                                    <input className="form-control p-20" type="text" placeholder="Search Contact" />
-                                </div>
-                                <ul className="chatonline style-none sj-pb-100">
+                            <div className="chat-left-inner">
+                                {/*<div className="form-material">*/}
+                                    {/*<input className="form-control p-20" type="text" placeholder="Search Contact" />*/}
+                                {/*</div>*/}
+                                <ul className="chatonline style-none sj-pb-50">
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
@@ -51,11 +51,14 @@ class Chat2 extends Component {
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                 </ul>
-                                <div className="sj-fixed-bottom container pt-2 pb-2
-                                                bg-white sj-bottom-8
-                                                border border-bottom-0 border-left-0 border-right-0 ">
-                                    <button type="button" className="btn btn-danger btn-block">Go Out</button>
+                                <div className="sj-fixed-bottom sj-chat-out btn-block pb-3 pt-3 sj-bg-danger">
+                                    <button type="button" className="btn-danger btn-block">Go Out</button>
                                 </div>
+                                {/*<div className="sj-fixed-bottom container pt-2 pb-2*/}
+                                                {/*bg-white sj-bottom-9*/}
+                                                {/*border border-bottom-0 border-left-0 border-right-0 ">*/}
+                                    {/*<button type="button" className="btn btn-danger btn-block">Go Out</button>*/}
+                                {/*</div>*/}
                             </div>
 
                         </div>
@@ -83,23 +86,35 @@ class Chat2 extends Component {
                                                time="10:55 am" />
                                 </ul>
                             </div>
-                            <div className="card-body b-t">
-                                <div className="row">
-                                    <div className="">
-                                        <button type="button"
-                                                className="btn btn-lg p-0 ml-3 sj-no-focus sj-no-background">
-                                            <i className="fa fa-file-photo-o"></i></button>
+                            <div className="card-body b-t pb-0">
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend mr-1">
+                                        <button className="btn btn-lg p-0 mt-2 sj-no-focus sj-no-background" type="button">
+                                            <i className="mdi mdi-plus"></i></button>
                                     </div>
-                                    <div className="col-8 p-0">
-                                         <textarea placeholder="Type your message here"
-                                               className="form-control b-0"></textarea>
-                                    </div>
-                                    <div className="col-2 p-0 text-right">
-                                        <button type="button"
-                                                className="btn btn-info btn-circle btn-lg p-0">
-                                            <i className="fa fa-paper-plane-o"></i></button>
+                                    <input type="text" className="form-control border-0" />
+                                    <div>
+                                        <button className="btn btn-info btn-circle btn-lg p-0" type="submit">
+                                            <i className="fa fa-paper-plane-o"></i>
+                                        </button>
                                     </div>
                                 </div>
+                                {/*<div className="row">*/}
+                                    {/*<div className="">*/}
+                                        {/*<button type="button"*/}
+                                                {/*className="btn btn-lg p-0 ml-3 sj-no-focus sj-no-background">*/}
+                                            {/*<i className="fa fa-file-photo-o"></i></button>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="col-8 p-0">*/}
+                                         {/*<textarea placeholder="Type your message here"*/}
+                                               {/*className="form-control b-0"></textarea>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="col-2 p-0 text-right">*/}
+                                        {/*<button type="button"*/}
+                                                {/*className="btn btn-info btn-circle btn-lg p-0">*/}
+                                            {/*<i className="fa fa-paper-plane-o"></i></button>*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
