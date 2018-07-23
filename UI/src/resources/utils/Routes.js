@@ -13,6 +13,7 @@ import SearchChat from "../../pages/SearchChat";
 import SearchFilter from "../../layouts/SearchFilter";
 import SideNav from "../../layouts/SideNav";
 import Setting from "../../pages/Setting";
+import CreateChat from "../../pages/CreateChat";
 // import { Redirect } from 'react-router-dom';
 //import ShowMapp from '../../pages/ShowMapp';
 
@@ -56,6 +57,7 @@ class RouteGroup extends Component {
                     <AppRoute exact path="/searchChat" layout={MainLayout} component={SearchChat} />
                     <AppRoute exact path="/map" layout={MainLayout} component={Map} />
                     <AppRoute exact path="/chat" layout={MainLayout} component={Chat} />
+                    <AppRoute exact path="/createchat" layout={MainLayout} component={CreateChat} />
                     <AppRoute exact path="/chatlist" layout={MainLayout} component={ChatList} />
                     <AppRoute exact path="/setting" layout={MainLayout} component={Setting} />
                 </Switch>

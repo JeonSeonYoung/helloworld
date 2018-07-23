@@ -11,20 +11,32 @@ class Setting extends Component {
         this.state = {
             
         };
+
+        this._updatesettingdata = this._updatesettingdata.bind(this);
     }
 
     // render 다음에 작동
     componentDidMount(){
-        this._getsettingdata()
+        this._getdata()
     }
 
-    _getsettingdata = async () => {
+    _getdata = async () => {
         const settingdata = await this._callsettingdataApi();
         const interestdata = await this._callInterestdataApi();
         this.setState({
             settingdata,
             interestdata
         })
+    }
+
+    _updatesettingdata = async () => {
+        this.setState({
+        })
+        console.log(this.state.settingdata.nickName + "," + this.state.settingdata.distance + "," + JSON.stringify(this.state.settingdata.interestID))
+        //const updatesetdata = await this._callsettingupdateApi();
+        //this.setState({
+        //    updatesetdata
+        //})
     }
 
     _callsettingdataApi = () => {
@@ -55,12 +67,16 @@ class Setting extends Component {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: {
-                "nickName": "nick",
-                "interest": "{\"id\":[1,4,6]}"
-                
+                "nickName": this.state.settingdata.nickname,
+                "distance": this.state.settingdata.distance,
+                "interest": JSON.stringify(this.state.settingdata.interestID)
             }
         }).then(lData => lData.json())
             .catch(error => console.log(error))
+    }
+
+    getNickName(name){
+        console.log(name)
     }
 
     _loadingNickNameFun = (() =>{
@@ -72,20 +88,21 @@ class Setting extends Component {
     })
 
     _loadingSelectedInterestFun = (() =>{
-        var lData = this.state.settingdata.interest.map((pData, index) => {
-            this.state.interestdata.map((inData, index) => {
-                if (pData == inData.interestID){
-                    console.log(pData + " " + inData.interestID + " " + inData.name)
-                    return <InterestCombo interest={inData.name} key={index} />
-                }
-            })
-        })
-        return lData
+        // return -> interestID, name
+        var filtered = this.state.interestdata.filter(item =>
+            this.state.settingdata.interest.indexOf(Number(item.interestID)) != -1
+        );
+
+        var lData = filtered.map((pData, index) => {
+           return  <InterestCombo interest={pData.name} key={index} />
+        });
+
+        return lData;
     })
 
     _loadingInterestFun = (() =>{
         var lData = this.state.interestdata.map((pData, index) => {
-            return <InterestCombo interest={pData.name} key={index} />
+            return <InterestCombo interestID={pData.interestID} interest={pData.name} key={index} />
         })
         return lData
     })
@@ -100,7 +117,7 @@ class Setting extends Component {
         //    return comm.getInterestId(interest);
         //})
 
-        this._callsettingupdateApi();
+        //this._updatesettingdata();
     }
 
     render() {
@@ -134,7 +151,7 @@ class Setting extends Component {
                     </div>
                 </div>
                 <div className="sj-overflow">
-                    <button type="button" className="btn btn-success pull-right" onClick={this.saveSetting}>Save</button>
+                    <button type="button" className="btn btn-success pull-right" onClick={this._updatesettingdata}>Save</button>
                 </div>
             </div>
         );
