@@ -14,10 +14,6 @@ class Setting extends Component {
         };
     }
 
-    state = {
-  
-    }
-
     // render 다음에 작동
     componentDidMount(){
         this._getsettingdata()

@@ -28,7 +28,6 @@ class Main extends Component {
         })
     }
 
-
     //채팅방 리스트
     _callChatListApi = () => {
     return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
@@ -49,10 +48,7 @@ class Main extends Component {
             "Content-Type": "application/x-www-form-urlencoded"
         },
         body: JSON.stringify({userID : '1'})
-    }).then(lData => {
-        lData.json()
-
-    })
+    }).then(lData => lData.json())
     .catch(error => console.log(error))
     }
 
@@ -90,8 +86,15 @@ class Main extends Component {
                     {
                         this.state.interestData ? this._loadingInterestFun() : ""
                     }
-                    <TagButton name={this.state.distance !== "-1" ? this.state.distance +"km" : "제한없음"}
-                               distance={this.state.distance} key={this.state.distance}/>
+                    {
+                        this.state.distance !== "-1" ?
+                            <TagButton name={this.state.distance +"km"}
+                                       distance={this.state.distance}
+                                       key={this.state.distance}/>
+                         : <TagButton name="제한없음"
+                                      distance="-1"
+                                      key="-1"/>
+                    }
                 </div>
                 {/*채팅방 리스트*/}
                 <div className="message-box contact-box soo-card m-t-10">

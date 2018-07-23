@@ -16,6 +16,10 @@ class SideNav extends Component {
         // })
     }
 
+    closeNav() {
+        console.log('close');
+    }
+
     render() {
 
         // check cookie
@@ -36,6 +40,7 @@ class SideNav extends Component {
                             <li className="nav-small-cap">PERSONAL</li>
                             <li>
                                 <Link to="/"
+                                      onClick={this.closeNav}
                                       className="waves-effect waves-dark"
                                       aria-expanded="false">
                                     <i className="ti-search"></i>

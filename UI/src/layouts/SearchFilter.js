@@ -6,11 +6,18 @@ import InterestCombo from './Setting/InterestCombo';
 // SideNav 에 있는 채팅방 검색 화면
 class SearchFilter extends Component {
 
-    state = {
-        active: false,
-        selectedIcon: [],
-        interestData: []
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            active: false,
+            selectedInterest: []
+        };
+    }
+
+    // render 다음에 작동
+    componentDidMount(){
+        this._getsettingdata()
+    }
 
     // '관심분야' 선택하면 id(text) 에 해당하는 icon 을 '선택된 관심분야'에 추가하고,
     // 선택된 걸 다시 클릭했을 땐 '선택된 관심분야'에서 제거한다.
@@ -62,16 +69,37 @@ class SearchFilter extends Component {
         }
     }
 
-    componentDidMount () {
+    _getsettingdata = async () => {
+        const interestdata = await this._callInterestdataApi();
 
-    };
+        this.setState({
+            interestdata
+        })
+    }
+
+    _callInterestdataApi = () => {
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getallinterest', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).then(lData => lData.json())
+            .catch(error => console.log(error))
+    }
+
+    _loadingInterestFun = (() =>{
+        var lData = this.state.interestdata.map((pData, index) => {
+            return <InterestCombo interest={pData.name} key={index} />
+        })
+        return lData
+    })
 
     render() {
         return (
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h4 className="modal-title">채팅방 상세검색</h4>
+                        <h4 className="modal-title">Search Filter</h4>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span></button>
                     </div>
@@ -92,25 +120,22 @@ class SearchFilter extends Component {
                                         <a className="dropdown-item" href="#">제한 없음</a>
                                     </div>
                                 </div>
-                                <ModalButton value="내 위치 다시설정" />
+                                <ModalButton value="reset my location" />
                             </div>
-
                         </div>
                         <div className="form-group">
-                            <label htmlFor="example-location">선택된 관심분야</label>
+                            <label>Selected Interests</label>
+                            {this.state.selectedInterest.map((icon)=> {
+                                return icon;
+                            })}
+                        </div>
+                        <div className="form-group">
+                            <label>Interests</label>
                             <div className="container">
                                 <div className="row">
-                                    {this.state.interestData.map((icon)=> {
-                                        return icon;
-                                    })}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label>관심분야</label>
-                            <div className="container">
-                                <div className="row mb-2">
-                                    <InterestCombo />
+                                    {
+                                        this.state.interestdata ? this._loadingInterestFun() : "Loading...."
+                                    }
                                 </div>
                             </div>
                         </div>

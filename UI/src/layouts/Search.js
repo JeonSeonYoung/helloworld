@@ -29,7 +29,7 @@ class Search extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div className="input-group mb-3">
                     <div className="input-group-prepend mr-1">
-                        <button className="btn btn-outline text-primary" type="button" id="button-addon1"
+                        <button className="btn btn-outline text-primary sj-h-100" type="button" id="button-addon1"
                                 data-toggle="modal" data-target="#searchFilter">Filter</button>
                         <Modal id="searchFilter"/>
                     </div>
@@ -37,7 +37,7 @@ class Search extends Component {
                            onChange={this.handleChange} name = "name"
                            placeholder="Search..." />
                     <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                        <button className="btn btn-outline-secondary sj-h-100" type="submit" id="button-addon2">Search</button>
                     </div>
                 </div>
             </form>
