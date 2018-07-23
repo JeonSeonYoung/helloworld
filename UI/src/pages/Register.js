@@ -62,7 +62,7 @@ class Register extends Component {
         
         userInfo.then((data) => {
             if( data.result == 'success' && data.data.Count == 0 ) {
-                this.registerUserInfo();
+                this.registerDefaultUserInfo();
             }
         });
     }
