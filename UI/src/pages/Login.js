@@ -108,7 +108,6 @@ class Login extends Component {
             else {
                 // set create date for update
                 fbData.createAt = data.data.Items[0].createAt.S;
-                console.log(fbData);
 
                 // save cookies for facebook data
                 cookie.save('fbData', fbData, cookieOptions);

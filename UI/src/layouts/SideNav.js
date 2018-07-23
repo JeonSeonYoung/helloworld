@@ -25,11 +25,7 @@ class SideNav extends Component {
         // check cookie
         var fbData = cookie.load('fbData');
         var login = (typeof fbData === "undefined" || fbData == "") ? false : true; 
-        
-        console.log("SideNav");
-        console.log(login)
-        console.log(fbData);
-        
+
         return (
             <aside className="left-sidebar">
                 <div className="scroll-sidebar">

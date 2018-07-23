@@ -5,7 +5,7 @@ class NickName extends Component {
         return (
             <div className="form-group">
                 <label htmlFor="example-location">NickName</label>
-                <input type="text" className="form-control" placeholder="Enter Nick Name" defaultValue={this.props.name}/>
+                <input type="text" id="nickname" className="form-control" placeholder="Enter Nick Name" defaultValue={this.props.name}/>
             </div>
         );
     }
