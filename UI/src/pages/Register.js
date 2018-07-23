@@ -12,6 +12,7 @@ class Register extends Component {
 
         // state
         this.state = {
+            
             selectedIcon : "",
             chatList: []
         };
@@ -30,6 +31,45 @@ class Register extends Component {
 
         return yyyy + "-" + mm + "-" + dd;
     }
+
+    updateUserInfo = (userID, createAt, field, value) => {
+
+        var command = JSON.stringify({
+            method: "update",
+            params: {
+                Key: {
+                    userID: userID,
+                    createAt: createAt           
+                },
+                UpdateExpression: "set #field = :x",
+                ExpressionAttributeNames: {
+                    "#field": field
+                },
+                ExpressionAttributeValues: {
+                    ":x": value
+                },                
+				TableName: "UserInfo" 
+            }
+        });        
+
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            console.log(data);
+        });
+
+    }   
 
     registerUserInfo = () => {
 
@@ -132,7 +172,8 @@ class Register extends Component {
         
         userInfo.then((data) => {
             console.log(data);
-        });     
+        });
+           
          
     }
 
@@ -154,6 +195,9 @@ class Register extends Component {
     }
 
     render() {
+        var fbData = this.props.location.state.params;
+        var message = "Hello " + fbData.name + ", please select one your preference.";
+
         return (
             <div className="row">
                 <div className="col-12">
@@ -168,8 +212,9 @@ class Register extends Component {
                                 <div className="chat-rbox">
                                     <div className="slimScrollDiv">
                                         <ul className="chat-list p-20">
-                                            <ChatLeft name="Admin"
-                                                       message="Hello {username}, please select one your preference."
+                                            <ChatLeft 
+                                                name="Admin"
+                                                message={message}
                                             />
                                             <li className="reverse">
                                                 <div className="chat-content">
