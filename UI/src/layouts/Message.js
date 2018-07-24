@@ -7,7 +7,7 @@ class Message extends Component {
 
     render() {
         return (
-            <a href="./chat">
+            <a href="./chat" className="soo-card">
                 <div className="row">
                     <div className="col-md-5 col-8 align-self-center">
                         {/*방장 유무에 따라 채팅방 앞에 별표 아이콘 제공할 것임*/}
