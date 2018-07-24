@@ -18,8 +18,8 @@ class Main extends Component {
         this._getChatLists()
     }
 
-    _getChatLists = async () =>{
-    const chatList = await this._callChatListApi();
+    _getChatLists = async (lData) =>{
+    const chatList = await this._callChatListApi(lData);
     const interestList = await this._callInterestApi();
         this.setState({
             chatList,
@@ -29,13 +29,20 @@ class Main extends Component {
     }
 
     //채팅방 리스트
-    _callChatListApi = () => {
+    _callChatListApi = (lData) => {
+    var lParams = {
+        userID : "2",
+        currentPage : "1"
+    }
+    if(lData){
+        lParams["chatName"] = lData.name;
+    }
     return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
         method: 'post',
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: JSON.stringify({userID : '1'})
+        body: JSON.stringify(lParams)        
     }).then(lData => lData.json())
     .catch(error => console.log(error))
     }
@@ -47,7 +54,7 @@ class Main extends Component {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: JSON.stringify({userID : '1'})
+        body: JSON.stringify({userID : '2'})
     }).then(lData => lData.json())
     .catch(error => console.log(error))
     }
@@ -62,18 +69,42 @@ class Main extends Component {
 
     _loadingInterestFun = (() =>{
         var lData = this.state.interestData.map((pData) =>{
-            return <TagButton name={pData.name} distance={pData.distance} key={pData.interestID}/>
+            return <TagButton name={pData.name} interestID={pData.interestID} distance={pData.distance} key={pData.interestID} onRemove = {this.handleRemove}/>
         })
         return lData
     })
 
+    //관심분야 삭제
+    _callDelInterestApi = (lData) => {
+        console.log("api 호출")
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/deleteinterest', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({userID : '2', interestID : lData})
+        }).then(lData => lData.json())
+        .catch(error => console.log(error))
+    }
 
     handleClick = () => {
         console.log('show popup');
     }
 
     handleCreate = (lData) => {
+        this._getChatLists(lData); 
+    }
+
+    handleRemove = async (lData) => {
         console.log(lData);
+        const delInterestData = await this._callDelInterestApi(lData);
+        const chatList = await this._callChatListApi(lData);
+        const interestList = await this._callInterestApi();
+        this.setState({
+            chatList,
+            "interestData": interestList.interestData,
+            "distance" : interestList.distance
+        })
     }
 
     render() {

@@ -14,6 +14,7 @@ exports.handler = (event, context, callback) => {
 	}
 
 	const lUserID = params.userID;
+	const lCurrentPage = params.currentPage;
 
 	// 유저 정보
 	var promisUserInfo = new Promise((resolve, reject) =>{
@@ -48,12 +49,13 @@ exports.handler = (event, context, callback) => {
 				}, 
 				KeyConditionExpression: "vStatus = :v1", 
 				TableName: "ChatInfo",
-				IndexName : "vStatus-createAt-index"
+				IndexName : "vStatus-createAt-index",
+				ScanIndexForward: false
 			};
-			if(params.chatName){
-				lRet.ExpressionAttributeValues[":v2"] = { S: params.chatName };
-				lRet.FilterExpression = "contains(chatName, :v2)";
-			}
+			// if(params.chatName){
+			// 	lRet.ExpressionAttributeValues[":v2"] = { S: params.chatName };
+			// 	lRet.FilterExpression = "contains(chatName, :v2)";
+			// }
 			queryDynamoDB(lRet).then(lResult => {
 				var lChatInfo = [];
 				for(var i=0; i<lResult.Count; ++i){
@@ -99,37 +101,87 @@ exports.handler = (event, context, callback) => {
 	
 
 	Promise.all([promisUserInfo, promisChatInfo, promisInterestInfo]).then((values) =>{
+		var lChatList = [];
 		var lUserList = values[0];
-		var lChatList = values[1];
+		var lAllChatList = values[1];
 		var lInterestList = values[2];
 		
-		var inRet = [];
+		// 검색도 어쩔수 없이 여기서..
+		if(params.chatName){
+			for(var i = 0; i<lAllChatList.length; ++i){
+				var index = lAllChatList[i].chatName.indexOf(params.chatName);
+				if(index > -1){
+					lChatList.push({
+						"chatID" : lAllChatList[i].chatID,
+						"interestID" : lAllChatList[i].interestID,
+						"masterUserID" : lAllChatList[i].masterUserID,
+						"masterNickName" : lAllChatList[i].masterNickName,
+						"location" : lAllChatList[i].vLocation,
+						"maxCost" : lAllChatList[i].maxCost,
+						"chatName" : lAllChatList[i].chatName
+					})
+				}
+			}
+		}else{
+			lChatList = lAllChatList;
+		}
 
-		for(var i = 0; i<lChatList.length; ++i){
+		var lUserInterestList = [];
+		if(lUserList.interest.length > 1){
 			for(var j = 0; j<lUserList.interest.length; ++j){
-				if(lChatList[i].interestID == lUserList.interest[j]){
-					for(var k = 0; k<lInterestList.length; ++k){
-						if(lChatList[i].interestID == lInterestList[k].interestID){
-							
-							inRet.push({
-								"nickName" : lUserList.nickName,
-								"distance" : lUserList.distance,
-								"interestID": lInterestList[k].interestID,
-								"interestName": lInterestList[k].name,
-								"masterUserID" : lChatList[i].masterUserID,
-								"masterNickName" : lChatList[i].masterNickName,
-								"location" : lChatList[i].vLocation,
-								"chatName" : lChatList[i].chatName,
-								"maxCost" : lChatList[i].maxCost
-							})		
-						}
+				for(var k = 0; k<lInterestList.length; ++k){
+					if(lUserList.interest[j] == lInterestList[k].interestID){
+						lUserInterestList.push({
+							"interestID":lInterestList[k].interestID,
+							"name":lInterestList[k].name
+						})
 					}
 					
 				}
 			}
+			lInterestList = lUserInterestList;
+		}
+
+		console.log(lInterestList);
+		console.log(lChatList);
+
+		var inRet = [];
+		for(var c = 0; c<lChatList.length; ++c){
+			for(var k = 0; k<lInterestList.length; ++k){
+				if(lChatList[c].interestID == lInterestList[k].interestID){
+					inRet.push({
+						"nickName" : lUserList.nickName,
+						"distance" : lUserList.distance,
+						"interestID": lInterestList[k].interestID,
+						"interestName": lInterestList[k].name,
+						"masterUserID" : lChatList[c].masterUserID,
+						"masterNickName" : lChatList[c].masterNickName,
+						"location" : lChatList[c].vLocation,
+						"chatName" : lChatList[c].chatName,
+						"maxCost" : lChatList[c].maxCost
+					});
+				}
+			}	
 		}
 		
-		callback(null, inRet);
+		console.log("***********", inRet)				
+		console.log("페이징 처리 시작")
+		var inChatRoomList = [];
+		var lTotalCount = inRet.length;
+		console.log(lCurrentPage);
+		console.log(lTotalCount);
+		// 어쩔수없이 페이징 처리를 여기서..
+		if(lTotalCount >= lCurrentPage){
+			console.log(lCurrentPage);
+			for(var i = lCurrentPage-1; i<lCurrentPage; ++i ){
+				console.log(inRet[i]);
+				inChatRoomList.push(inRet[i]);
+			}
+		}
+		
+		
+		
+		callback(null, inChatRoomList);
 		
 	});
 
