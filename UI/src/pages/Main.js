@@ -3,6 +3,7 @@ import TagButton from "../layouts/TagButton";
 import Message from "../layouts/Message";
 import Search from "../layouts/Search";
 import Modal from '../pages/Modal';
+import TextNotify from '../layouts/TextNotify';
 // import DropDownToggle from "../layouts/DropDownToggle";
 // import LinkButton from "../layouts/LinkButton";
 // import RightFloatButton from "../layouts/RightFloatButton";
@@ -59,17 +60,25 @@ class Main extends Component {
     .catch(error => console.log(error))
     }
 
-    _loadingFun = (() =>{
+    _loadingFun = (() => {
+        // 채팅방 없을 때 표시 해주기
+        if (this.state.chatList.length == 0) {
+            return <TextNotify text="채팅방이 존재하지 않습니다." />;
+        }
+
         var lData = this.state.chatList.map((pData, index) =>{
-            return <Message chatName={pData.chatName} nickName={pData.masterNickName} interest={pData.interestName} cost = {pData.maxCost} key={index}/>
+            return <Message chatName={pData.chatName} nickName={pData.masterNickName}
+                            interest={pData.interestName} cost = {pData.maxCost} key={index}/>
         })
+
         return lData
     })
 
-
     _loadingInterestFun = (() =>{
         var lData = this.state.interestData.map((pData) =>{
-            return <TagButton name={pData.name} interestID={pData.interestID} distance={pData.distance} key={pData.interestID} onRemove = {this.handleRemove}/>
+            return <TagButton name={pData.name} interestID={pData.interestID}
+                              distance={pData.distance} key={pData.interestID}
+                              onRemove = {this.handleRemove}/>
         })
         return lData
     })
@@ -128,7 +137,7 @@ class Main extends Component {
                     }
                 </div>
                 {/*채팅방 리스트*/}
-                <div className="message-box contact-box soo-card m-t-10">
+                <div className="message-box contact-box m-t-10">
                     <div className="message-widget contact-widget">
                         {
                             this.state.chatList ? this._loadingFun() : "Loading...."
