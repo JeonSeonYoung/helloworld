@@ -50,9 +50,12 @@ class Chat2 extends Component {
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                     <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
+                                    <ChatUser name="Arijit Sinh" getUserInfo={this.getUserInfo} />
                                 </ul>
-                                <div className="sj-fixed-bottom sj-chat-out btn-block pb-3 pt-3 sj-bg-danger">
-                                    <button type="button" className="btn-danger btn-block">Go Out</button>
+                                <div className="sj-fixed-bottom sj-chat-out btn-block sj-bg-danger">
+                                    <button type="button" className="btn-danger btn-block sj-h-100">Go Out</button>
                                 </div>
                                 {/*<div className="sj-fixed-bottom container pt-2 pb-2*/}
                                                 {/*bg-white sj-bottom-9*/}
