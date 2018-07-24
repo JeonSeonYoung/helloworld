@@ -6,15 +6,175 @@ import { Link } from 'react-router-dom';
 
 class Register extends Component {
 
+
     constructor(props) {
         super(props);
 
+        // state
         this.state = {
+            
             selectedIcon : "",
             chatList: []
         };
 
         this.getSelectedIcon = this.getSelectedIcon.bind(this);
+
+        // first, register default user info
+        this.registerUserInfo();
+    }
+
+    getDate = () => {
+        var date = new Date();
+        var dd = date.getDate();
+        var mm = date.getMonth()+1;
+        var yyyy = date.getFullYear();
+
+        return yyyy + "-" + mm + "-" + dd;
+    }
+
+    updateUserInfo = (userID, createAt, field, value) => {
+
+        var command = JSON.stringify({
+            method: "update",
+            params: {
+                Key: {
+                    userID: userID,
+                    createAt: createAt           
+                },
+                UpdateExpression: "set #field = :x",
+                ExpressionAttributeNames: {
+                    "#field": field
+                },
+                ExpressionAttributeValues: {
+                    ":x": value
+                },                
+				TableName: "UserInfo" 
+            }
+        });        
+
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            console.log(data);
+        });
+
+    }   
+
+    registerUserInfo = () => {
+
+        // get facebook info
+        var fbData = this.props.location.state.params;        
+
+        var command = JSON.stringify({
+            method: "query",
+            params: {
+				ExpressionAttributeValues: {
+					":v1": { S: fbData.userID }
+				}, 
+				KeyConditionExpression: "userID = :v1", 
+				TableName: "UserInfo",
+				IndexName : "userID-createAt-index"       
+            }
+        });
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            if( data.result == 'success' && data.data.Count == 0 ) {
+                this.registerDefaultUserInfo();
+            }
+        });
+    }
+
+    // register default
+    registerDefaultUserInfo = () => {
+
+        // get facebook info
+        var fbData = this.props.location.state.params;
+        
+        // temp
+        var command = JSON.stringify({
+            method: "put",
+            params: {
+                Item: {
+                    userID: {
+                        S: fbData.userID
+                    },
+                    createAt: {
+                        S: this.getDate()
+                    },
+                    blockTf: {
+                        S: 'T'
+                    },
+                    chatList: {
+                        S: 'null'
+                    },
+                    distance: {
+                        S: 'null'
+                    },
+                    email: {
+                        S: fbData.email
+                    },
+                    facebookToken: {
+                        S: fbData.accessToken
+                    },                    
+                    interest: {
+                        S: 'null'
+                    },
+                    nickName: {
+                        S: 'null'
+                    },
+                    updateAt: {
+                        S: this.getDate()
+                    },
+                    vLocation: {
+                        S: 'null'
+                    }
+
+                },
+				TableName: "UserInfo" 
+            }
+        });        
+
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            console.log(data);
+        });
+           
+         
     }
 
     // 선택한 아이콘 정보 가져오기
@@ -35,6 +195,9 @@ class Register extends Component {
     }
 
     render() {
+        var fbData = this.props.location.state.params;
+        var message = "Hello " + fbData.name + ", please select one your preference.";
+
         return (
             <div className="row">
                 <div className="col-12">
@@ -49,8 +212,9 @@ class Register extends Component {
                                 <div className="chat-rbox">
                                     <div className="slimScrollDiv">
                                         <ul className="chat-list p-20">
-                                            <ChatLeft name="Admin"
-                                                       message="Hello {username}, please select one your preference."
+                                            <ChatLeft 
+                                                name="Admin"
+                                                message={message}
                                             />
                                             <li className="reverse">
                                                 <div className="chat-content">

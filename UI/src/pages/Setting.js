@@ -3,33 +3,154 @@ import NickName from '../layouts/Setting/NickName';
 import Location from '../layouts/Setting/Location';
 import InterestCombo from '../layouts/Setting/InterestCombo';
 
+import cookie from 'react-cookies';
+
 class Setting extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             newNickName: "",
-            newDistance: ""
+            newDistance: "",
+
+            // 종혁
+            nickname : "",
+            distance : "",
+            interest : ""
         };
 
         this.getSelectedIcon = this.getSelectedIcon.bind(this);
         this.saveSetting = this.saveSetting.bind(this);
         this.changeText = this.changeText.bind(this);
         this.changeDistance= this.changeDistance.bind(this);
+
+        this._updatesettingdata = this._updatesettingdata.bind(this);
+
+        // if exist, get user info
+        var fbData = cookie.load('fbData');
+        if( typeof fbData !== 'undefined' && fbData != '' ) {
+            this.setUserInfo(fbData.userID);
+        }
     }
+
+    // set user info
+    setUserInfo = (userID) => {
+
+        // get user info
+        var command = JSON.stringify({
+            method: "query",
+            params: {
+				ExpressionAttributeValues: {
+					":v1": { S: userID }
+				}, 
+				KeyConditionExpression: "userID = :v1", 
+				TableName: "UserInfo",
+				IndexName : "userID-createAt-index"       
+            }
+        });
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            if( data.result == 'success' ) {
+                // set nickname
+                var nickname = data.data.Items[0].nickName.S;
+                var distance = data.data.Items[0].distance.S;
+                var interest = data.data.Items[0].interest.S;
+
+                this.setState({
+                    nickname : nickname == 'null' || nickname == '' ? '' : nickname,
+                    distance : distance == 'null' || distance == '' ? '' : distance,
+                    interest : interest == 'null' || interest == '' ? '' : interest
+                });
+            }
+        });
+    }    
+
+    // update user info
+    updateUserInfo = (userID, createAt, field, value) => {
+
+        var command = JSON.stringify({
+            method: "update",
+            params: {
+                Key: {
+                    userID: userID,
+                    createAt: createAt           
+                },
+                UpdateExpression: "set #field = :x",
+                ExpressionAttributeNames: {
+                    "#field": field
+                },
+                ExpressionAttributeValues: {
+                    ":x": value
+                },                
+				TableName: "UserInfo" 
+            }
+        });        
+
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            console.log(data);
+        });
+
+    }       
 
     // render 다음에 작동
     componentDidMount(){
-        this._getsettingdata()
+        this._getdata()
     }
 
-    _getsettingdata = async () => {
+    _getdata = async () => {
         const settingdata = await this._callsettingdataApi();
         const interestdata = await this._callInterestdataApi();
         this.setState({
             settingdata,
             interestdata
         })
+    }
+
+    // update user info
+    _updatesettingdata = async () => {
+        //this.setState({
+        //})
+        //console.log(this.state.settingdata.nickName + "," + this.state.settingdata.distance + "," + JSON.stringify(this.state.settingdata.interestID))
+        //const updatesetdata = await this._callsettingupdateApi();
+        //this.setState({
+        //    updatesetdata
+        //})
+
+        // update user info
+        var fbData = cookie.load('fbData');
+        if( typeof fbData !== 'undefined' && fbData != '' ) {
+            
+            var nickname = document.getElementById('nickname').value
+            if( typeof nickname !== 'undefined' && nickname != '' ) {
+                this.updateUserInfo(fbData.userID, fbData.createAt, 'nickName', nickname);
+            }
+        }
     }
 
     _callsettingdataApi = () => {
@@ -60,13 +181,14 @@ class Setting extends Component {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: {
-                "nickName": "nick",
-                "interest": "{\"id\":[1,4,6]}"
-                
+                "nickName": this.state.settingdata.nickname,
+                "distance": this.state.settingdata.distance,
+                "interest": JSON.stringify(this.state.settingdata.interestID)
             }
         }).then(lData => lData.json())
             .catch(error => console.log(error))
     }
+
 
     changeText(text) {
         this.setState({
@@ -84,6 +206,7 @@ class Setting extends Component {
         return <NickName name={this.state.settingdata.nickName}
                          changeText={this.changeText}
         />
+        // 종혁 return <NickName name={this.state.nickname} />
     })
 
     _loadingLocationFun = (() =>{
@@ -92,10 +215,9 @@ class Setting extends Component {
         />
     })
 
-
     _loadingSelectedInterestFun = (() =>{
-
         console.log('interest:' + this.state.settingdata.interest);
+
         // return -> interestID, name
         var filtered = this.state.interestdata.filter(item =>
             this.state.settingdata.interest.indexOf(Number(item.interestID)) != -1
@@ -109,8 +231,6 @@ class Setting extends Component {
     })
 
     getSelectedIcon(select, id) {
-        console.log('getSelectedIcon ' + select, id);
-
         // select false 면 selectedIcon 에서 제외해준다.
         if (!select) {
 
@@ -139,8 +259,10 @@ class Setting extends Component {
                 ...prevState.settingdata,
                 interest: this.state.settingdata.interest.concat(Number(id))
             }
-        }));
+            })
+        );
     }
+
     _loadingInterestFun = (() =>{
         // selected 되어있는 것만 disabled 해주기
         var lData = this.state.interestdata.map((pData, index) => {
@@ -176,6 +298,9 @@ class Setting extends Component {
         console.log(saveData);
 
         // this._callsettingupdateApi();
+
+        // 종혁
+        //this._updatesettingdata();
     }
 
     render() {
@@ -210,7 +335,9 @@ class Setting extends Component {
                 </div>
                 <div className="sj-overflow">
                     <button type="button" className="btn btn-success pull-right"
-                            onClick={this.saveSetting}>Save</button>
+                            onClick={this.saveSetting}
+                            // 종혁 onClick={this._updatesettingdata}
+                    >Save</button>
                 </div>
             </div>
         );

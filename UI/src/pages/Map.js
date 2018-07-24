@@ -6,7 +6,7 @@ class Map extends Component
     render(){
         return(
             <div>
-                <MapContainer/>
+                <MapContainer id={this.props.id} />
             </div>
         );
     }
