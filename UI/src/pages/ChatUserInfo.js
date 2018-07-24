@@ -10,7 +10,7 @@ class ChatUserInfo extends Component {
                         <h4 className="modal-title">Chat User Info</h4>
                     </div>
                     <div className="modal-body">
-                        <label htmlFor="example-location">{this.props.userInfo.userName}</label>
+                        <label htmlFor="example-location"></label>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-warning btn-block"
