@@ -30,6 +30,8 @@ class Setting extends Component {
         // if exist, get user info
         var fbData = cookie.load('fbData');
         if( typeof fbData !== 'undefined' && fbData != '' ) {
+            console.log('constructor');
+            console.log(fbData);
             this.setUserInfo(fbData.userID);
         }
     }
@@ -64,16 +66,21 @@ class Setting extends Component {
         
         userInfo.then((data) => {
             if( data.result == 'success' ) {
+                console.log('set user info');
+
                 // set nickname
                 var nickname = data.data.Items[0].nickName.S;
-                var distance = data.data.Items[0].distance.S;
-                var interest = data.data.Items[0].interest.S;
+                var distance = data.data.Items[0].distance.N;
+                //var interest = data.data.Items[0].interest.S;
+
+                console.log(distance);
 
                 this.setState({
                     nickname : nickname == 'null' || nickname == '' ? '' : nickname,
-                    distance : distance == 'null' || distance == '' ? '' : distance,
-                    interest : interest == 'null' || interest == '' ? '' : interest
-                });
+                    distance : distance == 'null' || distance == '' ? '' : distance
+                });    
+                
+                this.forceUpdate();
             }
         });
     }    
@@ -132,7 +139,6 @@ class Setting extends Component {
         })
     }
 
-    // update user info
     _updatesettingdata = async () => {
         //this.setState({
         //})
@@ -141,16 +147,6 @@ class Setting extends Component {
         //this.setState({
         //    updatesetdata
         //})
-
-        // update user info
-        var fbData = cookie.load('fbData');
-        if( typeof fbData !== 'undefined' && fbData != '' ) {
-            
-            var nickname = document.getElementById('nickname').value
-            if( typeof nickname !== 'undefined' && nickname != '' ) {
-                this.updateUserInfo(fbData.userID, fbData.createAt, 'nickName', nickname);
-            }
-        }
     }
 
     _callsettingdataApi = () => {
@@ -203,16 +199,15 @@ class Setting extends Component {
     }
 
     _loadingNickNameFun = (() =>{
-        return <NickName name={this.state.settingdata.nickName}
-                         changeText={this.changeText}
-        />
-        // 종혁 return <NickName name={this.state.nickname} />
+        // return <NickName name={this.state.settingdata.nickName} changeText={this.changeText} />
+
+        return <NickName name={this.state.nickname} changeText={this.changeText} />
     })
 
     _loadingLocationFun = (() =>{
-        return <Location distance={this.state.settingdata.distance}
-                         changeDistance={this.changeDistance}
-        />
+        // return <Location distance={this.state.settingdata.distance} changeDistance={this.changeDistance} />
+
+        return <Location distance={this.state.distance} changeDistance={this.changeDistance} />
     })
 
     _loadingSelectedInterestFun = (() =>{
@@ -297,10 +292,32 @@ class Setting extends Component {
 
         console.log(saveData);
 
-        // this._callsettingupdateApi();
+        // jong, update user info
+        console.log('save button');
 
-        // 종혁
-        //this._updatesettingdata();
+        var fbData = cookie.load('fbData');
+        if( typeof fbData !== 'undefined' && fbData != '' ) {         
+            
+            console.log(fbData);
+
+            // save nickname
+            var nickname = saveData.nickName;
+            if( typeof nickname !== 'undefined' && nickname != '' ) {                
+                this.updateUserInfo(fbData.userID, fbData.createAt, 'nickName', nickname);
+            }
+
+            // save distance
+            var distance = saveData.location;
+            if( typeof distance !== 'undefined' && distance != '' ) {                
+                this.updateUserInfo(fbData.userID, fbData.createAt, 'distance', distance);
+            }            
+
+            // save interest
+            var interest = saveData.selectedInterest;
+            if( typeof interest !== 'undefined' && interest != '' ) {   
+                this.updateUserInfo(fbData.userID, fbData.createAt, 'interest', JSON.stringify({ id : JSON.stringify(interest) }));
+            }              
+        }
     }
 
     render() {
