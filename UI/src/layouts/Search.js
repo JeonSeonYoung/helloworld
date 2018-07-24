@@ -19,9 +19,9 @@ class Search extends Component {
         // 부모에게 전달 전달~
         this.props.onCreate(this.state);
         // 초기화
-        this.setState({
-            name: ''
-        })
+        // this.setState({
+        //     name: ''
+        // })
     }
 
     render() {

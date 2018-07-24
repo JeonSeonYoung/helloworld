@@ -9,7 +9,8 @@
 
 .soo-card {
     background: #fff;
-    border: 1px solid #dedede;
+    border: 1px solid #dedede !important;
+    margin-bottom:10px;
 }
 
 .sj-white {
@@ -145,4 +146,11 @@ button.sj-no-focus:focus{
 }
 .sj-bg-danger {
     background-color: #fc4b6c;
+}
+
+.sj-m-0-auto {
+    margin: 0 auto;
+}
+.sj-p-40-0 {
+    padding: 40px 0;
 }
