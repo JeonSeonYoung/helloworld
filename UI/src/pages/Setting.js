@@ -30,8 +30,6 @@ class Setting extends Component {
         // if exist, get user info
         var fbData = cookie.load('fbData');
         if( typeof fbData !== 'undefined' && fbData != '' ) {
-            console.log('constructor');
-            console.log(fbData);
             this.setUserInfo(fbData.userID);
         }
     }
@@ -66,14 +64,11 @@ class Setting extends Component {
         
         userInfo.then((data) => {
             if( data.result == 'success' ) {
-                console.log('set user info');
 
                 // set nickname
                 var nickname = data.data.Items[0].nickName.S;
                 var distance = data.data.Items[0].distance.N;
                 //var interest = data.data.Items[0].interest.S;
-
-                console.log(distance);
 
                 this.setState({
                     nickname : nickname == 'null' || nickname == '' ? '' : nickname,
@@ -297,9 +292,7 @@ class Setting extends Component {
 
         var fbData = cookie.load('fbData');
         if( typeof fbData !== 'undefined' && fbData != '' ) {         
-            
-            console.log(fbData);
-
+        
             // save nickname
             var nickname = saveData.nickName;
             if( typeof nickname !== 'undefined' && nickname != '' ) {                
