@@ -1,10 +1,12 @@
 const Chatroom = require('./Chatroom')
+import Message from "../src/layouts/Message";
 
 //방을 호출해야함. 챗룸.방 번호 알아오기
 // render 다음에 작동
-componentDidMount() {
-    this._getChatLists()
-}
+
+
+var chatList = this._getChatLists()
+
 
 _getChatLists = async () => {
     const chatList = await this._callChatListApi();

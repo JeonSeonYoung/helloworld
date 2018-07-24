@@ -1,4 +1,8 @@
-const userTemplates = require('../config/users')
+
+import ChatUser from "../src/layouts/ChatUser";
+
+var userTemplates = this._callChatListApi()
+
 
 //user 불러오기
 _callChatListApi = () => {
@@ -14,7 +18,7 @@ _callChatListApi = () => {
 
 _loadingFun = (() => {
     var lData = this.state.chatList.map((pData, index) => {
-        return <Message chatID={pData.chatID} cost={pData.maxCost} key={index} />
+        return <ChatUser chatID={pData.chatID} cost={pData.maxCost} key={index} />
     })
     return lData
 })

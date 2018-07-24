@@ -2,17 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\ChatRoom",
-    "\\ChatRoom\\public",
-    "\\ChatRoom\\public\\assets\\plugins",
-    "\\ChatRoom\\public\\assets\\plugins\\jquery",
-    "\\ChatRoom\\routes",
-    "\\ChatRoom\\src",
     "\\Lambda",
-    "\\Lambda\\Main",
     "\\UI",
-    "\\UI\\public",
-    "\\UI\\src"
+    "\\UI\\src",
+    "\\UI\\src\\pages"
   ],
-  "SelectedNode": "\\ChatRoom",
+  "SelectedNode": "\\UI\\src\\components",
   "PreviewInSolutionExplorer": false
 }
