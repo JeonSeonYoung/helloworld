@@ -9,6 +9,10 @@ class Location extends Component {
     }
 
     changeDropdownText(newDistance) {
+
+        // 부모한테도 값을 넘겨준다.
+        this.props.changeDistance(newDistance);
+
         newDistance += "km";
 
         if (newDistance === "-1km")
