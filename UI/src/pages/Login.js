@@ -93,31 +93,33 @@ class Login extends Component {
             //console.log(data.result);
             //console.log(data.data.Count);
 
-            if( data.result == 'success' && data.data.Count == 0 ) {
-                // set create date for update
-                fbData.createAt = this.getDate();
-
-                // save cookies for facebook data
-                cookie.save('fbData', fbData, cookieOptions);                
-            
-                // set state
-                this.setState({
-                    status : "register",
-                    params : fbData
-                });
-            }
-            else {
-                // set create date for update
-                fbData.createAt = data.data.Items[0].createAt.S;
-
-                // save cookies for facebook data
-                cookie.save('fbData', fbData, cookieOptions);
-            
-                // set state                
-                this.setState({
-                    status : "main",
-                    params : fbData
-                });
+            if( data.result == 'success' ) {
+                if( data.data.Count == 0 ) {
+                    // set create date for update
+                    fbData.createAt = this.getDate();
+    
+                    // save cookies for facebook data
+                    cookie.save('fbData', fbData, cookieOptions);                
+                
+                    // set state
+                    this.setState({
+                        status : "register",
+                        params : fbData
+                    });
+                }
+                else {
+                    // set create date for update
+                    fbData.createAt = data.data.Items[0].createAt.S;
+    
+                    // save cookies for facebook data
+                    cookie.save('fbData', fbData, cookieOptions);
+                
+                    // set state                
+                    this.setState({
+                        status : "main",
+                        params : fbData
+                    });
+                }
             }
 
             // 로그인 후 마지막 접속기록
@@ -193,15 +195,19 @@ class Login extends Component {
                 if( response.status === 'connected' ) {
                     window.FB.logout();
                 }
-    
-            });            
+            });     
+            
+            this.setState({
+                status : 'login'
+            });
 
-            // render
+            
             return(
                 <div>
-                    <Redirect to='/' />
+                    <Redirect to='/login' />
                 </div>
-            );            
+            );       
+            
         }
 
         if( this.state.status == 'login' ) {                    
@@ -213,7 +219,7 @@ class Login extends Component {
                         {/* Header */}
 
                         <div className="modal-header">
-                            <h4 className="modal-title">FACEBOOK LOGIN 2</h4>
+                            <h4 className="modal-title">FACEBOOK LOGIN</h4>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
