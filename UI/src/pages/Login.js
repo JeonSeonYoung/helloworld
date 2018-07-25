@@ -46,6 +46,8 @@ class Login extends Component {
         return yyyy + "-" + mm + "-" + dd;
     }    
 
+    // 로그인 처리
+    // 권한 없을 때?
     responseFacebook = (response) => {
 
         console.log(response);
@@ -57,9 +59,6 @@ class Login extends Component {
             userID : response.userID,
             createAt : ""
         }
-
-        // 로그인 후 갱신
-        // this.forceUpdate();
 
         // 조회
         var command = JSON.stringify({
@@ -119,9 +118,58 @@ class Login extends Component {
                 });
             }
 
-
+            // 로그인 후 마지막 접속기록
+            this.updateUserInfo(fbData.userID, fbData.createAt, "lastLoginAt", this.getDate());            
         });
     }    
+
+    getDate = () => {
+        var date = new Date();
+        var dd = date.getDate();
+        var mm = date.getMonth()+1;
+        var yyyy = date.getFullYear();
+
+        return yyyy + "-" + mm + "-" + dd;
+    }    
+
+    updateUserInfo = (userID, createAt, field, value) => {
+
+        var command = JSON.stringify({
+            method: "update",
+            params: {
+                Key: {
+                    userID: userID,
+                    createAt: createAt           
+                },
+                UpdateExpression: "set #field = :x",
+                ExpressionAttributeNames: {
+                    "#field": field
+                },
+                ExpressionAttributeValues: {
+                    ":x": value
+                },                
+				TableName: "UserInfo" 
+            }
+        });        
+
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            console.log(data);
+        });
+
+    }     
 
     render() {
 
@@ -134,9 +182,7 @@ class Login extends Component {
                 <div>
                     <Redirect to='/' />
                 </div>
-            );
-
-            
+            );            
         }
 
         if( this.state.status == 'login' ) {
