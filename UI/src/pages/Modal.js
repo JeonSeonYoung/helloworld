@@ -15,14 +15,14 @@ class Modal extends Component {
                 return <SearchFilter />
 
             case "map":
-                return <Map vLocation={this.props.vLocation}/>
+                return <Map />
 
             case "createChat":
                 return <CreateChat />
 
             // 채팅창에서 사용자 클릭했을 때
             case "chatUserInfo":
-                return <ChatUserInfo userInfo={this.props.userInfo} />;
+                return <ChatUserInfo userInfo={this.props.userInfo} />
 
             default:
                 return

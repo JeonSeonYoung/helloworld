@@ -63,6 +63,7 @@ class Main extends Component {
     componentDidMount(){
 
         var fbData = cookie.load('fbData');
+        console.log(fbData);
         console.log('Main.js, No User ID');
     
         // undefined error
@@ -95,6 +96,7 @@ class Main extends Component {
             "distance" : interestList.distance,
             "currentPage": this.state.currentPage
         })
+        console.log(this.state.currentPage);
     }
 
     //채팅방 리스트
