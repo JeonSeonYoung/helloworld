@@ -65,27 +65,6 @@ const Map = compose(
         isMarkerShown: false,
         markerPosition: null
     }), {
-            /*
-            updateLocation: () => {
-                _callMapupdateApi
-                return <Main />
-            }, 
-            _callMapupdateApi: () => {
-                return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/putmapupdate', {
-                    method: 'post',
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    },
-                    body: {
-                        "userID": this.props.userID,
-                        "createAt": this.props.createAt,
-                        "lat": JSON.parse(JSON.stringify(this.props.vLocation)).lat,
-                        "lng": JSON.parse(JSON.stringify(this.props.vLocation)).lng
-                    }
-                }).then(lData => lData.json())
-                    .catch(error => console.log(error))
-            },
-            */
 
             // update location data
             _callMapupdateApi: () => {
@@ -126,8 +105,6 @@ const Map = compose(
                     isMarkerShown: true
                 }
             }
-
-
         }),
     withScriptjs,
     withGoogleMap
@@ -164,10 +141,7 @@ export default class MapContainer extends React.Component {
             <div style={{ height: '100%' }}>
                 <Map
                     id = {this.props.id}
-                    userID = {this.props.userID}
-                    createAt = {this.props.createAt}
                     vLocation = {this.props.vLocation}
-                    mapUpdate = {this._callMapupdateApi}
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ height: `400px` }} />}
