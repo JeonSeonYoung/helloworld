@@ -16,7 +16,7 @@ class Setting extends Component {
 
             // 종혁
             nickname : "",
-            distance : "",
+            distance : "",            
             interest : ""
         };
 
@@ -69,12 +69,6 @@ class Setting extends Component {
                 var nickname = data.data.Items[0].nickName.S;
                 var distance = data.data.Items[0].distance.N;
                 //var interest = data.data.Items[0].interest.S;
-
-                console.log('Setting, setUserInfo()');
-                console.log('nickname');
-                console.log(nickname);
-                console.log('distance(location)');
-                console.log(distance);
 
                 this.setState({
                     nickname : nickname == 'null' || nickname == '' ? '' : nickname,
@@ -207,8 +201,6 @@ class Setting extends Component {
 
     _loadingLocationFun = (() =>{
         // return <Location distance={this.state.settingdata.distance} changeDistance={this.changeDistance} />
-        console.log('_loadingLocationFun');
-        console.log(this.state.distance);
         return <Location distance={this.state.distance} changeDistance={this.changeDistance} />
     })
 

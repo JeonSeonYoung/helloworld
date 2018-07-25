@@ -4,8 +4,12 @@ import ModalButton from "../ModalButton";
 
 class Location extends Component {
 
-    state = {
-        distance: this.props.distance + "km"
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            distance: this.props.distance + "km"
+        }
     }
 
     changeDropdownText(newDistance) {
