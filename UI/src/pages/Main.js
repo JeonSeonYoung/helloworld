@@ -6,16 +6,20 @@ import Search from "../layouts/Search";
 import Modal from '../pages/Modal';
 import TextNotify from '../layouts/TextNotify';
 import AlertModal from "../layouts/AlertModal";
+import cookie from 'react-cookies';
+
 // import DropDownToggle from "../layouts/DropDownToggle";
 // import LinkButton from "../layouts/LinkButton";
 // import RightFloatButton from "../layouts/RightFloatButton";
 
 class Main extends Component {
 
+
+
     state = {
         "distance" : "-1",
         "currentPage" : "1"
-    }
+    } 
 
     // render 다음에 작동
     componentDidMount(){
@@ -23,8 +27,9 @@ class Main extends Component {
     }
 
     _getChatLists = async (lData) =>{
-    const chatList = await this._callChatListApi(lData);
-    const interestList = await this._callInterestApi();
+        const chatList = await this._callChatListApi(lData);
+        const interestList = await this._callInterestApi();
+        console.log(interestList);
         this.setState({
             chatList,
             "interestData": interestList.interestData,
@@ -35,11 +40,23 @@ class Main extends Component {
 
     //채팅방 리스트
     _callChatListApi = (lData) => {
+
+    // if exist, get user info
+    var fbData = cookie.load('fbData');
+
+    if( typeof fbData === 'undefined' && fbData == '' ) {
+
+    }             
+
     var lParams = {
-        userID : "2",
+        userID : fbData.userID,
         // currentPage : "1"
         currentPage : this.state.currentPage
+        
     }
+
+    console.log('userID : ' + fbData.userID);
+
     if(lData){
         lParams["chatName"] = lData.name;
     }
@@ -55,15 +72,20 @@ class Main extends Component {
 
     //관심분야
     _callInterestApi = () => {
-    return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getinterest', {
-        method: 'post',
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: JSON.stringify({userID : '2'})
-    }).then(lData => lData.json())
-    .catch(error => console.log(error))
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getinterest', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({userID : '2'})
+        }).then(lData => lData.json())
+        .catch(error => console.log(error))
     }
+
+
+
+
+
 
     _loadingFun = (() => {
         // 채팅방 없을 때 표시 해주기
@@ -80,7 +102,7 @@ class Main extends Component {
     })
 
     _loadingInterestFun = (() =>{
-        var lData = this.state.interestData.map((pData) =>{
+        var lData = this.state.interestData.map((pData, index) =>{
             return <TagButton name={pData.name} interestID={pData.interestID}
                               distance={pData.distance} key={pData.interestID}
                               onRemove = {this.handleRemove}/>
@@ -124,7 +146,6 @@ class Main extends Component {
 
     // interest handle
     handleRemove = async (lData) => {
-        console.log(lData);
         const delInterestData = await this._callDelInterestApi(lData);
         const chatList = await this._callChatListApi();
         const interestList = await this._callInterestApi();
