@@ -189,6 +189,8 @@ class Login extends Component {
             // remove cookies
             cookie.remove('fbData', { path: '/' });    
 
+            console.log('Login.js, logout');
+
             window.FB.getLoginStatus(response => {
                 console.log(response);
     
