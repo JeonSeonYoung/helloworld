@@ -186,7 +186,7 @@ class Main extends Component {
                 </div>
                 {/*오른쪽 밑에 붙어있는 버튼*/}
                 <button type="button"
-                        className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
+                        className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right sj-position-fixed"
                         data-toggle="modal"
                         data-target="#createChat">
                     <i className="mdi mdi-note-outline text-white"></i>
