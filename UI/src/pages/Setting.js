@@ -70,6 +70,12 @@ class Setting extends Component {
                 var distance = data.data.Items[0].distance.N;
                 //var interest = data.data.Items[0].interest.S;
 
+                console.log('Setting, setUserInfo()');
+                console.log('nickname');
+                console.log(nickname);
+                console.log('distance(location)');
+                console.log(distance);
+
                 this.setState({
                     nickname : nickname == 'null' || nickname == '' ? '' : nickname,
                     distance : distance == 'null' || distance == '' ? '' : distance
@@ -201,7 +207,8 @@ class Setting extends Component {
 
     _loadingLocationFun = (() =>{
         // return <Location distance={this.state.settingdata.distance} changeDistance={this.changeDistance} />
-
+        console.log('_loadingLocationFun');
+        console.log(this.state.distance);
         return <Location distance={this.state.distance} changeDistance={this.changeDistance} />
     })
 
@@ -310,7 +317,14 @@ class Setting extends Component {
             var interest = saveData.selectedInterest;
             if( typeof interest !== 'undefined' && interest != '' ) {   
                 this.updateUserInfo(fbData.userID, fbData.createAt, 'interest', JSON.stringify({ id : JSON.stringify(interest) }));
-            }              
+            } 
+            
+            // set state
+            this.setState({
+                nickname : nickname,
+                distance : distance,
+                interest : interest
+            });
         }
     }
 
