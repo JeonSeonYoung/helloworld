@@ -1,6 +1,5 @@
 
-//import ChatUser from "../src/layouts/ChatUser";
-
+import ChatUser from "../src/layouts/ChatUser";
 var userTemplates = this._callChatListApi()
 
 
@@ -11,7 +10,7 @@ _callChatListApi = () => {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: JSON.stringify({ userID: '1' })
+        body: JSON.stringify({ "bodyJson": { userID: '2', currentPage: "1" } })
     }).then(lData => lData.json())
         .catch(error => console.log(error))
 }
