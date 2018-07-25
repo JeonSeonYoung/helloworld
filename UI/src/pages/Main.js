@@ -20,6 +20,13 @@ class Main extends Component {
     // render 다음에 작동
     componentDidMount(){
         this._getChatLists()
+
+        window.onscroll = function(ev) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                alert("you're at the bottom of the page");
+            }
+        };
+
     }
 
     _getChatLists = async (lData) =>{
@@ -66,11 +73,6 @@ class Main extends Component {
         }).then(lData => lData.json())
         .catch(error => console.log(error))
     }
-
-
-
-
-
 
     _loadingFun = (() => {
         // 채팅방 없을 때 표시 해주기
