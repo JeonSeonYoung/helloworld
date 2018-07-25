@@ -56,13 +56,10 @@ class Main extends Component {
     }             
 
     var lParams = {
-        userID : fbData.userID,
+        userID : '1',
         // currentPage : "1"
         currentPage : this.state.currentPage
-        
     }
-
-    console.log('userID : ' + fbData.userID);
 
     if(lData){
         lParams["chatName"] = lData.name;
