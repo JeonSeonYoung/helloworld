@@ -6,16 +6,20 @@ import Search from "../layouts/Search";
 import Modal from '../pages/Modal';
 import TextNotify from '../layouts/TextNotify';
 import AlertModal from "../layouts/AlertModal";
+import cookie from 'react-cookies';
+
 // import DropDownToggle from "../layouts/DropDownToggle";
 // import LinkButton from "../layouts/LinkButton";
 // import RightFloatButton from "../layouts/RightFloatButton";
 
 class Main extends Component {
 
+
+
     state = {
         "distance" : "-1",
         "currentPage" : "1"
-    }
+    } 
 
     // render 다음에 작동
     componentDidMount(){
@@ -35,11 +39,23 @@ class Main extends Component {
 
     //채팅방 리스트
     _callChatListApi = (lData) => {
+
+    // if exist, get user info
+    var fbData = cookie.load('fbData');
+
+    if( typeof fbData === 'undefined' && fbData == '' ) {
+
+    }             
+
     var lParams = {
-        userID : "2",
+        userID : fbData.userID,
         // currentPage : "1"
         currentPage : this.state.currentPage
+        
     }
+
+    console.log('userID : ' + fbData.userID);
+
     if(lData){
         lParams["chatName"] = lData.name;
     }
