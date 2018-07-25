@@ -309,8 +309,8 @@ class Register extends Component {
             /*
             .concat(<ChatLeft name="Admin" key={id+1} message="Where is your location?" />)
             .concat(<ChatLeft name="Admin" key={id+2} message="What is your nickname?" />)
-            */
             .concat(<div><input type="text" key={id+3} className="form-control" /></div>)
+            */
         ;
 
         this.setState({
