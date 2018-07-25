@@ -4,6 +4,7 @@ import ChatName from '../layouts/ChatName';
 import Map from './Map';
 import Checkbox from '../layouts/Checkbox';
 import InterestCombo from '../layouts/Setting/InterestCombo';
+import cookie from 'react-cookies';
 
 class CreateChat extends Component {
 
@@ -19,6 +20,8 @@ class CreateChat extends Component {
             disabled: "",
             disabledClass: ""
         };
+        
+        var fbData = cookie.load('fbData');
 
         this.changeText = this.changeText.bind(this);
         this.createChat = this.createChat.bind(this);
@@ -104,6 +107,12 @@ class CreateChat extends Component {
                          changeText={this.changeText} />
     })
 
+    changevLocation(vLocation) {
+        this.setState({
+            newvLocation: vLocation
+        })
+    }
+
     // 아이콘 선택하면 disabled 클래스 추가
     // getDisabled() {
     //     return (this.state.disabled) ? "disabled" : "";
@@ -134,7 +143,7 @@ class CreateChat extends Component {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h4 className="modal-title" id="exampleModalLabel">ECreate ChatRoom</h4>
+                        <h4 className="modal-title" id="exampleModalLabel">Create ChatRoom</h4>
                     </div>
 
                     <div className="modal-body">
@@ -147,7 +156,7 @@ class CreateChat extends Component {
                             <div className="form-group">
                                 <label htmlFor="example-location">Select Location</label>
                                 <div className="sj-map">
-                                    <Map id="create_chat"/>
+                                    <Map id="create_chat" vLocation={this.state.vLocation} changevLocation={this.changevLocation}/>
                                 </div>
                             </div>
                             <div className="form-group">

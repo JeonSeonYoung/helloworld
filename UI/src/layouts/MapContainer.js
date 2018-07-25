@@ -1,15 +1,7 @@
 import React from 'react';
 import { compose, withStateHandlers } from "recompose";
 import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
-// import { InfoWindow } from 'react-google-maps';
-
-const updateLocation = () => {
-    
-}
-
-const cancelLocation = () => {
-    window.location.href = "./";
-}
+import Main from '../pages/Main';
 
 const Map = compose(
     withStateHandlers(() => ({
@@ -39,17 +31,16 @@ const Map = compose(
              props.id != "create_chat" &&
                 <div style={{ background: `white`, border: `1px solid #ccc`, padding: 15 }}>
                     <h1>Are you sure with this location ?</h1>
-                    <button onClick={updateLocation} style={{ width: 70, height: 60 }}>
+                    <button style={{ width: 70, height: 60 }}>
                         OK
                     </button>
-                    <button onClick={cancelLocation} style={{ width: 70, height: 60 }}>
+                    <button style={{ width: 70, height: 60 }}>
                         Cancel
                     </button>
                 </div>
             }
         </GoogleMap>
     )
-
 
 export default class MapContainer extends React.Component {
     constructor(props) {
@@ -61,7 +52,10 @@ export default class MapContainer extends React.Component {
             <div style={{ height: '100%' }}>
                 <Map
                     id = {this.props.id}
+                    userID = {this.props.userID}
+                    createAt = {this.props.createAt}
                     vLocation = {this.props.vLocation}
+                    mapUpdate = {this._callMapupdateApi}
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ height: `400px` }} />}

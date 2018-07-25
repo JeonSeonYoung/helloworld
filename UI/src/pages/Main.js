@@ -50,7 +50,7 @@ class Main extends Component {
 
         var _this = this;
         var fbData = cookie.load('fbData');
-
+        console.log(fbData);
         console.log('Main.js, No User ID');
 
         // 스크롤시 새로운 데이터 로드
@@ -96,8 +96,8 @@ class Main extends Component {
             chatList,
             "interestData": interestList.interestData,
             "distance" : interestList.distance,
-            "currentPage": chatList[0].currentPage
-            //"currentPage": this.state.currentPage
+            //"currentPage": chatList[0].currentPage
+            "currentPage": this.state.currentPage
         });
         console.log(this.state.currentPage);
     }

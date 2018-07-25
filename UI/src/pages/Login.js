@@ -59,7 +59,8 @@ class Login extends Component {
             email : response.email,
             accessToken : response.accessToken,
             userID : response.userID,
-            createAt : ""
+            createAt : "",
+            nickName : "guest"
         }
 
         // 조회
