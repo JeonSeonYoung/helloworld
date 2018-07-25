@@ -1,5 +1,5 @@
 const Chatroom = require('./Chatroom')
-import Message from "../src/layouts/Message";
+//import Message from "../src/layouts/Message";
 
 //방을 호출해야함. 챗룸.방 번호 알아오기
 // render 다음에 작동

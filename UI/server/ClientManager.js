@@ -1,5 +1,5 @@
 
-import ChatUser from "../src/layouts/ChatUser";
+//import ChatUser from "../src/layouts/ChatUser";
 
 var userTemplates = this._callChatListApi()
 
@@ -18,7 +18,7 @@ _callChatListApi = () => {
 
 _loadingFun = (() => {
     var lData = this.state.chatList.map((pData, index) => {
-        return <ChatUser chatID={pData.chatID} cost={pData.maxCost} key={index} />
+        return <chatuser chatID={pData.chatID} cost={pData.maxCost} key={index} />
     })
     return lData
 })
