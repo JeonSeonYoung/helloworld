@@ -254,6 +254,7 @@ class Setting extends Component {
     }
 
     _loadingInterestFun = (() =>{
+    
         // selected 되어있는 것만 disabled 해주기
         var lData = this.state.interestdata.map((pData, index) => {
 
@@ -346,7 +347,6 @@ class Setting extends Component {
                 <div className="sj-overflow">
                     <button type="button" className="btn btn-success pull-right"
                             onClick={this.saveSetting}
-                            // 종혁 onClick={this._updatesettingdata}
                     >Save</button>
                 </div>
             </div>
