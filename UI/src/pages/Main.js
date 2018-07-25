@@ -27,7 +27,8 @@ class Main extends Component {
 
         window.onscroll = function(ev) {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                alert("you're at the bottom of the page");
+                console.log("스크롤 이벤트 발동");
+                this._getChatLists();
             }
         };
 
