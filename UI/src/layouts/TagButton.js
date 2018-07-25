@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+/**
+ * @name 관심분야 이름
+ * @interestID 관심분야 아이디
+ * @distance 거리
+ * @key 관심분야 아이디
+ * @onRemove()
+ */
 class TagButton extends Component {
 
     constructor(...args) {
@@ -13,11 +20,9 @@ class TagButton extends Component {
     
     render() {
         return (
-            <button type="button" className="btn waves-effect waves-light btn-info mb-1 mr-1" onClick={this.onClickButton}>
-                {"# " + this.props.name}
-                <i className="mdi mdi-close" ></i>
-            </button>
-            
+            <span className="badge badge-info" onClick={() => this.onClickButton} >
+                {"# " + this.props.name}<i className="mdi mdi-close" ></i>
+            </span>
         );
     }
 }
