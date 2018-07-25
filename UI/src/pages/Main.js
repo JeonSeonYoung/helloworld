@@ -13,7 +13,8 @@ import AlertModal from "../layouts/AlertModal";
 class Main extends Component {
 
     state = {
-        "distance" : "-1"
+        "distance" : "-1",
+        "currentPage" : "1"
     }
 
     // render 다음에 작동
@@ -27,7 +28,8 @@ class Main extends Component {
         this.setState({
             chatList,
             "interestData": interestList.interestData,
-            "distance" : interestList.distance
+            "distance" : interestList.distance,
+            "currentPage": this.state.currentPage
         })
     }
 
@@ -35,7 +37,8 @@ class Main extends Component {
     _callChatListApi = (lData) => {
     var lParams = {
         userID : "2",
-        currentPage : "1"
+        // currentPage : "1"
+        currentPage : this.state.currentPage
     }
     if(lData){
         lParams["chatName"] = lData.name;
@@ -178,7 +181,8 @@ class Main extends Component {
                 {/*오른쪽 밑에 붙어있는 버튼*/}
                 <button type="button"
                         className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
-                        data-toggle="modal" data-target="#createChat">
+                        data-toggle="modal"
+                        data-target="#createChat">
                     <i className="mdi mdi-note-outline text-white"></i>
                 </button>
                 <Modal id="createChat"/>
