@@ -3,7 +3,7 @@ module.exports = function ({ name, image }) {
     let chatHistory = []
 
 
-    //메시지 중계
+    //message
     function broadcastMessage(message) {
         members.forEach(m => m.emit('message', message))
     }
@@ -13,23 +13,23 @@ module.exports = function ({ name, image }) {
     }
 
 
-    //채팅방 리스트 호출
+    //history
     function getChatHistory() {
         return chatHistory.slice()
     }
 
-    //유저추가
+    //user add
     function addUser(client) {
         members.set(client.id, client)
     }
 
-    //유저삭제
+    //user del
     function removeUser(client) {
         members.delete(client.id)
     }
 
 
-    //json 형태 시리얼
+    //json serial
     function serialize() {
         return {
             name,

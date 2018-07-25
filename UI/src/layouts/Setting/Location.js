@@ -2,10 +2,18 @@
 import React, { Component } from 'react';
 import ModalButton from "../ModalButton";
 
+/**
+ * @distance 거리
+ * @changeDistance() 거리 변경
+ **/
 class Location extends Component {
 
-    state = {
-        distance: this.props.distance + "km"
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            distance: this.props.distance + "km"
+        }
     }
 
     changeDropdownText(newDistance) {
@@ -38,7 +46,7 @@ class Location extends Component {
                             <a className="dropdown-item" onClick={() => {this.changeDropdownText(1)}} href={null}>1km</a>
                             <a className="dropdown-item" onClick={() => {this.changeDropdownText(5)}} href={null}>5km</a>
                             <a className="dropdown-item" onClick={() => {this.changeDropdownText(10)}} href={null}>10km</a>
-                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(-1)}} href={null}>제한없음</a>
+                            <a className="dropdown-item" onClick={() => {this.changeDropdownText(-1)}} href={null}>unlimited</a>
                         </div>
                     </div>
                     <ModalButton value="reset my location" />

@@ -1,12 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ChatRoom",
     "\\Lambda",
     "\\UI",
+    "\\UI\\server",
     "\\UI\\src",
+    "\\UI\\src\\layouts",
     "\\UI\\src\\pages"
   ],
-  "SelectedNode": "\\UI\\src\\components",
+  "SelectedNode": "\\UI\\server\\ClientManager.js",
   "PreviewInSolutionExplorer": false
 }

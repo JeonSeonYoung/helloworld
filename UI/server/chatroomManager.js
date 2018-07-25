@@ -1,8 +1,7 @@
 const Chatroom = require('./Chatroom')
 import Message from "../src/layouts/Message";
 
-//¹æÀ» È£ÃâÇØ¾ßÇÔ. Ãª·ë.¹æ ¹øÈ£ ¾Ë¾Æ¿À±â
-// render ´ÙÀ½¿¡ ÀÛµ¿
+//ë°© ë²ˆí˜¸ ë¶ˆëŸ¬ì™€ì•¼í•¨
 
 
 var chatList = this._getChatLists()
@@ -15,7 +14,7 @@ _getChatLists = async () => {
     })
 }
 
-//Ã¤ÆÃ¹æ id¸¦ Ã£¾Æ ³Ñ°ÜÁØ´Ù.
+//ì•¼ ë°ì´í„°êµ¬ë‚˜ 
 _callChatListApi = () => {
     return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
         method: 'post',

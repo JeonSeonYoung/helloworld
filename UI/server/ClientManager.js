@@ -1,9 +1,8 @@
-
-import ChatUser from "../src/layouts/ChatUser";
+import ChatUser from '../src/layouts/ChatUser';
 var userTemplates = this._callChatListApi()
 
 
-//user ºÒ·¯¿À±â
+//user ì •ë³´ ë¶ˆëŸ¬ì™€ì•¼í•¨
 _callChatListApi = () => {
     return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
         method: 'post',
@@ -17,7 +16,7 @@ _callChatListApi = () => {
 
 _loadingFun = (() => {
     var lData = this.state.chatList.map((pData, index) => {
-        return <chatuser chatID={pData.chatID} cost={pData.maxCost} key={index} />
+        return <ChatUser chatID={pData.chatID} cost={pData.maxCost} key={index} />
     })
     return lData
 })

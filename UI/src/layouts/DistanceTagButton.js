@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TagButton extends Component {
+class DistanceTagButton extends Component {
 
     constructor(...args) {
         super(...args);
@@ -8,7 +8,8 @@ class TagButton extends Component {
     }
 
     onClickButton() {
-        this.props.onRemove(this.props.interestID);
+        console.log(this.props.distance);
+        this.props.onDistanceRemove(this.props.distance);
     } 
     
     render() {
@@ -22,6 +23,6 @@ class TagButton extends Component {
     }
 }
 
-export default TagButton;
+export default DistanceTagButton;
 
 
