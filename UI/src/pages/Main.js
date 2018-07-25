@@ -7,51 +7,70 @@ import Modal from '../pages/Modal';
 import TextNotify from '../layouts/TextNotify';
 import AlertModal from "../layouts/AlertModal";
 import cookie from 'react-cookies';
+import { Redirect } from 'react-router-dom';
 
 // import DropDownToggle from "../layouts/DropDownToggle";
 // import LinkButton from "../layouts/LinkButton";
 // import RightFloatButton from "../layouts/RightFloatButton";
 
 class Main extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+
+        this.state = {
+            page: 'main',
+            fbData: '',
+            distance: "-1",
+            currentPage: "1"
+        }
 
         this._getChatLists = this._getChatLists.bind(this);
         this.getTest = this.getTest.bind(this);
         // this.getTest = this.getTest.bind(this);
+
+        window.FB.getAccessToken(response => {
+            console.log(response);
+        });
+
+        // facebook status
+        window.FB.getLoginStatus(response => {
+
+            var fbData = cookie.load('fbData');
+            if( typeof fbData === 'undefined' || fbData == '' || response.status != 'connected' ) {
+                this.setState({
+                    page : 'login',
+                    fbData : ''
+                });
+            }
+        });
     }
-
-
-    state = {
-        "distance" : "-1",
-        "currentPage" : "1",
-        "test": ""
-    }
-
-
-
-    // componentWillMount() {
-    //     // var _this = this;
-    //     // _this.getChatlist = this._getChatLists()
-    //
-    //     var _this = this;
-    //     _this.getChatlist = this._getChatLists()
-    //
-    //     console.log(this);
-    // }
 
     // render 다음에 작동
     componentDidMount(){
 
         var _this = this;
+        var fbData = cookie.load('fbData');
+
+        console.log('Main.js, No User ID');
+
+        // 스크롤시 새로운 데이터 로드
         window.onscroll = function(ev) {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                console.log(this);  // window
-                //_this.getTest(); // Main
-                // this.getTest();
                 _this._getChatLists()
             }
         };
+
+        // undefined error
+        if( typeof fbData !== 'undefined' && fbData == '' ) {
+            console.log('Main.js, userID : ' + fbData.userID);
+
+            this.setState({
+                page : 'main',
+                fbData : fbData
+            });
+
+            this._getChatLists()            
+        }
 
         this._getChatLists()
     }
@@ -70,7 +89,8 @@ class Main extends Component {
         const chatList = await this._callChatListApi(lData);
         const interestList = await this._callInterestApi();
 
-        //console.log(chatList[0].currentPage);
+        // console.log(chatList[0].currentPage);
+        console.log(chatList);
 
         this.setState({
             chatList,
@@ -85,16 +105,9 @@ class Main extends Component {
     //채팅방 리스트
     _callChatListApi = (lData) => {
 
-    // if exist, get user info
-    var fbData = cookie.load('fbData');
-
-    if( typeof fbData === 'undefined' && fbData == '' ) {
-
-    }             
-
+    
     var lParams = {
-        userID : '1',
-        // currentPage : "1"
+        userID : this.state.fbData.userID,
         currentPage : this.state.currentPage
     }
 
@@ -119,14 +132,14 @@ class Main extends Component {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({userID : '2'})
+            body: JSON.stringify({userID : this.state.fbData.userID})
         }).then(lData => lData.json())
         .catch(error => console.log(error))
     }
 
     _loadingFun = (() => {
         // 채팅방 없을 때 표시 해주기
-        if (this.state.chatList.length == 0) {
+        if (this.state.chatList.length == 0 || this.state.chatList.data == 'fail' ) {
             return <TextNotify text="채팅방이 존재하지 않습니다." />;
         }
 
@@ -155,7 +168,7 @@ class Main extends Component {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({userID : '2', interestID : lData})
+            body: JSON.stringify({userID : this.state.fbData.userID, interestID : lData})
         }).then(lData => lData.json())
         .catch(error => console.log(error))
     }
@@ -168,7 +181,7 @@ class Main extends Component {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({userID : '2', distance : "-1"})
+            body: JSON.stringify({userID : this.state.fbData.userID, distance : "-1"})
         }).then(lData => lData.json())
         .catch(error => console.log(error))
     }
@@ -209,43 +222,63 @@ class Main extends Component {
     }
 
     render() {
-        return (
-            <div className="p-t-30">
-                {/* 검색 + 상세검색 */}
-                <Search onCreate = {this.handleCreate}/>
-                <div className="m-t-10">
-                    {/* 태그 */}
-                    {
-                        this.state.interestData ? this._loadingInterestFun() : ""
-                    }
-                    {
-                        this.state.distance !== "-1" ?
-                            <DistanceTagButton name={this.state.distance +"km"}
-                                       distance={this.state.distance}
-                                       key={this.state.distance} onDistanceRemove = {this.handleDistanceRemove}/>
-                         : <DistanceTagButton name="no limit"
-                                      distance="-1"
-                                      key="-1"/>
-                    }
-                </div>
-                {/*채팅방 리스트*/}
-                <div className="message-box contact-box m-t-10">
-                    <div className="message-widget contact-widget">
+
+        if( this.state.page == 'login' ) {
+            return(
+                <Redirect to='/login' />
+            );
+        }
+
+        if( this.state.page == 'main' ) {
+            return (
+                <div className="p-t-30">
+                    {/* 검색 + 상세검색 */}
+                    <Search onCreate = {this.handleCreate}/>
+                    <div className="m-t-10">
+                        {/* 태그 */}
                         {
-                            this.state.chatList ? this._loadingFun() : "Loading...."
+                            this.state.interestData ? this._loadingInterestFun() : ""
+                        }
+                        {
+                            this.state.distance !== "-1" ?
+                                <DistanceTagButton name={this.state.distance +"km"}
+                                           distance={this.state.distance}
+                                           key={this.state.distance} onDistanceRemove = {this.handleDistanceRemove}/>
+                             : <DistanceTagButton name="no limit"
+                                          distance="-1"
+                                          key="-1"/>
                         }
                     </div>
-                </div>
-                {/*오른쪽 밑에 붙어있는 버튼*/}
-                <button type="button"
-                        className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right sj-position-fixed"
-                        data-toggle="modal"
-                        data-target="#createChat">
-                    <i className="mdi mdi-note-outline text-white"></i>
-                </button>
-                <Modal id="createChat"/>
-            </div>
-        );
+                    {/*채팅방 리스트*/}
+                    <div className="message-box contact-box m-t-10">
+                        <div className="message-widget contact-widget">
+                            {
+                                this.state.chatList ? this._loadingFun() : "Loading...."
+                            }
+                        </div>
+                    </div>
+                    {/*오른쪽 밑에 붙어있는 버튼*/}
+                    <div>
+                        <button type="button"
+                                className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
+                                data-toggle="modal"
+                                data-target="#createChat">
+                            <i className="mdi mdi-note-outline text-white"></i>
+                        </button>
+                        <Modal id="createChat"/>
+                    </div>
+                    <div>
+                        <button type="button"
+                                className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right sj-position-fixed"
+                                data-toggle="modal"
+                                data-target="#createChat">
+                            <i className="mdi mdi-note-outline text-white"></i>
+                        </button>
+                        <Modal id="createChat"/>
+                     </div>
+                    </div>
+            );
+	    }
     }
 }
 
