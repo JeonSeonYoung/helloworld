@@ -234,27 +234,14 @@ class Login extends Component {
                 </div>
             );
         }   
-
-        if( this.state.status == 'main' ) {
-            return(
-                <div>
-                    <Redirect to={{
-                        pathname: '/register',                                    
-                        state: { params: this.state.params }
-                    }} />
-                </div>
-            );
-        }           
         
-        /*
         if( this.state.status == 'main' ) {
             return(
                 <div>
                     <Redirect to='/' />
                 </div>
             );
-        } 
-        */          
+        }         
     }
 }
 
