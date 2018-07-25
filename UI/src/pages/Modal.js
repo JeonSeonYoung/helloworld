@@ -30,8 +30,8 @@ class Modal extends Component {
     }
     render() {
         return (
-            <div className="modal fade nodisplay" id={this.props.id}
-                 tabIndex="-1" role="dialog" aria-hidden="true">
+            <div className="modal fade nodisplay" id={this.props.id} tabIndex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel"aria-hidden="true">
                 {this.getModal()}
             </div>
         );

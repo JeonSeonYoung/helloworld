@@ -24,9 +24,7 @@ class Header extends Component {
                 <nav className="navbar top-navbar navbar-expand-md navbar-light">
                     <div className="navbar-header">
                         <a className="navbar-brand" href="/">
-                            <b>
-                                <i className="wi wi-sunset sj-white"></i>
-                            </b>
+                            <img src="../assets/images/logo-hello.png"/>
                             <span className="sj-white">
                             HelloWorld
                         </span>

@@ -34,12 +34,12 @@ class TypeIcon2 extends Component {
                         className={"btn-success btn sj-icon m-l-10 mb-2 " + this.getDisabled()}
                         onClick={() => {
                             {
-                                //this.selectIcon(this.props.interestID)
-                                this.props.getSelectedIcon(!this.state.disabled, this.props.interestID)
-
-                                this.setState(prevState => ({
-                                    disabled: !prevState.disabled
-                                }));
+                                if( typeof this.props.getSelectedIcon !== 'undefined' ) {
+                                    this.props.getSelectedIcon(!this.state.disabled, this.props.interestID)
+                                    this.setState(prevState => ({
+                                        disabled: !prevState.disabled
+                                    }));
+                                }
                             }
                         }}
                 >{this.props.text}</button>

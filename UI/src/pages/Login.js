@@ -21,6 +21,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
 
+        this.FB = props.fb;
+
         var fbData = cookie.load('fbData');
 
         // undefined error
@@ -46,6 +48,8 @@ class Login extends Component {
         return yyyy + "-" + mm + "-" + dd;
     }    
 
+    // 로그인 처리
+    // 권한 없을 때?
     responseFacebook = (response) => {
 
         console.log(response);
@@ -57,9 +61,6 @@ class Login extends Component {
             userID : response.userID,
             createAt : ""
         }
-
-        // 로그인 후 갱신
-        // this.forceUpdate();
 
         // 조회
         var command = JSON.stringify({
@@ -92,60 +93,131 @@ class Login extends Component {
             //console.log(data.result);
             //console.log(data.data.Count);
 
-            if( data.result == 'success' && data.data.Count == 0 ) {
-                // set create date for update
-                fbData.createAt = this.getDate();
-
-                // save cookies for facebook data
-                cookie.save('fbData', fbData, cookieOptions);                
-            
-                // set state
-                this.setState({
-                    status : "register",
-                    params : fbData
-                });
+            if( data.result == 'success' ) {
+                if( data.data.Count == 0 ) {
+                    // set create date for update
+                    fbData.createAt = this.getDate();
+    
+                    // save cookies for facebook data
+                    cookie.save('fbData', fbData, cookieOptions);                
+                
+                    // set state
+                    this.setState({
+                        status : "register",
+                        params : fbData
+                    });
+                }
+                else {
+                    // set create date for update
+                    fbData.createAt = data.data.Items[0].createAt.S;
+    
+                    // save cookies for facebook data
+                    cookie.save('fbData', fbData, cookieOptions);
+                
+                    // set state                
+                    this.setState({
+                        status : "main",
+                        params : fbData
+                    });
+                }
             }
-            else {
-                // set create date for update
-                fbData.createAt = data.data.Items[0].createAt.S;
 
-                // save cookies for facebook data
-                cookie.save('fbData', fbData, cookieOptions);
-            
-                // set state                
-                this.setState({
-                    status : "main",
-                    params : fbData
-                });
-            }
-
-
+            // 로그인 후 마지막 접속기록
+            this.updateUserInfo(fbData.userID, fbData.createAt, "lastLoginAt", this.getDate());            
         });
     }    
 
+    getDate = () => {
+        var date = new Date();
+        var dd = date.getDate();
+        var mm = date.getMonth()+1;
+        var yyyy = date.getFullYear();
+
+        return yyyy + "-" + mm + "-" + dd;
+    }    
+
+    updateUserInfo = (userID, createAt, field, value) => {
+
+        var command = JSON.stringify({
+            method: "update",
+            params: {
+                Key: {
+                    userID: userID,
+                    createAt: createAt           
+                },
+                UpdateExpression: "set #field = :x",
+                ExpressionAttributeNames: {
+                    "#field": field
+                },
+                ExpressionAttributeValues: {
+                    ":x": value
+                },                
+				TableName: "UserInfo" 
+            }
+        });        
+
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            console.log(data);
+        });
+
+    }
+    
+    componentDidMount() {
+
+    }
+
     render() {
+
+        window.FB.getLoginStatus(response => {
+            //console.log(response);
+        });
 
         if( this.state.status == 'logout' ) {
             // remove cookies
             cookie.remove('fbData', { path: '/' });    
 
-            // render
+            window.FB.getLoginStatus(response => {
+                console.log(response);
+    
+                if( response.status === 'connected' ) {
+                    window.FB.logout();
+                }
+            });     
+            
+            this.setState({
+                status : 'login'
+            });
+
+            
             return(
                 <div>
-                    <Redirect to='/' />
+                    <Redirect to='/login' />
                 </div>
-            );
-
+            );       
             
         }
 
-        if( this.state.status == 'login' ) {
+        if( this.state.status == 'login' ) {                    
             return(
                 <div id='login' className="modal-dialog" role="document">
 
                     <div className="modal-content">
 
                         {/* Header */}
+
                         <div className="modal-header">
                             <h4 className="modal-title">FACEBOOK LOGIN</h4>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -155,7 +227,7 @@ class Login extends Component {
 
                         {/* Body */}
                         <div className="modal-body">
-                            <form>
+                        <form>
                                 <div>
                                     <FacebookLogin
                                         appId="474958262956536"
@@ -164,7 +236,7 @@ class Login extends Component {
                                         callback={this.responseFacebook}
                                     />
                                 </div>
-                            </form>
+                            </form>        
                         </div>
 
                         {/* Bottom */}
@@ -188,27 +260,14 @@ class Login extends Component {
                 </div>
             );
         }   
-
-        if( this.state.status == 'main' ) {
-            return(
-                <div>
-                    <Redirect to={{
-                        pathname: '/register',                                    
-                        state: { params: this.state.params }
-                    }} />
-                </div>
-            );
-        }           
         
-        /*
         if( this.state.status == 'main' ) {
             return(
                 <div>
                     <Redirect to='/' />
                 </div>
             );
-        } 
-        */          
+        }         
     }
 }
 

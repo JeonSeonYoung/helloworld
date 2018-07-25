@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NickName from '../layouts/Setting/NickName';
 import Location from '../layouts/Setting/Location';
 import InterestCombo from '../layouts/Setting/InterestCombo';
-
+import SelectedInterestCombo from '../layouts/Setting/SelectedInterestCombo';
 import cookie from 'react-cookies';
 
 class Setting extends Component {
@@ -16,7 +16,7 @@ class Setting extends Component {
 
             // 종혁
             nickname : "",
-            distance : "",
+            distance : "1",
             interest : ""
         };
 
@@ -201,23 +201,39 @@ class Setting extends Component {
 
     _loadingLocationFun = (() =>{
         // return <Location distance={this.state.settingdata.distance} changeDistance={this.changeDistance} />
-
         return <Location distance={this.state.distance} changeDistance={this.changeDistance} />
     })
 
     _loadingSelectedInterestFun = (() =>{
-        console.log('interest:' + this.state.settingdata.interest);
-
         // return -> interestID, name
         var filtered = this.state.interestdata.filter(item =>
             this.state.settingdata.interest.indexOf(Number(item.interestID)) != -1
         );
 
         var lData = filtered.map((pData, index) => {
-           return  <InterestCombo interest={pData.name} key={index} />
+            return <SelectedInterestCombo interest={pData.name} key={index} />
         });
 
         return lData;
+    })
+
+    _loadingInterestFun = (() =>{
+
+        // selected 되어있는 것만 disabled 해주기
+        var lData = this.state.interestdata.map((pData, index) => {
+
+            var isSelected;
+            isSelected = this.state.settingdata.interest.indexOf(Number(pData.interestID)) != -1 ?
+                true : false;
+
+            return <InterestCombo interestID={pData.interestID}
+                                  interest={pData.name}
+                                  isSelected={isSelected}
+                                  getSelectedIcon={this.getSelectedIcon}
+                                  key={index}
+            />
+        })
+        return lData
     })
 
     getSelectedIcon(select, id) {
@@ -252,24 +268,6 @@ class Setting extends Component {
             })
         );
     }
-
-    _loadingInterestFun = (() =>{
-        // selected 되어있는 것만 disabled 해주기
-        var lData = this.state.interestdata.map((pData, index) => {
-
-            var isSelected;
-            isSelected = this.state.settingdata.interest.indexOf(Number(pData.interestID)) != -1 ?
-                true : false;
-
-            return <InterestCombo interestID={pData.interestID}
-                                  interest={pData.name}
-                                  isSelected={isSelected}
-                                  getSelectedIcon={this.getSelectedIcon}
-                                  key={index}
-            />
-        })
-        return lData
-    })
 
     // 설정 데이터 저장
     saveSetting() {
@@ -309,7 +307,14 @@ class Setting extends Component {
             var interest = saveData.selectedInterest;
             if( typeof interest !== 'undefined' && interest != '' ) {   
                 this.updateUserInfo(fbData.userID, fbData.createAt, 'interest', JSON.stringify({ id : JSON.stringify(interest) }));
-            }              
+            } 
+            
+            // set state
+            this.setState({
+                nickname : nickname,
+                distance : distance,
+                interest : interest
+            });
         }
     }
 
@@ -344,9 +349,8 @@ class Setting extends Component {
                     </div>
                 </div>
                 <div className="sj-overflow">
-                    <button type="button" className="btn btn-success pull-right"
+                    <button type="button" className="btn btn-primary pull-right"
                             onClick={this.saveSetting}
-                            // 종혁 onClick={this._updatesettingdata}
                     >Save</button>
                 </div>
             </div>

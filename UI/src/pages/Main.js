@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import TagButton from "../layouts/TagButton";
+import DistanceTagButton from "../layouts/DistanceTagButton";
 import Message from "../layouts/Message";
 import Search from "../layouts/Search";
 import Modal from '../pages/Modal';
 import TextNotify from '../layouts/TextNotify';
+import AlertModal from "../layouts/AlertModal";
 // import DropDownToggle from "../layouts/DropDownToggle";
 // import LinkButton from "../layouts/LinkButton";
 // import RightFloatButton from "../layouts/RightFloatButton";
@@ -96,6 +98,19 @@ class Main extends Component {
         .catch(error => console.log(error))
     }
 
+    //거리 삭제
+    _callDelInterestApi = (lData) => {
+        console.log("api 호출")
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/deletedistance', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({userID : '2', distance : "-1"})
+        }).then(lData => lData.json())
+        .catch(error => console.log(error))
+    }
+
     handleClick = () => {
         console.log('show popup');
     }
@@ -104,16 +119,32 @@ class Main extends Component {
         this._getChatLists(lData); 
     }
 
+    // interest handle
     handleRemove = async (lData) => {
         console.log(lData);
         const delInterestData = await this._callDelInterestApi(lData);
-        const chatList = await this._callChatListApi(lData);
+        const chatList = await this._callChatListApi();
         const interestList = await this._callInterestApi();
         this.setState({
             chatList,
             "interestData": interestList.interestData,
             "distance" : interestList.distance
         })
+    }
+
+    //distance handle
+    handleDistanceRemove = async (lData) => {
+        console.log(lData);
+        if(lData !== -1){
+            const delInterestData = await this._callDelInterestApi();
+            const chatList = await this._callChatListApi();
+            const interestList = await this._callInterestApi();
+            this.setState({
+                chatList,
+                "interestData": interestList.interestData,
+                "distance" : interestList.distance
+            });
+        }        
     }
 
     render() {
@@ -128,10 +159,10 @@ class Main extends Component {
                     }
                     {
                         this.state.distance !== "-1" ?
-                            <TagButton name={this.state.distance +"km"}
+                            <DistanceTagButton name={this.state.distance +"km"}
                                        distance={this.state.distance}
-                                       key={this.state.distance}/>
-                         : <TagButton name="제한없음"
+                                       key={this.state.distance} onDistanceRemove = {this.handleDistanceRemove}/>
+                         : <DistanceTagButton name="no limit"
                                       distance="-1"
                                       key="-1"/>
                     }
@@ -144,12 +175,12 @@ class Main extends Component {
                         }
                     </div>
                 </div>
+                {/*오른쪽 밑에 붙어있는 버튼*/}
                 <button type="button"
                         className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
-                        data-toggle="modal"
-                        data-target="#createChat"
-                        ><i className="mdi mdi-note-outline text-white"></i></button>
-                {/*<RightFloatButton iconType={"newChat"}/>*/}
+                        data-toggle="modal" data-target="#createChat">
+                    <i className="mdi mdi-note-outline text-white"></i>
+                </button>
                 <Modal id="createChat"/>
             </div>
         );

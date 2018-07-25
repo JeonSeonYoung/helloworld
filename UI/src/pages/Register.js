@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
 import ChatLeft from "../layouts/ChatLeft";
 import TypeIcon from '../layouts/TypeIcon2';
+import NickName from '../layouts/Setting/NickName';
 import { Link } from 'react-router-dom';
+import InterestCombo from '../layouts/Setting/InterestCombo';
+
 // import { withRouter } from 'react-router-dom';
 
 class Register extends Component {
-
 
     constructor(props) {
         super(props);
 
         // state
         this.state = {
-            
             selectedIcon : "",
-            chatList: []
+            chatList: [],
+
+            // jong, interest info
+            interestInfo : ""
         };
 
         this.getSelectedIcon = this.getSelectedIcon.bind(this);
 
+
         // first, register default user info
         this.registerUserInfo();
+
+        // scan & update sequene control
+        this.scanUserInfo();        
     }
 
     getDate = () => {
@@ -30,6 +38,103 @@ class Register extends Component {
         var yyyy = date.getFullYear();
 
         return yyyy + "-" + mm + "-" + dd;
+    }
+
+    getInterest = () => {
+
+       var command = JSON.stringify({
+            method: "scan",
+            params: {
+                TableName: "InterestInfo"    
+            }
+        });
+    
+        var interestInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+    
+        interestInfo.then((data) => {
+            if( data.result == 'success' ) {
+                this.setState({
+                    interestInfo : data.data.Items
+                });
+            }
+        });        
+    }
+
+    scanUserInfo = () => {
+
+        var command = JSON.stringify({
+            method: "scan",
+            params: {            
+				TableName: "UserInfo" 
+            }
+        });        
+
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            if( data.result == 'success' ) {
+                var count = data.data.Count;
+                this.updateSequenceControlForUserInfo(count)
+            }
+
+        });        
+    }
+
+    updateSequenceControlForUserInfo = (count) => {
+
+        var command = JSON.stringify({
+            method: "update",
+            params: {
+                Key: {
+                    tableCode: "UserInfo"       
+                },
+                UpdateExpression: "set #field = :x",
+                ExpressionAttributeNames: {
+                    "#field": "tableSequence"
+                },
+                ExpressionAttributeValues: {
+                    ":x": count
+                },                
+				TableName: "SequenceControl" 
+            }
+        });        
+
+        
+        var userInfo = new Promise((resolve, reject) => {
+            fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: command
+            }).then((data) => {
+                resolve(data.json());
+            });           
+        });     
+        
+        userInfo.then((data) => {
+            console.log(data);
+        });
     }
 
     updateUserInfo = (userID, createAt, field, value) => {
@@ -137,7 +242,7 @@ class Register extends Component {
                         S: fbData.email
                     },
                     facebookToken: {
-                        S: fbData.accessToken
+                        S: 'null'
                     },                    
                     interest: {
                         S: 'null'
@@ -150,6 +255,9 @@ class Register extends Component {
                     },
                     vLocation: {
                         S: 'null'
+                    },
+                    lastLoginAt: {
+                        S: this.getDate()
                     }
 
                 },
@@ -180,11 +288,28 @@ class Register extends Component {
     // 선택한 아이콘 정보 가져오기
     getSelectedIcon(disabled, id) {
 
+        // get facebook info
+        var fbData = this.props.location.state.params;        
+
+        //console.log("getSelectedIcon()");
+        //console.log("id");
+        //console.log(id);
+        /*
+        console.log(JSON.stringify({
+            id : [id]
+        }));
+        */
+
+        this.updateUserInfo(fbData.userID, fbData.createAt, "interest", JSON.stringify({
+            id : [id]
+        }));
+
         var list = []
             .concat(<ChatLeft name="Admin" key={id} message={"You choose " + id + ". If you want more, please you setting page."} />)
+            /*
             .concat(<ChatLeft name="Admin" key={id+1} message="Where is your location?" />)
-            //지도띄우기
             .concat(<ChatLeft name="Admin" key={id+2} message="What is your nickname?" />)
+            */
             .concat(<div><input type="text" key={id+3} className="form-control" /></div>)
         ;
 
@@ -194,9 +319,51 @@ class Register extends Component {
         })
     }
 
+    _callInterestdataApi = () => {
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getallinterest', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).then(lData => lData.json())
+            .catch(error => console.log(error))
+    }    
+
+    _loadingInterestFun = (() =>{
+        
+        var lData = this.state.interestdata.map((pData, index) => {
+            /*
+            return <InterestCombo interestID={pData.interestID}
+                                  interest={pData.name}
+                                  getSelectedIcon={this.getSelectedIcon}
+                                  key={index}
+            />
+            */
+
+            return <TypeIcon text={pData.name} getSelectedIcon={this.getSelectedIcon} interestID={index}
+                             key={index}
+            />
+        })
+        return lData
+    })    
+
+    // render 다음에 작동
+    componentDidMount(){
+        this._getdata()
+    }
+
+    _getdata = async () => {
+        const interestdata = await this._callInterestdataApi();
+        this.setState({
+            interestdata
+        })
+    }    
+
     render() {
         var fbData = this.props.location.state.params;
         var message = "Hello " + fbData.name + ", please select one your preference.";
+
+        //var printItem = this.interestInfo.map();
 
         return (
             <div className="row">
@@ -217,32 +384,16 @@ class Register extends Component {
                                                 message={message}
                                             />
                                             <li className="reverse">
+
+                                                {/* Chat Content */}
                                                 <div className="chat-content">
                                                     <div className="form-group">
-                                                        <label>관심분야</label>
+                                                        <label>Interests</label>
                                                         <div className="container">
-                                                            <div className="row mb-2">
-                                                                <TypeIcon text="반려동물" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="문화/공연" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="봉사"  onClick={this.getSelectedIcon}/>
-                                                                <TypeIcon text="운동/스포츠" onClick={this.getSelectedIcon} />
-                                                            </div>
-                                                            <div className="row mb-2">
-                                                                <TypeIcon text="책/글" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="직무" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="외국어"  onClick={this.getSelectedIcon}/>
-                                                                <TypeIcon text="음악/악기" onClick={this.getSelectedIcon} />
-                                                            </div>
-                                                            <div className="row mb-2">
-                                                                <TypeIcon text="댄스/무용" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="사교/인맥" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="사진" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="야구관람" onClick={this.getSelectedIcon} />
-                                                            </div>
-                                                            <div className="row mb-2">
-                                                                <TypeIcon text="게임/오락" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="요리/제조" onClick={this.getSelectedIcon} />
-                                                                <TypeIcon text="가족/결혼" onClick={this.getSelectedIcon} />
+                                                            <div className="row">
+                                                                {
+                                                                    this.state.interestdata ? this._loadingInterestFun() : "Loading...."
+                                                                }
                                                             </div>
                                                         </div>
                                                     </div>
@@ -262,11 +413,8 @@ class Register extends Component {
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         );
     }

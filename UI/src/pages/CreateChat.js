@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Checkbox from '../layouts/Checkbox';
-import Map from './Map';
-import InterestCombo from '../layouts/Setting/InterestCombo';
+import AlertModal from "../layouts/AlertModal";
 import ChatName from '../layouts/ChatName';
+import Map from './Map';
+import Checkbox from '../layouts/Checkbox';
+import InterestCombo from '../layouts/Setting/InterestCombo';
 
 class CreateChat extends Component {
 
@@ -24,6 +25,7 @@ class CreateChat extends Component {
         this.getSelectedIcon = this.getSelectedIcon.bind(this);
     }
 
+    // 여기는 db 에서 가져올 데이터가 없으므로
     // render 다음에 작동
     componentDidMount(){
         this._getdata()
@@ -55,8 +57,11 @@ class CreateChat extends Component {
         })
     }
 
-
     createChat(){
+
+        // 데이터 유효성 검사 보류. (modal 안에 modal 띄우는 거 해결해야함)
+        // this.validateData();
+
         var saveData = {};
 
         // chatroom name
@@ -70,6 +75,22 @@ class CreateChat extends Component {
 
         console.log(saveData);
         // 저장 작업 쿼리 호출
+    }
+
+    // 데이터 유효성 검사
+    validateData() {
+        if (this.state.selectedInterest == -1){
+            this.setState({
+                message: "위치를 설정해주세요"
+            })
+            return false;
+        }
+
+        if (this.state.settingdata.interest == ""){
+            <AlertModal message="관심분야를 설정해주세요" />
+            return false;
+        }
+        return true;
     }
 
     changeText(text) {
@@ -88,7 +109,6 @@ class CreateChat extends Component {
     //     return (this.state.disabled) ? "disabled" : "";
     // }
 
-
     // 관심분야 (채팅방 개설할 땐 '하나'만 선택할 수 있다.)
     _loadingInterestFun = (() =>{
 
@@ -106,14 +126,7 @@ class CreateChat extends Component {
             )
         })
 
-        // var lData = this.state.interestdata.map((pData, index) => {
-        //     return <InterestCombo interestID={pData.interestID}
-        //                           interest={pData.name}
-        //                           isSelected={false}
-        //                           getSelectedIcon={this.getSelectedIcon}
-        //                           key={index}/>
-        // })
-        return lData
+        return lData;
     })
 
     render() {
@@ -121,8 +134,9 @@ class CreateChat extends Component {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h4 className="modal-title">Create ChatRoom</h4>
+                        <h4 className="modal-title" id="exampleModalLabel">ECreate ChatRoom</h4>
                     </div>
+
                     <div className="modal-body">
                         <form>
                             <div className="form-group">
@@ -133,7 +147,7 @@ class CreateChat extends Component {
                             <div className="form-group">
                                 <label htmlFor="example-location">Select Location</label>
                                 <div className="sj-map">
-                                    {/*<Map id="create_chat"/>*/}
+                                    <Map id="create_chat"/>
                                 </div>
                             </div>
                             <div className="form-group">
@@ -149,9 +163,25 @@ class CreateChat extends Component {
                             </div>
                         </form>
                     </div>
+
                     <div className="modal-footer">
                         <button type="button" className="btn btn-primary btn-block"
+                                data-target="#alertModal"
                                 data-dismiss="modal" onClick={this.createChat}>Create ChatRoom</button>
+                        {/*modal 안에 modal 띄우는 작업 보류*/}
+                        {/*<button type="button" className="btn btn-primary btn-block" data-toggle="modal"*/}
+                                {/*href="#stack1">Create ChatRoom*/}
+                        {/*</button>*/}
+
+                        {/*<div id="stack1" className="modal hide fade" tabIndex="-1" role="dialog">*/}
+                            {/*<div className="modal-dialog" role="document">*/}
+                                {/*<div className="modal-content">*/}
+                                    {/*<div className="modal-footer">*/}
+                                        {/*<button type="button" className="btn btn-secondary" data-dismiss="modal">Okay</button>*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
