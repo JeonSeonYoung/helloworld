@@ -20,9 +20,8 @@ class Register extends Component {
             // jong, interest info
             interestInfo : ""
         };
-
+        
         this.getSelectedIcon = this.getSelectedIcon.bind(this);
-
 
         // first, register default user info
         this.registerUserInfo();
@@ -233,10 +232,10 @@ class Register extends Component {
                         S: 'T'
                     },
                     chatList: {
-                        S: 'null'
+                        S: JSON.stringify({id:[]})
                     },
                     distance: {
-                        S: 'null'
+                        S: '-1'
                     },
                     email: {
                         S: fbData.email
@@ -245,16 +244,16 @@ class Register extends Component {
                         S: 'null'
                     },                    
                     interest: {
-                        S: 'null'
+                        S: JSON.stringify({id:[]})
                     },
                     nickName: {
-                        S: 'null'
+                        S: 'guest'
                     },
                     updateAt: {
                         S: this.getDate()
                     },
                     vLocation: {
-                        S: 'null'
+                        S: JSON.stringify({lat:'0', lng:'0'})
                     },
                     lastLoginAt: {
                         S: this.getDate()

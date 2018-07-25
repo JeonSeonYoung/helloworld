@@ -14,54 +14,60 @@ import { Redirect } from 'react-router-dom';
 // import RightFloatButton from "../layouts/RightFloatButton";
 
 class Main extends Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
-            page: 'main',
-            fbData: '',
-            distance: "-1",
-            currentPage: "1"
-        }
-
-        this._getChatLists = this._getChatLists.bind(this);
-        this.getTest = this.getTest.bind(this);
-        // this.getTest = this.getTest.bind(this);
+            page : 'main',
+            fbData : '',
+            distance : "-1",
+            currentPage : "1"            
+        }        
 
         window.FB.getAccessToken(response => {
             console.log(response);
         });
 
+        console.log('Main.js, constructor()');
+        var fbData = cookie.load('fbData');
+
+        if(  typeof fbData == 'undefined' ) {
+            console.log('fbData == underfined');
+
+            this.setState({
+                page : 'login',
+                fbData : ''
+            });            
+        }
+
+        /*
         // facebook status
         window.FB.getLoginStatus(response => {
 
+            console.log('Main.js, getLoginStatus()');
+            console.log(response);
+
             var fbData = cookie.load('fbData');
-            if( typeof fbData === 'undefined' || fbData == '' || response.status != 'connected' ) {
+            if( typeof fbData === 'undefined' || fbData == '' || response.status != 'connected' ) {                             
                 this.setState({
                     page : 'login',
                     fbData : ''
                 });
             }
-        });
+        });  
+        */
     }
 
     // render 다음에 작동
     componentDidMount(){
 
-        var _this = this;
         var fbData = cookie.load('fbData');
         console.log(fbData);
         console.log('Main.js, No User ID');
-
-        // 스크롤시 새로운 데이터 로드
-        window.onscroll = function(ev) {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                _this._getChatLists()
-            }
-        };
-
+    
         // undefined error
-        if( typeof fbData !== 'undefined' && fbData == '' ) {
+        if( typeof fbData !== 'undefined' && fbData != '' ) {
             console.log('Main.js, userID : ' + fbData.userID);
 
             this.setState({
@@ -69,36 +75,27 @@ class Main extends Component {
                 fbData : fbData
             });
 
-            this._getChatLists()            
+            this._getChatLists();
+
         }
-
-        this._getChatLists()
-    }
-
-    getTest = async (lData) => {
-        const chatList = await this._callChatListApi(lData);
-        console.log(chatList);
-        this.setState({
-            "test": "..."
-        })
+        else {
+            this.setState({
+                page : 'login',
+                fbData : ''
+            });
+        }
     }
 
     _getChatLists = async (lData) =>{
-        console.log("호출 됐냐???");
-
         const chatList = await this._callChatListApi(lData);
         const interestList = await this._callInterestApi();
-
-        // console.log(chatList[0].currentPage);
-        console.log(chatList);
-
+        console.log(interestList);
         this.setState({
             chatList,
             "interestData": interestList.interestData,
             "distance" : interestList.distance,
-            //"currentPage": chatList[0].currentPage
             "currentPage": this.state.currentPage
-        });
+        })
         console.log(this.state.currentPage);
     }
 
@@ -114,7 +111,6 @@ class Main extends Component {
     if(lData){
         lParams["chatName"] = lData.name;
     }
-    console.log("lData::::::",lData);
     return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
         method: 'post',
         headers: {
@@ -222,14 +218,18 @@ class Main extends Component {
     }
 
     render() {
+        console.log('Main.js, render()');
 
         if( this.state.page == 'login' ) {
+            console.log('login page');
             return(
                 <Redirect to='/login' />
             );
         }
 
         if( this.state.page == 'main' ) {
+            console.log('main page ');
+
             return (
                 <div className="p-t-30">
                     {/* 검색 + 상세검색 */}
@@ -278,7 +278,7 @@ class Main extends Component {
                      </div>
                     </div>
             );
-	    }
+	}
     }
 }
 
