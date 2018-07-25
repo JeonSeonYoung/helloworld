@@ -66,7 +66,7 @@ class Main extends Component {
         console.log('Main.js, No User ID');
     
         // undefined error
-        if( typeof fbData !== 'undefined' && fbData == '' ) {
+        if( typeof fbData !== 'undefined' && fbData != '' ) {
             console.log('Main.js, userID : ' + fbData.userID);
 
             this.setState({
@@ -74,12 +74,8 @@ class Main extends Component {
                 fbData : fbData
             });
 
-            window.onscroll = function(ev) {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                    console.log("스크롤 이벤트 발동");
-                    this._getChatLists();
-                }
-            };
+            this._getChatLists();
+
         }
         else {
             this.setState({
