@@ -13,6 +13,8 @@ class Map extends Component
     }
 
     render(){
+        var fbData = cookie.load('fbData');
+
         console.log('Map.js, render()');
         console.log(this.props.page);
         if( this.props.page == 'main' ) {
@@ -25,7 +27,7 @@ class Map extends Component
         else {
             return(
                 <div id='map'>
-                	<MapContainer id={this.props.id} userID={this.state.userID} createAt={this.state.createAt} vLocation={this.state.vLocation} />
+                	<MapContainer id={this.props.id} userID={fbData.userID} createAt={fbData.createAt} vLocation={fbData.vLocation} />
                 </div>
             );
         }
