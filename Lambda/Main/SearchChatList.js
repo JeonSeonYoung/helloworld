@@ -33,7 +33,7 @@ exports.handler = (event, context, callback) => {
 					"distance" : userResult.distance.S,
 					"blockTf" : userResult.blockTf.S,
 					"interest" : JSON.parse(userResult.interest.S).id
-				}
+				};
 				resolve(lUserInfo);
 			}, userInfoQueryError => {
 				HelloWorld.Objects.DynamoDB.Error.sys(userInfoQueryError, callback);
@@ -67,7 +67,7 @@ exports.handler = (event, context, callback) => {
 						"location" : lResult.Items[i].vLocation.S,
 						"maxCost" : lResult.Items[i].maxCost.S,
 						"chatName" : lResult.Items[i].chatName.S
-					})
+					});
 				}
 				 resolve(lChatInfo);
 			}, chatQueryError => {
@@ -91,7 +91,7 @@ exports.handler = (event, context, callback) => {
 					lInterestList.push({
 						"interestID":lResult.Items[i].interestID.S,
 						"name":lResult.Items[i].name.S
-					})
+					});
 				}
 				resolve(lInterestList);
 			}, interestQueryError => {
@@ -107,6 +107,7 @@ exports.handler = (event, context, callback) => {
 		var lInterestList = values[2];
 		
 		// 검색도 어쩔수 없이 여기서..
+		// 검색어 있을 경우
 		if(params.chatName){
 			for(var i = 0; i<lAllChatList.length; ++i){
 				var index = lAllChatList[i].chatName.indexOf(params.chatName);
@@ -119,22 +120,47 @@ exports.handler = (event, context, callback) => {
 						"location" : lAllChatList[i].vLocation,
 						"maxCost" : lAllChatList[i].maxCost,
 						"chatName" : lAllChatList[i].chatName
-					})
+					});
 				}
 			}
-		}else{
+		}else{	// 검색어 없을 경우
 			lChatList = lAllChatList;
 		}
+		
+		// 거리 검색
+		function calcDistance(lat1, lon1, lat2, lon2){
+        var EARTH_R, Rad, radLat1, radLat2, radDist; 
+	        var distance, ret;
+	
+	        EARTH_R = 6371000.0;
+	        Rad = Math.PI/180;
+	        radLat1 = Rad * lat1;
+	        radLat2 = Rad * lat2;
+	        radDist = Rad * (lon1 - lon2);
+	        
+	        distance = Math.sin(radLat1) * Math.sin(radLat2);
+	        distance = distance + Math.cos(radLat1) * Math.cos(radLat2) * Math.cos(radDist);
+	        ret = EARTH_R * Math.acos(distance);
+	
+	        return  Math.round(Math.round(ret) / 1000);
+	    }
 
+		console.log("관심분야 검색");
+		console.log(lUserList.interest);
 		var lUserInterestList = [];
-		if(lUserList.interest.length > 1){
+		console.log(lUserList.interest.length);
+		if(lUserList.interest.length > 0){
+			console.log("통과");
 			for(var j = 0; j<lUserList.interest.length; ++j){
 				for(var k = 0; k<lInterestList.length; ++k){
 					if(lUserList.interest[j] == lInterestList[k].interestID){
+						console.log(lUserList.interest[j]);
+						console.log( lInterestList[k].interestID);
+						console.log(lUserList.interest[j] == lInterestList[k].interestID);
 						lUserInterestList.push({
 							"interestID":lInterestList[k].interestID,
 							"name":lInterestList[k].name
-						})
+						});
 					}
 					
 				}
@@ -147,16 +173,17 @@ exports.handler = (event, context, callback) => {
 
 		var inRet = [];
 		for(var c = 0; c<lChatList.length; ++c){
-			for(var k = 0; k<lInterestList.length; ++k){
-				if(lChatList[c].interestID == lInterestList[k].interestID){
+			for(var m = 0; m<lInterestList.length; ++m){
+				if(lChatList[c].interestID == lInterestList[m].interestID){
 					inRet.push({
 						"nickName" : lUserList.nickName,
 						"distance" : lUserList.distance,
-						"interestID": lInterestList[k].interestID,
-						"interestName": lInterestList[k].name,
+						"userLocation" : lUserList.location,
+						"interestID": lInterestList[m].interestID,
+						"interestName": lInterestList[m].name,
 						"masterUserID" : lChatList[c].masterUserID,
 						"masterNickName" : lChatList[c].masterNickName,
-						"location" : lChatList[c].vLocation,
+						"chatLocation" : lChatList[c].location,
 						"chatName" : lChatList[c].chatName,
 						"maxCost" : lChatList[c].maxCost
 					});
@@ -164,24 +191,59 @@ exports.handler = (event, context, callback) => {
 			}	
 		}
 		
-		console.log("***********", inRet)				
-		console.log("페이징 처리 시작")
+		console.log("위치 검색");
+		console.log(JSON.parse(lUserList.location));
+		console.log(inRet);
+		var inList = [];
+		if(lUserList.distance != -1){
+			var userDistance = JSON.parse(lUserList.location);
+			var lat1 = userDistance.lat;
+			var lng1 = userDistance.lng;
+			var dist;
+			for(var q = 0; q<inRet.length; ++q){
+				var chatDistance = JSON.parse(inRet[q].chatLocation);
+				dist = calcDistance(lat1, lng1, chatDistance.lat, chatDistance.lng);
+				console.log(Math.abs(dist));
+				console.log("*****",lUserList.distance);
+				if(lUserList.distance >= Math.abs(dist)){
+					console.log("통과", inRet[q]);
+					inList.push({
+						"nickName" : inRet[q].nickName,
+						"distance" : inRet[q].distance,
+						"userLocation" : inRet[q].userLocation,
+						"interestID": inRet[q].interestID,
+						"interestName": inRet[q].name,
+						"masterUserID" : inRet[q].masterUserID,
+						"masterNickName" : inRet[q].masterNickName,
+						"chatLocation" : inRet[q].chatLocation,
+						"chatName" : inRet[q].chatName,
+						"maxCost" : inRet[q].maxCost
+					});
+				}
+			}
+		}else{
+			inList = inRet;
+		}
+		
+		
+		console.log("***********", inList);				
+		console.log("페이징 처리 시작");
 		var inChatRoomList = [];
-		var lTotalCount = inRet.length;
+		var lTotalCount = inList.length;
 		console.log(lCurrentPage);
 		console.log(lTotalCount);
 		// 어쩔수없이 페이징 처리를 여기서..
 		if(lTotalCount >= lCurrentPage){
 			console.log(lCurrentPage);
-			for(var i = lCurrentPage-1; i<lCurrentPage; ++i ){
-				console.log(inRet[i]);
-				inChatRoomList.push(inRet[i]);
+			for(var p = lCurrentPage-1; p<lCurrentPage; ++p ){
+				console.log(inList[p]);
+				inChatRoomList.push(inList[p]);
 			}
 		}
 		
 		
 		
-		callback(null, inChatRoomList);
+		callback(null, inList);
 		
 	});
 

@@ -13,10 +13,10 @@ exports.handler = (event, context, callback) => {
 		params = event.bodyJson;
 	}
 
-    const lInterestID = params.interestID;
+    const lDistance = params.distance;
     const lUserID = params.userID;
     
-    // 유저의 관심분야 가져오기	
+    // 유저의 거리 가져오기	
     queryDynamoDB({
         ExpressionAttributeValues: {
             ":v1": { S: lUserID }
@@ -25,24 +25,17 @@ exports.handler = (event, context, callback) => {
         TableName: "UserInfo",
         IndexName : "userID-createAt-index"
     }).then(lResult => {
-        var lUserInterest = JSON.parse(lResult.Items[0].interest.S).id;
-        var lInterest = [];
-        for(var i = 0; i<lUserInterest.length; ++i){
-            if(lUserInterest[i] != lInterestID){
-                lInterest.push(lUserInterest[i]);
-            }
-        }
-        var paramInterest = {"id" : lInterest}
-
+        var lUserDistance = lResult.Items[0].distance.S;
+        console.log(lUserDistance);
         var params = {
             TableName: "UserInfo",
             Key:{
                 "userID": {S: lUserID},
                 "createAt": {S: lResult.Items[0].createAt.S}
             },
-            UpdateExpression: "SET interest = :v1",
+            UpdateExpression: "SET distance = :v1",
             ExpressionAttributeValues: {
-                ":v1": { S: JSON.stringify(paramInterest) }
+                ":v1": { S: lUserDistance }
             }
         }
         dynamodb.updateItem(params, function(err, data){    
@@ -56,7 +49,7 @@ exports.handler = (event, context, callback) => {
 
                 callback(null,inRet);	
             } else {
-                callback(null, lInterest);
+                callback(null, result);
             }    
         
         }); 
