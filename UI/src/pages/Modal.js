@@ -3,6 +3,7 @@ import Setting from '../pages/Setting';
 import SearchFilter from '../layouts/SearchFilter';
 import CreateChat from "./CreateChat";
 import ChatUserInfo from "../pages/ChatUserInfo";
+import Map from "../pages/Map";
 
 class Modal extends Component {
     getModal() {
@@ -12,6 +13,9 @@ class Modal extends Component {
 
             case "searchFilter":
                 return <SearchFilter />
+
+            case "map":
+                return <Map vLocation={this.props.vLocation}/>
 
             case "createChat":
                 return <CreateChat />

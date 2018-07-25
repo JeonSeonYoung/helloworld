@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Main from '../pages/Main';
 import NickName from '../layouts/Setting/NickName';
 import Location from '../layouts/Setting/Location';
 import InterestCombo from '../layouts/Setting/InterestCombo';
@@ -316,6 +317,8 @@ class Setting extends Component {
                 interest : interest
             });
         }
+
+        return <Main />;
     }
 
     render() {
