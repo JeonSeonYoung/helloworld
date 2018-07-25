@@ -13,36 +13,73 @@ import cookie from 'react-cookies';
 // import RightFloatButton from "../layouts/RightFloatButton";
 
 class Main extends Component {
+    constructor(props){
+        super(props);
 
+        this._getChatLists = this._getChatLists.bind(this);
+        this.getTest = this.getTest.bind(this);
+        // this.getTest = this.getTest.bind(this);
+    }
 
 
     state = {
         "distance" : "-1",
-        "currentPage" : "1"
-    } 
+        "currentPage" : "1",
+        "test": ""
+    }
+
+
+
+    // componentWillMount() {
+    //     // var _this = this;
+    //     // _this.getChatlist = this._getChatLists()
+    //
+    //     var _this = this;
+    //     _this.getChatlist = this._getChatLists()
+    //
+    //     console.log(this);
+    // }
 
     // render 다음에 작동
     componentDidMount(){
-        this._getChatLists()
 
+        var _this = this;
         window.onscroll = function(ev) {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                alert("you're at the bottom of the page");
+                console.log(this);  // window
+                //_this.getTest(); // Main
+                // this.getTest();
+                _this._getChatLists()
             }
         };
 
+        this._getChatLists()
+    }
+
+    getTest = async (lData) => {
+        const chatList = await this._callChatListApi(lData);
+        console.log(chatList);
+        this.setState({
+            "test": "..."
+        })
     }
 
     _getChatLists = async (lData) =>{
+        console.log("호출 됐냐???");
+
         const chatList = await this._callChatListApi(lData);
         const interestList = await this._callInterestApi();
-        console.log(interestList);
+
+        //console.log(chatList[0].currentPage);
+
         this.setState({
             chatList,
             "interestData": interestList.interestData,
             "distance" : interestList.distance,
-            "currentPage": this.state.currentPage
-        })
+            "currentPage": chatList[0].currentPage
+            //"currentPage": this.state.currentPage
+        });
+        console.log(this.state.currentPage);
     }
 
     //채팅방 리스트
@@ -64,6 +101,7 @@ class Main extends Component {
     if(lData){
         lParams["chatName"] = lData.name;
     }
+    console.log("lData::::::",lData);
     return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
         method: 'post',
         headers: {
