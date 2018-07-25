@@ -14,22 +14,39 @@ class Map extends Component
 
     render(){
         var fbData = cookie.load('fbData');
-
-        console.log('Map.js, render()');
-        console.log(this.props.page);
-        if( this.props.page == 'main' ) {
-            return(
-                <div id='map'>
-                    TEST
-                </div>
-            );
+        if(  typeof fbData == 'undefined' || fbData != "" ) {
+            console.log('fbData == underfined');
+            if (this.props.page == 'main' ) {
+                return(
+                    <div id='map'>
+                        TEST
+                    </div>
+                );
+            } else{
+                return(
+                    <div>
+                        <MapContainer id={this.props.id} />
+                    </div>
+                );
+            }
         }
         else {
-            return(
-                <div id='map'>
-                	<MapContainer id={this.props.id} userID={fbData.userID} createAt={fbData.createAt} vLocation={fbData.vLocation} />
-                </div>
-            );
+            console.log('Map.js, render()');
+            console.log(this.props.page);
+            if( this.props.page == 'main' ) {
+                return(
+                    <div id='map'>
+                        TEST
+                    </div>
+                );
+            }
+            else {
+                return(
+                    <div id='map'>
+                        <MapContainer id={this.props.id} userID={fbData.userID} createAt={fbData.createAt} vLocation={fbData.vLocation} />
+                    </div>
+                );
+            }
         }
     }
 }
