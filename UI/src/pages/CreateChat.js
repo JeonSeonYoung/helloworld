@@ -134,9 +134,10 @@ class CreateChat extends Component {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h4 className="modal-title" id="exampleModalLabel">ECreate ChatRoom</h4>
+                        <h4 className="modal-title">Create ChatRoom</h4>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
                     </div>
-
                     <div className="modal-body">
                         <form>
                             <div className="form-group">
