@@ -340,7 +340,9 @@ class Register extends Component {
             />
             */
 
-            return <TypeIcon text={pData.name} getSelectedIcon={this.getSelectedIcon} interestID={index} />
+            return <TypeIcon text={pData.name} getSelectedIcon={this.getSelectedIcon} interestID={index}
+                             key={index}
+            />
         })
         return lData
     })    

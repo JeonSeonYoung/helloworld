@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ModalButton from "./ModalButton";
-import TypeIcon from './TypeIcon2';
-import Location from '../layouts/Setting/Location';
+import Location from './Setting/Location';
+import AlertModal from "./AlertModal";
 import InterestCombo from './Setting/InterestCombo';
-
+import SelectedInterestCombo from './Setting/SelectedInterestCombo';
 import cookie from 'react-cookies';
 
 // SideNav 에 있는 채팅방 검색 화면
@@ -13,16 +13,19 @@ class SearchFilter extends Component {
         super(props);
         this.state = {
             // jong
-            nickname: "",
-            distance : "",
+            distance : "1",
             // chae
             active: false,
-            selectedInterest: []       
+            selectedInterest: [],
+            newDistance: "",
+            interest : ""
         };
 
         this.getSelectedIcon = this.getSelectedIcon.bind(this);
+        this.changeDistance= this.changeDistance.bind(this);
+        this.saveSetting = this.saveSetting.bind(this);
 
-        // get facebook info 
+        // get facebook info
         var fbData = cookie.load('fbData');
         if( typeof fbData !== 'undefined' && fbData != '' ) {
             // set user info
@@ -61,14 +64,15 @@ class SearchFilter extends Component {
         userInfo.then((data) => {
             if( data.result == 'success' ) {
 
-                // set nickname
-                var nickname = data.data.Items[0].nickName.S;
-                var distance = data.data.Items[0].distance.N;
+                var userDistance = data.data.Items[0].distance.N;
                 //var interest = data.data.Items[0].interest.S;
-
+                if (userDistance === 'undefined' || userDistance == "" || userDistance == "null") {
+                    userDistance = '1'
+                }
+                console.log(data.data.Items[0].distance);
                 this.setState({
-                    nickname : nickname == 'null' || nickname == '' ? '' : nickname,
-                    distance : distance == 'null' || distance == '' ? '' : distance
+                    // distance : distance == 'null' || distance == '' ? '1' : distance
+                    distance: userDistance
                 });
 
 
@@ -78,7 +82,110 @@ class SearchFilter extends Component {
 
     // render 다음에 작동
     componentDidMount(){
-        this._getsettingdata()
+        this._getdata()
+    }
+
+    changeDistance(distance) {
+        this.setState({
+            newDistance: distance
+        })
+    }
+
+    _callsettingdataApi = () => {
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsettingdata', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({ userID: '1' })
+        }).then(lData => lData.json())
+            .catch(error => console.log(error))
+    }
+
+    _callInterestdataApi = () => {
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getallinterest', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).then(lData => lData.json())
+            .catch(error => console.log(error))
+    }
+
+    nothingDo() {
+        return null;
+    }
+
+    _loadingSelectedInterestFun = (() =>{
+
+        // return -> interestID, name
+        var filtered = this.state.interestdata.filter(item =>
+            this.state.settingdata.interest.indexOf(Number(item.interestID)) != -1
+        );
+
+        var lData = filtered.map((pData, index) => {
+            return <SelectedInterestCombo interest={pData.name} key={index} />
+        });
+
+        return lData;
+    })
+
+    _loadingInterestFun = (() =>{
+        // selected 되어있는 것만 disabled 해주기
+        var lData = this.state.interestdata.map((pData, index) => {
+
+            var isSelected;
+            isSelected = this.state.settingdata.interest.indexOf(Number(pData.interestID)) != -1 ?
+                true : false;
+
+            return <InterestCombo interestID={pData.interestID}
+                                  interest={pData.name}
+                                  isSelected={isSelected}
+                                  getSelectedIcon={this.getSelectedIcon}
+                                  key={index}
+            />
+        })
+        return lData
+    })
+
+
+    // 필터 데이터 저장
+    saveSetting() {
+        // 설정데이터 가져오기
+        var saveData = {};
+
+        // location
+        saveData.location = this.state.newDistance;
+
+        // selected interest
+        saveData.selectedInterest = this.state.settingdata.interest;
+
+        console.log(saveData);
+
+        // jong, update user info
+        console.log('save button');
+
+        var fbData = cookie.load('fbData');
+        if( typeof fbData !== 'undefined' && fbData != '' ) {
+
+            // save distance
+            var distance = saveData.location;
+            if( typeof distance !== 'undefined' && distance != '' ) {
+                this.updateUserInfo(fbData.userID, fbData.createAt, 'distance', distance);
+            }
+
+            // save interest
+            var interest = saveData.selectedInterest;
+            if( typeof interest !== 'undefined' && interest != '' ) {
+                this.updateUserInfo(fbData.userID, fbData.createAt, 'interest', JSON.stringify({ id : JSON.stringify(interest) }));
+            }
+
+            // set state
+            this.setState({
+                distance : distance,
+                interest : interest
+            });
+        }
     }
 
     // '관심분야' 선택하면 id(text) 에 해당하는 icon 을 '선택된 관심분야'에 추가하고,
@@ -108,26 +215,27 @@ class SearchFilter extends Component {
         }
 
         this.setState(prevState => ({
-            ...prevState,
-            settingdata: {
-                ...prevState.settingdata,
-                interest: this.state.settingdata.interest.concat(Number(id))
-            }
+                ...prevState,
+                settingdata: {
+                    ...prevState.settingdata,
+                    interest: this.state.settingdata.interest.concat(Number(id))
+                }
             })
         );
+
     }
 
     saveData = () => {
         if( typeof this.state.settingdata !== 'undefined' ) {
             var fbData = cookie.load('fbData');
-            if( typeof fbData !== 'undefined' && fbData != '' ) {       
+            if( typeof fbData !== 'undefined' && fbData != '' ) {
                 // save interest
                 var interest = this.state.settingdata.interest;
-                if( typeof interest !== 'undefined' && interest != '' ) {   
+                if( typeof interest !== 'undefined' && interest != '' ) {
                     this.updateUserInfo(fbData.userID, fbData.createAt, 'interest', JSON.stringify({ id : JSON.stringify(interest) }));
-                }        
-            }  
-        }    
+                }
+            }
+        }
     }
 
     deleteIcon = (disabled, id) => {
@@ -166,15 +274,21 @@ class SearchFilter extends Component {
         })
     }
 
-    _callInterestdataApi = () => {
-        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getallinterest', {
-            method: 'post',
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        }).then(lData => lData.json())
-            .catch(error => console.log(error))
-    }
+    // // 데이터 유효성 검사
+    // validateData() {
+    //     console.log(this.state.newDistance);
+    //     if (this.state.newDistance == ""){
+    //         <AlertModal message="위치를 설정해주세요" />
+    //         return false;
+    //     }
+    //
+    //     if (this.state.settingdata.interest == ""){
+    //         <AlertModal message="관심분야를 설정해주세요" />
+    //         return false;
+    //     }
+    //
+    //     return true;
+    // }
 
     updateUserInfo = (userID, createAt, field, value) => {
 
@@ -183,7 +297,7 @@ class SearchFilter extends Component {
             params: {
                 Key: {
                     userID: userID,
-                    createAt: createAt           
+                    createAt: createAt
                 },
                 UpdateExpression: "set #field = :x",
                 ExpressionAttributeNames: {
@@ -191,12 +305,12 @@ class SearchFilter extends Component {
                 },
                 ExpressionAttributeValues: {
                     ":x": value
-                },                
-				TableName: "UserInfo" 
+                },
+                TableName: "UserInfo"
             }
-        });        
+        });
 
-        
+
         var userInfo = new Promise((resolve, reject) => {
             fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
                 method: 'post',
@@ -206,49 +320,15 @@ class SearchFilter extends Component {
                 body: command
             }).then((data) => {
                 resolve(data.json());
-            });           
-        });     
-        
+            });
+        });
+
         userInfo.then((data) => {
             //console.log(data);
         });
 
-    }       
+    }
 
-    _loadingSelectedInterestFun = (() => {
-
-        console.log('interest:' + this.state.settingdata.interest);
-
-        // return -> interestID, name
-        var filtered = this.state.interestdata.filter(item =>
-            this.state.settingdata.interest.indexOf(Number(item.interestID)) != -1
-        );
-
-        var lData = filtered.map((pData, index) => {
-           return  <InterestCombo interest={pData.name} key={index} />
-        });
-
-        return lData;
-    })    
-
-    _loadingInterestFun = (() =>{
-    
-        // selected 되어있는 것만 disabled 해주기
-        var lData = this.state.interestdata.map((pData, index) => {
-
-            var isSelected;
-            isSelected = this.state.settingdata.interest.indexOf(Number(pData.interestID)) != -1 ?
-                true : false;
-
-            return <InterestCombo interestID={pData.interestID}
-                                  interest={pData.name}
-                                  isSelected={isSelected}
-                                  getSelectedIcon={this.getSelectedIcon}
-                                  key={index}
-            />
-        })
-        return lData
-    })
 
     _loadingLocationFun = (() =>{
         // return <Location distance={this.state.settingdata.distance} changeDistance={this.changeDistance} />
@@ -269,17 +349,7 @@ class SearchFilter extends Component {
             body: JSON.stringify({ userID: '1' })
         }).then(lData => lData.json())
             .catch(error => console.log(error))
-    }    
-
-    _callInterestdataApi = () => {
-        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getallinterest', {
-            method: 'post',
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        }).then(lData => lData.json())
-            .catch(error => console.log(error))
-    }    
+    }
 
     _getdata = async () => {
         const settingdata = await this._callsettingdataApi();
@@ -288,7 +358,7 @@ class SearchFilter extends Component {
             settingdata,
             interestdata
         })
-    }    
+    }
 
     render() {
         return (
@@ -301,21 +371,18 @@ class SearchFilter extends Component {
                     </div>
                     <div className="modal-body">
                         <div className="form-group">
-                            <label htmlFor="example-location">위치설정</label>
-                            <div className="" >
-                                <div className="dropdown btn-group" role="group">
-                                    {
-                                        this.state.distance == '' ? 'Loading...' : this._loadingLocationFun()
-                                    }
-                                </div>
-                            </div>
+                            <label htmlFor="example-location">Set Location</label>
+                            {
+                                this.state.settingdata ? this._loadingLocationFun() : "Loading...."
+                            }
                         </div>
                         <div className="form-group">
                             <label>Selected Interests</label>
                             <div className="container">
                                 <div className="row">
                                     {
-                                       this.state.interestdata ? this._loadingSelectedInterestFun() : "Loading...."
+                                        this.state.settingdata ? this._loadingSelectedInterestFun() : "Loading...."
+                                        //this.state.interestdata ? this._loadingSelectedInterestFun() : "Loading...."
                                     }
                                 </div>
                             </div>
@@ -332,9 +399,9 @@ class SearchFilter extends Component {
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-success btn-block" data-dismiss="modal" onClick={this.saveData()}>
-                            저장
-                        </button>
+                        <button type="button" className="btn btn-primary btn-block"
+                                data-target="#alertModal"
+                                data-dismiss="modal" onClick={this.saveSetting}>Save</button>
                     </div>
                 </div>
             </div>
