@@ -6,7 +6,9 @@
 /*left: 0;*/
 /*right: 0;*/
 /*margin: 0 auto; }*/
-
+a {
+    cursor: pointer;
+}
 .soo-card {
     background: #fff;
     border: 1px solid #dedede !important;
@@ -153,4 +155,7 @@ button.sj-no-focus:focus{
 }
 .sj-p-40-0 {
     padding: 40px 0;
+}
+.sj-position-fixed {
+    position: fixed;
 }

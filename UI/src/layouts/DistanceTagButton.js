@@ -10,18 +10,31 @@ class DistanceTagButton extends Component {
 
     constructor(...args) {
         super(...args);
+
+        this.state = {
+            className: ""
+        }
+
         this.onClickButton = this.onClickButton.bind(this);
     }
 
+    componentDidMount() {
+
+        if (this.props.distance != -1) {
+            this.setState({
+                className: "mdi mdi-close"
+            })
+        }
+    }
+
     onClickButton() {
-        console.log(this.props.distance);
         this.props.onDistanceRemove(this.props.distance);
-    } 
-    
+    }
+
     render() {
         return (
             <span className="badge badge-info" onClick={() => this.onClickButton} >
-                {"# " + this.props.name}<i className="mdi mdi-close" ></i>
+                {"# " + this.props.name}<i className={this.state.className}></i>
             </span>
         );
     }

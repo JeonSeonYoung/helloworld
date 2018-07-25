@@ -44,7 +44,6 @@ class Main extends Component {
 
     // render 다음에 작동
     componentDidMount(){
-        
 
         var fbData = cookie.load('fbData');
         console.log('Main.js, No User ID');
@@ -60,6 +59,16 @@ class Main extends Component {
 
             this._getChatLists()            
         }
+
+        this._getChatLists()
+
+        window.onscroll = function(ev) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                console.log("스크롤 이벤트 발동");
+                this._getChatLists();
+            }
+        };
+
     }
 
     _getChatLists = async (lData) =>{
@@ -81,7 +90,6 @@ class Main extends Component {
     var lParams = {
         userID : this.state.fbData.userID,
         currentPage : this.state.currentPage
-        
     }
 
     if(lData){
@@ -111,7 +119,7 @@ class Main extends Component {
 
     _loadingFun = (() => {
         // 채팅방 없을 때 표시 해주기
-        if (this.state.chatList.length == 0) {
+        if (this.state.chatList.length == 0 || this.state.chatList.data == 'fail' ) {
             return <TextNotify text="채팅방이 존재하지 않습니다." />;
         }
 
@@ -230,16 +238,27 @@ class Main extends Component {
                         </div>
                     </div>
                     {/*오른쪽 밑에 붙어있는 버튼*/}
-                    <button type="button"
-                            className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
-                            data-toggle="modal"
-                            data-target="#createChat">
-                        <i className="mdi mdi-note-outline text-white"></i>
-                    </button>
-                    <Modal id="createChat"/>
-                </div>
+                    <div>
+                        <button type="button"
+                                className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
+                                data-toggle="modal"
+                                data-target="#createChat">
+                            <i className="mdi mdi-note-outline text-white"></i>
+                        </button>
+                        <Modal id="createChat"/>
+                    </div>
+                    <div>
+                        <button type="button"
+                                className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right sj-position-fixed"
+                                data-toggle="modal"
+                                data-target="#createChat">
+                            <i className="mdi mdi-note-outline text-white"></i>
+                        </button>
+                        <Modal id="createChat"/>
+                     </div>
+                    </div>
             );
-        }
+	}
     }
 }
 
