@@ -210,7 +210,7 @@ class SearchFilter extends Component {
         });     
         
         userInfo.then((data) => {
-            console.log(data);
+            //console.log(data);
         });
 
     }       
