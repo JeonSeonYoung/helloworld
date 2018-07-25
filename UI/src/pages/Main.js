@@ -29,8 +29,24 @@ class Main extends Component {
             console.log(response);
         });
 
+        console.log('Main.js, constructor()');
+        var fbData = cookie.load('fbData');
+
+        if(  typeof fbData == 'undefined' ) {
+            console.log('fbData == underfined');
+
+            this.setState({
+                page : 'login',
+                fbData : ''
+            });            
+        }
+
+        /*
         // facebook status
         window.FB.getLoginStatus(response => {
+
+            console.log('Main.js, getLoginStatus()');
+            console.log(response);
 
             var fbData = cookie.load('fbData');
             if( typeof fbData === 'undefined' || fbData == '' || response.status != 'connected' ) {                             
@@ -40,6 +56,7 @@ class Main extends Component {
                 });
             }
         });  
+        */
     }
 
     // render 다음에 작동
@@ -57,18 +74,19 @@ class Main extends Component {
                 fbData : fbData
             });
 
-            this._getChatLists()            
+            window.onscroll = function(ev) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    console.log("스크롤 이벤트 발동");
+                    this._getChatLists();
+                }
+            };
         }
-
-        this._getChatLists()
-
-        window.onscroll = function(ev) {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                console.log("스크롤 이벤트 발동");
-                this._getChatLists();
-            }
-        };
-
+        else {
+            this.setState({
+                page : 'login',
+                fbData : ''
+            });
+        }
     }
 
     _getChatLists = async (lData) =>{
@@ -202,14 +220,18 @@ class Main extends Component {
     }
 
     render() {
+        console.log('Main.js, render()');
 
         if( this.state.page == 'login' ) {
+            console.log('login page');
             return(
                 <Redirect to='/login' />
             );
         }
 
         if( this.state.page == 'main' ) {
+            console.log('main page ');
+
             return (
                 <div className="p-t-30">
                     {/* 검색 + 상세검색 */}
