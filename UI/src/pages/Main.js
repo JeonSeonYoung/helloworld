@@ -5,6 +5,7 @@ import Message from "../layouts/Message";
 import Search from "../layouts/Search";
 import Modal from '../pages/Modal';
 import TextNotify from '../layouts/TextNotify';
+import AlertModal from "../layouts/AlertModal";
 // import DropDownToggle from "../layouts/DropDownToggle";
 // import LinkButton from "../layouts/LinkButton";
 // import RightFloatButton from "../layouts/RightFloatButton";
@@ -174,12 +175,12 @@ class Main extends Component {
                         }
                     </div>
                 </div>
+                {/*오른쪽 밑에 붙어있는 버튼*/}
                 <button type="button"
                         className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
-                        data-toggle="modal"
-                        data-target="#createChat"
-                        ><i className="mdi mdi-note-outline text-white"></i></button>
-                {/*<RightFloatButton iconType={"newChat"}/>*/}
+                        data-toggle="modal" data-target="#createChat">
+                    <i className="mdi mdi-note-outline text-white"></i>
+                </button>
                 <Modal id="createChat"/>
             </div>
         );
