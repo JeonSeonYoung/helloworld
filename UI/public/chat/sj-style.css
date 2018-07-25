@@ -1,0 +1,170 @@
+/*공통 스타일*/
+
+/*로고 가운데 정렬*/
+/*.logo-center .top-navbar .navbar-header {*/
+/*position: absolute;*/
+/*left: 0;*/
+/*right: 0;*/
+/*margin: 0 auto; }*/
+a {
+    cursor: pointer;
+}
+.soo-card {
+    background: #fff;
+    border: 1px solid #dedede !important;
+    margin-bottom:10px;
+}
+
+.sj-white {
+    color: #fff;
+}
+
+.topbar .navbar-header {
+    background: none;
+}
+
+.navbar-nav .mega-dropdown .dropdown-menu {
+    padding: 0;
+}
+
+.navbar-nav .dropdown-menu ul li a{
+    width: 100%;
+    padding: 16px 26px;
+    border-top: 1px solid #dedede;
+}
+
+.navbar-nav .dropdown-menu ul li:first-child a {
+    border-top:none;
+}
+
+
+/** chat **/
+.chat-list{
+    overflow: hidden; width: auto; height: 97px;
+}
+.chat-rbox {
+    overflow: visible;
+}
+.slimScrollDiv {
+    position: relative; overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;
+}
+.slimScrollBar {
+    background-color: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 405.4821428571429px; background-position: initial initial; background-repeat: initial initial;
+}
+.slimScrollRail {
+    width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;
+}
+.chat-main-box .chat-right-aside {
+    /*width: 100% !important;*/
+}
+.sj-chat-time {
+    color:#99abb4;
+    font-size:13px;
+}
+.nodisplay {
+    display: none;
+}
+.user-profile {
+    background: url(../../assets/images/background/user-info.jpg) no-repeat;
+}
+.sj-icon{
+    /*width: 70px;*/
+    width: 100%;
+    height: 40px;
+    /*padding: 0 !important;*/
+}
+.sj-overflow {
+    overflow:hidden;
+}
+
+/*채팅방 개설할 때 지도 폼*/
+.sj-map {
+    border:1px solid #000;
+    height: 400px;
+}
+
+/*텍스트박스+버튼 그룹에서 버튼 스타일 임의 적용*/
+.input-group-append {
+    margin-left: -1px;
+}
+
+.input-group-append btn {
+    height:100% !important;
+}
+
+.input-group>.input-group-append>.btn, .input-group>.input-group-append>.input-group-text, .input-group>.input-group-prepend:first-child>.btn:not(:first-child), .input-group>.input-group-prepend:first-child>.input-group-text:not(:first-child), .input-group>.input-group-prepend:not(:first-child)>.btn, .input-group>.input-group-prepend:not(:first-child)>.input-group-text {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*설정창에서 체크박스 폼에 패딩 적용*/
+.sj-check-padding {
+    padding:20px;
+}
+
+/*채팅방 style */
+.chat-left-inner {
+    overflow: visible; height: 193px;
+}
+
+/*검색 버튼 height 100*/
+.input-group button{
+
+}
+.sj-h-100 {
+    height: 100%;
+}
+
+.sj-float-right {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+button.sj-no-background {
+    background-color: #fff;
+}
+
+button.sj-no-focus:focus{
+    outline: none;
+}
+
+.sj-fixed-bottom {
+    position: absolute;
+    bottom:0;
+}
+.sj-bottom-9 {
+    bottom: 9px;
+}
+.sj-pb-100 {
+    padding-bottom:100px !important;
+}
+.sj-pb-50 {
+    padding-bottom:50px !important;
+}
+.sj-chat-out {
+    height:50px;
+}
+.sj-bg-danger {
+    background-color: #fc4b6c;
+}
+
+.sj-m-0-auto {
+    margin: 0 auto;
+}
+.sj-p-40-0 {
+    padding: 40px 0;
+}
+.sj-position-fixed {
+    position: fixed;
+}
+.sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
+    color: #fff !important;
+}
+/*.sidebar-nav > ul > li > a:hover i {*/
+    /*color: #26c6da !important;*/
+/*}*/
+.user-profile {
+    /*background: url(../assets/images/background/user-info.jpg) no-repeat;*/
+}
