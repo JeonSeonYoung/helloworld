@@ -21,6 +21,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
 
+        this.FB = props.fb;
+
         var fbData = cookie.load('fbData');
 
         // undefined error
@@ -169,13 +171,30 @@ class Login extends Component {
             console.log(data);
         });
 
-    }     
+    }
+    
+    componentDidMount() {
+
+    }
 
     render() {
+
+        window.FB.getLoginStatus(response => {
+            //console.log(response);
+        });
 
         if( this.state.status == 'logout' ) {
             // remove cookies
             cookie.remove('fbData', { path: '/' });    
+
+            window.FB.getLoginStatus(response => {
+                console.log(response);
+    
+                if( response.status === 'connected' ) {
+                    window.FB.logout();
+                }
+    
+            });            
 
             // render
             return(
@@ -185,15 +204,16 @@ class Login extends Component {
             );            
         }
 
-        if( this.state.status == 'login' ) {
+        if( this.state.status == 'login' ) {                    
             return(
                 <div id='login' className="modal-dialog" role="document">
 
                     <div className="modal-content">
 
                         {/* Header */}
+
                         <div className="modal-header">
-                            <h4 className="modal-title">FACEBOOK LOGIN</h4>
+                            <h4 className="modal-title">FACEBOOK LOGIN 2</h4>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -201,7 +221,7 @@ class Login extends Component {
 
                         {/* Body */}
                         <div className="modal-body">
-                            <form>
+                        <form>
                                 <div>
                                     <FacebookLogin
                                         appId="474958262956536"
@@ -210,7 +230,7 @@ class Login extends Component {
                                         callback={this.responseFacebook}
                                     />
                                 </div>
-                            </form>
+                            </form>        
                         </div>
 
                         {/* Bottom */}
