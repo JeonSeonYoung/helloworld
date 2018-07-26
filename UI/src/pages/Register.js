@@ -376,39 +376,34 @@ class Register extends Component {
                                     </div>
                                 </div>
                                 <div className="chat-rbox">
-                                    <div className="slimScrollDiv">
-                                        <ul className="chat-list p-20">
-                                            <ChatLeft 
-                                                name="Admin"
-                                                message={message}
-                                            />
-                                            <li className="reverse">
-
-                                                {/* Chat Content */}
-                                                <div className="chat-content">
-                                                    <div className="form-group">
-                                                        <label>Interests</label>
-                                                        <div className="container">
-                                                            <div className="row">
-                                                                {
-                                                                    this.state.interestdata ? this._loadingInterestFun() : "Loading...."
-                                                                }
-                                                            </div>
+                                    <ul className="chat-list p-20">
+                                        <ChatLeft
+                                            name="Admin"
+                                            message={message}
+                                        />
+                                        <li className="reverse">
+                                            {/* Chat Content */}
+                                            <div className="chat-content">
+                                                <div className="form-group">
+                                                    <label>Interests</label>
+                                                    <div className="container">
+                                                        <div className="row">
+                                                            {
+                                                                this.state.interestdata ? this._loadingInterestFun() : "Loading...."
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            {this.state.chatList.map(item => {
-                                                return item;
-                                            })}
-                                            <Link to="/" className="btn btn-success btn-block">
-                                                <span className="hide-menu">저장</span>
-                                            </Link>
-                                            {this.props.children}
-                                        </ul>
-                                        <div className="slimScrollBar"></div>
-                                        <div className="slimScrollRail"></div>
-                                    </div>
+                                            </div>
+                                        </li>
+                                        {this.state.chatList.map(item => {
+                                            return item;
+                                        })}
+                                        <Link to="/" className="btn btn-success btn-block">
+                                            <span className="hide-menu">저장</span>
+                                        </Link>
+                                        {this.props.children}
+                                    </ul>
                                 </div>
                             </div>
                         </div>

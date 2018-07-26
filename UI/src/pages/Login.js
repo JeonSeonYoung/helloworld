@@ -176,7 +176,7 @@ class Login extends Component {
     }
 
     render() {
-
+        console.log(this.state.status);
         window.FB.getLoginStatus(response => {
             //console.log(response);
         });
