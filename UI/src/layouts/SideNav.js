@@ -47,9 +47,16 @@ class SideNav extends Component {
                                 </a>
                             </li>
                             <li>
-                                <a className="waves-effect waves-dark" href="#" aria-expanded="false">
-                                    <i className="mdi mdi-logout"></i><span className="hide-menu">Logout</span>
-                                </a>
+                            <Link to={{
+                                    pathname: '/login',                                    
+                                    state: { login: login }
+                                }} className="waves-effect waves-dark"  aria-expanded="false">
+
+                                    <i className="ti-settings"></i>
+                                    <span className="hide-menu">
+                                        {login ? "Logout" : "Login"}
+                                    </span>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
