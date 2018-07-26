@@ -52,7 +52,7 @@ class SideNav extends Component {
                                     state: { login: login }
                                 }} className="waves-effect waves-dark"  aria-expanded="false">
 
-                                    <i className="ti-settings"></i>
+                                    <i className="mdi mdi-logout"></i>
                                     <span className="hide-menu">
                                         {login ? "Logout" : "Login"}
                                     </span>
