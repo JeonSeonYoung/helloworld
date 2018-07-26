@@ -14,8 +14,8 @@ class Map extends Component
 
     render(){
         var fbData = cookie.load('fbData');
-        if(  typeof fbData == 'undefined' || fbData != "" ) {
-            console.log('fbData == underfined');
+        if( typeof fbData == 'undefined' || fbData == "" ) {
+            console.log('fbData == undefined');
             if (this.props.page == 'main' ) {
                 return(
                     <div id='map'>
@@ -43,7 +43,7 @@ class Map extends Component
             else {
                 return(
                     <div id='map'>
-                        <MapContainer id={this.props.id} userID={fbData.userID} createAt={fbData.createAt} vLocation={fbData.vLocation} />
+                        <MapContainer id={this.props.id} />
                     </div>
                 );
             }

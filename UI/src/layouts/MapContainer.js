@@ -65,7 +65,6 @@ const Map = compose(
         isMarkerShown: false,
         markerPosition: null
     }), {
-
             // update location data
             _callMapupdateApi: () => {
                 var fbData = cookie.load('fbData');
@@ -99,6 +98,7 @@ const Map = compose(
                 };
 
                 cookie.save('vLocation', location, cookieOptions);
+                console.log("saved vLocation"+ location);
 
                 return {
                     markerPosition: e.latLng,
@@ -141,10 +141,6 @@ export default class MapContainer extends React.Component {
             <div style={{ height: '100%' }}>
                 <Map
                     id = {this.props.id}
-                    userID = {this.props.userID}
-                    createAt = {this.props.createAt}
-                    vLocation = {this.props.vLocation}
-                    mapUpdate = {this._callMapupdateApi}
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ height: `400px` }} />}
