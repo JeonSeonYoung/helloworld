@@ -176,7 +176,7 @@ class SearchFilter extends Component {
             // save interest
             var interest = saveData.selectedInterest;
             if( typeof interest !== 'undefined' && interest != '' ) {
-                this.updateUserInfo(fbData.userID, fbData.createAt, 'interest', JSON.stringify({ id : JSON.stringify(interest) }));
+                this.updateUserInfo(fbData.userID, fbData.createAt, 'interest', JSON.stringify({ id : interest }));
             }
 
             // set state
