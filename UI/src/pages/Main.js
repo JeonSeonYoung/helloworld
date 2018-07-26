@@ -17,78 +17,62 @@ class Main extends Component {
 
     constructor(props) {
         super(props);
+    }
 
-        this.state = {
-            page : 'main',
-            fbData : '',
-            distance : "-1",
-            currentPage : "1"            
-        }        
-
+    state = {
+        distance : "-1",
+        currentPage : "1",
+        fbData : "",
+        page : "main"
+    } 
+        /*
         this._callInterestApi = this._callInterestApi.bind(this);
 
         window.FB.getAccessToken(response => {
             console.log(response);
         });
 
-        console.log('Main.js, constructor()');
-        var fbData = cookie.load('fbData');
-
-        if(  typeof fbData == 'undefined' ) {
-            console.log('fbData == underfined');
-
-            this.setState({
-                page : 'login',
-                fbData : ''
-            });            
-        }
-
-        /*
-        // facebook status
-        window.FB.getLoginStatus(response => {
-
-            console.log('Main.js, getLoginStatus()');
-            console.log(response);
-
-            var fbData = cookie.load('fbData');
-            if( typeof fbData === 'undefined' || fbData == '' || response.status != 'connected' ) {                             
-                this.setState({
-                    page : 'login',
-                    fbData : ''
-                });
-            }
-        });  
         */
+
+    componentWillMount() {
+        //console.log('Main.js, componentWillMount()');
+
+        var fbData = cookie.load('fbData');
+        
+        console.log(fbData);
+
+        if( typeof fbData == 'undefined' || fbData == '' ) {
+            this.setState({
+                fbData : "",
+                page : 'login'
+            });
+        } else {
+            this.setState({
+                fbData : fbData,
+                page : 'main'
+            });
+        }
     }
 
-    // render 다음에 작동
-    componentDidMount(){
+    componentDidMount() {
+        console.log('Main.js, componentDidMount()');
+        console.log('userID : ' + this.state.fbData.userID);
 
-        var fbData = cookie.load('fbData');
-        console.log(fbData);
-        console.log('Main.js, No User ID');
-    
-        // undefined error
-        if( typeof fbData !== 'undefined' && fbData != '' ) {
-            console.log('Main.js, userID : ' + fbData.userID);
 
-            this.setState({
-                page : 'main',
-                fbData : fbData
-            });
+        this._getChatLists()
 
-            this._getChatLists();
+        window.onscroll = function(ev) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                alert("you're at the bottom of the page");
+            }
+        };
 
-        }
-        else {
-            this.setState({
-                page : 'login',
-                fbData : ''
-            });
-        }
     }
 
     _getChatLists = async (lData) =>{
+        console.log('Main.js, _getChatLists()');
+        console.log('userID : ' + this.state.fbData.userID);
+
         const chatList = await this._callChatListApi(lData);
         const interestList = await this._callInterestApi();
         console.log(interestList);
@@ -99,46 +83,57 @@ class Main extends Component {
             "currentPage": chatList[0].currentPage
             //"currentPage": this.state.currentPage
         })
-        console.log(this.state.currentPage);
     }
 
     //채팅방 리스트
     _callChatListApi = (lData) => {
 
-    
-    var lParams = {
-        userID : this.state.fbData.userID,
-        currentPage : this.state.currentPage
-    }
+        console.log('Main.js, _callChatListApi()');
+        console.log('userID : ' + this.state.fbData.userID);    
+        console.log('lData', lData);
+        console.log(lData);    
 
-    if(lData){
-        lParams["chatName"] = lData.name;
-    }
-    return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
-        method: 'post',
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: JSON.stringify(lParams)        
-    }).then(lData => lData.json())
-    .catch(error => console.log(error))
+        var userID = this.state.fbData.userID;
+
+        var lParams = {
+            userID : userID,
+            currentPage : this.state.currentPage
+        }
+
+        if(lData){
+            lParams["chatName"] = lData.name;
+        }
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsearchchatroom', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify(lParams)        
+        }).then(lData => lData.json())
+        .catch(error => console.log(error))
     }
 
     //관심분야
     _callInterestApi = () => {
+
+        console.log('Main.js, _callInterestApi()');
+        console.log('userID : ' + this.state.fbData.userID);        
+
+        var userID = this.state.fbData.userID;
+
         return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getinterest', {
             method: 'post',
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({userID : this.state.fbData.userID})
+            body: JSON.stringify({userID : userID})
         }).then(lData => lData.json())
         .catch(error => console.log(error))
     }
 
     _loadingFun = (() => {
         // 채팅방 없을 때 표시 해주기
-        if (this.state.chatList.length == 0 || this.state.chatList.data == 'fail' ) {
+        if (this.state.chatList.length == 0) {
             return <TextNotify text="채팅방이 존재하지 않습니다." />;
         }
 
@@ -161,26 +156,36 @@ class Main extends Component {
 
     //관심분야 삭제
     _callDelInterestApi = (lData) => {
-        console.log("api 호출")
+
+        console.log('Main.js, _callInterestApi()');
+        console.log('userID : ' + this.state.fbData.userID);        
+
+        var userID = this.state.fbData.userID;
+                
         return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/deleteinterest', {
             method: 'post',
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({userID : this.state.fbData.userID, interestID : lData})
+            body: JSON.stringify({userID : userID, interestID : lData})
         }).then(lData => lData.json())
         .catch(error => console.log(error))
     }
 
     //거리 삭제
     _callDelInterestApi = (lData) => {
-        console.log("api 호출")
+        
+        console.log('Main.js, _callDelInterestApi()');
+        console.log('userID : ' + this.state.fbData.userID);        
+
+        var userID = this.state.fbData.userID;        
+
         return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/deletedistance', {
             method: 'post',
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({userID : this.state.fbData.userID, distance : "-1"})
+            body: JSON.stringify({userID : userID, distance : "-1"})
         }).then(lData => lData.json())
         .catch(error => console.log(error))
     }
@@ -223,16 +228,7 @@ class Main extends Component {
     render() {
         console.log('Main.js, render()');
 
-        if( this.state.page == 'login' ) {
-            console.log('login page');
-            return(
-                <Redirect to='/login' />
-            );
-        }
-
         if( this.state.page == 'main' ) {
-            console.log('main page ');
-
             return (
                 <div className="p-t-30">
                     {/* 검색 + 상세검색 */}
@@ -261,27 +257,24 @@ class Main extends Component {
                         </div>
                     </div>
                     {/*오른쪽 밑에 붙어있는 버튼*/}
-                    <div>
-                        <button type="button"
-                                className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right"
-                                data-toggle="modal"
-                                data-target="#createChat">
-                            <i className="mdi mdi-note-outline text-white"></i>
-                        </button>
-                        <Modal id="createChat"/>
-                    </div>
-                    <div>
-                        <button type="button"
-                                className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right sj-position-fixed"
-                                data-toggle="modal"
-                                data-target="#createChat">
-                            <i className="mdi mdi-note-outline text-white"></i>
-                        </button>
-                        <Modal id="createChat"/>
-                     </div>
-                    </div>
+                    <button type="button"
+                            className="btn-success btn btn-circle btn-xl pull-right m-l-10 sj-float-right sj-position-fixed"
+                            data-toggle="modal"
+                            data-target="#createChat">
+                        <i className="mdi mdi-note-outline text-white"></i>
+                    </button>
+                    <Modal id="createChat"/>
+                </div>
             );
-	}
+        } 
+
+        if( this.state.page == 'login' ) {
+            return(
+                <div>
+                    <Redirect to='/login' />
+                </div>
+            );
+        }
     }
 }
 

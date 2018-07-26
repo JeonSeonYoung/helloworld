@@ -1,62 +1,296 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="author" content="Wayou">
-        <meta name="description" content="hichat | a simple chat application built with node.js and websocket">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>hichat</title>
-        <link rel="stylesheet" href="styles/main.css">
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="banner">
-                <h1>HiChat :)</h1>
-                <span id="status"></span>
-            </div>
-            <div id="historyMsg">
-            </div>
-            <div class="controls" >
-                <div class="items">
-                    <input id="colorStyle" type="color" placeHolder='#000' title="font color" />
-                    <input id="emoji" type="button" value="emoji" title="emoji" />
-                    <label for="sendImage" class="imageLable">
-                        <input type="button" value="image"  />
-                        <input id="sendImage" type="file" value="image"/>
-                    </label>
-                    <input id="clearBtn" type="button" value="clear" title="clear screen" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <title>채팅방</title>
+    <link rel="stylesheet" href="./chat/bootstrap.css">
+    <link rel="stylesheet" href="./chat/bootstrap-reboot.css">
+    <link href="./chat/colors/blue.css" rel="stylesheet">
+    <link href="./chat/sj-style.css" rel="stylesheet">
+    <!--<link href="./assets/plugins/c3-master/c3.min.css" rel="stylesheet">-->
+    <link href="./chat/style.css" rel="stylesheet">
+</head>
+<body class="fix-sidebar fix-header logo-center card-no-border mini-sidebar">
+
+    <div id="main-wrapper">
+        <!--헤더-->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <img src="./chat/logo-hello.png"/>
+                        <span class="sj-white">
+                            HelloWorld
+                        </span>
+                    </a>
                 </div>
-                <textarea id="messageInput" placeHolder="enter to send"></textarea>
-                <input id="sendBtn" type="button" value="SEND">
-                <div id="emojiWrapper">
+                
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <li class="nav-item dropdown mega-dropdown">
+                            <!--뒤로가기 버튼-->
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark"
+                               href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-arrow-left"></i>
+                            </a>
+                        </li>
+                        <!--메뉴버튼-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ti-menu"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up-left">
+                                <a class="dropdown-item" href="#"><i class="ti-search"></i>Search Chatroom</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-book-multiple"></i>Chat List</a>
+                                <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i>Setting</a>
+                                <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i>Logout</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown mega-dropdown"></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!--헤더 끝-->
+        <div>
+            <div>
+                <aside class="left-sidebar">
+                    <div class="slimScrollDiv" style="position: relative; overflow: visible; width: auto; height: 100%;">
+                        <div class="scroll-sidebar" style="overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;">
+                            <div class="user-profile">
+                                <div class="profile-img"></div>
+                                <div class="profile-text">
+                                    <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe
+                                    </a>
+                                    <div class="dropdown-menu animated flipInY">
+                                        <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                                        <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
+                                        <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <nav class="sidebar-nav">
+                                <ul id="sidebarnav">
+                                    <li class="nav-small-cap">PERSONAL</li>
+                                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i>
+                                        <span class="hide-menu">Dashboard </span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            <li><a href="../src/pages/index.html">Dashboard 1</a></li>
+                                            <li><a href="index2.html">Dashboard 2</a></li><li><a href="index3.html">Dashboard 3</a></li>
+                                            <li><a href="index4.html">Dashboard 4</a></li><li><a href="index5.html">Dashboard 5</a></li>
+                                            <li><a href="index6.html">Dashboard 6</a></li></ul></li>
+                                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i>
+                                        <span class="hide-menu">Template Demos</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            <li><a href="../minisidebar/index.html">Minisidebar</a></li>
+                                            <li><a href="../horizontal/index2.html">Horizontal</a></li>
+                                            <li><a href="../dark/index3.html">Dark Version</a></li>
+                                            <li><a href="../material-rtl/index4.html">RTL Version</a></li>
+                                            <li><a href="javascript:angular">Anuglar-CLI Starter kit</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i>
+                                            <span class="hide-menu">Apps</span>
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            <li><a href="app-calendar.html">Calendar</a></li>
+                                            <li><a href="app-chat.html">Chat app</a></li>
+                                            <li><a href="app-ticket.html">Support Ticket</a></li>
+                                            <li><a href="app-contact.html">Contact / Employee</a></li>
+                                            <li><a href="app-contact2.html">Contact Grid</a></li>
+                                            <li><a href="app-contact-detail.html">Contact Detail</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i>
+                                        <span class="hide-menu">Inbox</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            <li><a href="app-email.html">Mailbox</a></li>
+                                            <li><a href="app-email-detail.html">Mailbox Detail</a></li>
+                                            <li><a href="app-compose.html">Compose Mail</a></li>
+                                        </ul></li>
+                                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i>
+                                        <span class="hide-menu">Ui Elements</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                        <li><a href="ui-cards.html">Cards</a></li>
+                                            <li><a href="ui-user-card.html">User Cards</a></li>
+                                            <li><a href="ui-buttons.html">Buttons</a></li>
+                                            <li><a href="ui-modals.html">Modals</a></li>
+                                            <li><a href="ui-tab.html">Tab</a></li>
+                                            <li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>
+                                            <li><a href="ui-tooltip-stylish.html">Tooltip stylish</a></li>
+                                            <li><a href="ui-sweetalert.html">Sweet Alert</a></li>
+                                            <li><a href="ui-notification.html">Notification</a></li>
+                                            <li><a href="ui-progressbar.html">Progressbar</a></li>
+                                            <li><a href="ui-nestable.html">Nestable</a></li>
+                                            <li><a href="ui-range-slider.html">Range slider</a></li>
+                                            <li><a href="ui-timeline.html">Timeline</a></li>
+                                            <li><a href="ui-typography.html">Typography</a></li>
+                                            <li><a href="ui-horizontal-timeline.html">Horizontal Timeline</a></li>
+                                            <li><a href="ui-session-timeout.html">Session Timeout</a></li>
+                                            <li><a href="ui-session-ideal-timeout.html">Session Ideal Timeout</a></li>
+                                            <li><a href="ui-bootstrap.html">Bootstrap Ui</a></li>
+                                            <li><a href="ui-breadcrumb.html">Breadcrumb</a></li>
+                                            <li><a href="ui-bootstrap-switch.html">Bootstrap Switch</a></li>
+                                            <li><a href="ui-list-media.html">List Media</a></li>
+                                            <li><a href="ui-ribbons.html">Ribbons</a></li>
+                                            <li><a href="ui-grid.html">Grid</a></li>
+                                            <li><a href="ui-carousel.html">Carousel</a></li>
+                                            <li><a href="ui-date-paginator.html">Date-paginator</a></li>
+                                            <li><a href="ui-dragable-portlet.html">Dragable Portlet</a></li></ul></li><li class="nav-devider"></li>
+                                    <li class="nav-small-cap">FORMS, TABLE &amp; WIDGETS</li><li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Forms</span></a><ul aria-expanded="false" class="collapse"><li><a href="form-basic.html">Basic Forms</a></li><li><a href="form-layout.html">Form Layouts</a></li><li><a href="form-addons.html">Form Addons</a></li><li><a href="form-material.html">Form Material</a></li><li><a href="form-float-input.html">Floating Lable</a></li><li><a href="form-pickers.html">Form Pickers</a></li><li><a href="form-upload.html">File Upload</a></li><li><a href="form-mask.html">Form Mask</a></li><li><a href="form-validation.html">Form Validation</a></li><li><a href="form-dropzone.html">File Dropzone</a></li><li><a href="form-icheck.html">Icheck control</a></li><li><a href="form-img-cropper.html">Image Cropper</a></li><li><a href="form-bootstrapwysihtml5.html">HTML5 Editor</a></li><li><a href="form-typehead.html">Form Typehead</a></li><li><a href="form-wizard.html">Form Wizard</a></li><li><a href="form-xeditable.html">Xeditable Editor</a></li><li><a href="form-summernote.html">Summernote Editor</a></li><li><a href="form-tinymce.html">Tinymce Editor</a></li></ul></li><li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Tables</span></a><ul aria-expanded="false" class="collapse"><li><a href="table-basic.html">Basic Tables</a></li><li><a href="table-layout.html">Table Layouts</a></li><li><a href="table-data-table.html">Data Tables</a></li><li><a href="table-footable.html">Footable</a></li><li><a href="table-jsgrid.html">Js Grid Table</a></li><li><a href="table-responsive.html">Responsive Table</a></li><li><a href="table-bootstrap.html">Bootstrap Tables</a></li>
+                                    <li><a href="table-editable-table.html">Editable Table</a></li></ul></li>
+                                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Widgets</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            <li><a href="widget-apps.html">Widget Apps</a></li>
+                                            <li><a href="widget-data.html">Widget Data</a></li>
+                                            <li><a href="widget-charts.html">Widget Charts</a></li></ul></li>
+                                    <li class="nav-devider"></li><li class="nav-small-cap">EXTRA COMPONENTS</li>
+                                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Page Layout</span></a><ul aria-expanded="false" class="collapse"><li><a href="layout-single-column.html">1 Column</a></li><li><a href="layout-fix-header.html">Fix header</a></li><li><a href="layout-fix-sidebar.html">Fix sidebar</a></li><li><a href="layout-fix-header-sidebar.html">Fixe header &amp; Sidebar</a></li><li><a href="layout-boxed.html">Boxed Layout</a></li><li><a href="layout-logo-center.html">Logo in Center</a></li></ul></li><li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Sample Pages</span></a><ul aria-expanded="false" class="collapse"><li><a href="starter-kit.html">Starter Kit</a></li><li><a href="pages-blank.html">Blank page</a></li><li><a href="#" class="has-arrow">Authentication <span class="label label-rounded label-success">6</span></a><ul aria-expanded="false" class="collapse"><li><a href="pages-login.html">Login 1</a></li><li><a href="pages-login-2.html">Login 2</a></li><li><a href="pages-register.html">Register</a></li><li><a href="pages-register2.html">Register 2</a></li><li><a href="pages-lockscreen.html">Lockscreen</a></li><li><a href="pages-recover-password.html">Recover password</a></li></ul></li><li><a href="pages-profile.html">Profile page</a></li><li><a href="pages-animation.html">Animation</a></li><li><a href="pages-fix-innersidebar.html">Sticky Left sidebar</a></li><li><a href="pages-fix-inner-right-sidebar.html">Sticky Right sidebar</a></li><li><a href="pages-invoice.html">Invoice</a></li><li><a href="pages-treeview.html">Treeview</a></li><li><a href="pages-utility-classes.html">Helper Classes</a></li><li><a href="pages-search-result.html">Search result</a></li><li><a href="pages-scroll.html">Scrollbar</a></li><li><a href="pages-pricing.html">Pricing</a></li><li><a href="pages-lightbox-popup.html">Lighbox popup</a></li><li><a href="pages-gallery.html">Gallery</a></li><li><a href="pages-faq.html">Faqs</a></li><li><a href="#" class="has-arrow">Error Pages</a><ul aria-expanded="false" class="collapse"><li><a href="pages-error-400.html">400</a></li><li><a href="pages-error-403.html">403</a></li><li><a href="pages-error-404.html">404</a></li><li><a href="pages-error-500.html">500</a></li><li><a href="pages-error-503.html">503</a></li></ul></li></ul></li><li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-chart"></i><span class="hide-menu">Charts</span></a><ul aria-expanded="false" class="collapse"><li><a href="chart-morris.html">Morris Chart</a></li><li><a href="chart-chartist.html">Chartis Chart</a></li><li><a href="chart-echart.html">Echarts</a></li><li><a href="chart-flot.html">Flot Chart</a></li><li><a href="chart-knob.html">Knob Chart</a></li><li><a href="chart-chart-js.html">Chartjs</a></li><li><a href="chart-sparkline.html">Sparkline Chart</a></li><li><a href="chart-extra-chart.html">Extra chart</a></li><li><a href="chart-peity.html">Peity Charts</a></li></ul></li><li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-brush"></i><span class="hide-menu">Icons</span></a><ul aria-expanded="false" class="collapse"><li><a href="icon-material.html">Material Icons</a></li><li><a href="icon-fontawesome.html">Fontawesome Icons</a></li><li><a href="icon-themify.html">Themify Icons</a></li><li><a href="icon-linea.html">Linea Icons</a></li><li><a href="icon-weather.html">Weather Icons</a></li><li><a href="icon-simple-lineicon.html">Simple Lineicons</a></li><li><a href="icon-flag.html">Flag Icons</a></li></ul></li><li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-map-marker"></i><span class="hide-menu">Maps</span></a><ul aria-expanded="false" class="collapse"><li><a href="map-google.html">Google Maps</a></li><li><a href="map-vector.html">Vector Maps</a></li></ul></li><li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a><ul aria-expanded="false" class="collapse"><li><a href="#">item 1.1</a></li><li><a href="#">item 1.2</a></li><li><a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a><ul aria-expanded="false" class="collapse"><li><a href="#">item 1.3.1</a></li><li><a href="#">item 1.3.2</a></li><li><a href="#">item 1.3.3</a></li><li><a href="#">item 1.3.4</a></li></ul></li><li><a href="#">item 1.4</a></li></ul></li></ul></nav></div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; left: 1px; height: 217.432px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div></div><div class="sidebar-footer"><a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i class="ti-settings"></i></a><a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="mdi mdi-gmail"></i></a><a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="mdi mdi-power"></i></a></div></aside><div class="modal fade nodisplay" id="searchChat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            </div>
+                <div class="page-wrapper" style="min-height: 501px;">
+                    <div class="container-fluid">
+                        <div class="row pt-4">
+                            <div class="col-12">
+                                <div class="card m-b-0">
+                <div class="chat-main-box">
+                    <!--사용자리스트-->
+                    <div class="chat-left-aside">
+                        <div class="open-panel"><i class="ti-angle-right"></i></div>
+                        <div class="chat-left-inner">
+                            <ul class="chatonline style-none sj-pb-50">
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                                <li><a data-toggle="modal" data-target="#chatUserInfo"><span>Arijit Sinh</span></a></li>
+                            </ul>
+                            <div class="sj-fixed-bottom sj-chat-out btn-block sj-bg-danger">
+                                <button type="button" class="btn-danger btn-block sj-h-100">Go Out</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--사용자 정보-->
+                    <div class="modal fade nodisplay" id="chatUserInfo" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Chat User Info</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label htmlFor="example-location"></label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning btn-block"
+                                            data-dismiss="modal">강퇴하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--사용자 정보 끝-->
+                    <!--채팅메세지-->
+
+                    <!--채팅메세지 끝-->
+
+                <div class="chat-right-aside">
+                    <div class="chat-main-header">
+                        <div class="p-20 b-b">
+                            <h3 class="box-title">Chat Message</h3>
+                        </div>
+                    </div>
+                    <div class="chat-rbox">
+                        <ul class="chat-list p-20">
+                             <div id="historyMsg">
+                             </div>
+                        </ul>
+                    </div>
+                    <div class="card-body b-t pb-0">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend mr-1">
+                                <button class="btn btn-lg p-0 mt-2 sj-no-focus sj-no-background" type="button"><i class="mdi mdi-plus"></i>
+                                </button>
+                            </div>
+                            <input type="text" class="form-control border-0" />
+                            <div>
+                                <button id="sendBtn" class="btn btn-info btn-circle btn-lg p-0" type="submit" value="SEND">
+                                    <i class="fa fa-paper-plane-o"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="loginWrapper">
-            <p id="info">connecting to server...</p>
-            <div id="nickWrapper">
-                <input type="text" placeHolder="nickname" id="nicknameInput" />
-                <input type="button" value="OK" id="loginBtn" />
             </div>
-        </div>
-        <footer>
-            <small>view on <a href="https://github.com/Wayou/HiChat">GitHub</a> | <a href="mailto:liuwayong@gmail.com">contact me</a></small>
-        </footer>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="scripts/hichat.js"></script>
-        <script>
-        /**REMOVE ME IF YOU CANT ACCESS GOOGLE SERVICE**/
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        
-          ga('create', 'UA-46794744-7', 'hichat.herokuapp.com');
-          ga('send', 'pageview');
-        /**REMOVE END**/
-    </script>
-    </body>
+            </div>
+            </div>
+                <footer class="footer"> © 2018 HelloWorld by 365 dieters </footer></div></div></div></div></div>
+                <script src="/socket.io/socket.io.js"></script>
+                <script src="scripts/Client.js"></script>
+                
+                <script>
+                    function getUrlVars() {
+                            var vars = {};
+                            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                                vars[key] = value;
+                            });
+                            return vars;
+                        }         
+                    
+                        var id = getUrlVars()['id'];
+                        document.write(id);
+                </script>
+    <!--컨텐츠-->
+
+    <!--푸터 시작-->
+
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!--<script src="./assets/plugins/jquery/jquery.min.js"></script>-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <!--<script src="./assets/plugins/bootstrap/js/popper.min.js"></script>-->
+    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./chat/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="./chat/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="./chat/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="./chat/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="./chat/sticky-kit.min.js"></script>
+    <script src="./chat/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="./chat/sj-script.js"></script>
+    <script src="./chat/custom.min.js"></script>
+    <script src="./chat/chat.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <script src="./chat/jasny-bootstrap.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="./chat/jQuery.style.switcher.js"></script>
+    <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div>
+        </div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+</body>
 </html>
