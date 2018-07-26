@@ -39,6 +39,12 @@ class Header extends Component {
         this.backButton();
     }
 
+    checkShow(buttonState) {
+        console.log(this.state.backButton);
+        if (buttonState == "")
+            return "nodisplay"
+    }
+
     backButton() {
         var url = window.location.href;
         if (url.substring(url.length, url.length -4) == "chat") {
@@ -52,9 +58,11 @@ class Header extends Component {
         return (
             <header className="topbar">
                 <nav className="navbar top-navbar navbar-expand-md navbar-light">
+                    {/*가운데 메뉴*/}
                     <div className="navbar-header">
                         <a className="navbar-brand" href="/">
-                            <img src="../assets/images/logo-hello.png"/>
+                            {/*<img src="../assets/images/logo-hello.png"/>*/}
+                            <img src="../assets/images/logo-white-icon.png"/>
                             <span className="sj-white">
                             HelloWorld
                         </span>
@@ -62,66 +70,42 @@ class Header extends Component {
                     </div>
                     {/*왼쪽 메뉴*/}
                     <div className="navbar-collapse">
-                        {/*<ul className="navbar-nav">*/}
-                            {/**/}
-                        {/*</ul>*/}
                         <ul className="navbar-nav mr-auto mt-md-0">
-                            <li className="nav-item dropdown mega-dropdown">
-                                {/*뒤로가기 버튼*/}
+                            {/*뒤로가기 버튼*/}
+                            <li className={"nav-item dropdown mega-dropdown " + this.checkShow(this.state.backButton)}>
                                 <a className="nav-link dropdown-toggle text-muted waves-effect waves-dark"
                                    href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {this.state.backButton}
                                 </a>
                             </li>
+                            {/*메뉴버튼*/}
                             <li className="nav-item dropdown">
-                                {/*메뉴버튼*/}
                                 <a className="nav-link dropdown-toggle text-muted waves-effect waves-dark"
                                    href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i className="ti-menu"></i></a>
-                                <div className="dropdown-menu dropdown-menu-right scale-up-left">
-                                    <a className="dropdown-item" href="#">
-                                        <i className="ti-search"></i>Search Chatroom</a>
-                                    <a className="dropdown-item" href="#">
-                                        <i className="mdi mdi-book-multiple"></i>Chat List</a>
-                                    <a className="dropdown-item" href="#">
-                                        <i className="flag-icon flag-icon-cn"></i>Setting</a>
-                                    <a className="dropdown-item" href="#">
-                                        <i className="flag-icon flag-icon-de"></i>Logout</a>
+                                <div className="dropdown-menu dropdown-menu-left scale-up-left">
+                                    <Link to="/"
+                                          ref={(c)=> (this._element = c)}
+                                          className="dropdown-item"
+                                          aria-expanded="false"
+                                          onClick={(e) => this.handleDocumentClick(e)}
+                                    >
+                                        <i className="ti-search mr-2"></i>Search Chatroom
+                                    </Link>
+                                    <Link to="/chatlist"
+                                          className="dropdown-item"
+                                          aria-expanded="false">
+                                        <i className="mdi mdi-book-multiple mr-2"></i>Chat list
+                                    </Link>
+                                    <Link to="/setting"
+                                          className="dropdown-item"
+                                          aria-expanded="false">
+                                        <i className="ti-settings mr-2"></i>Setting
+                                    </Link>
+                                    <a className="dropdown-item" href={null}>
+                                        <i className="mdi mdi-logout mr-2"></i>Logout</a>
+
                                 </div>
-                            </li>
-                            <li className="nav-item dropdown mega-dropdown">
-                                {/*<div className="dropdown-menu scale-up-left col-sm-5 col-md-3 col-lg-3">*/}
-                                {/*<ul>*/}
-                                    {/*<li>*/}
-                                        {/*<a href={null}*/}
-                                           {/*ref={(c)=> (this._element = c)}*/}
-                                           {/*onClick={(e) => this.handleDocumentClick(e)}>*/}
-                                            {/*<h4>채팅방 검색</h4>*/}
-                                        {/*</a>*/}
-                                        {/*/!*<Link to="/"*!/*/}
-                                              {/*/!*className="waves-effect waves-dark"*!/*/}
-                                              {/*/!*aria-expanded="false"*!/*/}
-                                              {/*/!*onClick={(e) => this.handleDocumentClick(e)}*!/*/}
-                                        {/*/!*>*!/*/}
-                                            {/*/!*<h4>채팅방 검색</h4>*!/*/}
-                                        {/*/!*</Link>*!/*/}
-                                    {/*</li>*/}
-                                    {/*<li>*/}
-                                        {/*<Link to="/chatlist"*/}
-                                              {/*className="waves-effect waves-dark"*/}
-                                              {/*aria-expanded="false">*/}
-                                            {/*<h4>채팅방 리스트</h4>*/}
-                                        {/*</Link>*/}
-                                    {/*</li>*/}
-                                    {/*<li>*/}
-                                        {/*<Link to="/setting"*/}
-                                              {/*className="waves-effect waves-dark"*/}
-                                              {/*aria-expanded="false">*/}
-                                            {/*<h4>설정</h4>*/}
-                                        {/*</Link>*/}
-                                    {/*</li>*/}
-                                {/*</ul>*/}
-                                {/*</div>*/}
                             </li>
                         </ul>
                         {this.props.children}
