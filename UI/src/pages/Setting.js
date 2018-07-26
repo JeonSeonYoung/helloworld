@@ -15,6 +15,7 @@ class Setting extends Component {
             newNickName: "",
             newDistance: "",
 
+            fbData : "",
             // 종혁
             nickname : "",
             distance : "1",

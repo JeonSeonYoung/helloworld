@@ -131,7 +131,7 @@ class CreateChat extends Component {
         console.log(saveData)
         // 저장 작업 쿼리 호출
 
-        //window.location.href = "/";
+        window.location.href = "http://chat.findmyhelloworld.com:3000";
     }
 
     // 데이터 유효성 검사
