@@ -33,7 +33,7 @@ class DistanceTagButton extends Component {
 
     render() {
         return (
-            <span className="badge badge-info" onClick={() => this.onClickButton} >
+            <span className="badge badge-info sj-cursor-pointer" onClick={this.onClickButton} >
                 {"# " + this.props.name}<i className={this.state.className}></i>
             </span>
         );

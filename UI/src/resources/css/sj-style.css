@@ -188,3 +188,6 @@ button.sj-no-focus:focus{
     height:20px;
     vertical-align: middle;
 }
+.sj-cursor-pointer{
+    cursor: pointer;
+}

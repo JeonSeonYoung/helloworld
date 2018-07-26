@@ -20,7 +20,7 @@ class TagButton extends Component {
     
     render() {
         return (
-            <span className="badge badge-info mr-1" onClick={this.onClickButton} >
+            <span className="badge badge-info mr-1 sj-cursor-pointer" onClick={this.onClickButton} >
                 {"# " + this.props.name}<i className="mdi mdi-close" ></i>
             </span>
         );

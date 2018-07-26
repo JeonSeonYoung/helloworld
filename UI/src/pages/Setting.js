@@ -85,7 +85,7 @@ class Setting extends Component {
         
         userInfo.then((data) => {
             if( data.result == 'success' ) {
-
+                console.log(data.data);
                 // set nickname
                 var nickname = data.data.Items[0].nickName.S;
                 var distance = data.data.Items[0].distance.N;
@@ -280,6 +280,7 @@ class Setting extends Component {
 
     // 설정 데이터 저장
     saveSetting() {
+        console.log('saveSetting');
         // 설정데이터 가져오기
         var saveData = {};
 
