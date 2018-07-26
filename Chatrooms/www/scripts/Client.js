@@ -15,17 +15,7 @@ Client.prototype = {
     init: function() {
         var that = this;
         this.socket = io.connect();
-        
         socket.emit('joinroom',{room:'<%=room%>'});
-                    
-         // get cookies for getting facebook info
-         {
-            var id = getUrlVars()['id'];
-            console.log(id);
-
-            // send to server
-            this.socket.emit('data', { id : id});
-        }
 
         this.socket.on('connect', function() {
             document.getElementById('info').textContent = 'get yourself a nickname :)';
