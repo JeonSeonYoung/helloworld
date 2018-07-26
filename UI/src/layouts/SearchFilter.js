@@ -18,7 +18,8 @@ class SearchFilter extends Component {
             active: false,
             selectedInterest: [],
             newDistance: "",
-            interest : ""
+            interest : "",
+            fbData: ""
         };
 
         this.getSelectedIcon = this.getSelectedIcon.bind(this);
