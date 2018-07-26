@@ -4,11 +4,10 @@ import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-map
 import Main from '../pages/Main';
 import MapPage from '../pages/Map'
 import cookie from 'react-cookies';
-import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 
 const cancelLocation = () => {
-    return <Main />
+    window.location.href = '/';
 }
 
 // 쿠키 설정
@@ -77,20 +76,19 @@ const Map = compose(
                         updateUserInfo(fbData.userID, fbData.createAt, 'vLocation', vLocation);                         
                     }                   
                 }       
-                
-                ReactDOM.render(
-                    <MapPage page='main' />,
-                    document.getElementById('map')
-                );
+
+                //window.location.href = "/";
+                return {
+                    markerPosition: null,
+                    isMarkerShown: true
+                }
             },
-    
             // click 
             onMapClick: ({ isMarkerShown }) => (e) => {
                 console.log(JSON.parse(JSON.stringify(e.latLng)).lat)
                 console.log(JSON.parse(JSON.stringify(e.latLng)).lng)
 
                 console.log(e.latLng);
-
 
                 var location = {
                     lat : String(JSON.parse(JSON.stringify(e.latLng)).lat),
