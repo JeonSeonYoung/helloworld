@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Main from '../pages/Main';
 import NickName from '../layouts/Setting/NickName';
 import Location from '../layouts/Setting/Location';
 import InterestCombo from '../layouts/Setting/InterestCombo';
 import SelectedInterestCombo from '../layouts/Setting/SelectedInterestCombo';
 import cookie from 'react-cookies';
+import { Redirect } from 'react-router-dom';
 
 class Setting extends Component {
 
@@ -26,7 +26,6 @@ class Setting extends Component {
         this.changeText = this.changeText.bind(this);
         this.changeDistance= this.changeDistance.bind(this);
 
-        this._updatesettingdata = this._updatesettingdata.bind(this);
 
         // if exist, get user info
         var fbData = cookie.load('fbData');
@@ -131,16 +130,6 @@ class Setting extends Component {
             settingdata,
             interestdata
         })
-    }
-
-    _updatesettingdata = async () => {
-        //this.setState({
-        //})
-        //console.log(this.state.settingdata.nickName + "," + this.state.settingdata.distance + "," + JSON.stringify(this.state.settingdata.interestID))
-        //const updatesetdata = await this._callsettingupdateApi();
-        //this.setState({
-        //    updatesetdata
-        //})
     }
 
     _callsettingdataApi = () => {
@@ -316,7 +305,7 @@ class Setting extends Component {
             });
         }
 
-        return <Main />
+        window.location.href = "/";
     }
 
     render() {

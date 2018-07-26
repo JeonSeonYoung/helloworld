@@ -25,6 +25,8 @@ class Main extends Component {
             currentPage : "1"            
         }        
 
+        this._callInterestApi = this._callInterestApi.bind(this);
+
         window.FB.getAccessToken(response => {
             console.log(response);
         });
@@ -94,7 +96,8 @@ class Main extends Component {
             chatList,
             "interestData": interestList.interestData,
             "distance" : interestList.distance,
-            "currentPage": this.state.currentPage
+            "currentPage": chatList[0].currentPage
+            //"currentPage": this.state.currentPage
         })
         console.log(this.state.currentPage);
     }
