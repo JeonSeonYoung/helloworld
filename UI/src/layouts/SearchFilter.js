@@ -33,6 +33,26 @@ class SearchFilter extends Component {
         }
     }
 
+    componentWillMount() {
+        console.log('Main.js, componentWillMount()');
+
+        var fbData = cookie.load('fbData');
+
+        console.log(fbData);
+
+        if (typeof fbData == 'undefined' || fbData == '') {
+            this.setState({
+                fbData: "",
+                page: 'login'
+            });
+        } else {
+            this.setState({
+                fbData: fbData,
+                page: 'main'
+            });
+        }
+    }
+
     // set user info
     setUserInfo = (userID) => {
 
@@ -97,7 +117,7 @@ class SearchFilter extends Component {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({ userID: '1' })
+            body: JSON.stringify({ userID: this.state.fbData.userID })
         }).then(lData => lData.json())
             .catch(error => console.log(error))
     }
