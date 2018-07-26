@@ -4,6 +4,8 @@ import TypeIcon from '../layouts/TypeIcon2';
 import NickName from '../layouts/Setting/NickName';
 import { Link } from 'react-router-dom';
 import InterestCombo from '../layouts/Setting/InterestCombo';
+import { Redirect } from 'react-router-dom';
+import cookie from 'react-cookies';
 
 // import { withRouter } from 'react-router-dom';
 
@@ -18,16 +20,29 @@ class Register extends Component {
             chatList: [],
 
             // jong, interest info
-            interestInfo : ""
-        };
+            interestInfo : "",
+            page : "register",
+            interestID : "-1",
+            fbData : ""
+        };        
+
+        var fbData = cookie.load('fbData');
+
+        // undefined error
+        if( typeof fbData == 'undefined' || fbData == '' ) {
+            this.setState({
+                fbData : ""
+            });
+        }
+        else {
+            this.setState({
+                fbData : fbData
+            });
+        }
+
+
         
-        this.getSelectedIcon = this.getSelectedIcon.bind(this);
-
-        // first, register default user info
-        this.registerUserInfo();
-
-        // scan & update sequene control
-        this.scanUserInfo();        
+        this.getSelectedIcon = this.getSelectedIcon.bind(this);    
     }
 
     getDate = () => {
@@ -137,6 +152,8 @@ class Register extends Component {
     }
 
     updateUserInfo = (userID, createAt, field, value) => {
+        console.log('Register.js, updateUserInfo()');
+        
 
         var command = JSON.stringify({
             method: "update",
@@ -156,6 +173,7 @@ class Register extends Component {
             }
         });        
 
+        console.log(command);
         
         var userInfo = new Promise((resolve, reject) => {
             fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
@@ -170,6 +188,7 @@ class Register extends Component {
         });     
         
         userInfo.then((data) => {
+            console.log('Register.js, Reuslt');
             console.log(data);
         });
 
@@ -215,7 +234,12 @@ class Register extends Component {
     registerDefaultUserInfo = () => {
 
         // get facebook info
-        var fbData = this.props.location.state.params;
+        var fbData = cookie.load('fbData');
+
+        // undefined error
+        if( typeof fbData == 'undefined' || fbData == '' ) {
+            return;
+        }
         
         // temp
         var command = JSON.stringify({
@@ -244,7 +268,7 @@ class Register extends Component {
                         S: 'null'
                     },                    
                     interest: {
-                        S: JSON.stringify({id:[]})
+                        S: JSON.stringify({id:[this.state.interestID]})
                     },
                     nickName: {
                         S: 'guest'
@@ -253,7 +277,7 @@ class Register extends Component {
                         S: this.getDate()
                     },
                     vLocation: {
-                        S: JSON.stringify({lat:'0', lng:'0'})
+                        S: "{\"lat\":\"0\",\"lng\":\"0\"}"
                     },
                     lastLoginAt: {
                         S: this.getDate()
@@ -286,23 +310,16 @@ class Register extends Component {
 
     // 선택한 아이콘 정보 가져오기
     getSelectedIcon(disabled, id) {
+        console.log('Register.js, getSelectedIcon()');
+        console.log('interestID : ' + id);
 
         // get facebook info
         var fbData = this.props.location.state.params;        
 
-        //console.log("getSelectedIcon()");
-        //console.log("id");
-        //console.log(id);
-        /*
-        console.log(JSON.stringify({
-            id : [id]
-        }));
-        */
-
-        this.updateUserInfo(fbData.userID, fbData.createAt, "interest", JSON.stringify({
-            id : [id]
-        }));
-
+        this.setState({
+            interestID : id
+        });
+        
         var list = []
             .concat(<ChatLeft name="Admin" key={id} message={"You choose " + id + ". If you want more, please you setting page."} />)
             /*
@@ -344,7 +361,54 @@ class Register extends Component {
             />
         })
         return lData
-    })    
+    }) 
+    
+    saveButton = () => {
+        console.log('Register.js, saveButton');
+        console.log('interestID : ' + this.state.interestID);
+
+        // get facebook info
+        var fbData = cookie.load('fbData');
+
+        // undefined error
+        if( typeof fbData == 'undefined' || fbData == '' ) {
+            return;
+        }        
+
+        console.log('userID : ' + fbData.userID);
+        console.log('createAt : ' + fbData.createAt);
+
+        var interestID = this.state.interestID;
+
+        if( interestID != -1 ) {
+
+
+            // first, register default user info
+            this.registerUserInfo();
+
+            // scan & update sequene control
+            this.scanUserInfo();  
+
+
+            /*
+            // set interest id
+            this.updateUserInfo(fbData.userID, fbData.createAt, "interest", JSON.stringify({
+                id : [interestID]
+            }));           
+            */
+
+            // go to main
+            this.setState({
+                page : 'main'
+            });
+        } 
+        else {
+            // go to register
+            this.setState({
+                page : 'register'
+            });
+        }
+    }
 
     // render 다음에 작동
     componentDidMount(){
@@ -362,17 +426,17 @@ class Register extends Component {
         var fbData = this.props.location.state.params;
         var message = "Hello " + fbData.name + ", please select one your preference.";
 
-        //var printItem = this.interestInfo.map();
-
-        return (
-            <div className="row">
-                <div className="col-12">
-                    <div className="card m-b-0">
-                        <div className="chat-main-box">
-                            <div className="chat-right-aside">
-                                <div className="chat-main-header">
-                                    <div className="p-20 b-b">
-                                        <h3 className="box-title">Register basic options</h3>
+        if( this.state.page == 'register') {
+            return (
+                <div className="row">
+                    <div className="col-12">
+                        <div className="card m-b-0">
+                            <div className="chat-main-box">
+                                <div className="chat-right-aside">
+                                    <div className="chat-main-header">
+                                        <div className="p-20 b-b">
+                                            <h3 className="box-title">Register basic options</h3>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="chat-rbox">
@@ -399,9 +463,9 @@ class Register extends Component {
                                         {this.state.chatList.map(item => {
                                             return item;
                                         })}
-                                        <Link to="/" className="btn btn-success btn-block">
-                                            <span className="hide-menu">저장</span>
-                                        </Link>
+                                        <button className="btn btn-success btn-block" onClick={this.saveButton}>
+                                            <span className="hide-menu">Save</span>
+                                        </button>
                                         {this.props.children}
                                     </ul>
                                 </div>
@@ -409,8 +473,16 @@ class Register extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
+
+        if( this.state.page == 'main') {
+            return(
+                <div>
+                    <Redirect to='/' />
+                </div>
+            );
+        }
     }
 }
 

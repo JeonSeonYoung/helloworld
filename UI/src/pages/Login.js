@@ -51,7 +51,7 @@ class Login extends Component {
     // 로그인 처리
     // 권한 없을 때?
     responseFacebook = (response) => {
-
+        console.log('Login.js, responseFacebook');
         console.log(response);
 
         var fbData = {
@@ -96,6 +96,9 @@ class Login extends Component {
 
             if( data.result == 'success' ) {
                 if( data.data.Count == 0 ) {
+
+                    console.log('Login.js, go to register');
+
                     // set create date for update
                     fbData.createAt = this.getDate();
     
@@ -109,6 +112,9 @@ class Login extends Component {
                     });
                 }
                 else {
+
+                    console.log('Login.js, go to main');
+
                     // set create date for update
                     fbData.createAt = data.data.Items[0].createAt.S;
     
@@ -120,11 +126,11 @@ class Login extends Component {
                         status : "main",
                         params : fbData
                     });
-                }
-            }
 
-            // 로그인 후 마지막 접속기록
-            this.updateUserInfo(fbData.userID, fbData.createAt, "lastLoginAt", this.getDate());            
+                    // 로그인 후 마지막 접속기록
+                    this.updateUserInfo(fbData.userID, fbData.createAt, "lastLoginAt", this.getDate());                       
+                }
+            }         
         });
     }    
 

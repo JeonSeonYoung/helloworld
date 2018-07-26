@@ -4,8 +4,8 @@ import Modal from '../pages/Modal';
 
 class ModalButton extends Component {
     redirect = () => {
-        return <Modal id="map" />
-        //window.location.href='./map'
+        //return <Modal id="map" />
+        window.location.href='./map'
     }
 
     render() {
