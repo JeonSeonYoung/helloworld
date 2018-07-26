@@ -25,17 +25,9 @@ class Main extends Component {
         fbData : "",
         page : "main"
     } 
-        /*
-        this._callInterestApi = this._callInterestApi.bind(this);
-
-        window.FB.getAccessToken(response => {
-            console.log(response);
-        });
-
-        */
 
     componentWillMount() {
-        //console.log('Main.js, componentWillMount()');
+        console.log('Main.js, componentWillMount()');
 
         var fbData = cookie.load('fbData');
         
@@ -80,8 +72,8 @@ class Main extends Component {
             chatList,
             "interestData": interestList.interestData,
             "distance" : interestList.distance,
-            "currentPage": chatList[0].currentPage
-            //"currentPage": this.state.currentPage
+            //"currentPage": chatList[0].currentPage
+            "currentPage": this.state.currentPage
         })
     }
 
