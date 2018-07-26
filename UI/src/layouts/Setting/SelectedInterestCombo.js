@@ -9,7 +9,7 @@ class SelectedInterestCombo extends Component {
 
     render() {
         return (
-            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <button type="button"
                         className={"btn-success btn sj-icon m-l-10 mb-2 disabled"}
                 >{this.props.interest}</button>
