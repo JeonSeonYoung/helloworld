@@ -14,14 +14,19 @@ class CreateChat extends Component {
         this.state = {
             interestdata: [],           // 관심분야
             newChatName: "",
-            newDistance: "",
+            newvLocation: "",
             selectedInterest: -1,       // 선택된 관심분야 id
             selectedInterestName: "",   // 선택된 관심분야 텍스
             disabled: "",
-            disabledClass: ""
+            disabledClass: "",
+            fbData: ""
         };
-        
+
         var fbData = cookie.load('fbData');
+        if(typeof fbData == 'undefined' || fbData == "" ) {
+            console.log('fbData == undefined');
+        }
+        console.log(fbData);
 
         this.changeText = this.changeText.bind(this);
         this.createChat = this.createChat.bind(this);
@@ -52,6 +57,26 @@ class CreateChat extends Component {
             .catch(error => console.log(error))
     }
 
+    // CreateChat
+    _callCreateChatApi = (fbData, savedData) => {
+        console.log("api 호출")
+        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/createchatroom', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({
+                userID : fbData.userID, 
+                chatName:  savedData.chatName,
+                interestID: fbData.interestID,
+                masterNickName: fbData.nickName,
+                maxCost: "10",
+                vLocation: fbData.vLocation
+            })
+        }).then(lData => lData.json())
+        .catch(error => console.log(error))
+    }
+
     getSelectedIcon(id, name) {
         this.setState({
             selectedInterest: id,
@@ -60,24 +85,53 @@ class CreateChat extends Component {
         })
     }
 
-    createChat(){
+    createChat = async () => {
 
         // 데이터 유효성 검사 보류. (modal 안에 modal 띄우는 거 해결해야함)
         // this.validateData();
+
+        var fbData = cookie.load('fbData');
+        if(typeof fbData == 'undefined' || fbData == "" ) {
+            console.log('fbData == undefined');
+        }
+        console.log(fbData);
 
         var saveData = {};
 
         // chatroom name
         saveData.chatName = this.state.newChatName;
+        if (saveData.chatName == "" || saveData.chatName === 'undefined')
+        {
+            alert("채팅방 이름을 입력하세요 !!!.");
+            return;
+        }
 
-        // location
-        saveData.location = this.state.newDistance;
+        var vLocation = cookie.load('vLocation');
+        if (typeof vLocation == 'undefined' || vLocation == "")
+        {
+            console.log("vLocation == undefined");
+        }
+        console.log(vLocation);
+
+        // vlocation
+        saveData.vlocation = vLocation;
 
         // selected interest
         saveData.selectedInterest = this.state.selectedInterest;
 
+        const saveChat = await this._callCreateChatApi(fbData, saveData);
+
+        console.log(fbData.userID)
+        console.log(saveData.chatName)
+        console.log(saveData.selectedInterest)
+        console.log(fbData.nickName)
+        console.log("10")
+        console.log(fbData.vLocation)
         console.log(saveData);
+        console.log(saveChat);
         // 저장 작업 쿼리 호출
+
+        window.location.href = "/";
     }
 
     // 데이터 유효성 검사
@@ -96,7 +150,7 @@ class CreateChat extends Component {
         return true;
     }
 
-    changeText(text) {
+    changeText (text) {
         this.setState({
             newChatName: text
         })
@@ -106,12 +160,6 @@ class CreateChat extends Component {
         return <ChatName chatName={this.state.chatName}
                          changeText={this.changeText} />
     })
-
-    changevLocation(vLocation) {
-        this.setState({
-            newvLocation: vLocation
-        })
-    }
 
     // 아이콘 선택하면 disabled 클래스 추가
     // getDisabled() {
@@ -157,7 +205,7 @@ class CreateChat extends Component {
                             <div className="form-group">
                                 <label htmlFor="example-location">Select Location</label>
                                 <div className="sj-map">
-                                    <Map id="create_chat" vLocation={this.state.vLocation} changevLocation={this.changevLocation}/>
+                                    <Map id="create_chat" />
                                 </div>
                             </div>
                             <div className="form-group">

@@ -13,169 +13,164 @@ exports.handler = (event, context, callback) => {
 		params = event.bodyJson;
 	}
 
-	getDate = () => {
-		var date = new Date();
-		var dd = date.getDate();
-		var mm = date.getMonth() + 1;
-		var yyyy = date.getFullYear();
-
-		return yyyy + "-" + mm + "-" + dd;
-	}
+	var NOW_DATE = new Date();
+	NOW_DATE = HelloWorld.Objects.Date.format(NOW_DATE,'yyyy-mm-dd hh:nn:ss');
 
 	var userID = params.userID;
-    var chatID = params.chatID;
 	var chatName = params.chatName;
-	var createAt = getDate();
+	var createAt = NOW_DATE;
 	var interestID = params.interestID;
 	var masterNickName = params.masterNickName;
 	var maxCost = params.maxCost;
 	var vLocation = params.vLocation;
+	
+	console.log(userID);
+	console.log(chatName);
+	console.log(createAt);
+	console.log(interestID);
+	console.log(masterNickName);
+	console.log(maxCost);
+	console.log(vLocation);
+	
+	var inChatID;
 
-	var sequenceControlData = {
-		ExpressionAttributeValues: {
-			":v1": { S: tableCode }
-		},
-		KeyConditionExpression: "tableCode = :v1",
-		TableName: "UserInfo",
-		IndexName: "tableCode-index"
+	var promisChatInfo = () =>{
+		return new Promise((resolve, reject) =>{
+			HelloWorld.Objects.DynamoDB.Sequence.generator('ChatInfo').then((pResponse)=>{
+				inChatID = pResponse;
+				var inPutItem = {
+					"chatID":{"S": inChatID},
+					"chatName":{"S": chatName},
+					"createAt":{"S": createAt},
+					"currentCost":{"S": "1"},
+					"interestID":{"S": interestID},
+					"masterNickName":{"S": masterNickName},
+					"maxCost":{"S": maxCost},
+					"vLocation":{"S": vLocation},
+					"vStatus":{"S": "T"},
+					"masterUserID":{"S":userID}
+				};
+				dynamodb.putItem({
+					"TableName": "ChatInfo",
+					"Item" : inPutItem
+				}, function(err, data) {
+					if (err) {
+						console.log('chat room add fail.: '+JSON.stringify(err, null, '  '));
+						result.headers.resultCode = "400";
+						result.headers.resultMessage = "chat room add fial";
+						result.data = "fail";
+
+						callback(null,result);		
+					} else {
+						console.log(inChatID);
+						resolve(null, inChatID);
+					}
+				});
+			});
+		});
+	};
+	
+	// memberInfo add
+	var promisMemberInfo = (lChatID) =>{
+		return new Promise((resolve, reject) =>{
+			HelloWorld.Objects.DynamoDB.Sequence.generator('MemberInfo').then((pResponse)=>{
+				console.log("memberID", pResponse);
+				console.log("userID", userID);
+				console.log("lChatID", lChatID);
+				console.log("createAt", createAt);
+				var inPutItem = {
+					"memberID":{"S": pResponse},
+					"createAt":{"S": createAt},
+					"chatID":{"S": lChatID},
+					"userID":{"S": userID},
+					"vStatus":{"S": "T"}
+				};
+				dynamodb.putItem({
+					"TableName": "MemberInfo",
+					"Item" : inPutItem
+				}, function(err, data) {
+					if (err) {
+						console.log('member add fail.: '+JSON.stringify(err, null, '  '));
+						result.headers.resultCode = "400";
+						result.headers.resultMessage = "member room add fial";
+						result.data = "fail";
+
+						callback(null,result);		
+					} else {
+						resolve(null, pResponse);
+					}
+				});
+			});
+		});
 	}
 
-	var promisSequenceControl = () =>{
+
+	// userInfo update
+	var promisUserInfo = (lChatID) =>{
 		return new Promise((resolve, reject) =>{
-			queryDynamoDB(sequenceControlData)
-				.then(lResult => {
-					resolve(lResult);
-				}, userInfoQueryError => {
-					HelloWorld.Objects.DynamoDB.Error.sys(userInfoQueryError, callback);
+			queryDynamoDB({
+				ExpressionAttributeValues: {
+					":v1": { "S": userID }
+				}, 
+				KeyConditionExpression: "userID = :v1", 
+				TableName: "UserInfo",
+				IndexName : "userID-createAt-index"
+			}).then(lResult => {
+				console.log(JSON.stringify(lResult));
+				var lUserCreateAt = lResult.Items[0].createAt.S;
+				var lChatData = JSON.parse(lResult.Items[0].chatList.S).id;
+				var lInterestData = JSON.parse(lResult.Items[0].interest.S).id;
+				console.log(lUserCreateAt);
+				console.log(lChatData);
+				lChatData.push(Number(lChatID));
+				lInterestData.push(Number(interestID));
+				console.log(lChatData);
+				var lChatList = JSON.stringify({"id": lChatData});
+				var lInterest = JSON.stringify({"id": lInterestData});
+				console.log(lChatList);
+				var params = {
+					TableName: "UserInfo",
+					Key:{
+						"userID": {"S": userID},
+						"createAt": {"S": lUserCreateAt}
+					},
+					UpdateExpression: "SET chatList = :v1, interest = :v2",
+					ExpressionAttributeValues: {
+						":v1": { "S": lChatList },
+						":v2": { "S": lInterest }
+					}
+				}
+				dynamodb.updateItem(params, function(err, data){    
+
+					if (err) {
+						console.log('fail: '+JSON.stringify(err, null, '  '));
+						var inRet = HelloWorld.Objects.DynamoDB.Result.basic();
+						inRet.headers.resultCode = "400";
+						inRet.headers.resultMessage = "update fail..";
+						inRet.data = "fail";
+
+						callback(null,inRet);	
+					} else {
+						callback(null, result);
+					}    
+				
 				}); 
+
+			})
 		});
-	} 
-
-	var sequenceParams = {
-			TableName: "SequenceControl",
-			Item: {
-				"ChatInfo": 			{S: chatID},
-				"InterestInfo": 		{S: chatName},
-				"MemberInfo": 		{S: createAt},
-				"UserInfo": 		{S: "1"}
-			}
 	}
 
-	var chatParams = {
-		TableName: "ChatInfo",
-		Item: {
-			"chatID": 			{S: chatID},
-			"chatName": 		{S: chatName},
-			"createAt": 		{S: createAt},
-			"currentCost": 		{S: "1"},
-			"interestID": 		{S: interestID},
-			"masterNickName": 	{S: masterNickName},
-			"maxCost": 			{S: maxCost},
-			"vLocation": 		{S: vLocation},
-			"vStatus": 			{S: "T"}
-		}
+
+	function *gen(){
+		var lChatID = yield promisChatInfo();
+		console.log(inChatID);
+		yield promisMemberInfo(inChatID);
+		yield promisUserInfo(inChatID);
 	}
 
-	function addChatRoom (err, data){
-		if (err) {
-			console.log('DOCUMENT 정보 수정 실패.: '+JSON.stringify(err, null, '  '));
-			var inRet = HelloWorld.Objects.DynamoDB.Result.basic();
-			inRet.headers.resultCode = "400";
-			inRet.headers.resultMessage = "문서 수정에 실패하였습니다.";
-			inRet.data = "fail";
+	HelloWorld.Generator.run(gen);
 
-			callback(null,inRet);	
-		} else {
-			console.log('EndpointArn Saved successful');
-			result.data = "chatID: " + chatID + " chatName: " + chatName + " createAt: " + createAt + "\n" +
-							" currentCost: " + "1" + " interestID: " + interestID + "\n masterNickName: " + masterNickName +
-							" maxCost: " + maxCost + " vLocation: " + vLocation + " vStatus: " + "T";
-			callback(null,result);
-		}
-	}
 
-	dynamodb.putItem(chatParams, addChatRoom)
-	dynamodb.updateItem()
-
-	var memberParams = {
-		TableName: "MemberInfo",
-		Item: {
-            "memberID": {S: memberID},
-			"createAt": {S: createAt},
-			"chatID": 	{S: chatID},
-			"userID": 	{S: userID},
-			"vStatus": 	{S: "T"}
-        }
-	}
-
-	function addMemberByChatID (err, data){
-		if (err) {
-			console.log('DOCUMENT 정보 수정 실패.: '+JSON.stringify(err, null, '  '));
-			var inRet = HelloWorld.Objects.DynamoDB.Result.basic();
-			inRet.headers.resultCode = "400";
-			inRet.headers.resultMessage = "문서 수정에 실패하였습니다.";
-			inRet.data = "fail";
-
-			callback(null,inRet);	
-		} else {
-			console.log('EndpointArn Saved successful');
-			result.data = "memberID: " + memberID + "createAt: " + createAt +
-							"chatID: " + chatID + "userID: " + userID;
-			callback(null,result);
-		}
-	}
-
-	dynamodb.putItem(memberParams, addMemberByChatID)
-
-	var userParams = {
-		TableName: "UserInfo",
-		Key:{
-            "userID": {S: userID},
-            "createAt": {S: createAt}
-        },
-		UpdateExpression: "SET chatList = :v1",
-		ExpressionAttributeValues: {
-			":v1": { S: String(chatList) }
-		}
-	}
-
-	var userData = {
-		ExpressionAttributeValues: {
-			":v1": { S: lUserID }
-		},
-		KeyConditionExpression: "userID = :v1",
-		TableName: "UserInfo",
-		IndexName: "userID-createAt-index"
-	}
-
-	// 유저 정보
-	var promisUserInfo = () =>{
-		return new Promise((resolve, reject) =>{
-			queryDynamoDB(userData).then(lResult => {
-				resolve(lResult);
-			}, userInfoQueryError => {
-				HelloWorld.Objects.DynamoDB.Error.sys(userInfoQueryError, callback);
-			}); 
-		});
-	} 
-
-	function updateMasterInfo (err, data){
-		if (err) {
-			console.log('DOCUMENT 정보 수정 실패.: '+JSON.stringify(err, null, '  '));
-			var inRet = HelloWorld.Objects.DynamoDB.Result.basic();
-			inRet.headers.resultCode = "400";
-			inRet.headers.resultMessage = "문서 수정에 실패하였습니다.";
-			inRet.data = "fail";
-
-			callback(null,inRet);	
-		} else {
-			console.log('EndpointArn Saved successful');
-			callback(null,result);
-		}
-	}
-
-	dynamodb.updateItem(userParams, updateMasterInfo)
-	console.log("params------", params);
 };
 
 /**
