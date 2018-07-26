@@ -173,5 +173,10 @@ button.sj-no-focus:focus{
     width:100px;
 }
 .login-register {
-    background-color:#eef5f9;
+    background-color: #eef5f9;
+}
+/*검색창쪽 태그*/
+.badge {
+    height:20px;
+    vertical-align: middle;
 }
