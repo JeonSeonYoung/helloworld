@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import Login from "../../pages/Login";
+import LoadingPage from "../../pages/Loading";
 import Main from '../../pages/Main';
 import Map from '../../pages/Map';
 import Modal from "../../pages/Modal";
@@ -50,6 +51,7 @@ class RouteGroup extends Component {
         return (
             <div>
                 <Switch>
+                    <AppRoute exact path="/loading" layout={EmptyLayout} component={LoadingPage} />
                     <AppRoute exact path="/login" layout={EmptyLayout} component={Login} />
                     <AppRoute exact path="/" layout={MainLayout} component={Main} />
                     <AppRoute exact path="/register" layout={MainLayout} component={Register} />
@@ -60,6 +62,8 @@ class RouteGroup extends Component {
                     <AppRoute exact path="/createchat" layout={MainLayout} component={CreateChat} />
                     <AppRoute exact path="/chatlist" layout={MainLayout} component={ChatList} />
                     <AppRoute exact path="/setting" layout={MainLayout} component={Setting} />
+
+                    {/*<AppRoute exact path="/privacy" layout={MainLayout} component={Privacy} />*/}
                 </Switch>
             </div>
         )

@@ -173,11 +173,6 @@ class Login extends Component {
         userInfo.then((data) => {
             console.log(data);
         });
-
-    }
-    
-    componentDidMount() {
-
     }
 
     render() {
@@ -209,47 +204,44 @@ class Login extends Component {
                 <div>
                     <Redirect to='/login' />
                 </div>
-            );       
-            
+            );
         }
 
         if( this.state.status == 'login' ) {                    
             return(
-                <div id='login' className="modal-dialog" role="document">
 
-                    <div className="modal-content">
-
-                        {/* Header */}
-
-                        <div className="modal-header">
-                            <h4 className="modal-title">FACEBOOK LOGIN</h4>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-
-                        {/* Body */}
-                        <div className="modal-body">
-                        <form>
-                                <div>
-                                    <FacebookLogin
-                                        appId="474958262956536"
-                                        autoLoad={false}
-                                        fields="name,email,picture"
-                                        callback={this.responseFacebook}
-                                    />
+                    <section id="wrapper">
+                        <div className="login-register">
+                            <div className="login-box">
+                                <div className="card-body text-center db">
+                                    <img src="./assets/images/intro3.png" className="sj-logo" />
+                                    <form className="form-horizontal form-material mt-3" id="loginform" action="index.html">
+                                        <h3 className="box-title m-b-20">HelloWorld</h3>
+                                        <div className="form-group text-center m-t-20">
+                                            <div className="col-xs-12">
+                                                <FacebookLogin
+                                                    appId="474958262956536"
+                                                    autoLoad={false}
+                                                    fields="name,email,picture"
+                                                    callback={this.responseFacebook}
+                                                />
+                                                {/*<button*/}
+                                                    {/*className="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"*/}
+                                                    {/*type="submit">Log In with Facebook*/}
+                                                {/*</button>*/}
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>        
+                            </div>
                         </div>
-
-                        {/* Bottom */}
-                        <div className="modal-footer">
-                            {/*
-                                <button type="button" className="btn btn-success" data-dismiss="modal">저장</button>
-                            */}
+                        <div className="preloader">
+                            <svg className="circular" viewBox="25 25 50 50">
+                                <circle className="path" cx="50" cy="50" r="20" fill="none" stroke-width="2"
+                                        stroke-miterlimit="10"/>
+                            </svg>
                         </div>
-                    </div>
-                </div>
+                    </section>
             );
         }   
         

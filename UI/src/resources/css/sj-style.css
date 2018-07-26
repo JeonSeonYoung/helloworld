@@ -159,3 +159,19 @@ button.sj-no-focus:focus{
 .sj-position-fixed {
     position: fixed;
 }
+.sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
+    color: #fff !important;
+}
+/*.sidebar-nav > ul > li > a:hover i {*/
+    /*color: #26c6da !important;*/
+/*}*/
+.user-profile {
+    /*background: url(../assets/images/background/user-info.jpg) no-repeat;*/
+}
+
+.sj-logo {
+    width:100px;
+}
+.login-register {
+    background-color:#eef5f9;
+}
