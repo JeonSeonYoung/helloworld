@@ -32,7 +32,6 @@ class Map extends Component
         }
         else {
             console.log('Map.js, render()');
-            console.log(this.props.page);
             if( this.props.page == 'main' ) {
                 return(
                     <div id='map'>

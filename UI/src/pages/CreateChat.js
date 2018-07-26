@@ -60,6 +60,7 @@ class CreateChat extends Component {
     // CreateChat
     _callCreateChatApi = (fbData, savedData) => {
         console.log("api 호출")
+        console.log(savedData)
         return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/createchatroom', {
             method: 'post',
             headers: {
@@ -68,10 +69,10 @@ class CreateChat extends Component {
             body: JSON.stringify({
                 userID : fbData.userID, 
                 chatName:  savedData.chatName,
-                interestID: fbData.interestID,
+                interestID: savedData.selectedInterest,
                 masterNickName: fbData.nickName,
                 maxCost: "10",
-                vLocation: fbData.vLocation
+                vLocation: savedData.vlocation
             })
         }).then(lData => lData.json())
         .catch(error => console.log(error))
@@ -111,10 +112,10 @@ class CreateChat extends Component {
         {
             console.log("vLocation == undefined");
         }
-        console.log(vLocation);
+        console.log(vLocation.lat + vLocation.lng);
 
         // vlocation
-        saveData.vlocation = vLocation;
+        saveData.vlocation = JSON.stringify(vLocation);
 
         // selected interest
         saveData.selectedInterest = this.state.selectedInterest;
@@ -126,12 +127,11 @@ class CreateChat extends Component {
         console.log(saveData.selectedInterest)
         console.log(fbData.nickName)
         console.log("10")
-        console.log(fbData.vLocation)
-        console.log(saveData);
-        console.log(saveChat);
+        console.log(saveData.vLocation)
+        console.log(saveData)
         // 저장 작업 쿼리 호출
 
-        window.location.href = "/";
+        //window.location.href = "/";
     }
 
     // 데이터 유효성 검사
