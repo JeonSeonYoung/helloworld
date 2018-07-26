@@ -34,11 +34,13 @@ class Main extends Component {
         console.log(fbData);
 
         if( typeof fbData == 'undefined' || fbData == '' ) {
+            console.log('un!!');
             this.setState({
                 fbData : "",
                 page : 'login'
             });
         } else {
+            console.log('un??');
             this.setState({
                 fbData : fbData,
                 page : 'main'
@@ -67,6 +69,8 @@ class Main extends Component {
 
         const chatList = await this._callChatListApi(lData);
         const interestList = await this._callInterestApi();
+
+        console.log(chatList);
         console.log(interestList);
         this.setState({
             chatList,

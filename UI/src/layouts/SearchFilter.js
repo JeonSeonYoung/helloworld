@@ -63,7 +63,7 @@ class SearchFilter extends Component {
         
         userInfo.then((data) => {
             if( data.result == 'success' ) {
-
+                console.log(data.data.Items[0].distance);
                 var userDistance = data.data.Items[0].distance.N;
                 //var interest = data.data.Items[0].interest.S;
                 if (userDistance === 'undefined' || userDistance == "" || userDistance == "null") {
@@ -85,9 +85,12 @@ class SearchFilter extends Component {
         this._getdata()
     }
 
-    changeDistance(distance) {
+    _getdata = async () => {
+        const settingdata = await this._callsettingdataApi();
+        const interestdata = await this._callInterestdataApi();
         this.setState({
-            newDistance: distance
+            settingdata,
+            interestdata
         })
     }
 
@@ -110,10 +113,6 @@ class SearchFilter extends Component {
             }
         }).then(lData => lData.json())
             .catch(error => console.log(error))
-    }
-
-    nothingDo() {
-        return null;
     }
 
     _loadingSelectedInterestFun = (() =>{
@@ -274,6 +273,16 @@ class SearchFilter extends Component {
         })
     }
 
+    changeDistance(distance) {
+        this.setState({
+            newDistance: distance
+        })
+    }
+
+    nothingDo() {
+        return null;
+    }
+
     // // 데이터 유효성 검사
     // validateData() {
     //     console.log(this.state.newDistance);
@@ -329,36 +338,10 @@ class SearchFilter extends Component {
 
     }
 
-
     _loadingLocationFun = (() =>{
         // return <Location distance={this.state.settingdata.distance} changeDistance={this.changeDistance} />
         return <Location distance={this.state.distance} changeDistance={this.changeDistance} />
-    })   
-    
-    // render 다음에 작동
-    componentDidMount(){
-        this._getdata()
-    }
-
-    _callsettingdataApi = () => {
-        return fetch('https://funk0a9a03.execute-api.ap-northeast-2.amazonaws.com/dev/getsettingdata', {
-            method: 'post',
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: JSON.stringify({ userID: '1' })
-        }).then(lData => lData.json())
-            .catch(error => console.log(error))
-    }
-
-    _getdata = async () => {
-        const settingdata = await this._callsettingdataApi();
-        const interestdata = await this._callInterestdataApi();
-        this.setState({
-            settingdata,
-            interestdata
-        })
-    }
+    })
 
     render() {
         return (
