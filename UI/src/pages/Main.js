@@ -165,9 +165,9 @@ class Main extends Component {
     }
 
     //거리 삭제
-    _callDelInterestApi = (lData) => {
+    _callDelDistanceApi = (lData) => {
         
-        console.log('Main.js, _callDelInterestApi()');
+        console.log('Main.js, _callDelDistanceApi()');
         console.log('userID : ' + this.state.fbData.userID);        
 
         var userID = this.state.fbData.userID;        
@@ -192,6 +192,7 @@ class Main extends Component {
 
     // interest handle
     handleRemove = async (lData) => {
+        console.log("삭제할 interest",lData)
         const delInterestData = await this._callDelInterestApi(lData);
         const chatList = await this._callChatListApi();
         const interestList = await this._callInterestApi();
@@ -206,7 +207,7 @@ class Main extends Component {
     handleDistanceRemove = async (lData) => {
         console.log(lData);
         if(lData !== -1){
-            const delInterestData = await this._callDelInterestApi();
+            const delInterestData = await this._callDelDistanceApi();
             const chatList = await this._callChatListApi();
             const interestList = await this._callInterestApi();
             this.setState({
