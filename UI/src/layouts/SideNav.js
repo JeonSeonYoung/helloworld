@@ -29,67 +29,38 @@ class SideNav extends Component {
         return (
             <aside className="left-sidebar">
                 <div className="scroll-sidebar">
-                    <div className="user-profile">
-                        <div className="profile-img"><img src="../assets/images/users/profile.png" alt="user"/></div>
-                        <div className="profile-text">
-                            <a href={null} role="button">Markarn Doe</a>
-                        </div>
-                    </div>
                     <nav className="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li className="nav-small-cap">PERSONAL</li>
                             <li>
-                                <Link to="/"
-                                      onClick={this.closeNav}
-                                      className="waves-effect waves-dark"
-                                      aria-expanded="false">
-                                    <i className="ti-search"></i>
-                                    <span className="hide-menu">채팅방 검색</span>
-                                </Link>
+                                <a className="waves-effect waves-dark" href="/" aria-expanded="false">
+                                    <i className="ti-search"></i><span className="hide-menu">Search Chat</span>
+                                </a>
                             </li>
-                            <li className="nav-devider"></li>
                             <li>
-                                <Link to="/chatlist"
-                                      className="waves-effect waves-dark"
-                                      aria-expanded="false">
-                                    <i className="mdi mdi-book-multiple"></i>
-                                    <span className="hide-menu">채팅방 리스트</span>
-                                </Link>
+                                <a className="waves-effect waves-dark" href="/chatlist" aria-expanded="false">
+                                    <i className="mdi mdi-book-multiple"></i><span className="hide-menu">Chat List</span>
+                                </a>
                             </li>
-                            <li className="nav-devider"></li>
                             <li>
-                                <Link to="/setting"
-                                      className="waves-effect waves-dark"
-                                      aria-expanded="false">
-                                    <i className="ti-settings"></i>
-                                    <span className="hide-menu">설정</span>
-                                </Link>
+                                <a className="waves-effect waves-dark" href="/setting" aria-expanded="false">
+                                    <i className="ti-settings"></i><span className="hide-menu">Settings</span>
+                                </a>
                             </li>
-
-                            <li className="nav-devider"></li>
                             <li>
-                                <Link to={{
-                                    pathname: '/login',                                    
-                                    state: { login: login }
-                                }} className="waves-effect waves-dark"  aria-expanded="false">
-
-                                    <i className="ti-settings"></i>
-                                    <span className="hide-menu">
-                                        {login ? "로그아웃" : "로그인"}
-                                    </span>
-                                </Link>
+                                <a className="waves-effect waves-dark" href="#" aria-expanded="false">
+                                    <i className="mdi mdi-logout"></i><span className="hide-menu">Logout</span>
+                                </a>
                             </li>
-
                         </ul>
                     </nav>
-                    {this.props.children}
                 </div>
             </aside>
-
         );
     }
 }
 
 export default SideNav;
+
+
 // onClick={() => { this.openModal("searchChat") }}
 // <Modal id={this.state.id} />
