@@ -79,7 +79,7 @@ class Setting extends Component {
                 this.forceUpdate();
             }
         });
-    }    
+    }     
 
     // update user info
     updateUserInfo = (userID, createAt, field, value) => {
@@ -101,7 +101,6 @@ class Setting extends Component {
 				TableName: "UserInfo" 
             }
         });        
-
         
         var userInfo = new Promise((resolve, reject) => {
             fetch('https://6v3nxrnag4.execute-api.ap-northeast-2.amazonaws.com/dev/manageruserinfo', {
@@ -118,7 +117,6 @@ class Setting extends Component {
         userInfo.then((data) => {
             console.log(data);
         });
-
     }       
 
     // render 다음에 작동
@@ -318,7 +316,7 @@ class Setting extends Component {
             });
         }
 
-        return <Main />;
+        return <Main />
     }
 
     render() {
